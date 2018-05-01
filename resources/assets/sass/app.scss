@@ -1,14 +1,11 @@
+// Settings
+@import "settings";
 
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+// Foundation
+@import "node_modules/foundation-sites/scss/foundation";
 
-// Variables
-@import "variables";
+// Include Everything (True) for the Flex Grid :);
+@include foundation-everything(true);
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
+//Typo
+@import "_typo/typography";
