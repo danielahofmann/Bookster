@@ -1,0 +1,58 @@
+//Text
+
+@mixin text-styling ($font, $weight, $size){
+  font-family: $font;
+  font-weight: $weight;
+  font-size: $size;
+}
+
+@mixin text-class ($font, $weight, $size, $size-mobile){
+  @include text-styling($font, $weight, $size);
+  @include mobile{
+    @include text-styling($font, $weight, $size-mobile);
+  }
+}
+
+//Other Mixins
+
+@mixin margin-left{
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+//Responsive
+@mixin extra-small{
+  @media (min-width: #{$media-extra-small}) and (max-width: #{$media-smaller}) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (min-width: #{$media-small}) and (max-width: #{$media-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (min-width: #{$media-extra-small}) and (max-width: #{$media-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$media-tablet}) and (max-width: #{$media-large - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$media-large}) {
+    @content;
+  }
+}
+
+@mixin extra-large{
+  @media (min-width: #{$media-large}) and (max-width: #{$media-extra-large}) {
+    @content;
+  }
+}

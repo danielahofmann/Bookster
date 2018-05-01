@@ -8,4 +8,10 @@
 @include foundation-everything(true);
 
 //Typo
-@import "_typo/typography";
+@import "_general/typography";
+
+//Variables
+@import "_general/variables";
+
+//Mixins
+@import "_general/mixins";
