@@ -15,8 +15,8 @@ class UsersTableSeeder extends Seeder
 		    \Illuminate\Support\Facades\DB::table( 'users' )->insert( [
 			    'firstname' => str_random( 10 ),
 			    'lastname'  => str_random( 10 ),
-			    'email'     => 'test@sonne.de',
 			    'password'  => bcrypt( 'secret' ),
+			    'email' => 'test@sonne.com'
 		    ] );
 	    }
     }

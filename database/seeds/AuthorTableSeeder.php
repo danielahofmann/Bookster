@@ -11,6 +11,11 @@ class AuthorTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+	    for($var = 0; $var <= 11; $var ++) {
+		    \Illuminate\Support\Facades\DB::table( 'authors' )->insert( [
+			    'firstname' => str_random( 10 ),
+			    'lastname'  => str_random( 10 ),
+		    ] );
+	    }
     }
 }

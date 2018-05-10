@@ -11,6 +11,10 @@ class GenreTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+	    for($var = 0; $var <= 11; $var ++) {
+		    \Illuminate\Support\Facades\DB::table( 'genres' )->insert( [
+			    'genre' => str_random( 10 ),
+		    ] );
+	    }
     }
 }

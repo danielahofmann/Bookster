@@ -11,6 +11,10 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+	    for($var = 0; $var <= 11; $var ++) {
+		    \Illuminate\Support\Facades\DB::table( 'categories' )->insert( [
+			    'name' => str_random( 8 ),
+		    ] );
+	    }
     }
 }
