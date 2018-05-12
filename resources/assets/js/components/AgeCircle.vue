@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="dot">
         <p>
             {{age}}
         </p>
@@ -19,10 +19,21 @@
     }
 </script>
 
-<style scoped>
-    div{
-        background-color: #0c3d5d;
-        height:200px;
-        width: 200px;
+<style lang="scss" scoped>
+    .dot {
+        height: 150px;
+        width: 150px;
+        background-color: maroon;
+        border-radius: 50%;
+        position: relative;
+
+        p{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.5rem;
+        }
     }
 </style>
