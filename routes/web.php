@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('age');
+    return view('pages.age');
 });
 
 Auth::routes();
