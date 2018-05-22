@@ -15,3 +15,11 @@
 
 //Mixins
 @import "_general/mixins";
+
+//Age Specific Styles for each group
+@import "_age-styles/default";
+@import "_age-styles/elderly";
+@import "_age-styles/kids";
+@import "_age-styles/seniors";
+@import "_age-styles/teens";
+@import "_age-styles/toddlers";
