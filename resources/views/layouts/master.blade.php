@@ -8,8 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Bookster') }} - @yield('pageTitle')</title>
-
+@yield ('pageTitle')
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Quicksand" rel="stylesheet">
 
@@ -18,9 +17,9 @@
 </head>
 <body>
     <div id="app">
-        <main class="">
-            @yield('content')
-        </main>
+
+        @yield('body')
+
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
