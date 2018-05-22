@@ -1,7 +1,7 @@
 <template>
-    <div class="dot">
+    <div class="dot" @click="$emit('choose', chosenAge, ageGroup)" >
         <p>
-            {{age}}
+            {{age}} Jahre
         </p>
     </div>
 </template>
@@ -11,21 +11,30 @@
         name: "age-circle",
         data(){
             return {
-
+                chosenAge: this.age,
+                ageGroup: this.ageGroup
             }
 
         },
-        props: ['age']
+        props: ['age'],
+
     }
 </script>
 
 <style lang="scss" scoped>
+    @import "../../sass/app.scss";
+
     .dot {
         height: 150px;
         width: 150px;
-        background-color: maroon;
+        background-color: $blue;
         border-radius: 50%;
         position: relative;
+        display: inline-block;
+
+        &:hover{
+            background-color: $magenta;
+        }
 
         p{
             position: absolute;

@@ -17,9 +17,35 @@ Vue.config.devtools = true;
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('age-circle', require('./components/AgeCircle.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+
+    data: {
+        age: null,
+    },
+
+    methods: {
+        saveAgeToSession: function(choose){
+            this.age = choose;
+
+            axios.get('/api/saveAgeToSession', {
+                params: {
+                    age: this.age
+                }
+            })
+                    .then(function (response) {
+                        console.log(response.data.ageGroup);
+
+                        url = response.data.ageGroup + "/"
+
+                        window.location.href=url
+                    })
+                .catch(function (error) {
+                    console.log(error);
+                });
+
+        }
+    }
 });
