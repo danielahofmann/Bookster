@@ -5,22 +5,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Bookster</title>
+        <title>test</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Quicksand" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-        <!-- Foundation -->
-        <link href="/css/app.css" rel="stylesheet" type="text/css">
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     </head>
     <body>
-
-        <h1>helloooooooooo</h1>
-        <!-- Scripts -->
-        <script src="/js/app.js"></script>
-        <script>
-            $(document).foundation();
-        </script>
+        <div id="app">
+            <example-component></example-component>
+        </div>
     </body>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script> $(document).foundation();</script>
 </html>

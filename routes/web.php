@@ -11,6 +11,14 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.age');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/api/saveAgeToSession', 'AgeController@saveAgeToSession');
+
