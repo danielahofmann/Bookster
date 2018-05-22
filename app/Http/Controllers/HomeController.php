@@ -13,10 +13,10 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
-    /**
+	/**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+	public function saveAge()
+	{
+		return view('test');
+	}
 }
