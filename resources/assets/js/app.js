@@ -18,6 +18,12 @@ Vue.config.devtools = true;
  */
 
 Vue.component('age-circle', require('./components/AgeCircle.vue'));
+Vue.component('search', require('./components/Search.vue'));
+
+
+
+
+
 
 const app = new Vue({
     el: '#app',
@@ -27,7 +33,7 @@ const app = new Vue({
     },
 
     methods: {
-        saveAgeToSession: function(choose){
+        saveAgeToSession: function (choose) {
             this.age = choose;
 
             axios.get('/api/saveAgeToSession', {
@@ -35,17 +41,32 @@ const app = new Vue({
                     age: this.age
                 }
             })
-                    .then(function (response) {
-                        console.log(response.data.ageGroup);
+                .then(function (response) {
+                    console.log(response.data.ageGroup);
 
-                        url = response.data.ageGroup + "/"
+                    url = response.data.ageGroup + "/"
 
-                        window.location.href=url
-                    })
+                    window.location.href = url
+                })
                 .catch(function (error) {
                     console.log(error);
                 });
+        },
 
+        search: function (query) {
+            axios.get('/api/search?q=' + query, {
+                params: {
+                    query: this.query
+                }
+            })
+                .then(function (response) {
+                    console.log(response.data);
+                    window.location.href = '/results';
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
     }
 });

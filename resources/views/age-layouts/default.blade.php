@@ -6,6 +6,8 @@
 
 @section('body')
     <header>
+        <search @search="search"></search>
+
 
     </header>
 

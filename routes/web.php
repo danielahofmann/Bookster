@@ -22,3 +22,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/api/saveAgeToSession', 'AgeController@saveAgeToSession');
 
+Route::get('/api/search', 'SearchController@search');
+
+
+Route::get('/results', function () {
+	return view('pages.results');
+});
+
