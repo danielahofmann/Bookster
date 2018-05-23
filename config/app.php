@@ -78,7 +78,8 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'de',
+    'faker_locale' => 'de_DE',
 
     /*
     |--------------------------------------------------------------------------
@@ -91,7 +92,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'de',
 
     /*
     |--------------------------------------------------------------------------
@@ -152,6 +153,7 @@ return [
          * Package Service Providers...
          */
 	    Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+	    Laravel\Scout\ScoutServiceProvider::class,
         /*
          * Application Service Providers...
          */
