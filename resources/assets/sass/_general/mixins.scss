@@ -56,3 +56,16 @@
     @content;
   }
 }
+
+//Project Related
+@mixin nav-icons($image){
+  display: block;
+  background: url($image) no-repeat;
+  -webkit-background-size: 25px 25px;
+  background-size: 25px 25px;
+  height: 25px;
+  width: 25px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+}

@@ -1,21 +1,25 @@
 <template>
-    <div class="" id="">
-
+    <div class="login">
+        <a href="/login/" class="login-icon"></a>
     </div>
 </template>
 
 <script>
-    //import XY from './.xy'
     export default {
         data() {
             return {}
         },
         mounted() {
-            console.log('Component ready');
+            console.log('Login ready');
         },
     }
 </script>
 
-<style>
+<style lang="scss" scoped>
+    @import '~@/app.scss';
+
+    .login-icon {
+        @include nav-icons ('/img/user.png');
+    }
 
 </style>

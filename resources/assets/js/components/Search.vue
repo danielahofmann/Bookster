@@ -26,7 +26,7 @@
     @import '~@/app.scss';
 
     .search {
-        margin-left: 50px;
+        padding-left: 2rem;
 
         .search-icon {
             width: 25px;

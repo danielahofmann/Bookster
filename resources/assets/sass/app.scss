@@ -23,3 +23,15 @@
 @import "_age-styles/seniors";
 @import "_age-styles/teens";
 @import "_age-styles/toddlers";
+
+.align-center {
+
+  -webkit-box-pack: center;
+
+  -webkit-justify-content: center;
+
+  -ms-flex-pack: center;
+
+  justify-content: center;
+
+}
