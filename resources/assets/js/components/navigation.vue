@@ -2,12 +2,16 @@
     <div class="cell">
         <nav class="navigation">
             <ul class="navigation-list">
-                <li v-for="tab in tabs" class="tab" v-bind:style="{ fontSize: fontSize }">
+                <li v-for="tab in tabs" class="tab" v-bind:style="{ fontSize: fontSize }" @click="categoryActive = !categoryActive">
                     {{ tab.tab }}
                 </li>
             </ul>
         </nav>
 
+        <category-nav
+            :size="categoryFontSize"
+            :is-active="categoryActive"
+        ></category-nav>
 
     </div>
 </template>
@@ -21,13 +25,19 @@
                     { tab: 'ebooks'}
                 ],
                 categoryActive: this.isActive,
-                fontSize: this.size,
+                fontSize: this.size + "rem",
+                categoryFontSize: this.size,
             }
         },
         mounted() {
             console.log('Navigation ready');
         },
         props: ['isActive', 'size'],
+        // props: {
+        //     isActive: {
+        //         type: Boolean
+        //     }
+        // }
     }
 </script>
 

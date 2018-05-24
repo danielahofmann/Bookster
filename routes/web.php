@@ -24,6 +24,9 @@ Route::get('/api/saveAgeToSession', 'AgeController@saveAgeToSession');
 
 Route::get('/api/search', 'SearchController@search');
 
+Route::get('/api/getCategories', 'CategoryController@index');
+
+
 
 Route::get('/results', function () {
 	return view('pages.results');

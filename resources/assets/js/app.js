@@ -24,6 +24,7 @@ Vue.component('login', require('./components/Login.vue'));
 Vue.component('wishlist', require('./components/Wishlist.vue'));
 Vue.component('cart', require('./components/Cart.vue'));
 Vue.component('navigation', require('./components/Navigation.vue'));
+Vue.component('category-nav', require('./components/CategoryNav.vue'));
 
 const app = new Vue({
     el: '#app',
