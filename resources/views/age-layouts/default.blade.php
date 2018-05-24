@@ -5,12 +5,13 @@
 @stop
 
 @section('body')
-    <header class="grid-x grid-margin-x">
+    <header class="grid-x grid-margin-x padding-top-small">
         <search @search="search"></search>
         <logo></logo>
         <div class="cell large-4">
             <div class="grid-x align-right">
                 <wishlist></wishlist>
+                <cart></cart>
                 <login></login>
             </div>
         </div>

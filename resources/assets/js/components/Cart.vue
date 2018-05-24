@@ -1,21 +1,28 @@
 <template>
-    <div class="" id="">
-
+    <div class="cart">
+        <a href="/cart/" class="cart-icon"></a>
     </div>
 </template>
 
 <script>
-    //import XY from './.xy'
     export default {
         data() {
             return {}
         },
         mounted() {
-            console.log('Component ready');
+            console.log('cart ready');
         },
     }
 </script>
 
-<style>
+<style lang="scss" scoped>
+    @import '~@/app.scss';
+
+    .cart {
+        display: inline-block;
+        .cart-icon {
+            @include nav-icons ('/img/cart.png');
+        }
+    }
 
 </style>

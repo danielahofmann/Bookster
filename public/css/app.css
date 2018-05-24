@@ -8470,6 +8470,18 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+.padding-top-small {
+  padding-top: 1rem;
+}
+
+.padding-top-medium {
+  padding-top: 2rem;
+}
+
+.padding-top-large {
+  padding-top: 4rem;
+}
+
 .align-center {
   -webkit-box-pack: center;
   -ms-flex-pack: center;

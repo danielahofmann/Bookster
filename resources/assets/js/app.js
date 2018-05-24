@@ -22,11 +22,7 @@ Vue.component('search', require('./components/Search.vue'));
 Vue.component('logo', require('./components/Logo.vue'));
 Vue.component('login', require('./components/Login.vue'));
 Vue.component('wishlist', require('./components/Wishlist.vue'));
-
-
-
-
-
+Vue.component('cart', require('./components/Cart.vue'));
 
 const app = new Vue({
     el: '#app',
