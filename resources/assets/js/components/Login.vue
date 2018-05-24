@@ -18,8 +18,12 @@
 <style lang="scss" scoped>
     @import '~@/app.scss';
 
-    .login-icon {
-        @include nav-icons ('/img/user.png');
+    .login {
+        display: inline-block;
+        .login-icon {
+            @include nav-icons ('/img/user.png');
+            padding-left: 1rem;
+        }
     }
 
 </style>

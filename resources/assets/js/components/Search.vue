@@ -1,5 +1,5 @@
 <template>
-    <div class="search cell large-3">
+    <div class="search cell large-4">
         <img :src="'/img/search.png'" alt="Suche" class="search-icon">
         <input type="text" placeholder="Bücher suchen.." v-model="query" @keyup.enter="$emit('search', query)" class="search-input">
     </div>

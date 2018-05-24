@@ -1,5 +1,5 @@
 <template>
-    <div class="logo cell large-3">
+    <div class="logo cell large-4">
         <a href="/" class="logo-image "></a>
     </div>
 </template>

@@ -8,8 +8,11 @@
     <header class="grid-x grid-margin-x">
         <search @search="search"></search>
         <logo></logo>
-        <div class="cell large-3">
-            <login></login>
+        <div class="cell large-4">
+            <div class="grid-x align-right">
+                <wishlist></wishlist>
+                <login></login>
+            </div>
         </div>
 
     </header>

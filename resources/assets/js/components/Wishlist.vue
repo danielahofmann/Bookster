@@ -1,21 +1,28 @@
 <template>
-    <div class="" id="">
-
+    <div class="wishlist">
+        <a href="/wishlist/" class="wishlist-icon"></a>
     </div>
 </template>
 
 <script>
-    //import XY from './.xy'
     export default {
         data() {
             return {}
         },
         mounted() {
-            console.log('Component ready');
+            console.log('wishlist ready');
         },
     }
 </script>
 
-<style>
+<style lang="scss" scoped>
+    @import '~@/app.scss';
+
+    .wishlist {
+        display: inline-block;
+        .wishlist-icon {
+            @include nav-icons ('/img/wishlist.png');
+        }
+    }
 
 </style>
