@@ -16,6 +16,10 @@
             </div>
         </div>
 
+        <navigation
+            is-active="false"
+            size="1rem"
+        ></navigation>
 
     </header>
 

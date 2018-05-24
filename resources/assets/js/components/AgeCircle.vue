@@ -1,5 +1,5 @@
 <template>
-    <div class="dot" @click="$emit('choose', chosenAge, ageGroup)" >
+    <div class="dot" @click="$emit('choose', chosenAge)" >
         <p>
             {{age}} Jahre
         </p>
@@ -12,7 +12,6 @@
         data(){
             return {
                 chosenAge: this.age,
-                ageGroup: this.ageGroup
             }
 
         },
