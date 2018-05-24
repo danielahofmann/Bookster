@@ -9,3 +9,9 @@
 .padding-top-large{
   padding-top: 4rem;
 }
+
+.clearfix:after{
+  clear:both;
+  content:" ";
+  display:table;
+}

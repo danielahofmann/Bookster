@@ -5,7 +5,7 @@
 @stop
 
 @section('body')
-    <header class="grid-x padding-top-small header">
+    <header class="grid-x padding-top-small header clearfix">
         <search @search="search"></search>
         <logo></logo>
         <div class="cell large-4">
@@ -22,7 +22,7 @@
         ></navigation>
     </header>
 
-    <main>
+    <main style="margin-top:110px">
         @yield('main')
     </main>
 

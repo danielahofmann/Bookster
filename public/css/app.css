@@ -8482,9 +8482,16 @@ body {
   padding-top: 4rem;
 }
 
-.align-center {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+.clearfix:after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
 }
 
