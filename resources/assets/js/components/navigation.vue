@@ -2,7 +2,11 @@
     <div class="cell">
         <nav class="navigation">
             <ul class="navigation-list">
-                <li v-for="tab in tabs" class="tab" v-bind:style="{ fontSize: fontSize }" @click="categoryActive = !categoryActive">
+                <li v-for="tab in tabs"
+                    class="tab"
+                    :class="{ active : tab.id == tabId }"
+                    v-bind:style="{ fontSize: fontSize }"
+                    @click="toggleActive(tab.id)">
                     {{ tab.tab }}
                 </li>
             </ul>
@@ -21,23 +25,31 @@
         data() {
             return {
                 tabs: [
-                    { tab: 'Bücher' },
-                    { tab: 'ebooks'}
+                    {
+                        tab: 'Bücher',
+                        id: 1
+                    },
+                    {
+                        tab: 'ebooks',
+                        id: 2
+                    }
                 ],
                 categoryActive: this.isActive,
                 fontSize: this.size + "rem",
                 categoryFontSize: this.size,
+                tabId: null,
             }
         },
         mounted() {
             console.log('Navigation ready');
         },
         props: ['isActive', 'size'],
-        // props: {
-        //     isActive: {
-        //         type: Boolean
-        //     }
-        // }
+        methods: {
+            toggleActive: function(id){
+                this.tabId = id;
+                this.categoryActive = !this.categoryActive;
+            }
+        }
     }
 </script>
 
@@ -57,8 +69,11 @@
                     cursor: pointer;
                 }
             }
+
+            .active{
+                font-weight: $bold;
+            }
         }
     }
-
 
 </style>
