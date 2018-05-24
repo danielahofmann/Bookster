@@ -1,5 +1,5 @@
 <template>
-    <div class="search">
+    <div class="search cell large-3">
         <img :src="'/img/search.png'" alt="Suche" class="search-icon">
         <input type="text" placeholder="Bücher suchen.." v-model="query" @keyup.enter="$emit('search', query)" class="search-input">
     </div>
@@ -32,6 +32,11 @@
             width: 25px;
             height: 25px;
             display: inline-block;
+
+            &:hover{
+                width: 27px;
+                height: auto;
+            }
         }
 
         .search-input {

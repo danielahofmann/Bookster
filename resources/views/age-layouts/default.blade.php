@@ -5,7 +5,7 @@
 @stop
 
 @section('body')
-    <header>
+    <header class="grid-x">
         <search @search="search"></search>
 
 
