@@ -10,5 +10,7 @@
         size-text="1"
     ></opening>
 
-
+    <manual
+    size-headline="1.25"
+    size-text="1"></manual>
 @stop
