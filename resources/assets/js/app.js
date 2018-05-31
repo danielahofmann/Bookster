@@ -26,6 +26,7 @@ Vue.component('cart', require('./components/Cart.vue'));
 Vue.component('navigation', require('./components/Navigation.vue'));
 Vue.component('category-nav', require('./components/CategoryNav.vue'));
 Vue.component('slider', require('./components/Slider.vue'));
+Vue.component('opening', require('./components/Opening.vue'));
 
 const app = new Vue({
     el: '#app',

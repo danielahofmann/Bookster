@@ -84,7 +84,7 @@
 
     .image-slider{
         width: 100%;
-        height: 80vh;
+        height: 70vh;
         overflow: hidden;
         position: relative;
         img{
