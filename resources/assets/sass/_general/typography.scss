@@ -1,5 +1,22 @@
+@import 'mixins.scss';
+@import 'variables.scss';
+
 html,
 body {
   font-family: 'Quicksand', sans-serif;
   font-family: 'Open Sans', sans-serif;
+}
+
+h2{
+  @include text-styling($primary-font, $bold, 1.5rem);
+  text-align: center;
+  margin-top: 75px;
+  color: $dark-grey;
+}
+
+h3{
+  @include text-styling($primary-font, $bold, 1.25rem);
+  text-align: center;
+  margin-top: 1rem;
+  color: $dark-grey;
 }
