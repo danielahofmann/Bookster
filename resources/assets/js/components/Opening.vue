@@ -1,7 +1,7 @@
 <template>
     <div class="opening">
-        <h2 :style="{ fontSizeHeadline: fontSizeHeadline }">Willkommen bei Bookster</h2>
-        <p :style="{ fontSizeText: fontSizeText }">
+        <h2 :style="{ fontSize: fontSizeHeadline }">Willkommen bei Bookster</h2>
+        <p :style="{ fontSize: fontSizeText }">
             Wir legen nicht nur Wert auf hochwertige Literatur, sondern auch darauf, dass wir unseren Nutzern das bestmögliche Erlebnis bieten.
         </p>
     </div>
@@ -25,18 +25,11 @@
 <style lang="scss" scoped>
     @import '~@/app.scss';
 
-    h2{
-        @include text-styling($primary-font, $bold, 1.5rem);
-        text-align: center;
-        margin-top: 40px;
-        color: $dark-grey;
-    }
-
     p{
         @include text-styling($secondary-font, $regular, 1rem);
         @include margin-left;
         text-align: center;
-        margin-bottom: 40px;
+        margin-bottom: 75px;
         color: $dark-grey;
         width: 700px;
     }
