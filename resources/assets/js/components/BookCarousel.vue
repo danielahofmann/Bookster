@@ -1,17 +1,17 @@
 <template>
     <div class="grid-x carousel-container flex-center">
-        <carousel :navigationEnabled="true" :perPage="3" class="carousel cell small-11">
-            <slide>
-                <book-carousel-product></book-carousel-product>
-            </slide>
-            <slide>
-                <book-carousel-product></book-carousel-product>
-            </slide>
-            <slide>
-                <book-carousel-product></book-carousel-product>
-            </slide>
-            <slide>
-                <book-carousel-product></book-carousel-product>
+        <carousel :navigationEnabled="true" :perPage="3" :autoplay="true" :loop="true" :navigateTo="1" :autoplayTimeout="5000" class="carousel cell small-11">
+            <slide v-for="bestseller in bestsellers">
+                <book-carousel-product
+                        :bookTitle="bestseller.name"
+                        :authorFirstname="bestseller.author.firstname"
+                        :authorLastname="bestseller.author.lastname"
+                        :price="bestseller.price"
+                        :img="bestseller.image[0].img"
+                        :sizeTitle="1.5"
+                        :sizeAuthor="1"
+                        :sizePrice="1"
+                ></book-carousel-product>
             </slide>
         </carousel>
 
@@ -21,19 +21,26 @@
 <script>
     export default {
         data() {
-            return {}
+            return {
+                bestsellers: null,
+
+            }
         },
         mounted () {
             document.getElementsByClassName("VueCarousel-navigation-next")[0].innerHTML = "";
-
             document.getElementsByClassName("VueCarousel-navigation-prev")[0].innerHTML = "";
             },
         methods: {
-            emptyButtonsForCustomization(){
-                document.getElementsByClassName("VueCarousel-navigation-next")[0].innerHTML = "";
 
-                document.getElementsByClassName("VueCarousel-navigation-prev")[0].innerHTML = "";
-            }
+        },
+        created(){
+            axios
+                .get('/api/getNewBestsellers')
+                .then(response => (
+                    this.bestsellers = response.data))
+                .catch(function (error) {
+                    console.log(error);
+                });
         },
 
     }
@@ -75,6 +82,10 @@
                 }
             }
         }
+    }
+
+    .carousel{
+        margin-top: 40px;
     }
 
 </style>

@@ -2,28 +2,31 @@
     <div class="grid-x flex-center">
         <div class="cell small-11 product-container grid-x">
             <div class="product-image cell small-5">
-                <img src="/img/cover.png" alt="Produktbild">
+                <img :src="img" alt="Produktbild">
             </div>
             <div class="product-details cell small-7">
-                <p class="title">Das rote Kleid</p>
-                <p class="author">Guido Maria Kretschmar</p>
-                <p class="price">10,99 €</p>
+                <p class="title" v-bind:style="{ fontSize: fontSizeTitle }">{{ bookTitle }}</p>
+                <p class="author" v-bind:style="{ fontSize: fontSizeAuthor }">{{ authorFirstname }} {{ authorLastname }}</p>
+                <p class="price" v-bind:style="{ fontSize: fontSizePrice }">{{ price }} €</p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    // [TODO] implement click logic for opening product site
     export default {
         data() {
-            return {}
+            return {
+                fontSizeTitle: this.sizeTitle + "rem",
+                fontSizeAuthor: this.sizeAuthor + "rem",
+                fontSizePrice: this.sizePrice + "rem",
+            }
         },
         mounted() {
-            let box = document.getElementsByClassName('product-details');
-            var height = box[0].offsetHeight;
 
-            console.log(height);
         },
+        props: ['bookTitle', 'price', 'authorFirstname', 'authorLastname', 'sizeTitle', 'sizeAuthor', 'sizePrice', 'img'],
     }
 </script>
 

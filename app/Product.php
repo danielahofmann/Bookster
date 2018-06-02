@@ -37,7 +37,7 @@ class Product extends Model
 	/**
 	 * Get the image records associated with the product.
 	 */
-	public function images()
+	public function image()
 	{
 		return $this->hasMany('App\Image');
 	}

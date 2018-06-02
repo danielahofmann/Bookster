@@ -82,4 +82,19 @@ class ProductController extends Controller
     {
         //
     }
+
+	/**
+	 * Display a listing of the newest bestseller
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function getNewBestsellers(  ) {
+		$bestsellers = Product::where('bestseller', 1)
+		                      ->orderBy('created_at', 'desc')
+		                      ->take(12)
+			                  ->with('image')
+			                  ->with('author')
+		                      ->get();
+		return $bestsellers;
+    }
 }
