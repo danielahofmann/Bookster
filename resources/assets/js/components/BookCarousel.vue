@@ -85,8 +85,10 @@
     }
 
     .carousel{
-        margin-top: 40px;
+        margin: 40px auto;
     }
+
+    // [TODO] fix navigation arrow alignment
 
 </style>
 

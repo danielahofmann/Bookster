@@ -45,6 +45,7 @@ Vue.component('opening', require('./components/Opening.vue'));
 Vue.component('manual', require('./components/Manual.vue'));
 Vue.component('book-carousel', require('./components/BookCarousel.vue'));
 Vue.component('book-carousel-product', require('./components/BookCarouselProduct.vue'));
+Vue.component('novelties', require('./components/Novelties.vue'));
 
 const app = new Vue({
     el: '#app',

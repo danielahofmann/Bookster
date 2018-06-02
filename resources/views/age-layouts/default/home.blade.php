@@ -16,4 +16,8 @@
 
     <h2>Aktuelle Bestseller</h2>
     <book-carousel></book-carousel>
+
+    <section class="grid-x flex-center">
+        <novelties class="cell small-12 medium-6"></novelties>
+    </section>
 @stop
