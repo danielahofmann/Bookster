@@ -13,4 +13,7 @@
     <manual
     size-headline="1.25"
     size-text="1"></manual>
+
+    <h2>Aktuelle Bestseller</h2>
+    <book-carousel></book-carousel>
 @stop
