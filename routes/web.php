@@ -26,6 +26,7 @@ Route::get('/api/search', 'SearchController@search');
 
 Route::get('/api/getCategories', 'CategoryController@index');
 Route::get('/api/getNewBestsellers', 'ProductController@getNewBestsellers');
+Route::get('/api/getNovelties', 'ProductController@getNovelties');
 
 
 

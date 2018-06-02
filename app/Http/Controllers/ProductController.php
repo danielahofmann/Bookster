@@ -94,7 +94,23 @@ class ProductController extends Controller
 		                      ->take(12)
 			                  ->with('image')
 			                  ->with('author')
+			                  ->where('ebook', 0)
 		                      ->get();
 		return $bestsellers;
+    }
+
+	/**
+	 * Display a listing of the novelties
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+    public function getNovelties(  ) {
+	    $novelties = Product::where('ebook', 0)
+	                          ->orderBy('created_at', 'desc')
+	                          ->take(6)
+	                          ->with('image')
+	                          ->with('author')
+	                          ->get();
+	    return $novelties;
     }
 }

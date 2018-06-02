@@ -1,16 +1,26 @@
 <template>
     <div>
-        <p>hello</p>
+        <p v-for="novelty in novelties">{{novelty}}</p>
     </div>
 </template>
 
 <script>
     export default {
         data() {
-            return {}
+            return {
+                novelties: null,
+            }
         },
         mounted() {
-            console.log('Component ready');
+        },
+        created(){
+            axios
+                .get('/api/getNovelties')
+                .then(response => (
+                    this.novelties = response.data))
+                .catch(function (error) {
+                    console.log(error);
+                });
         },
     }
 </script>
