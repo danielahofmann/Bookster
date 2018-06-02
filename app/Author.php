@@ -13,4 +13,11 @@ class Author extends Model
 	{
 		return $this->hasMany('App\Product');
 	}
+
+	/**
+	 * Get Image record associated with author
+	 */
+	public function author_images(  ) {
+		return $this->hasOne('App\AuthorImage');
+	}
 }

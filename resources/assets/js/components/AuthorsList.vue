@@ -18,7 +18,7 @@
         },
         created() {
             axios
-                .get('/api/getAuthors')
+                    .get('/api/getAuthors')
                 .then(response => (
                     this.authors = response.data))
                 .catch(function (error) {
