@@ -3,7 +3,6 @@
         <carousel :navigationEnabled="true" :perPage="3" class="carousel">
             <slide>
                 <div>
-
                     <a href="#">hallo</a>
                     <p>preis</p>
                 </div>

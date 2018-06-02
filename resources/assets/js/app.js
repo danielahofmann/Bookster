@@ -7,12 +7,24 @@
 
 require('./bootstrap');
 
+/**
+  Requiring Vue Devtools
+ */
 window.Vue = require('vue');
 Vue.config.devtools = true;
 
+
+/**
+ * Importing the VueCarousel globally
+ */
 import VueCarousel from 'vue-carousel';
 Vue.use(VueCarousel);
 
+/**
+ * Importing Feather Icons for Vue
+ */
+import VueFeatherIcon from 'vue-feather-icon';
+Vue.use(VueFeatherIcon);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
