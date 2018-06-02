@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
 	        $table->text('description');
 	        $table->string('amount', 50);
 	        $table->integer('bestseller')->length(1)->default('0');
+	        $table->integer('ebook')->length(1)->default('0');
 			$table->string('release', '28');
 	        $table->timestamps();
         });
