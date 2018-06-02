@@ -17,7 +17,7 @@ class Author extends Model
 	/**
 	 * Get Image record associated with author
 	 */
-	public function author_images(  ) {
+	public function author_image(  ) {
 		return $this->hasOne('App\AuthorImage');
 	}
 }

@@ -82,4 +82,18 @@ class AuthorController extends Controller
     {
         //
     }
+
+    /**
+     * Display a listing of six random authors
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+	public function getAuthors() {
+		$authors = Author::inRandomOrder()
+		                 ->take( 6 )
+		                 ->with( 'author_image' )
+		                 ->get();
+		return $authors;
+	}
 }
