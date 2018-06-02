@@ -2,6 +2,7 @@
     <div class="">
         <h2 class="cell small-12">Autoren</h2>
         <p v-for="author in authors">{{author}}</p>
+        <author-list-entry></author-list-entry>
     </div>
 </template>
 
