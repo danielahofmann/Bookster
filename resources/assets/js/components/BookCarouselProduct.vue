@@ -19,7 +19,10 @@
             return {}
         },
         mounted() {
-            console.log('product ready');
+            let box = document.getElementsByClassName('product-details');
+            var height = box[0].offsetHeight;
+
+            console.log(height);
         },
     }
 </script>
@@ -33,8 +36,6 @@
         padding: 40px 25px;
 
         .product-image{
-            //height: 230px;
-            //width: 150px;
             overflow: hidden;
 
             img{
@@ -46,7 +47,11 @@
             padding-left: 20px;
 
             .title{
-                @include text-styling($primary-font, $bold, 1.5rem)
+                @include text-styling($primary-font, $bold, 1.5rem);
+                @include custom(1300px){
+                    margin-top: 2rem;
+
+                }
             }
 
             .author{
@@ -54,7 +59,11 @@
             }
 
             .price{
-                @include text-styling($secondary-font, $semibold, 1rem)
+                @include text-styling($secondary-font, $semibold, 1rem);
+                @include custom(1300px){
+                    margin-top: 2rem;
+
+                }
             }
         }
     }

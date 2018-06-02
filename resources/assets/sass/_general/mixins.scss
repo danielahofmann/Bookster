@@ -57,6 +57,12 @@
   }
 }
 
+@mixin custom ($breakpoint){
+  @media (min-width: #{$breakpoint}) {
+    @content;
+  }
+}
+
 //Project Related
 @mixin nav-icons($image){
   display: block;
