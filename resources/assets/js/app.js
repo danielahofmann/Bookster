@@ -47,6 +47,7 @@ Vue.component('book-carousel', require('./components/BookCarousel.vue'));
 Vue.component('book-carousel-product', require('./components/BookCarouselProduct.vue'));
 Vue.component('novelties', require('./components/Novelties.vue'));
 Vue.component('novelty-preview', require('./components/NoveltyPreview.vue'));
+Vue.component('authors-list', require('./components/AuthorsList.vue'));
 
 const app = new Vue({
     el: '#app',
