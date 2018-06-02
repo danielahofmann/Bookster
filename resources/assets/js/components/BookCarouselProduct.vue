@@ -52,10 +52,13 @@
                     margin-top: 2rem;
 
                 }
+                color: $dark-grey;
             }
 
             .author{
-                @include text-styling($secondary-font, $regular, 1rem)
+                @include text-styling($secondary-font, $regular, 1rem);
+                color: $dark-grey;
+
             }
 
             .price{
@@ -64,6 +67,8 @@
                     margin-top: 2rem;
 
                 }
+                color: $dark-grey;
+
             }
         }
     }
