@@ -2,10 +2,7 @@
     <div class="grid-x carousel-container flex-center">
         <carousel :navigationEnabled="true" :perPage="3" class="carousel cell small-11">
             <slide>
-                <div>
-                    <a href="#">hallo</a>
-                    <p>preis</p>
-                </div>
+                <book-carousel-product></book-carousel-product>
             </slide>
             <slide>
                 <div>
@@ -64,10 +61,6 @@
         font-size: 24px;
         text-align: center;
         min-height: 100px;
-    }
-
-    .carousel{
-        width: 100%;
     }
 
     .VueCarousel-navigation-button {
