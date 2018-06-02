@@ -1,8 +1,11 @@
 <template>
-    <div class="">
-        <h2 class="cell small-12">Autoren</h2>
-        <p v-for="author in authors">{{author}}</p>
-        <author-list-entry></author-list-entry>
+    <div class="author-list">
+        <author-list-entry v-for="author in authors"
+                           :firstname="author.firstname"
+                           :lastname="author.lastname"
+                           :img="author.author_image.img"
+                           :size="1"
+        ></author-list-entry>
     </div>
 </template>
 
@@ -19,7 +22,7 @@
         },
         created() {
             axios
-                    .get('/api/getAuthors')
+                .get('/api/getAuthors')
                 .then(response => (
                     this.authors = response.data))
                 .catch(function (error) {
@@ -35,5 +38,10 @@
     h2{
         text-align: left;
         margin-bottom: 40px;
+    }
+
+    .author-list{
+        padding-left: 40px;
+        overflow: hidden;
     }
 </style>

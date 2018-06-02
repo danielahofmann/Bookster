@@ -32,6 +32,8 @@
 
 <style lang="scss" scoped>
     @import '~@/app.scss';
+    //[TODO] add hover styling
+
 
     .product-container{
         margin-bottom: 1rem;

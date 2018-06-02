@@ -1,6 +1,5 @@
 <template>
     <div class="grid-x">
-        <h2 class="cell small-12">Neuheiten</h2>
         <novelty-preview v-for="novelty in novelties"
                 class="cell small-4"
                 :bookTitle="novelty.name"
