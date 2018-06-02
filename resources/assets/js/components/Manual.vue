@@ -39,29 +39,21 @@
 <style lang="scss" scoped>
     @import '~@/app.scss';
 
-    .manual{
+    .manual {
         background-color: $beige;
         padding-bottom: 75px;
-        img{
+        img {
             height: 60px;
             width: auto;
             @include margin-left;
-            margin-top:  40px;
+            margin-top: 40px;
         }
 
-        p{
+        p {
             padding: 0 1rem;
             @include text-styling($secondary-font, $regular, 1rem);
             color: $dark-grey;
             text-align: center;
         }
     }
-
-    .flex-center {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-
 </style>
