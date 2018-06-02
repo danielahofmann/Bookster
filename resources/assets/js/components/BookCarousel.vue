@@ -5,23 +5,13 @@
                 <book-carousel-product></book-carousel-product>
             </slide>
             <slide>
-                <div>
-
-                    <a href="#">hallo</a>
-                    <p>preis</p>
-                </div>            </slide>
+                <book-carousel-product></book-carousel-product>
+            </slide>
             <slide>
-                <div>
-
-                    <a href="#">hallo</a>
-                    <p>preis</p>
-                </div>            </slide>
+                <book-carousel-product></book-carousel-product>
+            </slide>
             <slide>
-                <div>
-
-                    <a href="#">hallo</a>
-                    <p>preis</p>
-                </div>
+                <book-carousel-product></book-carousel-product>
             </slide>
         </carousel>
 
@@ -52,16 +42,6 @@
 
 <style lang="scss">
     @import '~@/app.scss';
-
-    .VueCarousel-slide {
-        position: relative;
-        background: #42b983;
-        color: #fff;
-        font-family: Arial;
-        font-size: 24px;
-        text-align: center;
-        min-height: 100px;
-    }
 
     .VueCarousel-navigation-button {
         &.VueCarousel-navigation-prev {
