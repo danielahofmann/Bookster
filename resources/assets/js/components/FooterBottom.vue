@@ -26,6 +26,8 @@
             console.log('Component ready');
         },
     }
+
+    // [TODO] HREFS
 </script>
 
 <style lang="scss" scoped>
