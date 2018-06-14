@@ -1,7 +1,7 @@
 <template>
     <div class="grid-x carousel-container flex-center">
         <carousel :navigationEnabled="true" :perPage="3" :autoplay="true" :loop="true" :navigateTo="1" :autoplayTimeout="5000" class="carousel cell small-11">
-            <slide v-for="bestseller in bestsellers">
+            <slide v-for="bestseller in bestsellers" :key="bestseller.id">
                 <book-carousel-product
                         :bookTitle="bestseller.name"
                         :authorFirstname="bestseller.author.firstname"

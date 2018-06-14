@@ -1,6 +1,6 @@
 <template>
     <div class="grid-x">
-        <novelty-preview v-for="novelty in novelties"
+        <novelty-preview v-for="novelty in novelties" :key="novelty.id"
                 class="cell small-4"
                 :bookTitle="novelty.name"
                 :authorFirstname="novelty.author.firstname"

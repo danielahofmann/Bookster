@@ -1,6 +1,6 @@
 <template>
     <div class="author-list">
-        <author-list-entry v-for="author in authors"
+        <author-list-entry v-for="author in authors" :key="author.id"
                            :firstname="author.firstname"
                            :lastname="author.lastname"
                            :img="author.author_image.img"
