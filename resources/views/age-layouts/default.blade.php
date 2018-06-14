@@ -22,7 +22,7 @@
         ></navigation>
     </header>
 
-    <main style="margin-top:110px">
+    <main style="margin-top:110px; min-width: 100%">
         @yield('main')
     </main>
 

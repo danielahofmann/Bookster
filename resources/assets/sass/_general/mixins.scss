@@ -92,11 +92,20 @@
 }
 
 @mixin footer-icon($image){
-  @include background-image($image, 40px, 40px);
+  @include background-image($image, 35px, 35px);
   display: block;
+
+  @include custom(1170px){
+    @include background-image($image, 40px, 40px);
+  }
+
 }
 
 @mixin footer-icon-social($image){
-  @include background-image($image, 35px, 35px);
+  @include background-image($image, 30px, 30px);
   display: block;
+
+  @include custom(1170px){
+    @include background-image($image, 35px, 35px);
+  }
 }
