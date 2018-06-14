@@ -26,7 +26,5 @@
         @yield('main')
     </main>
 
-    <footer>
-        <h5>footer</h5>
-    </footer>
+    <footer-section></footer-section>
 @stop
