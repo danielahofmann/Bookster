@@ -49,6 +49,10 @@ Vue.component('novelties', require('./components/Novelties.vue'));
 Vue.component('novelty-preview', require('./components/NoveltyPreview.vue'));
 Vue.component('authors-list', require('./components/AuthorsList.vue'));
 Vue.component('author-list-entry', require('./components/AuthorListEntry.vue'));
+Vue.component('footer-section', require('./components/FooterSection.vue'));
+Vue.component('footer-icons', require('./components/FooterIcons.vue'));
+Vue.component('footer-navigation', require('./components/FooterNavigation.vue'));
+Vue.component('footer-bottom', require('./components/FooterBottom.vue'));
 
 const app = new Vue({
     el: '#app',
