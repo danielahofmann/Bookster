@@ -2,34 +2,34 @@
     <div class="footer-icons grid-x">
         <ul>
             <li>
-                <a href="www.facebook.de" class="facebook"></a>
+                <a href="http://www.facebook.de" class="facebook"></a>
             </li>
             <li>
-                <a href="www.google.de" class="google"></a>
+                <a href="http://www.google.de" class="google"></a>
             </li>
             <li>
-                <a href="www.twitter.de" class="twitter"></a>
+                <a href="http://www.twitter.de" class="twitter"></a>
             </li>
             <li>
-                <a href="www.instagram.com" class="instagram"></a>
+                <a href="http://www.instagram.com" class="instagram"></a>
             </li>
 
             <li>|</li>
 
             <li>
-                <a href="www.klarna.de" class="klarna"></a>
+                <a href="http://www.klarna.de" class="klarna"></a>
             </li>
             <li>
-                <a href="www.paypal.com" class="paypal"></a>
+                <a href="http://www.paypal.com" class="paypal"></a>
             </li>
             <li>
-                <a href="www.google.de" class="visa"></a>
+                <a href="http://www.google.de" class="visa"></a>
             </li>
             <li>
-                <a href="www.google.de" class="amex"></a>
+                <a href="http://www.google.de" class="amex"></a>
             </li>
             <li>
-                <a href="www.google.de" class="mastercard"></a>
+                <a href="http://www.google.de" class="mastercard"></a>
             </li>
         </ul>
     </div>
