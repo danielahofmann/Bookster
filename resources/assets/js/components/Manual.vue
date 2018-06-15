@@ -2,17 +2,17 @@
     <div class="manual clearfix">
         <h2>So geht's</h2>
         <div class="grid-x flex-center">
-            <div class="cell small-3">
+            <div class="cell small-12 medium-3">
                 <img src="/img/cake.png" alt="">
                 <h3 :style="{ fontSize: fontSizeHeadline }">Alter angeben</h3>
                 <p :style="{ fontSize: fontSizeText }">Beim Öffnen der Website einfach Ihr Alter angeben.</p>
             </div>
-            <div class="cell small-3">
+            <div class="cell small-12 medium-3">
                 <img src="/img/books.png" alt="">
                 <h3 :style="{ fontSize: fontSizeHeadline }">Bücher aussuchen</h3>
                 <p :style="{ fontSize: fontSizeText }">Die altersgerechte Darstellung des Shops hilft Ihnen dabei besonders</p>
             </div>
-            <div class="cell small-3">
+            <div class="cell small-12 medium-3">
                 <img src="/img/package.png" alt="">
                 <h3 :style="{ fontSize: fontSizeHeadline }">Freuen und genießen</h3>
                 <p :style="{ fontSize: fontSizeText }">Ihre Bücher werden direkt zu Ihnen nach Hause geliefert</p>

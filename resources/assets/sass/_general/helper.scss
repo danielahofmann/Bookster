@@ -22,6 +22,12 @@
   justify-content: center;
 }
 
+.display-mobile-none{
+  @include phone{
+    display: none;
+  }
+}
+
 .display-none-tablet{
   @include phone{
     display: none;

@@ -1,7 +1,7 @@
 <template>
     <div class="opening grid-x">
-        <h2 :style="{ fontSize: fontSizeHeadline }" class="small-12">Willkommen bei Bookster</h2>
-        <p :style="{ fontSize: fontSizeText }" class="small-12">
+        <h2 :style="{ fontSize: fontSizeHeadline }" class="cell small-12">Willkommen bei Bookster</h2>
+        <p :style="{ fontSize: fontSizeText }" class="cell small-12 display-mobile-none">
             Wir legen nicht nur Wert auf hochwertige Literatur, sondern auch darauf, dass wir unseren Nutzern das bestmögliche Erlebnis bieten.
         </p>
     </div>
@@ -32,5 +32,11 @@
         margin-bottom: 75px;
         color: $dark-grey;
         width: 700px;
+    }
+
+    h2{
+        @include phone{
+            margin: 50px 0;
+        }
     }
 </style>

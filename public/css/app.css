@@ -8519,6 +8519,12 @@ h3 {
 }
 
 @media (min-width: 300px) and (max-width: 767px) {
+  .display-mobile-none {
+    display: none;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 767px) {
   .display-none-tablet {
     display: none;
   }
