@@ -32,6 +32,7 @@ Vue.use(VueFeatherIcon);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+// TODO organize this massive chunk!
 Vue.component('age-circle', require('./components/AgeCircle.vue'));
 Vue.component('search', require('./components/Search.vue'));
 Vue.component('logo', require('./components/Logo.vue'));
@@ -53,6 +54,8 @@ Vue.component('footer-section', require('./components/FooterSection.vue'));
 Vue.component('footer-icons', require('./components/FooterIcons.vue'));
 Vue.component('footer-navigation', require('./components/FooterNavigation.vue'));
 Vue.component('footer-bottom', require('./components/FooterBottom.vue'));
+Vue.component('hamburger-menu', require('./components/HamburgerMenu.vue'));
+Vue.component('offcanvas', require('./components/OffCanvas.vue'));
 
 const app = new Vue({
     el: '#app',
