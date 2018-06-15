@@ -1,10 +1,10 @@
 <template>
     <div class="grid-x flex-center">
         <div class="cell small-11 product-container grid-x">
-            <div class="product-image cell small-5">
+            <div class="product-image cell small-4 medium-4 large-5">
                 <img :src="img" alt="Produktbild">
             </div>
-            <div class="product-details cell small-7">
+            <div class="product-details cell small-8 medium-8 large-7">
                 <p class="title" v-bind:style="{ fontSize: fontSizeTitle }">{{ bookTitle }}</p>
                 <p class="author" v-bind:style="{ fontSize: fontSizeAuthor }">{{ authorFirstname }} {{ authorLastname }}</p>
                 <p class="price" v-bind:style="{ fontSize: fontSizePrice }">{{ price }} €</p>
@@ -48,11 +48,20 @@
         .product-details{
             padding-left: 20px;
 
+            @include tablet{
+                padding-top: 20px;
+            }
+
             .title{
                 @include text-styling($primary-font, $bold, 1rem);
                 color: $dark-grey;
                 hyphens: auto;
                 margin: 0;
+
+                @include tablet{
+                    @include text-styling($primary-font, $bold, 1rem);
+
+                }
 
             }
 

@@ -8518,6 +8518,28 @@ h3 {
           justify-content: center;
 }
 
+@media (min-width: 300px) and (max-width: 767px) {
+  .display-none-tablet {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .display-none-tablet {
+    display: none;
+  }
+}
+
+.display-desktop-none {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .display-desktop-none {
+    display: none;
+  }
+}
+
 .header {
   position: fixed;
   top: 0;

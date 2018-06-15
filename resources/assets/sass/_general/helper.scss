@@ -21,3 +21,21 @@
   align-items: center;
   justify-content: center;
 }
+
+.display-none-tablet{
+  @include phone{
+    display: none;
+  }
+
+  @include tablet{
+    display: none;
+  }
+}
+
+.display-desktop-none{
+  display: block;
+
+  @include desktop{
+    display: none;
+  }
+}

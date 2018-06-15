@@ -1,7 +1,8 @@
 <template>
     <div class="grid-x">
+        <h2 class="display-desktop-none cell small-12 text-center">Neuheiten</h2>
         <novelty-preview v-for="novelty in novelties" :key="novelty.id"
-                class="cell small-4"
+                class="cell small-12 medium-6 large-4 novelties"
                 :bookTitle="novelty.name"
                 :authorFirstname="novelty.author.firstname"
                 :authorLastname="novelty.author.lastname"
@@ -42,7 +43,43 @@
 
     h2{
         text-align: left;
-        margin-bottom: 40px;
+        padding:0 0 40px 0
+    }
+
+    .novelties:nth-child(even){
+        @include custom-max(1023px){
+            padding-left:40px;
+        }
+
+        @include custom-max(640px){
+            padding: 10px 80px;
+        }
+
+        @include custom-max(520px){
+            padding: 10px 40px;
+        }
+
+        @include custom-max(400px){
+            padding: 0 20px;
+        }
+    }
+
+    .novelties:nth-child(odd){
+        @include custom-max(1023px){
+            padding-right:40px;
+        }
+
+        @include custom-max(640px){
+            padding: 10px 80px;
+        }
+
+        @include custom-max(520px){
+            padding: 10px 40px;
+        }
+
+        @include custom-max(400px){
+            padding: 0 20px;
+        }
     }
 
 </style>

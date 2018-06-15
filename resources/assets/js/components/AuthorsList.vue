@@ -1,10 +1,12 @@
 <template>
-    <div class="author-list">
+    <div class="author-list grid-x flex-center">
+        <h2 class="display-desktop-none cell small-12 text-center">Autoren</h2>
         <author-list-entry v-for="author in authors" :key="author.id"
                            :firstname="author.firstname"
                            :lastname="author.lastname"
                            :img="author.author_image.img"
                            :size="1"
+                           class="cell medium-5 large-12"
         ></author-list-entry>
     </div>
 </template>
@@ -37,11 +39,18 @@
 
     h2{
         text-align: left;
-        margin-bottom: 40px;
+        padding:0 0 40px 0
     }
 
     .author-list{
-        padding-left: 40px;
         overflow: hidden;
+
+        @include desktop{
+            padding-left: 40px;
+        }
+
+        @include phone{
+            display: none;
+        }
     }
 </style>
