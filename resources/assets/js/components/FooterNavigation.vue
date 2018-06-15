@@ -3,7 +3,7 @@
         <div class="cell small-8 grid-x">
             <ul class="cell small-4 footer-list">
                 <li class="footer-headline">
-                    Hilfe und Informationen
+                    Informationen
                 </li>
                 <li>
                     <a href="#">Hilfe</a>
@@ -95,7 +95,11 @@
 
     .footer-nav{
         background: $beige;
-        padding: 2rem 1rem
+        padding: 2rem 1rem;
+
+        @include phone{
+            display: none;
+        }
     }
 
 

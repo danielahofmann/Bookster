@@ -1,6 +1,6 @@
 <template>
     <div class="footer-bottom grid-x">
-        <p class="copyright cell small-9">© 2018 bookster</p>
+        <p class="copyright cell small-4 medium-6 large-8">© 2018 bookster</p>
         <ul>
             <li>
                 <a href="#">Datenschutz</a>
@@ -42,6 +42,11 @@
             color: $light-grey;
             margin-bottom: 0;
             padding-left: 2.5rem;
+
+            @include phone {
+                @include text-styling($primary-font, $regular, 0.75rem);
+                padding-left: 1rem;
+            }
         }
 
         ul{
@@ -54,9 +59,18 @@
                 color: $light-grey;
                 padding: 0 0.5rem;
 
+                @include phone {
+                    @include text-styling($primary-font, $regular, 0.75rem);
+                    padding: 0 0.25rem;
+                }
+
                 a{
                     @include text-styling($primary-font, $regular, 1rem);
                     color: $light-grey;
+
+                    @include phone {
+                        @include text-styling($primary-font, $regular, 0.75rem);
+                    }
                 }
 
             }

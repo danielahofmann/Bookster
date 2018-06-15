@@ -63,6 +63,12 @@
   }
 }
 
+@mixin custom-max ($breakpoint){
+  @media (max-width: #{$breakpoint}) {
+    @content;
+  }
+}
+
 //Project Related
 @mixin nav-icons($image){
   display: block;
