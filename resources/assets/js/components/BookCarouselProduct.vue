@@ -69,6 +69,15 @@
         background-color: $beige;
         border-radius: 15px;
         padding: 40px 25px;
+        height: 275px;
+
+        @include custom-max(700px){
+            height: auto;
+        }
+
+        @include custom(1400px){
+            height: auto;
+        }
 
         .product-image{
             overflow: hidden;
@@ -98,7 +107,7 @@
 
             .price{
                 @include text-styling($secondary-font, $semibold, 1rem);
-                @include custom(1300px){
+                @include custom(1400px){
                     margin-top: 2rem;
 
                 }
