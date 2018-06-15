@@ -100,26 +100,46 @@
             z-index: 1;
         }
 
-        .prev{
+        .prev {
             @include background-image('/img/arrow-left.svg', 35px, 35px);
             @include top-center;
+
+            width: 40px;
+            height: 45px;
+            padding-top: 5px;
+            background-origin: content-box;
+            background-color: white
+
         }
 
-        .next{
+        .next {
             @include background-image('/img/arrow-right.svg', 35px, 35px);
             right: 0;
             @include top-center;
 
+            width: 40px;
+            height: 45px;
+            padding-top: 5px;
+            background-origin: content-box;
+            background-color: white
         }
 
         .slider-text {
             position: absolute;
             z-index: 1;
-            top: 500px;
+            top: 80%;
             left: 50px;
             .headline {
                 @include text-styling($primary-font, $bold, 2rem);
                 color: $dark-grey;
+
+                @include tablet{
+                    font-size: 1.5rem;
+                }
+
+                @include phone{
+                    font-size: 1.25rem;
+                }
 
             }
 
@@ -127,6 +147,14 @@
                 @include text-styling($primary-font, $regular, 1.5rem);
                 color: $dark-grey;
                 margin-bottom: 0;
+
+                @include tablet{
+                    font-size: 1.25rem;
+                }
+
+                @include phone{
+                    font-size: 1rem;
+                }
             }
         }
     }
