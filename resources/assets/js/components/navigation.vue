@@ -15,6 +15,7 @@
         <category-nav
             :size="categoryFontSize"
             :is-active="categoryActive"
+            class="display-none-tablet"
         ></category-nav>
 
     </div>

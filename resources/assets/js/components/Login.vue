@@ -1,5 +1,5 @@
 <template>
-    <div class="login">
+    <div class="login display-none-tablet">
         <a href="/login/" class="login-icon"></a>
     </div>
 </template>
@@ -23,6 +23,14 @@
         .login-icon {
             @include nav-icons ('/img/user.png');
             padding-left: 1rem;
+        }
+
+        @include tablet{
+            display: none;
+        }
+
+        @include phone{
+            display: none;
         }
     }
 

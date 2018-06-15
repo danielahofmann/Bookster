@@ -6,7 +6,7 @@
 
 @section('body')
     <header class="grid-x padding-top-small header clearfix">
-        <search @search="search"></search>
+        <search @search="search" class="display-none-tablet"></search>
         <logo></logo>
         <div class="cell large-4">
             <div class="grid-x align-right">
@@ -19,6 +19,7 @@
         <navigation
             :is-active='false'
             size="1"
+            class="display-none-tablet"
         ></navigation>
     </header>
 
