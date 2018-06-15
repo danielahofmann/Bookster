@@ -1,6 +1,6 @@
 <template>
     <div class="grid-x carousel-container flex-center">
-        <carousel :navigationEnabled="true" :perPage="3" :autoplay="true" :loop="true" :navigateTo="1" :autoplayTimeout="5000" class="carousel cell small-11">
+        <carousel :navigationEnabled="true" :perPage="perPage" :paginationEnabled="paginationEnabled" :autoplay="true" :loop="true" :navigateTo="1" :autoplayTimeout="5000" class="carousel cell small-11">
             <slide v-for="bestseller in bestsellers" :key="bestseller.id">
                 <book-carousel-product
                         :bookTitle="bestseller.name"
@@ -8,9 +8,15 @@
                         :authorLastname="bestseller.author.lastname"
                         :price="bestseller.price"
                         :img="bestseller.image[0].img"
-                        :sizeTitle="1.5"
-                        :sizeAuthor="1"
-                        :sizePrice="1"
+                        :desktopTitle="1.5"
+                        :tabletTitle="1.25"
+                        :mobileTitle="1.25"
+                        :desktopAuthor="1"
+                        :tabletAuthor="1"
+                        :mobileAuthor="1"
+                        :desktopPrice="1"
+                        :tabletPrice="1"
+                        :mobilePrice="1"
                 ></book-carousel-product>
             </slide>
         </carousel>
@@ -25,6 +31,7 @@
                 bestsellers: null,
                 perPage: 3,
                 windowWidth: null,
+                paginationEnabled: true,
 
             }
         },
@@ -32,13 +39,30 @@
             document.getElementsByClassName("VueCarousel-navigation-next")[0].innerHTML = "";
             document.getElementsByClassName("VueCarousel-navigation-prev")[0].innerHTML = "";
 
-            window.addEventListener('resize', this.getWindowWidth);
+            window.addEventListener('resize', this.setFontSizes);
 
-            this.getWindowWidth()
+            this.setFontSizes();
         },
         methods: {
-            getWindowWidth: function() {
+            setFontSizes: function() {
                 this.windowWidth = document.documentElement.clientWidth;
+
+                if (this.windowWidth > 1024){
+                    this.perPage = 3;
+                }
+
+                if (this.windowWidth < 1024){
+                    this.perPage = 2;
+                }
+
+                if (this.windowWidth < 700){
+                    this.perPage = 1;
+                    this.paginationEnabled = false;
+                }
+
+                if (this.windowWidth > 700){
+                    this.paginationEnabled = true;
+                }
             },
         },
         created(){
@@ -51,7 +75,7 @@
                 });
         },
         beforeDestroy() {
-            window.removeEventListener('resize', this.getWindowWidth);
+            window.removeEventListener('resize', this.setFontSizes);
         }
 
     }
@@ -68,8 +92,10 @@
                 position: absolute;
                 top: 0;
                 right: 0;
-                width: 54px;
-                height: 54px;
+
+                @include custom-max(410px){
+                    top: -10%;
+                }
             }
             &:hover {
                 &:before {
@@ -84,8 +110,10 @@
                 position: absolute;
                 top: 0;
                 right: 0;
-                width: 54px;
-                height: 54px;
+
+                @include custom-max(410px){
+                    top: -10%;
+                }
             }
             &:hover {
                 &:before {

@@ -57,12 +57,6 @@
                 color: $dark-grey;
                 hyphens: auto;
                 margin: 0;
-
-                @include tablet{
-                    @include text-styling($primary-font, $bold, 1rem);
-
-                }
-
             }
 
             .author{
@@ -76,7 +70,6 @@
             .price{
                 @include text-styling($secondary-font, $semibold, 1rem);
                 color: $dark-grey;
-
             }
         }
     }

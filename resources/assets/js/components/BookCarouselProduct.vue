@@ -5,9 +5,9 @@
                 <img :src="img" alt="Produktbild">
             </div>
             <div class="product-details cell small-7">
-                <p class="title" v-bind:style="{ fontSize: fontSizeTitle }">{{ bookTitle }}</p>
-                <p class="author" v-bind:style="{ fontSize: fontSizeAuthor }">{{ authorFirstname }} {{ authorLastname }}</p>
-                <p class="price" v-bind:style="{ fontSize: fontSizePrice }">{{ price }} €</p>
+                <p class="title" :style="{ fontSize: fontSizeTitle }">{{ bookTitle }}</p>
+                <p class="author" :style="{ fontSize: fontSizeAuthor }">{{ authorFirstname }} {{ authorLastname }}</p>
+                <p class="price" :style="{ fontSize: fontSizePrice }">{{ price }} €</p>
             </div>
         </div>
     </div>
@@ -18,15 +18,47 @@
     export default {
         data() {
             return {
-                fontSizeTitle: this.sizeTitle + "rem",
-                fontSizeAuthor: this.sizeAuthor + "rem",
-                fontSizePrice: this.sizePrice + "rem",
+                fontSizeTitle: null,
+                fontSizeAuthor: null,
+                fontSizePrice: null,
             }
         },
         mounted() {
+            window.addEventListener('resize', this.getWindowWidth);
 
+            this.getWindowWidth();
         },
-        props: ['bookTitle', 'price', 'authorFirstname', 'authorLastname', 'sizeTitle', 'sizeAuthor', 'sizePrice', 'img'],
+        methods: {
+            getWindowWidth: function() {
+                this.windowWidth = document.documentElement.clientWidth;
+
+                //Desktop Size
+                if (this.windowWidth > 1024){
+                    this.fontSizeTitle = this.desktopTitle + "rem";
+                    this.fontSizeAuthor = this.desktopAuthor + "rem";
+                    this.fontSizePrice = this.desktopPrice + "rem";
+                }
+
+                //Tablet
+                if (this.windowWidth < 1024){
+                    this.fontSizeTitle = this.tabletTitle + "rem";
+                    this.fontSizeAuthor = this.tabletAuthor + "rem";
+                    this.fontSizePrice = this.tabletPrice + "rem";
+                }
+
+                //Mobile
+                if (this.windowWidth < 640){
+                    this.fontSizeTitle = this.mobileTitle + "rem";
+                    this.fontSizeAuthor = this.mobileAuthor + "rem";
+                    this.fontSizePrice = this.mobilePrice + "rem";
+                }
+            },
+        },
+        beforeDestroy() {
+            window.removeEventListener('resize', this.getWindowWidth);
+        },
+        props: ['bookTitle', 'price', 'authorFirstname', 'authorLastname', 'desktopTitle', 'desktopAuthor', 'desktopPrice',
+            'mobileTitle', 'tabletTitle', 'mobileAuthor', 'tabletAuthor', 'mobilePrice', 'tabletPrice', 'img'],
     }
 </script>
 
