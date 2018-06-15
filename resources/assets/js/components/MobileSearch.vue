@@ -1,5 +1,5 @@
 <template>
-    <div class="mobile-search cell small-2">
+    <div class="mobile-search">
         <img :src="'/img/search.png'" alt="Suche" class="mobile-search-icon">
         <input type="text" placeholder="Bücher suchen.." v-model="query" @keyup.enter="$emit('search', query)" class="mobile-search-input">
     </div>
@@ -22,9 +22,14 @@
     @import '~@/app.scss';
 
     .mobile-search {
-        padding-left: 2rem;
+        margin-top: 10px;
+        padding-right: 1.25rem;
         @include custom(1024px){
             display: none;
+        }
+
+        @include custom-max(400px){
+            margin-top: 6px;
         }
 
         .mobile-search-icon {
@@ -35,6 +40,11 @@
             &:hover{
                 width: 27px;
                 height: auto;
+            }
+
+            @include custom-max(400px){
+                height: 20px;
+                width: 20px;
             }
         }
 

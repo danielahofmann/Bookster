@@ -81,6 +81,15 @@
   transform: translateX(-50%);
   margin-top: 10px;
   padding-right: 3rem;
+
+  @include custom-max(400px){
+    -webkit-background-size: 20px 20px;
+    background-size: 20px 20px;
+    height: 20px;
+    width: 20px;
+    padding-right: 2.5rem;
+
+  }
 }
 
 //Background-Image

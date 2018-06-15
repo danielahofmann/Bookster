@@ -1,5 +1,5 @@
 <template>
-    <div class="search cell large-4">
+    <div class="search cell small-2 large-4">
         <img :src="'/img/search.png'" alt="Suche" class="search-icon">
         <input type="text" placeholder="Bücher suchen.." v-model="query" @keyup.enter="$emit('search', query)" class="search-input">
     </div>
@@ -67,6 +67,9 @@
                 border-bottom: 1px solid $light-grey;
             }
 
+            @include custom-max(1024px){
+                display: none;
+            }
         }
     }
 
