@@ -23,15 +23,23 @@
         data() {
             return {
                 bestsellers: null,
+                perPage: 3,
+                windowWidth: null,
 
             }
         },
         mounted () {
             document.getElementsByClassName("VueCarousel-navigation-next")[0].innerHTML = "";
             document.getElementsByClassName("VueCarousel-navigation-prev")[0].innerHTML = "";
-            },
-        methods: {
 
+            window.addEventListener('resize', this.getWindowWidth);
+
+            this.getWindowWidth()
+        },
+        methods: {
+            getWindowWidth: function() {
+                this.windowWidth = document.documentElement.clientWidth;
+            },
         },
         created(){
             axios
@@ -42,6 +50,9 @@
                     console.log(error);
                 });
         },
+        beforeDestroy() {
+            window.removeEventListener('resize', this.getWindowWidth);
+        }
 
     }
 
