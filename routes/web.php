@@ -11,6 +11,7 @@
 |
 */
 
+use App\Genre;
 
 Route::get('/', function () {
     return view('pages.age');
@@ -28,8 +29,7 @@ Route::get('/api/getCategories', 'CategoryController@index');
 Route::get('/api/getNewBestsellers', 'ProductController@getNewBestsellers');
 Route::get('/api/getNovelties', 'ProductController@getNovelties');
 Route::get('/api/getAuthors', 'AuthorController@getAuthors');
-
-
+Route::get('/api/getGenres/{id}', 'GenreController@getGenreOfCategory');
 
 Route::get('/results', function () {
 	return view('pages.results');

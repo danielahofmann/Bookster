@@ -82,4 +82,15 @@ class GenreController extends Controller
     {
         //
     }
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $category_id
+	 * @return Response
+	 */
+	public function getGenreOfCategory($category_id) {
+		$genres = Genre::where('category_id', $category_id)->get();
+		return $genres;
+    }
 }
