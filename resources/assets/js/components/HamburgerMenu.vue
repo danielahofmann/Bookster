@@ -15,6 +15,8 @@
         methods:{
             toggleOffcanvas: function(){
                 document.getElementById('offCanvas').classList.toggle('is-open');
+                document.getElementById('offcanvas-background').classList.toggle('open');
+                document.getElementById('app').classList.toggle('no-scroll');
             }
         }
     }
