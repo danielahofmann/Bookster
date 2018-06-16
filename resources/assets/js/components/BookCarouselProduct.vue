@@ -71,6 +71,10 @@
         padding: 40px 25px;
         height: 275px;
 
+        &:hover{
+            background-color: $dark-beige;
+        }
+
         @include custom-max(700px){
             height: auto;
         }
