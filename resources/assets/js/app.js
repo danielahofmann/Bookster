@@ -57,6 +57,7 @@ Vue.component('footer-navigation', require('./components/FooterNavigation.vue'))
 Vue.component('footer-bottom', require('./components/FooterBottom.vue'));
 Vue.component('hamburger-menu', require('./components/HamburgerMenu.vue'));
 Vue.component('offcanvas', require('./components/OffCanvas.vue'));
+Vue.component('offcanvas-close', require('./components/OffCanvasClose.vue'));
 
 const app = new Vue({
     el: '#app',
