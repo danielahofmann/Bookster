@@ -5,15 +5,39 @@
 @stop
 
 @section('body')
-    <header>
+    <offcanvas
+            size="1"
+    ></offcanvas>
 
-    </header>
+    <div id="offcanvas-background" class="offcanvas-background closed"></div>
+    <offcanvas-close></offcanvas-close>
 
-    <main>
 
-    </main>
+    <div class="off-canvas-content" data-off-canvas-content>
+        <header class="grid-x padding-top-small header clearfix">
+            <hamburger-menu></hamburger-menu>
+            <search @search="search" class="display-none-tablet"></search>
+            <logo></logo>
+            <div class="cell small-5 large-4">
+                <div class="grid-x align-right">
+                    <mobile-search @search="search"></mobile-search>
+                    <wishlist></wishlist>
+                    <cart></cart>
+                    <login></login>
+                </div>
+            </div>
 
-    <footer>
+            <navigation
+                    :is-active='false'
+                    size="1"
+                    class="display-none-tablet"
+            ></navigation>
+        </header>
 
-    </footer>
+        <main class="main">
+            @yield('main')
+        </main>
+
+        <footer-section></footer-section>
+    </div>
 @stop
