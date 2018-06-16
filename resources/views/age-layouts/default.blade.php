@@ -8,6 +8,8 @@
     <offcanvas></offcanvas>
 
     <div id="offcanvas-background" class="offcanvas-background closed"></div>
+    <offcanvas-close></offcanvas-close>
+
 
     <div class="off-canvas-content" data-off-canvas-content>
         <header class="grid-x padding-top-small header clearfix">
