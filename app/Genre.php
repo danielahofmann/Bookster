@@ -13,4 +13,12 @@ class Genre extends Model
 	{
 		return $this->hasMany('App\Product');
 	}
+
+	/**
+	 * Get the author record associated with the product.
+	 */
+	public function category()
+	{
+		return $this->belongsTo('App\Category');
+	}
 }

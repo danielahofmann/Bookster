@@ -13,4 +13,12 @@ class Category extends Model
 	{
 		return $this->hasMany('App\Product');
 	}
+
+	/**
+	 * Get the genre records associated with the category.
+	 */
+	public function genres()
+	{
+		return $this->hasMany('App\Genre');
+	}
 }
