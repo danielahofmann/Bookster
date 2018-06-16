@@ -39,13 +39,18 @@
         -webkit-transition: display 5s;
         transition: display 5s;
         position: absolute;
-        left: 250px;
+        left: 350px;
         z-index: 105;
         background: $beige;
         padding: 15px 20px;
         display: block;
         @include text-styling($primary-font, $bold, 1.7rem);
         color: $dark-grey;
+
+        @include custom-max(400px) {
+            left: 250px;
+        }
+
         button{
             color: $dark-grey;
 
