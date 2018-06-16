@@ -5,7 +5,9 @@
 @stop
 
 @section('body')
-    <offcanvas></offcanvas>
+    <offcanvas
+        size="1"
+    ></offcanvas>
 
     <div id="offcanvas-background" class="offcanvas-background closed"></div>
     <offcanvas-close></offcanvas-close>
