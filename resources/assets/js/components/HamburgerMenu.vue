@@ -1,13 +1,16 @@
 <template>
-    <div class="hamburger display-none-tablet cell small-3">
-        <button class="hamburger-icon" @click="toggleOffcanvas()"></button>
+    <div class="hamburger display-none-tablet cell small-3" :class="{ 'show-text' : isOld, 'medium-4' : isOld, 'small-6' : isOld}">
+        <button class="hamburger-icon" :class="{ 'margin-left-small' : isOld }" @click="toggleOffcanvas()"></button>
+        <p>MENU</p>
     </div>
 </template>
 
 <script>
     export default {
         data() {
-            return {}
+            return {
+                isOld: this.oldTemplate,
+            }
         },
         mounted() {
             console.log('Component ready');
@@ -23,7 +26,9 @@
                 document.getElementById('app').classList.toggle('no-scroll');
                 setTimeout(this.toggleButton, 400);
             }
-        }
+        },
+        props: ['oldTemplate'],
+
     }
 </script>
 
@@ -45,6 +50,16 @@
             }
         }
 
+        p{
+            display: none;
+        }
+
+        .margin-left-small{
+            @include custom-max(410px){
+                margin-left: 2rem !important;
+            }
+        }
+
         @include desktop{
             display: none;
         }
@@ -54,4 +69,21 @@
         outline:0;
     }
 
+    .show-text{
+        .hamburger-icon{
+            display: inline-block;
+            margin-left: 0;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            margin-top: 10px;
+            padding-right: 0;
+            margin-left: 4rem;
+        }
+
+        p{
+            @include text-styling($primary-font, $regular, 1.5rem);
+            display: inline-block;
+            margin: 0;
+        }
+    }
 </style>
