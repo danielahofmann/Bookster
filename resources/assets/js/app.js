@@ -58,6 +58,7 @@ Vue.component('footer-bottom', require('./components/FooterBottom.vue'));
 Vue.component('hamburger-menu', require('./components/HamburgerMenu.vue'));
 Vue.component('offcanvas', require('./components/OffCanvas.vue'));
 Vue.component('offcanvas-close', require('./components/OffCanvasClose.vue'));
+Vue.component('mobile-logo', require('./components/age-specific-components/elderly-components/MobileLogo.vue'));
 
 const app = new Vue({
     el: '#app',
