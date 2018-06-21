@@ -15,9 +15,13 @@
 
     <div class="off-canvas-content" data-off-canvas-content>
         <header class="grid-x padding-top-small header clearfix">
-            <hamburger-menu></hamburger-menu>
+            <hamburger-menu
+                    :old-template='false'
+            ></hamburger-menu>
             <search @search="search" class="display-none-tablet"></search>
-            <logo></logo>
+            <logo
+                    :old-template='false'
+            ></logo>
             <div class="cell small-5 large-4">
                 <div class="grid-x align-right">
                     <mobile-search @search="search"></mobile-search>

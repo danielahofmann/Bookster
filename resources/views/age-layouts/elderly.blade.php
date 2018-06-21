@@ -14,10 +14,15 @@
 
     <div class="off-canvas-content" data-off-canvas-content>
         <header class="grid-x padding-top-small header clearfix">
-            <hamburger-menu></hamburger-menu>
+            <mobile-logo></mobile-logo>
+            <hamburger-menu
+                    :old-template='true'
+            ></hamburger-menu>
             <search @search="search" class="display-none-tablet"></search>
-            <logo></logo>
-            <div class="cell small-5 large-4">
+            <logo
+                    :old-template='true'
+            ></logo>
+            <div class="cell small-6 medium-4 large-4">
                 <div class="grid-x align-right">
                     <mobile-search @search="search"></mobile-search>
                     <wishlist></wishlist>
