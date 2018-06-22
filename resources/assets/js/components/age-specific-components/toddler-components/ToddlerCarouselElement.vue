@@ -1,22 +1,43 @@
 <template>
-    <div class="">
-
+    <div class="grid-x flex-center">
+        <div class="cell small-11 image-container flex-center">
+            <img :src="img" alt="Charakter">
+        </div>
     </div>
 </template>
 
 <script>
     export default {
         data() {
-            return {}
+            return {
+                characterId: this.character,
+            }
         },
-        mounted() {
-            console.log('Component ready');
-        },
+        mounted() {},
+        props:['img', 'character']
     }
 </script>
 
 <style lang="scss" scoped>
     @import '~@/app.scss';
 
+    .image-container{
+        img{
+            border-radius: 50%;
+            height: 175px;
+            width: 175px;
+            object-fit: cover;
 
+            @include custom-max(450px){
+                height: 115px;
+                width: 115px;
+            }
+
+            &:hover{
+                -webkit-box-shadow: 0px 0px 15px -4px rgba(97,97,97,1);
+                -moz-box-shadow: 0px 0px 15px -4px rgba(97,97,97,1);
+                box-shadow: 0px 0px 15px -4px rgba(97,97,97,1);
+            }
+        }
+    }
 </style>
