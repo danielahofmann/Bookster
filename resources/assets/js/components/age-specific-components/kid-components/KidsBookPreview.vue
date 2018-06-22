@@ -48,6 +48,14 @@
                 width: 40px;
             }
         }
+
+        .kid-image{
+            &:hover{
+                -webkit-box-shadow: 0px 0px 15px -4px rgba(97,97,97,1);
+                -moz-box-shadow: 0px 0px 15px -4px rgba(97,97,97,1);
+                box-shadow: 0px 0px 15px -4px rgba(97,97,97,1);
+            }
+        }
     }
 
 </style>

@@ -15,7 +15,9 @@
             size-text="1"></manual>
 
     <h2>Aktuelle Bestseller</h2>
-    <book-carousel></book-carousel>
+    <book-carousel
+            :books-for-kids="false"
+    ></book-carousel>
 
     <section class="grid-x flex-center">
         <span class="cell small-0 medium-1"></span>
