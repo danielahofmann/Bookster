@@ -2,6 +2,7 @@
     <div class="footer">
         <footer-icons v-if="show"></footer-icons>
         <footer-navigation v-if="show"></footer-navigation>
+        <toddler-opt-out v-if="toddler"></toddler-opt-out>
         <footer-bottom></footer-bottom>
     </div>
 </template>
