@@ -113,4 +113,19 @@ class ProductController extends Controller
 	                          ->get();
 	    return $novelties;
     }
+
+	/**
+	 * Display a listing of the novelties for kids
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function getKidsNovelties(  ) {
+		$novelties = Product::where('ebook', 0)
+		                    ->orderBy('created_at', 'desc')
+							->where('category_id', 3)
+		                    ->take(10)
+		                    ->with('image')
+		                    ->get();
+		return $novelties;
+	}
 }

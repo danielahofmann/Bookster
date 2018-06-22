@@ -28,6 +28,7 @@ Route::get('/api/search', 'SearchController@search');
 Route::get('/api/getCategories', 'CategoryController@index');
 Route::get('/api/getNewBestsellers', 'ProductController@getNewBestsellers');
 Route::get('/api/getNovelties', 'ProductController@getNovelties');
+Route::get('/api/getKidsNovelties', 'ProductController@getKidsNovelties');
 Route::get('/api/getAuthors', 'AuthorController@getAuthors');
 Route::get('/api/getGenres/{id}', 'GenreController@getGenreOfCategory');
 
