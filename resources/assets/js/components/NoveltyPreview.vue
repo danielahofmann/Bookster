@@ -79,6 +79,24 @@
                 color: $dark-grey;
             }
         }
+
+        &:hover{
+            .product-image{
+                border: thin solid $beige;
+            }
+
+            .title{
+                color: black;
+            }
+
+            .author{
+                color: black;
+            }
+
+            .price{
+                color: black;
+            }
+        }
     }
 
 </style>
