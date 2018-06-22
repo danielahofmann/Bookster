@@ -21,8 +21,6 @@
 <style lang="scss" scoped>
     @import '~@/app.scss';
 
-    //[TODO] add hover styling
-
     .author-list-entry {
         margin-bottom: 1rem;
         .author-image {
@@ -36,7 +34,14 @@
             display: inline-block;
             margin: 0 0 0 1rem;
             @include text-styling($primary-font, $bold, 1rem);
+            color: $dark-grey;
             hyphens: auto;
+        }
+
+        &:hover{
+            .author-name {
+                color: $black;
+            }
         }
     }
 
