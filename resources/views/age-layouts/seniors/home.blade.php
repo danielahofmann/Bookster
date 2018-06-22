@@ -6,13 +6,13 @@
     <slider></slider>
 
     <opening
-            size="1.5"
-            size-text="1"
+            size="1.75"
+            size-text="1.25"
     ></opening>
 
     <manual
-            size-headline="1.25"
-            size-text="1"></manual>
+            size-headline="1.5"
+            size-text="1.25"></manual>
 
     <h2>Aktuelle Bestseller</h2>
     <book-carousel></book-carousel>
