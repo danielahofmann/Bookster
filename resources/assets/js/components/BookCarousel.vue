@@ -32,7 +32,7 @@
                 perPage: 3,
                 windowWidth: null,
                 paginationEnabled: true,
-
+                kids: this.booksForKids,
             }
         },
         mounted () {
@@ -66,17 +66,28 @@
             },
         },
         created(){
-            axios
-                .get('/api/getNewBestsellers')
-                .then(response => (
-                    this.bestsellers = response.data))
-                .catch(function (error) {
-                    console.log(error);
-                });
+            if(this.kids == true){
+                axios
+                    .get('/api/getNewBestsellersForKids')
+                    .then(response => (
+                        this.bestsellers = response.data))
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            }else{
+                axios
+                    .get('/api/getNewBestsellers')
+                    .then(response => (
+                        this.bestsellers = response.data))
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            }
         },
         beforeDestroy() {
             window.removeEventListener('resize', this.setFontSizes);
-        }
+        },
+        props: ['booksForKids']
 
     }
 
