@@ -5,15 +5,23 @@
 @stop
 
 @section('body')
-    <header>
-
+    <header class="grid-x padding-top-small header clearfix">
+        <logo
+                :old-template='true'
+        ></logo>
+        <div class="cell small-6 medium-4 large-4">
+            <div class="grid-x align-right">
+                <wishlist></wishlist>
+            </div>
+        </div>
     </header>
 
-    <main>
-
+    <main class="main">
+        @yield('main')
     </main>
 
-    <footer>
-
-    </footer>
+    <footer-section
+            :is-toddler="true"
+    ></footer-section>
+    </div>
 @stop
