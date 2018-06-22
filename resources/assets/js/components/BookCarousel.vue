@@ -138,7 +138,5 @@
         margin: 40px auto;
     }
 
-    // [TODO] fix navigation arrow alignment
-
 </style>
 
