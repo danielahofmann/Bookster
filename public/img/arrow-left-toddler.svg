@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="47px" viewBox="0 0 28 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow-right5</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Kids-Slider" transform="translate(-157.000000, -75.000000)">
+            <g id="Arrow-Right" transform="translate(170.000000, 100.000000) scale(-1, 1) translate(-170.000000, -100.000000) translate(130.000000, 0.000000)">
+                <g id="entypo/arrow-right5" transform="translate(0.000000, 60.000000)">
+                    <rect id="Rectangle-path" x="0" y="0" width="80" height="80"></rect>
+                    <path d="M33.556,16.508 C35.212,18.12 51.388,35.1 51.388,35.1 C52.272,35.964 52.712,37.092 52.712,38.22 C52.712,39.348 52.272,40.48 51.388,41.34 C51.388,41.34 35.212,58.324 33.556,59.936 C31.904,61.548 28.928,61.66 27.156,59.936 C25.392,58.212 25.248,55.812 27.156,53.696 L41.996,38.216 L27.156,22.74 C25.248,20.628 25.392,18.22 27.156,16.5 C28.924,14.78 31.904,14.892 33.556,16.508 L33.556,16.508 Z" id="Shape" fill="#BD1E5A" fill-rule="evenodd"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
