@@ -6,12 +6,16 @@
 
 @section('body')
     <header class="grid-x padding-top-small header clearfix">
+        <mobile-logo></mobile-logo>
+        <toddler-redirect
+                resource="{{ route('redirect') }}"
+        ></toddler-redirect>
         <logo
                 :old-template='true'
         ></logo>
         <div class="cell small-6 medium-4 large-4">
             <div class="grid-x align-right">
-                <wishlist></wishlist>
+                <toddler-wishlist></toddler-wishlist>
             </div>
         </div>
     </header>
