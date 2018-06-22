@@ -61,10 +61,11 @@ Vue.component('offcanvas-close', require('./components/OffCanvasClose.vue'));
 Vue.component('mobile-logo', require('./components/age-specific-components/elderly-components/MobileLogo.vue'));
 Vue.component('kids-book-preview', require('./components/age-specific-components/kid-components/KidsBookPreview.vue'));
 Vue.component('kids-novelties', require('./components/age-specific-components/kid-components/KidsNovelties.vue'));
-Vue.component('toddler-slider', require('./components/age-specific-components/toddler-components/ToddlerSlider.vue'));
+Vue.component('toddler-carousel', require('./components/age-specific-components/toddler-components/ToddlerCarousel.vue'));
 Vue.component('toddler-opt-out', require('./components/age-specific-components/toddler-components/ToddlerFooterOptOut.vue'));
 Vue.component('toddler-wishlist', require('./components/age-specific-components/toddler-components/ToddlerWishlist.vue'));
 Vue.component('toddler-redirect', require('./components/age-specific-components/toddler-components/ToddlerRedirectBack.vue'));
+Vue.component('toddler-carousel-element', require('./components/age-specific-components/toddler-components/ToddlerCarouselElement.vue'));
 
 const app = new Vue({
     el: '#app',
