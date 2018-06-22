@@ -88,10 +88,27 @@ class ProductController extends Controller
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function getNewBestsellers(  ) {
+	public function getNewBestsellers() {
 		$bestsellers = Product::where('bestseller', 1)
 		                      ->orderBy('created_at', 'desc')
 		                      ->take(12)
+			                  ->with('image')
+			                  ->with('author')
+			                  ->where('ebook', 0)
+		                      ->get();
+		return $bestsellers;
+    }
+
+    /**
+	 * Display a listing of the newest bestseller
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function getNewBestsellersForKids() {
+		$bestsellers = Product::where('bestseller', 1)
+		                      ->orderBy('created_at', 'desc')
+		                      ->take(12)
+		                      ->where('category_id', 3)
 			                  ->with('image')
 			                  ->with('author')
 			                  ->where('ebook', 0)
