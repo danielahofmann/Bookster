@@ -19,6 +19,14 @@ class Product extends Model
 	}
 
 	/**
+	 * Get the character record associated with the product.
+	 */
+	public function character()
+	{
+		return $this->belongsTo('App\Character');
+	}
+
+	/**
 	 * Get the category record associated with the product.
 	 */
 	public function category()
