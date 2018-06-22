@@ -1,6 +1,12 @@
 <template>
-    <div class="kids-novelties">
-        <p v-for="novelty in novelties" :key="novelty.id">{{ novelty.name }}</p>
+    <div class="kids-novelties grid-container">
+        <div class="grid-x">
+            <kids-book-preview v-for="novelty in novelties" :key="novelty.id"
+                               class="cell small-6 medium-3 large-3"
+                               :bookId="novelty.id"
+                               :img="novelty.image[0].img"
+            ></kids-book-preview>
+        </div>
     </div>
 </template>
 

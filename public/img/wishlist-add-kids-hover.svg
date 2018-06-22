@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Wunschliste</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Wunschliste-Kids-1">
+            <g id="Wunschliste">
+                <circle id="Oval-2" fill="#BD1E5A" cx="25" cy="25" r="25"></circle>
+                <g id="Merkliste" transform="translate(8.666667, 11.333333)" fill="#FFFFFF" fill-rule="nonzero">
+                    <path d="M23.4795997,0 C28.9453426,0 33.3333333,4.33417085 33.3333333,9.68592965 C33.3333333,12.2864322 32.2940724,14.6231156 30.6004619,16.3567839 L16.6666667,30 L2.73287144,16.3190955 C1.03926097,14.5854271 0,12.2487437 0,9.64824121 C0,4.33417085 4.38799076,0 9.85373364,0 C12.4711316,0 14.8960739,1.05527638 16.6666667,2.6758794 C18.4372594,1.01758794 20.8237105,0 23.4795997,0 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
