@@ -59,6 +59,8 @@ Vue.component('hamburger-menu', require('./components/HamburgerMenu.vue'));
 Vue.component('offcanvas', require('./components/OffCanvas.vue'));
 Vue.component('offcanvas-close', require('./components/OffCanvasClose.vue'));
 Vue.component('mobile-logo', require('./components/age-specific-components/elderly-components/MobileLogo.vue'));
+Vue.component('kids-book-preview', require('./components/age-specific-components/kid-components/KidsBookPreview.vue'));
+Vue.component('kids-novelties', require('./components/age-specific-components/kid-components/KidsNovelties.vue'));
 
 const app = new Vue({
     el: '#app',
