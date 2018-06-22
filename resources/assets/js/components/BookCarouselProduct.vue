@@ -70,6 +70,7 @@
         border-radius: 15px;
         padding: 40px 25px;
         height: 275px;
+        overflow: hidden;
 
         &:hover{
             background-color: $dark-beige;
