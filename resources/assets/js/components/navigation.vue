@@ -47,8 +47,14 @@
         props: ['isActive', 'size'],
         methods: {
             toggleActive: function(id){
+                if(this.isActive == true || this.tabId != id){
+                    this.categoryActive = true;
+
+                }else{
+                    this.categoryActive = !this.categoryActive;
+                }
+
                 this.tabId = id;
-                this.categoryActive = !this.categoryActive;
             }
         }
     }
