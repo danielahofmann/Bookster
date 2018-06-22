@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
 	        $table->integer('genre_id')->length(11);
 	        $table->integer('category_id')->length(11);
 	        $table->integer('author_id')->length(11);
+	        $table->integer('character_id')->length(11)->default('0');
 	        $table->string('name', 128);
 	        $table->string('price', 11);
 	        $table->text('description');
