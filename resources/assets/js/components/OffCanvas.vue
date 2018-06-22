@@ -155,7 +155,7 @@
             width: 250px;
         }
 
-        @include custom(1024px) {
+        @include custom-min(1024px) {
             display: none;
         }
     }

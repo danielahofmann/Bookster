@@ -57,7 +57,13 @@
   }
 }
 
-@mixin custom ($breakpoint){
+@mixin custom($min, $max) {
+  @media (min-width: #{$min}) and (max-width: #{$max}) {
+    @content;
+  }
+}
+
+@mixin custom-min($breakpoint){
   @media (min-width: #{$breakpoint}) {
     @content;
   }
@@ -110,7 +116,7 @@
   @include background-image($image, 35px, 35px);
   display: block;
 
-  @include custom(1170px){
+  @include custom-min(1170px){
     @include background-image($image, 40px, 40px);
   }
 
@@ -120,7 +126,7 @@
   @include background-image($image, 30px, 30px);
   display: block;
 
-  @include custom(1170px){
+  @include custom-min(1170px){
     @include background-image($image, 35px, 35px);
   }
 }

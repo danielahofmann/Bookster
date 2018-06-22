@@ -79,7 +79,7 @@
             height: auto;
         }
 
-        @include custom(1400px){
+        @include custom-min(1400px){
             height: auto;
         }
 
@@ -96,7 +96,7 @@
 
             .title{
                 @include text-styling($primary-font, $bold, 1.5rem);
-                @include custom(1300px){
+                @include custom-min(1300px){
                     margin-top: 2rem;
 
                 }
@@ -111,7 +111,7 @@
 
             .price{
                 @include text-styling($secondary-font, $semibold, 1rem);
-                @include custom(1400px){
+                @include custom-min(1400px){
                     margin-top: 2rem;
 
                 }

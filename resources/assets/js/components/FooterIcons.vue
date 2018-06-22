@@ -105,11 +105,11 @@
                     margin: 0 0.25rem;
                 }
 
-                @include custom(1036px){
+                @include custom-min(1036px){
                     margin: 0 0.5rem;
                 }
 
-                @include custom (1170px){
+                @include custom-min (1170px){
                     margin: 0 0.75rem;
                 }
 

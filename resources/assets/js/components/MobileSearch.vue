@@ -24,7 +24,7 @@
     .mobile-search {
         margin-top: 10px;
         padding-right: 1.25rem;
-        @include custom(1024px){
+        @include custom-min(1024px){
             display: none;
         }
 
