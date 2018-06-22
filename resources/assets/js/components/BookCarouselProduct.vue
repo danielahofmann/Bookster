@@ -81,7 +81,7 @@
         }
 
         @include custom-min(1400px){
-            height: auto;
+            height: 290px;
         }
 
         .product-image{
@@ -98,7 +98,8 @@
             .title{
                 @include text-styling($primary-font, $bold, 1.5rem);
                 @include custom-min(1300px){
-                    margin-top: 2rem;
+                    margin-top: 1rem;
+                    margin-bottom: 0;
 
                 }
                 color: $dark-grey;
@@ -113,7 +114,7 @@
             .price{
                 @include text-styling($secondary-font, $semibold, 1rem);
                 @include custom-min(1400px){
-                    margin-top: 2rem;
+                    margin-top: 1.5rem;
 
                 }
                 color: $dark-grey;
@@ -121,5 +122,4 @@
             }
         }
     }
-
 </style>
