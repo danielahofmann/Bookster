@@ -52,6 +52,13 @@
                 padding-top: 20px;
             }
 
+            @include custom(1024px, 1160px){
+                min-height: 180px;
+            }
+            @include custom(1161px, 1280px){
+                min-height: 150px;
+            }
+
             .title{
                 @include text-styling($primary-font, $bold, 1rem);
                 color: $dark-grey;
