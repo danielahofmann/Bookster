@@ -42,6 +42,8 @@
             @yield('main')
         </main>
 
-        <footer-section></footer-section>
+        <footer-section
+                :is-toddler="false"
+        ></footer-section>
     </div>
 @stop
