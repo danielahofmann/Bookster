@@ -37,3 +37,7 @@ Route::get('/results', function () {
 	return view('pages.results');
 });
 
+Route::get('/redirect', function(){
+	return back();
+})->name('redirect');
+
