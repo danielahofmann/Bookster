@@ -64,6 +64,7 @@ Vue.component('kids-novelties', require('./components/age-specific-components/ki
 Vue.component('toddler-slider', require('./components/age-specific-components/toddler-components/ToddlerSlider.vue'));
 Vue.component('toddler-opt-out', require('./components/age-specific-components/toddler-components/ToddlerFooterOptOut.vue'));
 Vue.component('toddler-wishlist', require('./components/age-specific-components/toddler-components/ToddlerWishlist.vue'));
+Vue.component('toddler-redirect', require('./components/age-specific-components/toddler-components/ToddlerRedirectBack.vue'));
 
 const app = new Vue({
     el: '#app',
@@ -84,9 +85,9 @@ const app = new Vue({
                 .then(function (response) {
                     console.log(response.data.ageGroup);
 
-                    url = response.data.ageGroup + "/"
+                    const url = response.data.ageGroup + "/";
 
-                    window.location.href = url
+                    window.location.href = url;
                 })
                 .catch(function (error) {
                     console.log(error);
