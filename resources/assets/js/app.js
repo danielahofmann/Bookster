@@ -58,6 +58,11 @@ Vue.component('footer-bottom', require('./components/FooterBottom.vue'));
 Vue.component('hamburger-menu', require('./components/HamburgerMenu.vue'));
 Vue.component('offcanvas', require('./components/OffCanvas.vue'));
 Vue.component('offcanvas-close', require('./components/OffCanvasClose.vue'));
+Vue.component('filter-category', require('./components/FilterCategory.vue'));
+Vue.component('book-preview', require('./components/BookPreview.vue'));
+Vue.component('book-preview-section', require('./components/BookPreviewSection.vue'));
+
+
 Vue.component('mobile-logo', require('./components/age-specific-components/elderly-components/MobileLogo.vue'));
 Vue.component('kids-book-preview', require('./components/age-specific-components/kid-components/KidsBookPreview.vue'));
 Vue.component('kids-novelties', require('./components/age-specific-components/kid-components/KidsNovelties.vue'));
@@ -72,6 +77,17 @@ const app = new Vue({
 
     data: {
         age: null,
+        products: null,
+        productsAvailable: false,
+    },
+    watch: {
+        products: function (id) {
+            if (this.products === null || this.products.length == 0) {
+                this.productsAvailable = false;
+            } else {
+                this.productsAvailable = true;
+            }
+        },
     },
 
     methods: {
@@ -104,11 +120,54 @@ const app = new Vue({
                 .then(function (response) {
                     console.log(response.data);
                     window.location.href = '/results';
-
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
+        },
+        updateProducts: function(products){
+            this.products = products;
+        },
+
+
+        filterGenre: function (id) {
+            var genreId = id[0];
+            var authorId = id[1];
+            var self = this;
+
+            //when both aren't null, filter for both
+            if(genreId != null && authorId != null){
+                axios.get('/api/filterProducts?genreId=' + genreId + '&authorId=' + authorId)
+                    .then(function (response) {
+                        self.products = response.data;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+
+            } else {
+                //filter for genre only
+                if (genreId != null) {
+                    axios.get('/api/getProductsOfGenre/' + genreId)
+                        .then(function (response) {
+                            self.products = response.data;
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+
+                //filter for author only
+                if (authorId != null) {
+                    axios.get('/api/getProductsOfAuthor/' + authorId)
+                        .then(function (response) {
+                            self.products = response.data;
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+            }
         }
     }
 });

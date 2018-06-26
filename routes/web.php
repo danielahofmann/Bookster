@@ -33,6 +33,10 @@ Route::get('/api/getNovelties', 'ProductController@getNovelties');
 Route::get('/api/getKidsNovelties', 'ProductController@getKidsNovelties');
 Route::get('/api/getAuthors', 'AuthorController@getAuthors');
 Route::get('/api/getGenres/{id}', 'GenreController@getGenreOfCategory');
+Route::get('/api/getProductsOfGenre/{id}', 'ProductController@getProductsOfGenre');
+Route::get('/api/getProductsOfCategory/{id}', 'ProductController@getProductsOfCategory');
+Route::get('/api/getProductsOfAuthor/{id}', 'ProductController@getProductsOfAuthor');
+Route::get('/api/filterProducts', 'ProductController@filterProducts');
 
 Route::get('/results', function () {
 	return view('pages.results');
@@ -41,4 +45,12 @@ Route::get('/results', function () {
 Route::get('/redirect', function(){
 	return back();
 })->name('redirect');
+
+Route::get('/api/getGenresAndRedirect/{id}', function($id){
+	$category = App\Category::find($id);
+	return redirect('/', 301);
+});
+
+
+
 

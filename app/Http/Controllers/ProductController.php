@@ -145,4 +145,56 @@ class ProductController extends Controller
 		                    ->get();
 		return $novelties;
 	}
+
+	/**
+	 * Get products of genre
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function getProductsOfGenre($id) {
+		$products_of_genre = Product::where('genre_id', $id)
+		                    ->orderBy('created_at', 'desc')
+		                    ->with('image')
+		                    ->get();
+		return $products_of_genre;
+	}
+
+	/**
+	 * Get products of author
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function getProductsOfAuthor($id) {
+		$products_of_author = Product::where('author_id', $id)
+		                            ->orderBy('created_at', 'desc')
+		                            ->with('image')
+		                            ->get();
+		return $products_of_author;
+	}
+
+	/**
+	 * Get products of author
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function filterProducts(Request $request) {
+		$genre_id = $request->genreId;
+		$author_id = $request->authorId;
+
+		$filtered_products = Product::where('author_id', $author_id)
+		                             ->where('genre_id', $genre_id)
+		                             ->orderBy('created_at', 'desc')
+		                             ->with('image')
+		                             ->get();
+		return $filtered_products;
+	}
+
+	public function getProductsOfCategory($id) {
+		$products_of_category = Product::where('category_id', $id)
+		                            ->orderBy('created_at', 'desc')
+		                            ->with('image')
+		                            ->get();
+		return $products_of_category;
+	}
 }
