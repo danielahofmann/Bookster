@@ -65,6 +65,10 @@
 
     .book-preview-section{
         margin-top: 40px;
+
+        @include custom-max(639px){
+            margin-top: 20px;
+        }
     }
 
 </style>

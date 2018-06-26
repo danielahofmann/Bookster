@@ -1,14 +1,14 @@
 <template>
     <div>
         <div class="filter grid-x flex-center">
-            <div class="small-6 medium-2 select-div">
+            <div class="small-5 medium-4 large-2 select-div">
                 <select v-model="selectedGenre" class="select">
                     <option disabled selected value="0">Genre</option>
                     <option v-for="genre in genres" :value="genre.id">{{genre.genre}}</option>
                 </select>
             </div>
 
-            <div class="small-6 medium-2 select-div">
+            <div class="small-5 medium-4 large-2 select-div">
                 <select v-model="selectedAuthor" class="select">
                     <option disabled selected value="0">Autor</option>
                     <option v-for="author in authors" :value="author.id">{{author.firstname}}
@@ -20,8 +20,8 @@
 
         <div class="grid-x flex-center">
             <div v-if="selectedGenre || selectedAuthor" class="close-div" @click="noFilter(id)">
-                <p class="close text-right">X</p>
-                <p class="close-text text-center">Filter entfernen</p>
+                <p class="close text-right" :style="{ fontSize: fontSize }">X</p>
+                <p class="close-text text-center" :style="{ fontSize: fontSize }">Filter entfernen</p>
             </div>
         </div>
     </div>
@@ -36,6 +36,7 @@
                 selectedGenre: 0,
                 selectedAuthor: 0,
                 id: this.categoryId,
+                fontSize: this.size + "rem",
             }
         },
         mounted() {},
@@ -55,7 +56,7 @@
                 this.$emit('nofilter', id);
             }
         },
-        props: ['categoryGenres', 'categoryAuthors', 'categoryId']
+        props: ['categoryGenres', 'categoryAuthors', 'categoryId', 'size']
     }
 </script>
 
@@ -99,12 +100,13 @@
             @include text-styling($primary-font, $bold, 0.75rem);
             color: $light-grey;
             display: inline-block;
+            margin: 0;
         }
         .close-text{
             @include text-styling($primary-font, $regular, 0.75rem);
             color: $light-grey;
             display: inline-block;
-
+            margin: 0;
         }
 
         &:hover{
