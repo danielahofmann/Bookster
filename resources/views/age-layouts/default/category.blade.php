@@ -10,7 +10,9 @@
         <filter-category
             :category-genres="{{$genres}}"
             :category-authors="{{$authors}}"
+            :category-id="{{$category->id}}"
             @filter="filterGenre"
+            @nofilter="noFilter"
         ></filter-category>
 
         <book-preview-section

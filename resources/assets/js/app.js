@@ -125,10 +125,22 @@ const app = new Vue({
                     console.log(error);
                 });
         },
+
         updateProducts: function(products){
             this.products = products;
         },
 
+        noFilter: function(id){
+            var self = this;
+            axios.get('/api/getProductsOfCategory/' + id)
+                .then(function (response) {
+                    console.log(response.data);
+                    self.products = response.data;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        },
 
         filterGenre: function (id) {
             var genreId = id[0];
@@ -136,7 +148,7 @@ const app = new Vue({
             var self = this;
 
             //when both aren't null, filter for both
-            if(genreId != null && authorId != null){
+            if(genreId != 0 && authorId != 0){
                 axios.get('/api/filterProducts?genreId=' + genreId + '&authorId=' + authorId)
                     .then(function (response) {
                         self.products = response.data;
@@ -147,7 +159,7 @@ const app = new Vue({
 
             } else {
                 //filter for genre only
-                if (genreId != null) {
+                if (genreId != 0) {
                     axios.get('/api/getProductsOfGenre/' + genreId)
                         .then(function (response) {
                             self.products = response.data;
@@ -158,7 +170,7 @@ const app = new Vue({
                 }
 
                 //filter for author only
-                if (authorId != null) {
+                if (authorId != 0) {
                     axios.get('/api/getProductsOfAuthor/' + authorId)
                         .then(function (response) {
                             self.products = response.data;
