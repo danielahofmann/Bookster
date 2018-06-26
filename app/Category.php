@@ -21,4 +21,8 @@ class Category extends Model
 	{
 		return $this->hasMany('App\Genre');
 	}
+
+	public function authors() {
+		return $this->belongsToMany('App\Author', 'authors_categories')->withTimestamps()->withPivot('category_id', 'author_id');
+	}
 }
