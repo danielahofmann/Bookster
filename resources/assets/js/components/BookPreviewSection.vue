@@ -14,6 +14,7 @@
                           :title="product.name"
                           :price="product.price"
                           :img="product.image[0].img"
+                          :id="product.id"
                           :size="fontSize"
             ></book-preview>
         </div>
