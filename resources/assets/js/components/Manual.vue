@@ -29,9 +29,7 @@
                 fontSizeText: this.sizeText + "rem",
             }
         },
-        mounted() {
-            console.log('Component ready');
-        },
+        mounted() {},
         props: ['sizeHeadline', 'sizeText'],
     }
 </script>

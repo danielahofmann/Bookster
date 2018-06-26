@@ -9,9 +9,7 @@
         data() {
             return {}
         },
-        mounted() {
-            console.log('Login ready');
-        },
+        mounted() {},
     }
 </script>
 

@@ -9,9 +9,7 @@
         data() {
             return {}
         },
-        mounted() {
-            console.log('Component ready');
-        },
+        mounted() {},
         methods: {
             closeOffCanvas: function(){
                 document.getElementById('offCanvas').classList.toggle('is-open');

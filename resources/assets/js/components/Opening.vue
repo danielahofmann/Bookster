@@ -15,9 +15,7 @@
                 fontSizeText: this.sizeText + "rem",
             }
         },
-        mounted() {
-            console.log('Component ready');
-        },
+        mounted() {},
         props: ['size', 'sizeText'],
     }
 </script>

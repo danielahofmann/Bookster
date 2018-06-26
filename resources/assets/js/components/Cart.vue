@@ -9,9 +9,7 @@
         data() {
             return {}
         },
-        mounted() {
-            console.log('cart ready');
-        },
+        mounted() {},
     }
 </script>
 

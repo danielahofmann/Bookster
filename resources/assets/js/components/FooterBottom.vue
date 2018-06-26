@@ -22,9 +22,7 @@
         data() {
             return {}
         },
-        mounted() {
-            console.log('Component ready');
-        },
+        mounted() {},
     }
 
     // [TODO] HREFS

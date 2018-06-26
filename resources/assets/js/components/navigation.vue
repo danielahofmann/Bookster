@@ -41,9 +41,7 @@
                 tabId: null,
             }
         },
-        mounted() {
-            console.log('Navigation ready');
-        },
+        mounted() {},
         props: ['isActive', 'size'],
         methods: {
             toggleActive: function(id){

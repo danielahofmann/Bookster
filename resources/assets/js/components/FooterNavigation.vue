@@ -53,9 +53,7 @@
                 categories: null,
             }
         },
-        mounted() {
-            console.log('ready');
-        },
+        mounted() {},
         created(){
             axios
                 .get('/api/getCategories')

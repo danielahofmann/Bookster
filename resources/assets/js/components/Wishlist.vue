@@ -9,9 +9,7 @@
         data() {
             return {}
         },
-        mounted() {
-            console.log('wishlist ready');
-        },
+        mounted() {},
     }
 </script>
 

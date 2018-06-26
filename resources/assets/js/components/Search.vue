@@ -13,9 +13,7 @@
                 query: '',
             }
         },
-        mounted() {
-            console.log('Component ready');
-        },
+        mounted() {},
         methods: {
 
         }

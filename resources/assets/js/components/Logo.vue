@@ -11,9 +11,7 @@
                 isOld: this.oldTemplate,
             }
         },
-        mounted() {
-            console.log('Logo ready');
-        },
+        mounted() {},
         props: ['oldTemplate'],
     }
 </script>

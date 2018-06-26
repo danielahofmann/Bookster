@@ -15,9 +15,7 @@
                 show: !this.isToddler,
             }
         },
-        mounted() {
-            console.log('Component ready');
-        },
+        mounted() {},
         props: ['isToddler']
     }
 </script>

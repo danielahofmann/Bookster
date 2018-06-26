@@ -104,7 +104,6 @@
             }
         },
         mounted() {
-            console.log('offc ready');
             axios
                 .get('/api/getCategories')
                 .then(response => (

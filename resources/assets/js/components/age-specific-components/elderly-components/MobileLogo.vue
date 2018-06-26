@@ -9,9 +9,7 @@
         data() {
             return {}
         },
-        mounted() {
-            console.log('mobile logo for elderly and senior ready');
-        },
+        mounted() {},
     }
 </script>
 

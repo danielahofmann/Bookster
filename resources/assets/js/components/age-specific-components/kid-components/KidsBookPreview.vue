@@ -14,9 +14,7 @@
 
             }
         },
-        mounted() {
-            console.log('Component ready');
-        },
+        mounted() {},
         props: ['bookId', 'img'],
     }
 </script>

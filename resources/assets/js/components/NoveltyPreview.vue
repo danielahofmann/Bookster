@@ -22,9 +22,7 @@
                 fontSizePrice: this.sizePrice + "rem",
             }
         },
-        mounted() {
-            console.log('Component ready');
-        },
+        mounted() {},
         props: ['bookTitle', 'price', 'authorFirstname', 'authorLastname', 'sizeTitle', 'sizeAuthor', 'sizePrice', 'img'],
 
     }

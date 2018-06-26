@@ -12,9 +12,7 @@
                 isOld: this.oldTemplate,
             }
         },
-        mounted() {
-            console.log('Component ready');
-        },
+        mounted() {},
         methods:{
             toggleButton: function(){
                 document.getElementById('offcanvas-close').classList.toggle('button-show');
