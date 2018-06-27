@@ -78,16 +78,28 @@
                 border: none;
                 border-top: 2px solid $dark-grey;
                 border-bottom: thin solid $dark-beige;
+                background-image: url('/img/arrow-down.svg');
+                background-size: 15px 15px;
+                background-position:
+                        calc(100% - 15px),
+                        calc(100% - 15px),
+                        100% 0;
+                background-repeat: no-repeat;
+                transition: background 0.1s ease-in;
+                @include text-styling($primary-font, $regular, 1rem);
+                color: $dark-grey;
 
-                &:focus{
+                &:focus {
                     box-shadow: none;
                     border-top: 2px solid $blue;
-                }
-
-                .option{
-                    @include text-styling($primary-font, $regular, 1rem);
-                    color: $dark-grey;
-                    background-color: $beige;
+                    border-bottom: thin solid $light-blue;
+                    background-image: url('/img/arrow-up-blue.svg');
+                    background-size: 15px 15px;
+                    background-position:
+                            calc(100% - 15px),
+                            calc(100% - 15px),
+                            100% 0;
+                    background-repeat: no-repeat;
                 }
             }
         }
