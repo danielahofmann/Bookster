@@ -23,9 +23,12 @@
         },
         methods: {
             saveToWishlist: function (bookId) {
+                var self = this;
+
                 axios.get('/api/saveProductToSessionWishlist/' + bookId)
                     .then(function (response) {
-                        console.log(response.data);
+                        var quantity = response.data.wishlist.totalQuantity;
+                        self.$store.commit('newWishlistItem', quantity);
                     })
                     .catch(function (error) {
                         console.log(error);

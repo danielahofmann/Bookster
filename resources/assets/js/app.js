@@ -188,9 +188,6 @@ const app = new Vue({
                         });
                 }
             }
-        },
-        addedToWishlist: function(quantity){
-            console.log('yiha');
         }
     }
 });
