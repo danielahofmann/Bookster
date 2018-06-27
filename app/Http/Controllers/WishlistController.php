@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Wishlist;
+use App\WishlistSession;
+use App\Product;
 use Illuminate\Http\Request;
+use Session;
 
 class WishlistController extends Controller
 {
@@ -81,5 +84,27 @@ class WishlistController extends Controller
     public function destroy(Wishlist $wishlist)
     {
         //
+    }
+
+	/**
+	 * @param $id
+	 *
+	 * @param  Request  $request
+	 * @return array
+	 */
+	public function saveProductToSessionWishlist(Request $request, $id) {
+		$product = Product::find($id);
+		$oldWishlist = Session::has('wishlist') ? Session::get('wishlist') : null;
+
+		$wishlist = new WishlistSession($oldWishlist);
+		$wishlist->add($product, $product->id);
+
+		$request->session()->put('wishlist', $wishlist);
+
+		$session_data = [
+			'wishlist' => session('wishlist'),
+		];
+
+		return $session_data;
     }
 }
