@@ -37,6 +37,8 @@ Route::get('/api/getProductsOfGenre/{id}', 'ProductController@getProductsOfGenre
 Route::get('/api/getProductsOfCategory/{id}', 'ProductController@getProductsOfCategory');
 Route::get('/api/getProductsOfAuthor/{id}', 'ProductController@getProductsOfAuthor');
 Route::get('/api/filterProducts', 'ProductController@filterProducts');
+Route::get('/api/saveProductToSessionWishlist/{id}', 'WishlistController@saveProductToSessionWishlist');
+
 
 Route::get('/results', function () {
 	return view('pages.results');
