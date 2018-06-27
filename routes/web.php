@@ -12,6 +12,8 @@
 */
 
 use App\Genre;
+use Illuminate\Http\Request;
+
 
 Route::get('/', function () {
     return view('pages.age');
@@ -51,6 +53,14 @@ Route::get('/redirect', function(){
 Route::get('/api/getGenresAndRedirect/{id}', function($id){
 	$category = App\Category::find($id);
 	return redirect('/', 301);
+});
+
+Route::get('/api/getWishlistQuantity', function(Request $request){
+	$data = $request->session()->get('wishlist');
+
+	$quantity = $data->totalQuantity;
+
+	return $quantity;
 });
 
 
