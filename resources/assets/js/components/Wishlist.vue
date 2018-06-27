@@ -1,15 +1,48 @@
 <template>
     <div class="wishlist">
-        <a href="/wishlist/" class="wishlist-icon"></a>
+        <a href="/wishlist/" :class="{ true : wishlist, false : wishlistInverse }"></a>
     </div>
 </template>
 
 <script>
     export default {
-        data() {
-            return {}
+        data: function() {
+            return{
+            }
         },
-        mounted() {},
+        mounted() {
+            var self = this;
+
+            axios
+                .get('/api/getWishlistQuantity/')
+                .then(function (response) {
+                    const quantity = response.data;
+
+                    if(quantity > 0){
+                        self.$store.commit('newWishlistItem', quantity);
+                    }
+
+                    self.$store.commit('setQuantity', quantity);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        },
+        computed: {
+            wishlist(){
+                return this.$store.state.wishlist;
+            },
+            quantity(){
+                return this.$store.state.quantity;
+            },
+            wishlistInverse(){
+                if (this.$store.state.quantity === true){
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+        }
     }
 </script>
 
@@ -18,8 +51,14 @@
 
     .wishlist {
         display: inline-block;
-        .wishlist-icon {
+        .false {
             @include nav-icons ('/img/wishlist.png');
+            background-size: 28px 25px;
+        }
+
+        .true {
+            @include nav-icons ('/img/wishlist-true.png');
+            background-size: 28px 25px;
         }
     }
 
