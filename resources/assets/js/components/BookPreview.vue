@@ -2,7 +2,7 @@
     <div class="book-preview grid-x grid-padding-x cell small-6 medium-3 large-2">
         <div class="cell small-12">
             <img :src="img" alt="Produktbild" class="book-image">
-            <button class="book-wish-button"></button>
+            <button class="book-wish-button" @click="saveToWishlist(bookId)"></button>
         </div>
         <div class="cell small-12 book-info">
             <p class="text-center book-text" :style="{ fontSize: fontSize }">{{title}}</p>
@@ -16,9 +16,21 @@
         data() {
             return {
                 fontSize: this.size + "rem",
+                bookId: this.id
             }
         },
         mounted() {
+        },
+        methods: {
+            saveToWishlist: function (bookId) {
+                axios.get('/api/saveProductToSessionWishlist/' + bookId)
+                    .then(function (response) {
+                        console.log(response.data);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            }
         },
         props: ['title', 'price', 'id', 'img', 'size']
     }
@@ -49,6 +61,10 @@
                 background-size: 40px 40px;
                 height: 40px;
                 width: 40px;
+            }
+
+            &:focus{
+                outline: none;
             }
         }
 
