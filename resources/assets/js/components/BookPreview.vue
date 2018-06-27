@@ -65,6 +65,10 @@
 
             &:focus{
                 outline: none;
+                background: url(/img/wishbutton-focus.svg) no-repeat;
+                background-size: 40px 40px;
+                height: 40px;
+                width: 40px;
             }
         }
 
