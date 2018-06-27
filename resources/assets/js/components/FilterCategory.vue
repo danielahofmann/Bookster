@@ -9,7 +9,7 @@
             </div>
 
             <div class="small-5 medium-4 large-2 select-div">
-                <select v-model="selectedAuthor" class="select">
+                <select v-model="selectedAuthor" class="select" :style="{ fontSize: fontSize }">
                     <option disabled selected value="0">Autor</option>
                     <option v-for="author in authors" :value="author.id">{{author.firstname}}
                         {{author.lastname}}
