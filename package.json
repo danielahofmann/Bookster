@@ -23,6 +23,7 @@
     "dependencies": {
         "vue-carousel": "^0.8.0",
         "vue-feather-icon": "^1.2.0",
-        "vue-router": "^3.0.1"
+        "vue-router": "^3.0.1",
+        "vue2-animate": "^2.0.0"
     }
 }
