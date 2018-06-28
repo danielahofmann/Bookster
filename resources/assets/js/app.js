@@ -67,6 +67,7 @@ Vue.component('offcanvas-close', require('./components/OffCanvasClose.vue'));
 Vue.component('filter-category', require('./components/FilterCategory.vue'));
 Vue.component('book-preview', require('./components/BookPreview.vue'));
 Vue.component('book-preview-section', require('./components/BookPreviewSection.vue'));
+Vue.component('breadcrumb', require('./components/Breadcrumb.vue'));
 
 
 Vue.component('mobile-logo', require('./components/age-specific-components/elderly-components/MobileLogo.vue'));
