@@ -40,7 +40,7 @@
 }
 
 .main{
-  margin-top: 110px;
+  margin-top: 125px;
 
   @include custom-max(1024px) {
     margin-top: 65px;
@@ -83,4 +83,35 @@
     margin-top: 150px;
   }
 
+}
+
+.breadcrumbs{
+  margin-top: 200px;
+  margin-left: 3rem;
+
+  @include custom-max(1220px){
+    margin-top: 260px;
+  }
+
+  @include custom-max(1023px){
+    display: none;
+  }
+
+  li {
+    color: $light-grey;
+    @include text-styling ($secondary-font, $regular, 0.75rem);
+
+    a{
+      color: $light-grey;
+
+      &:hover{
+        color: $dark-grey;
+      }
+    }
+  }
+
+  .current {
+    color: $dark-grey;
+    @include text-styling ($secondary-font, $regular, 0.75rem);
+  }
 }

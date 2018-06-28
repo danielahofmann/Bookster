@@ -8561,7 +8561,7 @@ h3 {
 }
 
 .main {
-  margin-top: 110px;
+  margin-top: 125px;
 }
 
 @media (max-width: 1024px) {
@@ -8609,5 +8609,44 @@ h3 {
   .margin-top {
     margin-top: 150px;
   }
+}
+
+.breadcrumbs {
+  margin-top: 200px;
+  margin-left: 3rem;
+}
+
+@media (max-width: 1220px) {
+  .breadcrumbs {
+    margin-top: 260px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .breadcrumbs {
+    display: none;
+  }
+}
+
+.breadcrumbs li {
+  color: #9B9B9B;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+
+.breadcrumbs li a {
+  color: #9B9B9B;
+}
+
+.breadcrumbs li a:hover {
+  color: #4A4A4A;
+}
+
+.breadcrumbs .current {
+  color: #4A4A4A;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
 }
 
