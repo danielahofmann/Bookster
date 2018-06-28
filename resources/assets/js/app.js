@@ -67,13 +67,15 @@ Vue.component('offcanvas-close', require('./components/OffCanvasClose.vue'));
 Vue.component('filter-category', require('./components/FilterCategory.vue'));
 Vue.component('book-preview', require('./components/BookPreview.vue'));
 Vue.component('book-preview-section', require('./components/BookPreviewSection.vue'));
-Vue.component('breadcrumb', require('./components/Breadcrumb.vue'));
 
 
 Vue.component('mobile-logo', require('./components/age-specific-components/elderly-components/MobileLogo.vue'));
 Vue.component('kids-book-preview', require('./components/age-specific-components/kid-components/KidsBookPreview.vue'));
+Vue.component('kids-preview', require('./components/age-specific-components/kid-components/KidsPreviewSection.vue'));
 Vue.component('kids-novelties', require('./components/age-specific-components/kid-components/KidsNovelties.vue'));
 Vue.component('toddler-carousel', require('./components/age-specific-components/toddler-components/ToddlerCarousel.vue'));
+Vue.component('toddler-character', require('./components/age-specific-components/toddler-components/ToddlerCharacter.vue'));
+Vue.component('toddler-character-books', require('./components/age-specific-components/toddler-components/ToddlerCharacterBooks.vue'));
 Vue.component('toddler-opt-out', require('./components/age-specific-components/toddler-components/ToddlerFooterOptOut.vue'));
 Vue.component('toddler-wishlist', require('./components/age-specific-components/toddler-components/ToddlerWishlist.vue'));
 Vue.component('toddler-redirect', require('./components/age-specific-components/toddler-components/ToddlerRedirectBack.vue'));
