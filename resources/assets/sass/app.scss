@@ -71,3 +71,16 @@
   height: 100vh;
   overflow: hidden;
 }
+
+.margin-top{
+  margin-top: 275px;
+
+  @include custom-max(1220px){
+    margin-top: 300px;
+  }
+
+  @include custom-max(1023px){
+    margin-top: 150px;
+  }
+
+}

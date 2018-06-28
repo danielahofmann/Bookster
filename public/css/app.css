@@ -8595,3 +8595,19 @@ h3 {
   overflow: hidden;
 }
 
+.margin-top {
+  margin-top: 275px;
+}
+
+@media (max-width: 1220px) {
+  .margin-top {
+    margin-top: 300px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .margin-top {
+    margin-top: 150px;
+  }
+}
+
