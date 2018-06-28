@@ -36,7 +36,7 @@
                 return this.$store.state.quantity;
             },
             wishlistInverse(){
-                if (this.$store.state.quantity === true){
+                if (this.$store.state.wishlist === true){
                     return false;
                 }else{
                     return true;
