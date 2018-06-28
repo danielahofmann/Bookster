@@ -24,7 +24,6 @@
             axios
                 .get('/api/getCharacters')
                 .then(response => (
-                    console.log(response.data),
                     this.characters = response.data))
                 .catch(function (error) {
                     console.log(error);
