@@ -4,6 +4,7 @@
 
 @section('main')
     <div>
+
         <h2>{{$category->name}}</h2>
 
         <filter-category

@@ -10,7 +10,7 @@
             :category-genres="{{$genres}}"
             :category-authors="{{$authors}}"
             :category-id="{{$category->id}}"
-            :size="0.75"
+            :size="1"
             @filter="filterGenre"
             @nofilter="noFilter"
         ></filter-category>
