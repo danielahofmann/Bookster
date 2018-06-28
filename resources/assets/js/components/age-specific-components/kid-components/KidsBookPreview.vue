@@ -1,8 +1,10 @@
 <template>
     <div class="grid-x flex-center kid-preview">
         <div class="cell small-11">
-            <img :src="img" alt="Produktbild" class="kid-image">
-            <button class="wish-button" @click="saveToWishlist(id)"></button>
+            <a class="nav-link" :href="route(url, id)">
+                <img :src="img" alt="Produktbild" class="kid-image">
+                <button class="wish-button" @click="saveToWishlist(id)"></button>
+            </a>
         </div>
     </div>
 </template>
@@ -11,7 +13,8 @@
     export default {
         data() {
             return {
-                id: this.bookId
+                id: this.bookId,
+                url: this.href
             }
         },
         mounted() {},
@@ -21,8 +24,6 @@
 
                 axios.get('/api/saveProductToSessionWishlist/' + id)
                     .then(function (response) {
-                        console.log('done')
-                        var quantity = response.data.wishlist.totalQuantity;
                         self.$store.commit('newWishlistItem', quantity);
                     })
                     .catch(function (error) {
@@ -30,7 +31,7 @@
                     });
             }
         },
-        props: ['bookId', 'img'],
+        props: ['bookId', 'img', 'href'],
     }
 </script>
 
