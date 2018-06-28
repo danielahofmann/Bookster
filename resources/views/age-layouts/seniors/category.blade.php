@@ -4,7 +4,9 @@
 
 @section('main')
     <div>
-        <h2 class="margin-top">{{$category->name}}</h2>
+        {{ Breadcrumbs::render('seniors-category', $category->name) }}
+
+        <h2>{{$category->name}}</h2>
 
         <filter-category
                 :category-genres="{{$genres}}"
