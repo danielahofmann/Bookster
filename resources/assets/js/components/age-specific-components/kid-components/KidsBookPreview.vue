@@ -2,7 +2,7 @@
     <div class="grid-x flex-center kid-preview">
         <div class="cell small-11">
             <img :src="img" alt="Produktbild" class="kid-image">
-            <button class="wish-button"></button>
+            <button class="wish-button" @click="saveToWishlist(id)"></button>
         </div>
     </div>
 </template>
@@ -11,10 +11,25 @@
     export default {
         data() {
             return {
-
+                id: this.bookId
             }
         },
         mounted() {},
+        methods: {
+            saveToWishlist: function (id) {
+                var self = this;
+
+                axios.get('/api/saveProductToSessionWishlist/' + id)
+                    .then(function (response) {
+                        console.log('done')
+                        var quantity = response.data.wishlist.totalQuantity;
+                        self.$store.commit('newWishlistItem', quantity);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            }
+        },
         props: ['bookId', 'img'],
     }
 </script>
@@ -44,6 +59,10 @@
                 background-size: 40px 40px;
                 height: 40px;
                 width: 40px;
+            }
+
+            &:focus{
+                outline: none;
             }
         }
 
