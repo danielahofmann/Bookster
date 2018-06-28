@@ -140,7 +140,6 @@ class ProductController extends Controller
 		$novelties = Product::where('ebook', 0)
 		                    ->orderBy('created_at', 'desc')
 							->where('category_id', 3)
-		                    ->take(8)
 		                    ->with('image')
 		                    ->get();
 		return $novelties;
