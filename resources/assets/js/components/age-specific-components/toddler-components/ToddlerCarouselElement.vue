@@ -1,8 +1,10 @@
 <template>
     <div class="grid-x flex-center">
-        <div class="cell small-11 image-container flex-center">
-            <img :src="img" alt="Charakter">
-        </div>
+        <a :href="'character/' + characterId">
+            <div class="cell small-11 image-container flex-center">
+                <img :src="img" alt="Charakter">
+            </div>
+        </a>
     </div>
 </template>
 
