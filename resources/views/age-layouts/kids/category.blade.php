@@ -15,11 +15,11 @@
                 @nofilter="noFilter"
         ></filter-category>
 
-        <book-preview-section
+        <kids-preview
                 :category-id="{{$category->id}}"
                 :fontsize="1.25"
                 :parent-products="products"
                 @update="updateProducts"
-        ></book-preview-section>
+        ></kids-preview>
     </div>
 @stop
