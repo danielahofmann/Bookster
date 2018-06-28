@@ -31,6 +31,15 @@ Vue.use(VueFeatherIcon);
  */
 import { store } from './store/store';
 
+/**
+ * ZIGGY
+ */
+
+Vue.mixin({
+    methods: {
+        route: route
+    }
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -80,6 +89,7 @@ Vue.component('toddler-opt-out', require('./components/age-specific-components/t
 Vue.component('toddler-wishlist', require('./components/age-specific-components/toddler-components/ToddlerWishlist.vue'));
 Vue.component('toddler-redirect', require('./components/age-specific-components/toddler-components/ToddlerRedirectBack.vue'));
 Vue.component('toddler-carousel-element', require('./components/age-specific-components/toddler-components/ToddlerCarouselElement.vue'));
+Vue.component('toddler-book', require('./components/age-specific-components/toddler-components/ToddlerBook.vue'));
 
 const app = new Vue({
     el: '#app',
