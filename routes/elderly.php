@@ -16,5 +16,12 @@ Route::prefix('elderly')->group(function() {
 		$authors = App\Author::whereHas('categories', $filterCategory)->with(['categories' => $filterCategory])->get();
 
 		return view('age-layouts.elderly.category', ['category' => $category, 'genres' => $genres, 'authors' => $authors]);
+
 	})->name('elderly-category');
+
+	Route::get('/product/{id}', function ($id) {
+		$product = App\Product::find($id);
+
+		return view('age-layouts.elderly.product', ['product' => $product]);
+	})->name('product');
 });

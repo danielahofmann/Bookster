@@ -11,4 +11,14 @@ Route::prefix('toddlers')->group(function() {
 
 		return view('age-layouts.toddlers.category', ['character' => $character[0], 'products' => $products]);
 	})->name('character');
+
+	Route::get('/product/{id}', function ($id) {
+		$product = App\Product::where('id', $id)
+		                      ->with('image')
+		                      ->with('author')
+		                      ->where('ebook', 0)
+		                      ->get();
+
+		return view('age-layouts.toddlers.product', ['product' => $product]);
+	})->name('toddlers-product');
 });

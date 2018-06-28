@@ -17,4 +17,10 @@ Route::prefix('seniors')->group(function() {
 
 		return view('age-layouts.seniors.category', ['category' => $category, 'genres' => $genres, 'authors' => $authors]);
 	})->name('seniors-category');
+
+	Route::get('/product/{id}', function ($id) {
+		$product = App\Product::find($id);
+
+		return view('age-layouts.seniors.product', ['product' => $product]);
+	})->name('product');
 });

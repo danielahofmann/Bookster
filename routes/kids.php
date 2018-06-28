@@ -17,4 +17,10 @@ Route::prefix('kids')->group(function() {
 
 		return view('age-layouts.kids.category', ['category' => $category, 'genres' => $genres, 'authors' => $authors]);
 	});
+
+	Route::get('/product/{id}', function ($id) {
+		$product = App\Product::find($id);
+
+		return view('age-layouts.kids.product', ['product' => $product]);
+	})->name('product');
 });
