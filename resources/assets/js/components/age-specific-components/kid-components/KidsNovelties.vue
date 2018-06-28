@@ -5,6 +5,7 @@
                                class="cell small-6 medium-3 large-3"
                                :bookId="novelty.id"
                                :img="novelty.image[0].img"
+                               :href="url"
             ></kids-book-preview>
         </div>
     </div>
@@ -28,6 +29,7 @@
                     console.log(error);
                 });
         },
+        props:['url']
     }
 </script>
 

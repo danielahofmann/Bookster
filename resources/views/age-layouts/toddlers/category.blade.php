@@ -9,5 +9,6 @@
 
     <toddler-character-books
             :character-products="{{$products}}"
+            :url="'toddlers-product'"
     ></toddler-character-books>
 @stop

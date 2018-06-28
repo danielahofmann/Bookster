@@ -5,6 +5,7 @@
                                class="cell small-6 medium-3 large-3"
                                :bookId="product.id"
                                :img="product.image[0].img"
+                               :href="url"
             ></kids-book-preview>
         </div>
     </div>
@@ -14,13 +15,11 @@
     export default {
         data() {
             return {
-                products: this.characterProducts
+                products: this.characterProducts,
             }
         },
-        mounted() {
-            console.log('Component ready');
-        },
-        props: ['characterProducts']
+        mounted() {},
+        props: ['characterProducts', 'url']
     }
 </script>
 

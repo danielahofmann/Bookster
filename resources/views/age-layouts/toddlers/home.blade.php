@@ -6,6 +6,8 @@
     <toddler-carousel></toddler-carousel>
 
     <section class="grid-x flex-center">
-        <kids-novelties></kids-novelties>
+        <kids-novelties
+                :url="'toddlers-product'"
+        ></kids-novelties>
     </section>
 @stop
