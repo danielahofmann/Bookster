@@ -2,7 +2,7 @@
     <div>
         <div class="filter grid-x flex-center">
             <div class="small-5 medium-4 large-2 select-div">
-                <select v-model="selectedGenre" class="select">
+                <select v-model="selectedGenre" class="select" :style="{ fontSize: fontSize }">
                     <option disabled selected value="0">Genre</option>
                     <option v-for="genre in genres" :value="genre.id">{{genre.genre}}</option>
                 </select>
