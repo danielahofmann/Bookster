@@ -3,7 +3,7 @@
 Route::prefix('seniors')->group(function() {
 	Route::get( '/', function () {
 		return view('age-layouts.seniors.home');
-	} );
+	})->name('seniors-home');
 
 	Route::get( '/category/{category_id}', function ($category_id) {
 		$category = App\Category::find($category_id);
@@ -16,5 +16,5 @@ Route::prefix('seniors')->group(function() {
 		$authors = App\Author::whereHas('categories', $filterCategory)->with(['categories' => $filterCategory])->get();
 
 		return view('age-layouts.seniors.category', ['category' => $category, 'genres' => $genres, 'authors' => $authors]);
-	});
+	})->name('seniors-category');
 });
