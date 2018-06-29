@@ -1,6 +1,6 @@
 <template>
     <div class="toddler-redirect small-6 medium-4">
-        <button v-if="show" class="toddler-redirect-icon" @click="redirectBack()"></button>
+        <a v-if="show" class="toddler-redirect-icon" :href="route('toddlers-home')"></a>
     </div>
 </template>
 
