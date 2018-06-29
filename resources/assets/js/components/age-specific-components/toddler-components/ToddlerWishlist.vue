@@ -15,12 +15,11 @@
             axios
                 .get('/api/getWishlistQuantity/')
                 .then(function (response) {
-                    const quantity = response.data;
+                    var quantity = response.data;
 
                     if(quantity > 0){
                         self.$store.commit('newWishlistItem', quantity);
                     }
-
                     self.$store.commit('setQuantity', quantity);
                 })
                 .catch(function (error) {

@@ -1,8 +1,11 @@
 <template>
     <div class="book grid-container">
         <div class="grid-x grid-padding-x">
-            <div class="cell small-12 medium-6 flex-center">
+            <div class="cell small-12 medium-6 flex-center image-div">
                 <img :src="product.image[0].img" :alt="product.name" class="book-image">
+            </div>
+            <div class="cell small-12 wish-button-mobile-div">
+                <img src="/img/wishlist-true-kids.svg" class="wish-button-mobile" @click="saveToWishlist(id)"></img>
             </div>
             <div class="cell small-12 medium-6">
                 <p class="author">{{ product.author.firstname }} {{product.author.lastname }}</p>
@@ -32,6 +35,7 @@
 
                 axios.get('/api/saveProductToSessionWishlist/' + id)
                     .then(function (response) {
+                        var quantity = response.data.wishlist.totalQuantity;
                         self.$store.commit('newWishlistItem', quantity);
                     })
                     .catch(function (error) {
@@ -47,10 +51,22 @@
     @import '~@/app.scss';
 
     .book{
-        .book-image{
-            max-height: 100%;
-            width: auto;
-            object-fit: contain;
+        .image-div {
+            @include custom-max(639px) {
+                padding: 0 !important;
+                margin-top: 40px;
+            }
+            .book-image {
+                max-height: 100%;
+                width: auto;
+                object-fit: contain;
+
+                @include custom-max(639px) {
+                    height: auto;
+                    width: 100%;
+                    object-fit: contain;
+                }
+            }
         }
 
         .author{
@@ -99,6 +115,39 @@
 
         &:focus{
             outline: none;
+        }
+
+        @include custom-max(639px){
+            display: none;
+        }
+    }
+
+    .wish-button-mobile-div {
+        background: $magenta;
+        margin-bottom: 45px;
+        
+        @include custom-min(640px) {
+            display: none;
+        }
+
+        .wish-button-mobile {
+            display: block;
+            height: 80px;
+            width: 80px;
+            cursor: pointer;
+            z-index: 1;
+            @include margin-left;
+
+            &:hover {
+                background: url(/img/wishlist-hover-kids-product.svg) no-repeat;
+                background-size: 80px 80px;
+                height: 80px;
+                width: 80px;
+            }
+
+            &:focus {
+                outline: none;
+            }
         }
     }
 </style>
