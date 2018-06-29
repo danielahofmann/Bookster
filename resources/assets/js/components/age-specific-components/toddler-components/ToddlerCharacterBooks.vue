@@ -5,7 +5,6 @@
                                class="cell small-6 medium-3 large-3"
                                :bookId="product.id"
                                :img="product.image[0].img"
-                               :href="url"
             ></kids-book-preview>
         </div>
     </div>
@@ -19,7 +18,7 @@
             }
         },
         mounted() {},
-        props: ['characterProducts', 'url']
+        props: ['characterProducts']
     }
 </script>
 
