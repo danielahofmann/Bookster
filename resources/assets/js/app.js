@@ -76,6 +76,7 @@ Vue.component('offcanvas-close', require('./components/OffCanvasClose.vue'));
 Vue.component('filter-category', require('./components/FilterCategory.vue'));
 Vue.component('book-preview', require('./components/BookPreview.vue'));
 Vue.component('book-preview-section', require('./components/BookPreviewSection.vue'));
+Vue.component('save-age-group', require('./components/SaveAgeGroup.vue'));
 
 
 Vue.component('mobile-logo', require('./components/age-specific-components/elderly-components/MobileLogo.vue'));
@@ -100,6 +101,7 @@ const app = new Vue({
         age: null,
         products: null,
         productsAvailable: false,
+        ageGroup: null,
     },
     watch: {
         products: function (id) {
@@ -110,10 +112,10 @@ const app = new Vue({
             }
         },
     },
-
     methods: {
         saveAgeToSession: function (choose) {
             this.age = choose;
+            var self= this;
 
             axios.get('/api/saveAgeToSession', {
                 params: {
@@ -121,10 +123,7 @@ const app = new Vue({
                 }
             })
                 .then(function (response) {
-                    console.log(response.data.ageGroup);
-
-                    const url = response.data.ageGroup + "/";
-
+                    var url = response.data.ageGroup + "/";
                     window.location.href = url;
                 })
                 .catch(function (error) {
