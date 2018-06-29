@@ -5,6 +5,9 @@
 @stop
 
 @section('body')
+    <save-age-group
+        :group="'toddlers'"
+    ></save-age-group>
     <header class="grid-x padding-top-small header clearfix">
         <mobile-logo></mobile-logo>
         <toddler-redirect

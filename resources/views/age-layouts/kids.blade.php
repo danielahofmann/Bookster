@@ -5,6 +5,9 @@
 @stop
 
 @section('body')
+    <save-age-group
+            :group="'kids'"
+    ></save-age-group>
     <offcanvas
             size="1.25"
     ></offcanvas>
