@@ -1,7 +1,7 @@
 <template>
     <div class="grid-x flex-center kid-preview">
         <div class="cell small-11">
-            <a class="nav-link" :href="route(url, id)">
+            <a class="nav-link" :href="route(product, id)">
                 <img :src="img" alt="Produktbild" class="kid-image">
                 <button class="wish-button" @click="saveToWishlist(id)"></button>
             </a>
@@ -14,10 +14,14 @@
         data() {
             return {
                 id: this.bookId,
-                url: this.href
             }
         },
         mounted() {},
+        computed: {
+            product() {
+                return this.$store.state.product;
+            },
+        },
         methods: {
             saveToWishlist: function (id) {
                 var self = this;
@@ -31,7 +35,7 @@
                     });
             }
         },
-        props: ['bookId', 'img', 'href'],
+        props: ['bookId', 'img'],
     }
 </script>
 

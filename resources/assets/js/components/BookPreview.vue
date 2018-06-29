@@ -1,6 +1,6 @@
 <template>
     <div class="book-preview grid-x grid-padding-x cell small-6 medium-3 large-2">
-        <a class="nav-link cell small-12" :href="route('product', id)">
+        <a class="nav-link cell small-12" :href="route(product, id)">
             <div class="">
                 <img :src="img" alt="Produktbild" class="book-image">
                 <button class="book-wish-button" @click="saveToWishlist(bookId)"></button>
@@ -22,6 +22,11 @@
             }
         },
         mounted() {
+        },
+        computed: {
+            product() {
+                return this.$store.state.product;
+            },
         },
         methods: {
             saveToWishlist: function (bookId) {

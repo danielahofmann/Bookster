@@ -1,16 +1,17 @@
 <template>
     <div class="grid-x flex-center">
-        <div class="cell small-11 product-container grid-x">
-            <div class="product-image cell small-5">
-                <img :src="img" alt="Produktbild">
-            </div>
-            <div class="product-details cell small-7">
-                <p class="title" :style="{ fontSize: fontSizeTitle }">{{ bookTitle }}</p>
-                <p class="author" :style="{ fontSize: fontSizeAuthor }">{{ authorFirstname }} {{ authorLastname }}</p>
-                <p class="price" :style="{ fontSize: fontSizePrice }">{{ price }} €</p>
+            <div class="cell small-11 product-container grid-x">
+                <div class="product-image cell small-5">
+                    <img :src="img" alt="Produktbild">
+                </div>
+                <div class="product-details cell small-7">
+                    <p class="title" :style="{ fontSize: fontSizeTitle }">{{ bookTitle }}</p>
+                    <p class="author" :style="{ fontSize: fontSizeAuthor }">{{ authorFirstname }} {{ authorLastname
+                        }}</p>
+                    <p class="price" :style="{ fontSize: fontSizePrice }">{{ price }} €</p>
+                </div>
             </div>
         </div>
-    </div>
 </template>
 
 <script>
@@ -27,6 +28,11 @@
             window.addEventListener('resize', this.getWindowWidth);
 
             this.getWindowWidth();
+        },
+        computed: {
+            product() {
+                return this.$store.state.product;
+            },
         },
         methods: {
             getWindowWidth: function() {
