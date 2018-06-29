@@ -8546,6 +8546,16 @@ h3 {
   }
 }
 
+.display-mobile-only {
+  display: none;
+}
+
+@media (min-width: 300px) and (max-width: 767px) {
+  .display-mobile-only {
+    display: block;
+  }
+}
+
 .header {
   position: fixed;
   top: 0;

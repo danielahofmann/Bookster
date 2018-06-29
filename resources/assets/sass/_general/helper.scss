@@ -45,3 +45,11 @@
     display: none;
   }
 }
+
+.display-mobile-only{
+  display: none;
+
+  @include phone{
+    display: block;
+  }
+}
