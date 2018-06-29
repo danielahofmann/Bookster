@@ -3,7 +3,7 @@
 Route::prefix('toddlers')->group(function() {
 	Route::get( '/', function () {
 		return view('age-layouts.toddlers.home');
-	} );
+	})->name('toddlers-home');
 
 	Route::get( '/character/{character_id}', function ($character_id) {
 		$character = App\Character::where('id', $character_id)->with('character_image')->get();

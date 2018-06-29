@@ -22,5 +22,5 @@ Route::prefix('teens')->group(function() {
 		$product = App\Product::find($id);
 
 		return view('age-layouts.teens.product', ['product' => $product]);
-	})->name('product');
+	})->name('teens-product');
 });

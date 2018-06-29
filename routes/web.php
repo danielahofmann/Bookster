@@ -58,8 +58,11 @@ Route::get('/api/getGenresAndRedirect/{id}', function($id){
 Route::get('/api/getWishlistQuantity', function(Request $request){
 	$data = $request->session()->get('wishlist');
 
-	$quantity = $data->totalQuantity;
-
+	if(!empty($data)){
+		$quantity = $data->totalQuantity;
+	}else{
+		$quantity = 0;
+	}
 	return $quantity;
 });
 

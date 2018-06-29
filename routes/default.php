@@ -22,5 +22,5 @@ Route::prefix('default')->group(function() {
 		$product = App\Product::find($id);
 
 		return view('age-layouts.default.product', ['product' => $product]);
-	})->name('product');
+	})->name('default-product');
 });
