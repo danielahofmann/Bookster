@@ -3,8 +3,8 @@
         <div class="cell small-11">
             <a class="nav-link" :href="route(product, id)">
                 <img :src="img" alt="Produktbild" class="kid-image">
-                <button class="wish-button" @click="saveToWishlist(id)"></button>
             </a>
+            <button class="wish-button" @click="saveToWishlist(id)"></button>
         </div>
     </div>
 </template>
@@ -28,6 +28,7 @@
 
                 axios.get('/api/saveProductToSessionWishlist/' + id)
                     .then(function (response) {
+                        var quantity = response.data.wishlist.totalQuantity;
                         self.$store.commit('newWishlistItem', quantity);
                     })
                     .catch(function (error) {
