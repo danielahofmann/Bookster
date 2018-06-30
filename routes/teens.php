@@ -3,7 +3,7 @@
 Route::prefix('teens')->group(function() {
 	Route::get( '/', function () {
 		return view('age-layouts.teens.home');
-	} );
+	})->name('teens-home');
 
 	Route::get( '/category/{category_id}', function ($category_id) {
 		$category = App\Category::find($category_id);
@@ -16,7 +16,7 @@ Route::prefix('teens')->group(function() {
 		$authors = App\Author::whereHas('categories', $filterCategory)->with(['categories' => $filterCategory])->get();
 
 		return view('age-layouts.teens.category', ['category' => $category, 'genres' => $genres, 'authors' => $authors]);
-	});
+	})->name('teens-category');
 
 	Route::get('/product/{id}', function ($id) {
 		$product = App\Product::find($id);

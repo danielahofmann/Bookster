@@ -3,6 +3,10 @@
 @section('title', 'Kategorie' )
 
 @section('main')
+    <div class="breadcrumb">
+        {{ Breadcrumbs::render('default-product', $product[0]->name, $product[0]->id, $product[0]->category_id, $product[0]->category->name)}}
+    </div>
+
     <book
             :data="{{ $product[0] }}"
             :book-id="{{ $product[0]->id }}"

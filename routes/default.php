@@ -3,7 +3,7 @@
 Route::prefix('default')->group(function() {
 	Route::get( '/', function () {
 		return view('age-layouts.default.home');
-	});
+	})->name('default-home');
 
 	Route::get( '/category/{category_id}', function ($category_id) {
 		$category = App\Category::find($category_id);
@@ -16,12 +16,14 @@ Route::prefix('default')->group(function() {
 		$authors = App\Author::whereHas('categories', $filterCategory)->with(['categories' => $filterCategory])->get();
 
 		return view('age-layouts.default.category', ['category' => $category, 'genres' => $genres, 'authors' => $authors]);
-	});
+	})->name('default-category');
 
 	Route::get('/product/{id}', function ($id) {
 		$product = App\Product::where('id', $id)
 		                      ->with('image')
 		                      ->with('author')
+		                      ->with('category')
+		                      ->with('genre')
 		                      ->where('ebook', 0)
 		                      ->get();
 

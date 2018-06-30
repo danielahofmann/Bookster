@@ -4,7 +4,7 @@
 
 @section('main')
     <div>
-        {{ Breadcrumbs::render('seniors-category', $category->name) }}
+        {{ Breadcrumbs::render('seniors-category', $category->name, $category->id) }}
 
         <h2>{{$category->name}}</h2>
 

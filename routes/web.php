@@ -40,6 +40,7 @@ Route::get('/api/getProductsOfCategory/{id}', 'ProductController@getProductsOfCa
 Route::get('/api/getProductsOfAuthor/{id}', 'ProductController@getProductsOfAuthor');
 Route::get('/api/filterProducts', 'ProductController@filterProducts');
 Route::get('/api/saveProductToSessionWishlist/{id}', 'WishlistController@saveProductToSessionWishlist');
+Route::get('/api/saveProductToCart/{id}', 'CartController@saveProductToCart');
 
 
 Route::get('/results', function () {
@@ -57,6 +58,17 @@ Route::get('/api/getGenresAndRedirect/{id}', function($id){
 
 Route::get('/api/getWishlistQuantity', function(Request $request){
 	$data = $request->session()->get('wishlist');
+
+	if(!empty($data)){
+		$quantity = $data->totalQuantity;
+	}else{
+		$quantity = 0;
+	}
+	return $quantity;
+});
+
+Route::get('/api/getCartQuantity', function(Request $request){
+	$data = $request->session()->get('cart');
 
 	if(!empty($data)){
 		$quantity = $data->totalQuantity;
