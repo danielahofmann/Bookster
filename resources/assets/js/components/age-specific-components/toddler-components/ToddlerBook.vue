@@ -26,9 +26,7 @@
                 id: this.bookId
             }
         },
-        mounted() {
-            console.log('Component ready');
-        },
+        mounted() {},
         methods:{
             saveToWishlist: function (id) {
                 var self = this;

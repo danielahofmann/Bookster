@@ -19,7 +19,11 @@ Route::prefix('default')->group(function() {
 	});
 
 	Route::get('/product/{id}', function ($id) {
-		$product = App\Product::find($id);
+		$product = App\Product::where('id', $id)
+		                      ->with('image')
+		                      ->with('author')
+		                      ->where('ebook', 0)
+		                      ->get();
 
 		return view('age-layouts.default.product', ['product' => $product]);
 	})->name('default-product');
