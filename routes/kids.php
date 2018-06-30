@@ -19,7 +19,11 @@ Route::prefix('kids')->group(function() {
 	});
 
 	Route::get('/product/{id}', function ($id) {
-		$product = App\Product::find($id);
+		$product = App\Product::where('id', $id)
+		                      ->with('image')
+		                      ->with('author')
+		                      ->where('ebook', 0)
+		                      ->get();
 
 		return view('age-layouts.kids.product', ['product' => $product]);
 	})->name('kids-product');
