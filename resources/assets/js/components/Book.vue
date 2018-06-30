@@ -11,7 +11,7 @@
 
                 <div class="grid-x mobile-buttons">
                     <div class="cell small-9 medium-6">
-                        <button class="button">In meine Tasche</button>
+                        <button class="button" @click="saveToCart(id)">In meine Tasche</button>
                     </div>
                     <button class="cell small-3 medium-6 wish-button" @click="saveToWishlist(id)"></button>
                 </div>
@@ -20,7 +20,7 @@
 
                 <div class="grid-x margin buttons">
                     <div class="cell small-9 medium-6 flex-center">
-                        <button class="button">In meine Tasche</button>
+                        <button class="button" @click="saveToCart(id)">In meine Tasche</button>
                     </div>
                     <button class="cell small-3 medium-6 wish-button" @click="saveToWishlist(id)"></button>
                 </div>
@@ -46,6 +46,19 @@
                     .then(function (response) {
                         var quantity = response.data.wishlist.totalQuantity;
                         self.$store.commit('newWishlistItem', quantity);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            saveToCart: function (id) {
+                var self = this;
+
+                axios.get('/api/saveProductToCart/' + id)
+                    .then(function (response) {
+                        console.log(response.data)
+                        var quantity = response.data.cart.totalQuantity;
+                        self.$store.commit('newCartItem', quantity);
                     })
                     .catch(function (error) {
                         console.log(error);
