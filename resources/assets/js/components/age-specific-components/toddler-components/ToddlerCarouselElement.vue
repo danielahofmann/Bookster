@@ -1,6 +1,6 @@
 <template>
     <div class="grid-x flex-center">
-        <a :href="'character/' + characterId">
+        <a :href="route('toddlers-character', characterId)">
             <div class="cell small-11 image-container flex-center">
                 <img :src="img" alt="Charakter">
             </div>
