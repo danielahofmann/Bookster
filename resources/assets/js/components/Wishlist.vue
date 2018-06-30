@@ -7,8 +7,7 @@
 <script>
     export default {
         data: function() {
-            return{
-            }
+            return{}
         },
         mounted() {
             var self = this;
@@ -22,7 +21,7 @@
                         self.$store.commit('newWishlistItem', quantity);
                     }
 
-                    self.$store.commit('setQuantity', quantity);
+                    self.$store.commit('setQuantityWishlist', quantity);
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -33,7 +32,7 @@
                 return this.$store.state.wishlist;
             },
             quantity(){
-                return this.$store.state.quantity;
+                return this.$store.state.wishlistQuantity;
             },
             wishlistInverse(){
                 if (this.$store.state.wishlist === true){
