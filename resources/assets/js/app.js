@@ -77,6 +77,7 @@ Vue.component('filter-category', require('./components/FilterCategory.vue'));
 Vue.component('book-preview', require('./components/BookPreview.vue'));
 Vue.component('book-preview-section', require('./components/BookPreviewSection.vue'));
 Vue.component('save-age-group', require('./components/SaveAgeGroup.vue'));
+Vue.component('book', require('./components/Book.vue'));
 
 
 Vue.component('mobile-logo', require('./components/age-specific-components/elderly-components/MobileLogo.vue'));
