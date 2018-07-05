@@ -16,7 +16,7 @@
                     <button class="cell small-3 medium-6 wish-button" @click="saveToWishlist(id)"></button>
                 </div>
 
-                <p class="description">{{ product.description }}</p>
+                <p class="description" :style="{ fontSize: fontSize }">{{ product.description }}</p>
 
                 <div class="grid-x margin buttons">
                     <div class="cell small-9 medium-6 flex-center">
@@ -34,7 +34,8 @@
         data() {
             return {
                 product: this.data,
-                id: this.bookId
+                id: this.bookId,
+                fontSize: this.size + "rem",
             }
         },
         mounted() {},
@@ -65,7 +66,7 @@
                     });
             }
         },
-        props:['data', 'bookId']
+        props:['data', 'bookId', 'size']
     }
 </script>
 

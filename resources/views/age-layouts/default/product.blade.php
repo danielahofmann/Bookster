@@ -10,6 +10,7 @@
     <book
             :data="{{ $product[0] }}"
             :book-id="{{ $product[0]->id }}"
+            :size="1"
     ></book>
 
     <h2>Aktuelle Bestseller</h2>
