@@ -40,6 +40,7 @@ Route::get('/api/getProductsOfCategory/{id}', 'ProductController@getProductsOfCa
 Route::get('/api/getProductsOfAuthor/{id}', 'ProductController@getProductsOfAuthor');
 Route::get('/api/filterProducts', 'ProductController@filterProducts');
 Route::get('/api/saveProductToSessionWishlist/{id}', 'WishlistController@saveProductToSessionWishlist');
+Route::get('/api/deleteProductFromSessionWishlist/{id}', 'WishlistController@deleteProductFromSessionWishlist');
 Route::get('/api/saveProductToCart/{id}', 'CartController@saveProductToCart');
 
 
