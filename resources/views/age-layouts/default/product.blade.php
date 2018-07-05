@@ -3,7 +3,7 @@
 @section('title', 'Kategorie' )
 
 @section('main')
-    <div class="breadcrumb">
+    <div class="breadcrumb breadcrumb-margin-top">
         {{ Breadcrumbs::render('default-product', $product[0]->name, $product[0]->id, $product[0]->category_id, $product[0]->category->name)}}
     </div>
 

@@ -134,3 +134,9 @@
     margin-top: 0 !important;
   }
 }
+
+.breadcrumb-margin-top{
+  @include custom-min(640px){
+    margin-top: 7rem !important;
+  }
+}
