@@ -146,3 +146,10 @@
     margin-top: 14rem !important;
   }
 }
+
+.placeholder{
+  @include text-styling($primary-font, $light, 2rem);
+  text-align: center;
+  color: $dark-grey;
+  margin-top: 6rem;
+}

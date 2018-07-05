@@ -8692,3 +8692,12 @@ h3 {
   }
 }
 
+.placeholder {
+  font-family: "Quicksand", Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+  text-align: center;
+  color: #4A4A4A;
+  margin-top: 6rem;
+}
+

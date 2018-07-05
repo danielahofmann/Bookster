@@ -51,7 +51,9 @@
                     axios.get('/api/deleteProductFromSessionWishlist/' + bookId)
                         .then(function (response) {
                             console.log(response.data);
-                            //location.reload();
+                            if(self.show) {
+                                location.reload();
+                            }
                         })
                         .catch(function (error) {
                             console.log(error);
@@ -60,16 +62,16 @@
             },
             deleteFromWishlist: function(bookId){
                 let self = this;
-                    this.saved = false;
+                this.saved = false;
 
-                    axios.get('/api/deleteProductFromSessionWishlist/' + bookId)
-                        .then(function (response) {
-                            console.log(response.data);
-                            location.reload();
-                        })
-                        .catch(function (error) {
-                            console.log(error);
-                        });
+                axios.get('/api/deleteProductFromSessionWishlist/' + bookId)
+                    .then(function (response) {
+                        console.log(response.data);
+                        location.reload();
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             }
         },
         props: ['title', 'price', 'id', 'img', 'size', 'wishlistSaved', 'showButton']

@@ -4,7 +4,7 @@
 
 @section('main')
 
-    @if(Session::has('wishlist'))
+    @if(!empty($products))
 
         <section class="grid-container">
             <div class="grid-x">
@@ -21,9 +21,12 @@
                 @endforeach
             </div>
         </section>
-
-
     @else
+        <section class="grid-y" style="height: 35vh">
+            <div class="grid-x flex-center">
+                <p class="cell small-6 medium-cell-block placeholder">Sie haben noch keine Produkte in Ihrer Wunschliste gespeichert.</p>
+            </div>
+        </section>
 
     @endif
 

@@ -2,6 +2,9 @@
 
 namespace App;
 
+use http\Env\Request;
+use Illuminate\Support\Facades\Session;
+
 class WishlistSession
 {
 	public $items = null;
@@ -32,6 +35,10 @@ class WishlistSession
 			unset($this->items[$id]);
 		}
 		$this->totalQuantity--;
+
+		if($this->totalQuantity < 1){
+			Session::forget('wishlist');
+		}
 	}
 
 
