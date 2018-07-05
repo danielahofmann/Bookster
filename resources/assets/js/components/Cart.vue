@@ -1,7 +1,7 @@
 <template>
     <div class="cart">
         <a href="/cart/" class="cart-icon" :class="{ true : cart, false : cartInverse }">
-            <div :class="{ quantity : cart, noShow : cartInverse }">
+            <div v-if="cart" :class="{ quantity : cart, full : cartFull }">
                 <p>{{quantity}}</p>
             </div>
         </a>
@@ -39,10 +39,17 @@
                 return this.$store.state.cartQuantity;
             },
             cartInverse(){
-                if (this.$store.state.cart === true){
+                if (this.$store.state.cartQuantity === true){
                     return false;
                 }else{
                     return true;
+                }
+            },
+            cartFull(){
+                if (this.$store.state.cartQuantity > 9){
+                    return true;
+                }else{
+                    return false;
                 }
             }
         }
@@ -78,8 +85,9 @@
         }
     }
 
-    .noShow{
-        display: none;
+    .full{
+        p{
+            margin-left: 40% !important;
+        }
     }
-
 </style>
