@@ -29,4 +29,15 @@ Route::prefix('seniors')->group(function() {
 
 		return view('age-layouts.seniors.product', ['product' => $product]);
 	})->name('seniors-product');
+
+	Route::get('/wishlist', function() {
+		if(!Session::has('wishlist')){
+			return view('age-layouts.seniors.wishlist', ['products' => null]);
+		}
+
+		$oldWishlist = Session::get('wishlist');
+		$wishlist = new App\WishlistSession($oldWishlist);
+
+		return view('age-layouts.seniors.wishlist', ['products' => $wishlist->items]);
+	})->name('seniors-wishlist');
 });

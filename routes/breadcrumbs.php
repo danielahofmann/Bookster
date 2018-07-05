@@ -19,6 +19,12 @@ Breadcrumbs::for('seniors-product', function ($trail, $product, $productId, $cat
 	$trail->push($product, route('seniors-product', $productId));
 });
 
+// Home > Wunschliste
+Breadcrumbs::for('seniors-wishlist', function ($trail) {
+	$trail->parent('seniors-home');
+	$trail->push('Wunschliste', route('seniors-wishlist'));
+});
+
 
 /**
  * ELDERLY BREADCRUMBS
