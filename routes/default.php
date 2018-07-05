@@ -29,4 +29,27 @@ Route::prefix('default')->group(function() {
 
 		return view('age-layouts.default.product', ['product' => $product]);
 	})->name('default-product');
+
+	Route::get('/wishlist', function() {
+		if(!Session::has('wishlist')){
+			return view('age-layouts.default.wishlist', ['products' => null]);
+		}
+
+		$oldWishlist = Session::get('wishlist');
+		$wishlist = new App\WishlistSession($oldWishlist);
+
+		return view('age-layouts.default.wishlist', ['products' => $wishlist->items]);
+	})->name('default-wishlist');
+
+	/*
+	Route::get('/cart', function() {
+		if(!Session::has('cart')){
+			return view('age-layouts.default.cart', ['products' => null]);
+		}
+
+		$oldCart = Session::get('cart');
+		$cart = new App\Cart($oldCart);
+
+		return view('age-layouts.default.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+	})->name('default-cart');*/
 });
