@@ -140,3 +140,9 @@
     margin-top: 7rem !important;
   }
 }
+
+.breadcrumb-margin-top-seniors{
+  @include custom-min(640px){
+    margin-top: 14rem !important;
+  }
+}

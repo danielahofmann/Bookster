@@ -19,7 +19,13 @@ Route::prefix('seniors')->group(function() {
 	})->name('seniors-category');
 
 	Route::get('/product/{id}', function ($id) {
-		$product = App\Product::find($id);
+		$product = App\Product::where('id', $id)
+		                      ->with('image')
+		                      ->with('author')
+		                      ->with('category')
+		                      ->with('genre')
+		                      ->where('ebook', 0)
+		                      ->get();
 
 		return view('age-layouts.seniors.product', ['product' => $product]);
 	})->name('seniors-product');
