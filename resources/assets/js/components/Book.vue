@@ -40,11 +40,11 @@
         mounted() {},
         methods:{
             saveToWishlist: function (id) {
-                var self = this;
+                let self = this;
 
                 axios.get('/api/saveProductToSessionWishlist/' + id)
                     .then(function (response) {
-                        var quantity = response.data.wishlist.totalQuantity;
+                        let quantity = response.data.wishlist.totalQuantity;
                         self.$store.commit('newWishlistItem', quantity);
                     })
                     .catch(function (error) {
@@ -52,12 +52,12 @@
                     });
             },
             saveToCart: function (id) {
-                var self = this;
+                let self = this;
 
                 axios.get('/api/saveProductToCart/' + id)
                     .then(function (response) {
-                        console.log(response.data)
-                        var quantity = response.data.cart.totalQuantity;
+                        console.log(response.data);
+                        let quantity = response.data.cart.totalQuantity;
                         self.$store.commit('newCartItem', quantity);
                     })
                     .catch(function (error) {
@@ -126,7 +126,6 @@
         background-size: 40px 40px;
         height: 40px;
         width: 40px;
-        cursor: pointer;
         z-index: 1;
 
         &:hover{
