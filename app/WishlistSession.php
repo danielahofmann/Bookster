@@ -27,5 +27,12 @@ class WishlistSession
 		$this->totalQuantity++;
 	}
 
+	public function delete($id) {
+		if(array_key_exists($id, $this->items)){
+			unset($this->items[$id]);
+		}
+		$this->totalQuantity--;
+	}
+
 
 }

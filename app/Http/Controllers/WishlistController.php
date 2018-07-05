@@ -107,4 +107,25 @@ class WishlistController extends Controller
 
 		return $session_data;
     }
+
+    /**
+	 * @param $id
+	 *
+	 * @param  Request  $request
+	 * @return array
+	 */
+	public function deleteProductFromSessionWishlist(Request $request, $id) {
+		$oldWishlist = Session::has('wishlist') ? Session::get('wishlist') : null;
+
+		$wishlist = new WishlistSession($oldWishlist);
+		$wishlist->delete($id);
+
+		$request->session()->put('wishlist', $wishlist);
+
+		$session_data = [
+			'wishlist' => session('wishlist'),
+		];
+
+		return $session_data;
+    }
 }
