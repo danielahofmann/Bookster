@@ -1,7 +1,7 @@
 <template>
     <div class="cart">
         <a href="/cart/" class="cart-icon" :class="{ true : cart, false : cartInverse }">
-            <div v-if="cart" :class="{ quantity : cart, full : cartFull }">
+            <div v-if="cart" :class="{ quantity : cart, 'under-twenty' : overTen, 'under-ten' : underTen, twenty : twenty }">
                 <p>{{quantity}}</p>
             </div>
         </a>
@@ -45,8 +45,22 @@
                     return true;
                 }
             },
-            cartFull(){
-                if (this.$store.state.cartQuantity > 9){
+            overTen(){
+                if (this.$store.state.cartQuantity > 9 && this.$store.state.cartQuantity < 20){
+                    return true;
+                }else{
+                    return false;
+                }
+            },
+            underTen(){
+                if (this.$store.state.cartQuantity < 10){
+                    return true;
+                }else{
+                    return false;
+                }
+            },
+            twenty(){
+                if(this.$store.state.cartQuantity > 19){
                     return true;
                 }else{
                     return false;
@@ -67,27 +81,51 @@
         }
 
         .true {
-            @include nav-icons ('/img/cart.png');
+            @include nav-icons ('/img/filled-cart.svg');
             background-size: 28px 25px;
         }
     }
 
     .quantity{
-        background: $blue;
         width: 25px;
-        border-radius: 50%;
-        margin-left: 1rem;
 
         p{
-            color: white;
+            @include text-styling($primary-font, $bold, 0.75rem);
+            color: $white;
             margin-left: 50%;
-            transform: translateX(-40%);
+            padding-top: 0.4rem;
         }
     }
 
-    .full{
+    .under-ten{
         p{
-            margin-left: 40% !important;
+            margin-left: 61% !important;
+            @include custom-max(400px){
+                padding-top: 0.16rem;
+                margin-left: 40% !important;
+            }
+        }
+    }
+
+    .under-twenty{
+        p{
+            margin-left: 55% !important;
+            @include custom-max(400px){
+                padding-top: 0.16rem;
+                margin-left: 40% !important;
+            }
+        }
+    }
+
+    .twenty{
+        p {
+            margin-left: 50%;
+            transform: translateX(-40%);
+
+            @include custom-max(400px) {
+                padding-top: 0.16rem;
+                margin-left: 40% !important;
+            }
         }
     }
 </style>
