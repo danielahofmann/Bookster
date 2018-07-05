@@ -1,6 +1,6 @@
 <template>
     <div class="wishlist">
-        <a href="/wishlist/" :class="{ true : wishlist, false : wishlistInverse }"></a>
+        <a :href="route(this.path)" :class="{ true : wishlist, false : wishlistInverse }"></a>
     </div>
 </template>
 
@@ -41,7 +41,8 @@
                     return true;
                 }
             }
-        }
+        },
+        props:['path']
     }
 </script>
 

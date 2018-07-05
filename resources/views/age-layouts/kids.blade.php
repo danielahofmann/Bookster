@@ -27,7 +27,9 @@
             ></logo>
             <div class="cell small-6 medium-4 large-4">
                 <div class="grid-x align-right">
-                    <wishlist></wishlist>
+                    <wishlist
+                            :path="'kids-wishlist'"
+                    ></wishlist>
                 </div>
             </div>
 

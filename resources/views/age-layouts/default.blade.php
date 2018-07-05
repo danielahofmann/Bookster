@@ -28,7 +28,9 @@
             <div class="cell small-5 large-4">
                 <div class="grid-x align-right">
                     <mobile-search @search="search"></mobile-search>
-                    <wishlist></wishlist>
+                    <wishlist
+                        :path="'default-wishlist'"
+                    ></wishlist>
                     <cart></cart>
                     <login></login>
                 </div>
