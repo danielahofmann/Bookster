@@ -106,4 +106,41 @@ class CartController extends Controller
 
 		return $session_data;
 	}
+
+	/**
+	 * @param $id
+	 * @param  Request  $request
+	 * @return array
+	 */
+	public function deleteProductFromCart(Request $request, $id) {
+		$product = Product::find($id);
+		$oldCart = Session::has('cart') ? Session::get('cart') : null;
+
+		$cart = new Cart($oldCart);
+		$cart->delete($product, $id);
+
+		$request->session()->put('cart', $cart);
+
+		$session_data = [
+			'cart' => session('cart'),
+		];
+
+		return $session_data;
+	}
+
+	public function decreaseProductQuantity(Request $request, $id) {
+		$product = Product::find($id);
+		$oldCart = Session::has('cart') ? Session::get('cart') : null;
+
+		$cart = new Cart($oldCart);
+		$cart->decrease($product, $id);
+
+		$request->session()->put('cart', $cart);
+
+		$session_data = [
+			'cart' => session('cart'),
+		];
+
+		return $session_data;
+	}
 }

@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Session;
+
 class Cart
 {
 	public $items = null;
@@ -32,5 +34,35 @@ class Cart
 		$this->totalPrice += $item->price;
 	}
 
+	public function delete($product, $id) {
+		if(array_key_exists($id, $this->items)){
+			$quantity = $this->items[$id]['quantity'];
+			unset($this->items[$id]);
+		}
 
+		$this->totalQuantity -= $quantity;
+
+		$this->totalPrice -= ($product->price * $quantity);
+
+		if($this->totalQuantity < 1){
+			Session::forget('cart');
+		}
+	}
+
+	public function decrease($product, $id) {
+		if(array_key_exists($id, $this->items)){
+			$this->items[$id]['quantity']--;
+
+			if($this->items[$id]['quantity'] <= 0){
+				unset($this->items[$id]);
+			}
+		}
+
+		$this->totalQuantity--;
+		$this->totalPrice -= $product->price;
+
+		if($this->totalQuantity < 1){
+			Session::forget('cart');
+		}
+	}
 }
