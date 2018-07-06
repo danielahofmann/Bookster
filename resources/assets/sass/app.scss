@@ -153,3 +153,34 @@
   color: $dark-grey;
   margin-top: 6rem;
 }
+
+.margin-top-kids{
+  @include custom-min(1024px) {
+    margin-top: 19rem;
+  }
+
+  @include custom-max(1023px) {
+    padding-top: 2.5rem;
+  }
+}
+
+.margin-bottom-small{
+  margin-bottom: 3rem;
+}
+
+.button{
+  background-color: $magenta;
+  @include text-styling($primary-font, $regular, 1rem);
+  color: $white;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+
+  &:hover{
+    background-color: $blue;
+  }
+
+  &:focus{
+    background-color: $blue;
+    outline: none;
+  }
+}
