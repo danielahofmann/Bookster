@@ -5,7 +5,9 @@
 @section('main')
     @if(!empty($products))
         <section class="grid-container margin-top-kids margin-bottom-small">
-            <kids-send-wishlist></kids-send-wishlist>
+            <div class="grid-x flex-center">
+                <a href="{{ route('kids-send-wishlist') }}" class="button">Versende deine Wunschliste</a>
+            </div>
         </section>
 
         <section class="grid-container">
