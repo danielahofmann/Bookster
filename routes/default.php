@@ -52,4 +52,15 @@ Route::prefix('default')->group(function() {
 
 		return view('age-layouts.default.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
 	})->name('default-cart');
+
+	Route::get('/checkout', function() {
+		if(!Session::has('cart')){
+			return view('age-layouts.default.checkout', ['products' => null]);
+		}
+
+		$oldCart = Session::get('cart');
+		$cart = new App\Cart($oldCart);
+
+		return view('age-layouts.default.checkout', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+	})->name('default-checkout');
 });

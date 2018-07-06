@@ -47,6 +47,8 @@ Route::post('/sendWishlist', 'EmailController@sendWishlist');
 
 
 Route::get('/api/saveProductToCart/{id}', 'CartController@saveProductToCart');
+Route::get('/api/deleteProductFromCart/{id}', 'CartController@deleteProductFromCart');
+Route::get('/api/decreaseProductQuantityInCart/{id}', 'CartController@decreaseProductQuantity');
 
 
 Route::get('/results', function () {
