@@ -14,7 +14,7 @@
             return{}
         },
         mounted() {
-            var self = this;
+            let self = this;
 
             axios
                 .get('/api/getCartQuantity/')
