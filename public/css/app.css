@@ -8755,3 +8755,7 @@ h3 {
   border-bottom: thin solid #5886F4;
 }
 
+.border-radius {
+  border-radius: 15px;
+}
+
