@@ -41,6 +41,11 @@ Route::get('/api/getProductsOfAuthor/{id}', 'ProductController@getProductsOfAuth
 Route::get('/api/filterProducts', 'ProductController@filterProducts');
 Route::get('/api/saveProductToSessionWishlist/{id}', 'WishlistController@saveProductToSessionWishlist');
 Route::get('/api/deleteProductFromSessionWishlist/{id}', 'WishlistController@deleteProductFromSessionWishlist');
+
+
+Route::post('/sendWishlist', 'EmailController@sendWishlist');
+
+
 Route::get('/api/saveProductToCart/{id}', 'CartController@saveProductToCart');
 
 
