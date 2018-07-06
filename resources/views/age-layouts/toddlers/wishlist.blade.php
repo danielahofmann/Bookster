@@ -19,6 +19,8 @@
                                        class="cell small-6 medium-3 large-3"
                                        book-id="{{$product['item']['id']}}"
                                        img="{{$product['item']['image'][0]['img']}}"
+                                       wishlist-saved="true"
+                                       show-button="true"
                     ></kids-book-preview>
                 @endforeach
             </div>

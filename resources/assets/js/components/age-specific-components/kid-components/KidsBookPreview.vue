@@ -5,6 +5,7 @@
                 <img :src="img" alt="Produktbild" class="kid-image">
             </a>
             <button class="wish-button" @click="saveToWishlist(id)"></button>
+            <button class="delete-button" v-if="this.show" @click="deleteFromWishlist(bookId)">x entfernen</button>
         </div>
     </div>
 </template>
@@ -14,6 +15,8 @@
         data() {
             return {
                 id: this.bookId,
+                saved: this.wishlistSaved,
+                show: this.showButton || false,
             }
         },
         mounted() {},
@@ -23,20 +26,49 @@
             },
         },
         methods: {
-            saveToWishlist: function (id) {
-                var self = this;
+            saveToWishlist: function (bookId) {
+                let self = this;
+                if(!this.saved) {
+                    this.saved = true;
 
-                axios.get('/api/saveProductToSessionWishlist/' + id)
+                    axios.get('/api/saveProductToSessionWishlist/' + bookId)
+                        .then(function (response) {
+                            let quantity = response.data.wishlist.totalQuantity;
+                            self.$store.commit('newWishlistItem', quantity);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }else{
+                    this.saved = false;
+
+                    axios.get('/api/deleteProductFromSessionWishlist/' + bookId)
+                        .then(function (response) {
+                            console.log(response.data);
+                            if(self.show) {
+                                location.reload();
+                            }
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+            },
+            deleteFromWishlist: function(bookId){
+                let self = this;
+                this.saved = false;
+
+                axios.get('/api/deleteProductFromSessionWishlist/' + bookId)
                     .then(function (response) {
-                        var quantity = response.data.wishlist.totalQuantity;
-                        self.$store.commit('newWishlistItem', quantity);
+                        console.log(response.data);
+                        location.reload();
                     })
                     .catch(function (error) {
                         console.log(error);
                     });
             }
         },
-        props: ['bookId', 'img'],
+        props: ['bookId', 'img', 'wishlistSaved', 'showButton'],
     }
 </script>
 
@@ -78,6 +110,20 @@
                 -moz-box-shadow: 0px 0px 15px -4px rgba(97,97,97,1);
                 box-shadow: 0px 0px 15px -4px rgba(97,97,97,1);
             }
+        }
+    }
+
+    .delete-button{
+        @include text-styling($primary-font, $regular, 0.75rem);
+        @include margin-left;
+        color: $light-grey;
+        padding-bottom: 0.5rem;
+
+
+        &:hover{
+            font-weight: $bold;
+            color: $dark-grey;
+            cursor: pointer;
         }
     }
 
