@@ -184,3 +184,18 @@
     outline: none;
   }
 }
+
+.input{
+  border: none;
+  box-shadow: none;
+  border-bottom: thin solid $dark-beige;
+  @include text-styling($primary-font, $regular, 1rem);
+  color: $dark-grey;
+  margin: 1rem 0;
+
+  &:focus{
+    border: none;
+    box-shadow: none;
+    border-bottom: thin solid $blue;
+  }
+}
