@@ -13,10 +13,10 @@
             }
         },
         mounted() {
-            if ((window.location.href).split("/").length == 5) {
-                this.show = false;
-            } else {
+            if ((window.location.href).split("/")[4] != '') {
                 this.show = true;
+            } else {
+                this.show = false;
             }
         },
         props: ['resource'],
