@@ -38,4 +38,8 @@ Route::prefix('kids')->group(function() {
 
 		return view('age-layouts.kids.wishlist', ['products' => $wishlist->items]);
 	})->name('kids-wishlist');
+
+	Route::get('/send', function(){
+		return view('age-layouts.kids.send');
+	})->name('kids-send-wishlist');
 });
