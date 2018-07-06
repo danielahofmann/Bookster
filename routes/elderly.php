@@ -40,5 +40,5 @@ Route::prefix('elderly')->group(function() {
 		$wishlist = new App\WishlistSession($oldWishlist);
 
 		return view('age-layouts.elderly.wishlist', ['products' => $wishlist->items]);
-	})->name('kids-wishlist');
+	})->name('elderly-wishlist');
 });
