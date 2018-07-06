@@ -1,22 +1,31 @@
 <template>
     <div class="grid-x flex-center">
-        <button class="button" @click="doSomething">Versende deine Wunschliste</button>
+        <button type="submit" class="button" id="submit">Jetzt versenden</button>
     </div>
 </template>
 
 <script>
     export default {
         data() {
-            return {}
+            return{}
         },
         mounted() {
             console.log('Component ready');
         },
         methods: {
-            doSomething: function () {
-                console.log('clicked')
-            },
+            sendMail: function () {
+                e.preventDefault();
 
+                let self = this;
+
+                axios.get('/api/sendWishlist/')
+                    .then(function (response) {
+                        console.log(response.data)
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            }
         }
     }
 </script>
