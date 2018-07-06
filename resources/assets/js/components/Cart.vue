@@ -1,6 +1,6 @@
 <template>
     <div class="cart">
-        <a href="/cart/" class="cart-icon" :class="{ true : cart, false : cartInverse }">
+        <a :href="route(this.path)" class="cart-icon" :class="{ true : cart, false : cartInverse }">
             <div v-if="cart" :class="{ quantity : cart, 'under-twenty' : overTen, 'under-ten' : underTen, twenty : twenty }">
                 <p>{{quantity}}</p>
             </div>
@@ -66,7 +66,8 @@
                     return false;
                 }
             }
-        }
+        },
+        props:['path']
     }
 </script>
 

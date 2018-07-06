@@ -31,7 +31,9 @@
                     <wishlist
                         :path="'default-wishlist'"
                     ></wishlist>
-                    <cart></cart>
+                    <cart
+                            :path="'default-cart'"
+                    ></cart>
                     <login></login>
                 </div>
             </div>
