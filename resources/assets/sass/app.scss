@@ -207,3 +207,77 @@
 .background-white{
   background-color: $white;
 }
+
+.background-beige{
+  background-color: $beige;
+}
+
+.padding-medium-top-bottom{
+  padding: 2rem 0;
+}
+
+.font-primary-bold{
+  @include text-styling($primary-font, $bold, 1rem);
+  color: $dark-grey;
+}
+
+.font-secondary-bold{
+  @include text-styling($secondary-font, $bold, 1rem);
+  color: $dark-grey;
+}
+
+.padding-section{
+  padding: 1rem 2rem;
+}
+
+.padding-bottom-large{
+  padding-bottom: 3rem;
+}
+
+.margin-top-small{
+  margin-top: 1rem;
+}
+
+.border-bottom{
+  border-bottom: thin solid $beige;
+}
+
+.checkout-button{
+  display: inline-block;
+  @include text-styling($primary-font, $regular, 1rem);
+  color: $blue;
+  padding: 0.5rem 1rem;
+  border: thin solid $blue;
+  text-align: center;
+
+  &:hover{
+    background: $blue;
+    color: $white;
+  }
+
+  &:focus{
+    outline: none;
+  }
+
+  @include custom-max(639px){
+    display: inline;
+    background: $blue;
+    color: $white;
+    font-weight: $bold;
+  }
+}
+
+.no-margin-mobile{
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.no-text-margin-mobile{
+  margin: 0;
+}
+
+.padding-top-mobile{
+  @include custom-max(639px){
+    margin: 2rem 0 0 0 !important;
+  }
+}

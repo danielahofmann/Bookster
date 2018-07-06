@@ -8556,6 +8556,18 @@ h3 {
   }
 }
 
+.display-mobile {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  .display-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -8761,5 +8773,87 @@ h3 {
 
 .background-white {
   background-color: #FFFFFF;
+}
+
+.background-beige {
+  background-color: #F8F6F5;
+}
+
+.padding-medium-top-bottom {
+  padding: 2rem 0;
+}
+
+.font-primary-bold {
+  font-family: "Quicksand", Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #4A4A4A;
+}
+
+.font-secondary-bold {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #4A4A4A;
+}
+
+.padding-section {
+  padding: 1rem 2rem;
+}
+
+.padding-bottom-large {
+  padding-bottom: 3rem;
+}
+
+.margin-top-small {
+  margin-top: 1rem;
+}
+
+.border-bottom {
+  border-bottom: thin solid #F8F6F5;
+}
+
+.checkout-button {
+  display: inline-block;
+  font-family: "Quicksand", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #5886F4;
+  padding: 0.5rem 1rem;
+  border: thin solid #5886F4;
+  text-align: center;
+}
+
+.checkout-button:hover {
+  background: #5886F4;
+  color: #FFFFFF;
+}
+
+.checkout-button:focus {
+  outline: none;
+}
+
+@media (max-width: 639px) {
+  .checkout-button {
+    display: inline;
+    background: #5886F4;
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+}
+
+.no-margin-mobile {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.no-text-margin-mobile {
+  margin: 0;
+}
+
+@media (max-width: 639px) {
+  .padding-top-mobile {
+    margin: 2rem 0 0 0 !important;
+  }
 }
 

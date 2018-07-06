@@ -53,3 +53,10 @@
     display: block;
   }
 }
+
+.display-mobile{
+  display: none;
+  @include custom-max(639px){
+    display: flex;
+  }
+}

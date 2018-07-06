@@ -79,7 +79,13 @@ Vue.component('book-preview-section', require('./components/BookPreviewSection.v
 Vue.component('save-age-group', require('./components/SaveAgeGroup.vue'));
 Vue.component('book', require('./components/Book.vue'));
 Vue.component('feather-send', require('./components/FeatherSend.vue'));
+Vue.component('feather-plus', require('./components/FeatherPlus.vue'));
+Vue.component('feather-minus', require('./components/FeatherMinus.vue'));
 Vue.component('product-cart', require('./components/ProductCart.vue'));
+Vue.component('feather-up', require('./components/FeatherUp.vue'));
+Vue.component('feather-down', require('./components/FeatherDown.vue'));
+Vue.component('feather-trash', require('./components/FeatherTrash.vue'));
+Vue.component('feather-x', require('./components/FeatherX.vue'));
 
 
 Vue.component('mobile-logo', require('./components/age-specific-components/elderly-components/MobileLogo.vue'));
