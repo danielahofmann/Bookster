@@ -24,7 +24,7 @@
     @import '~@/app.scss';
 
     .footer{
-        margin-top: 60px;
+       // margin-top: 60px;
     }
 
 </style>
