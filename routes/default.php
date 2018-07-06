@@ -41,7 +41,7 @@ Route::prefix('default')->group(function() {
 		return view('age-layouts.default.wishlist', ['products' => $wishlist->items]);
 	})->name('default-wishlist');
 
-	/*
+
 	Route::get('/cart', function() {
 		if(!Session::has('cart')){
 			return view('age-layouts.default.cart', ['products' => null]);
@@ -51,5 +51,5 @@ Route::prefix('default')->group(function() {
 		$cart = new App\Cart($oldCart);
 
 		return view('age-layouts.default.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
-	})->name('default-cart');*/
+	})->name('default-cart');
 });
