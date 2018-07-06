@@ -24,6 +24,7 @@ class EmailController extends Controller
 			});
 		}
 
-		return response()->json(['message' => 'Request completed']);
+		$age = Session::get('ageGroup');
+		return redirect($age . '/wishlist');
 	}
 }
