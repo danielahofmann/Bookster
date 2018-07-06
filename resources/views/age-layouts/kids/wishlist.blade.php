@@ -4,19 +4,18 @@
 
 @section('main')
     @if(!empty($products))
+        <section class="grid-container margin-top-kids margin-bottom-small">
+            <kids-send-wishlist></kids-send-wishlist>
+        </section>
 
         <section class="grid-container">
-            <div class="grid-x">
+            <div class="grid-x grid-padding-x grid-padding-y">
                 @foreach($products as $product)
-                    <book-preview key="{{$product['item']['id']}}"
-                                  title="{{$product['item']['name']}}"
-                                  price="{{$product['item']['price']}}"
-                                  img="{{$product['item']['image'][0]['img']}}"
-                                  id="{{$product['item']['id']}}"
-                                  size="1"
-                                  wishlist-saved="true"
-                                  show-button="true"
-                    ></book-preview>
+                    <kids-book-preview key="{{$product['item']['id']}}"
+                                       class="cell small-6 medium-3 large-3"
+                                       book-id="{{$product['item']['id']}}"
+                                       img="{{$product['item']['image'][0]['img']}}"
+                    ></kids-book-preview>
                 @endforeach
             </div>
         </section>
@@ -26,6 +25,5 @@
                 <p class="cell small-6 medium-cell-block placeholder">Sie haben noch keine Produkte in Ihrer Wunschliste gespeichert.</p>
             </div>
         </section>
-
     @endif
 @stop
