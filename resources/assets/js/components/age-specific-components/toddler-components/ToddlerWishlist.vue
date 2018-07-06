@@ -1,6 +1,6 @@
 <template>
     <div class="toddler-wishlist">
-        <a href="/wishlist/" class="toddler-wishlist-icon" :class="{ true : wishlist, false : wishlistInverse }"></a>
+        <a :href="route('toddlers-wishlist')" class="toddler-wishlist-icon" :class="{ true : wishlist, false : wishlistInverse }"></a>
     </div>
 </template>
 
@@ -20,7 +20,7 @@
                     if(quantity > 0){
                         self.$store.commit('newWishlistItem', quantity);
                     }
-                    self.$store.commit('setQuantity', quantity);
+                    self.$store.commit('setQuantityWishlist', quantity);
                 })
                 .catch(function (error) {
                     console.log(error);
