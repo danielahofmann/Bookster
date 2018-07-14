@@ -16,6 +16,6 @@ class UserController extends Controller
 	public function performLogout(\Illuminate\Http\Request $request)
 	{
 		Auth::logout();
-		return redirect('/default');
+		return redirect('/');
 	}
 }
