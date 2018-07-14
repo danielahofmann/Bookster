@@ -29,8 +29,8 @@ class LoginController extends Controller
 	{
 		if(Session::has('ageGroup')){
 			if(Session::get('ageGroup') == 'kids' || Session::get('ageGroup') == 'toddlers' ){
-				$path = '/' . Session::get('ageGroup');
-			}else {
+					$path = '/' . Session::get('ageGroup');
+			} else {
 				$path = '/' . Session::get( 'ageGroup' ) . '/dashboard';
 			}
 		}
