@@ -62,4 +62,17 @@ Route::prefix('teens')->group(function() {
 
 		return view('age-layouts.teens.checkout', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
 	})->name('teens-checkout');
+
+	Route::get( '/login', function () {
+		$guard = null;
+		if ( Auth::guard( $guard )->check() ) {
+			return redirect('/teens/dashboard');
+		}
+
+		return view( 'age-layouts.teens.login' );
+	} )->name( 'teens-login' );
+
+	Route::get( '/dashboard', function () {
+		return view('age-layouts.teens.dashboard');
+	})->name('teens-dashboard');
 });

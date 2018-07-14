@@ -34,7 +34,9 @@
                     <cart
                             :path="'teens-cart'"
                     ></cart>
-                    <login></login>
+                    <login
+                            :path="'teens-login'"
+                    ></login>
                 </div>
             </div>
 
