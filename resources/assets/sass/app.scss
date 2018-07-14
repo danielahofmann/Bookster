@@ -283,3 +283,68 @@
     margin: 2rem 0 0 0 !important;
   }
 }
+
+.login-form{
+  background: $white;
+  padding: 1rem 2rem;
+}
+
+.fullscreen-beige-background{
+  height: 80vh;
+  width: 100%;
+  background: $beige;
+}
+
+.input{
+  border: none;
+  box-shadow: none;
+  outline: none;
+  margin: 0;
+  border-bottom: thin solid $dark-grey;
+
+  &:focus{
+    border-bottom: thin solid $blue;
+  }
+}
+
+.form-label{
+  @include text-styling($primary-font, $regular, 1rem);
+  color: $dark-grey;
+  margin-top: 1rem;
+}
+
+.submit-button{
+  background-color: $blue;
+  @include text-styling($primary-font, $bold, 1rem);
+  @include margin-left;
+  color: $white;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  &:focus{
+    background-color: $blue;
+    outline: none;
+  }
+}
+
+.login-sublinks{
+  @include text-styling($primary-font, $regular, 0.75rem);
+  display: inline-block;
+  color: $light-grey;
+  padding: 0 1rem;
+  margin: 0;
+
+  &:hover{
+    color: $dark-grey;
+  }
+
+  @include custom-max(639px){
+    padding: 0 1rem;
+  }
+
+  @include custom-max(759px){
+    padding: 0 0.25rem;
+  }
+}
+
