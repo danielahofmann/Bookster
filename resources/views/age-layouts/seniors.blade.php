@@ -34,7 +34,9 @@
                     <cart
                             :path="'seniors-cart'"
                     ></cart>
-                    <login></login>
+                    <login
+                            :path="'seniors-login'"
+                    ></login>
                 </div>
             </div>
 

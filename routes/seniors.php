@@ -62,4 +62,17 @@ Route::prefix('seniors')->group(function() {
 
 		return view('age-layouts.seniors.checkout', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
 	})->name('seniors-checkout');
+
+	Route::get( '/login', function () {
+		$guard = null;
+		if ( Auth::guard( $guard )->check() ) {
+			return redirect('/seniors/dashboard');
+		}
+
+		return view( 'age-layouts.seniors.login' );
+	} )->name( 'seniors-login' );
+
+	Route::get( '/dashboard', function () {
+		return view('age-layouts.seniors.dashboard');
+	})->name('seniors-dashboard');
 });
