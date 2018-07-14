@@ -34,7 +34,9 @@
                     <cart
                             :path="'default-cart'"
                     ></cart>
-                    <login></login>
+                    <login
+                        :path="'default-login'"
+                    ></login>
                 </div>
             </div>
 

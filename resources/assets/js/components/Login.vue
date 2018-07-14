@@ -1,6 +1,6 @@
 <template>
     <div class="login display-none-tablet">
-        <a href="/login/" class="login-icon"></a>
+        <a :href="route(this.path)" class="login-icon"></a>
     </div>
 </template>
 
@@ -10,6 +10,7 @@
             return {}
         },
         mounted() {},
+        props: ['path']
     }
 </script>
 
