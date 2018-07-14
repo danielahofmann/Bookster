@@ -31,7 +31,9 @@
                     <wishlist
                             :path="'elderly-wishlist'"
                     ></wishlist>
-                    <cart></cart>
+                    <cart
+                            :path="'elderly-cart'"
+                    ></cart>
                     <login></login>
                 </div>
             </div>
