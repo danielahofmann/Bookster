@@ -3,7 +3,7 @@
         <nav class="category-navigation grid-x align-center">
             <ul class="category-navigation-list">
                 <li v-for="category in categories" class="category">
-                    <a :href="path + 'category/' + category.id" v-bind:style="{ fontSize: fontSize }" >{{ category.name }}</a>
+                    <a :href="path + 'category/' + category.id" :style="{ fontSize: fontSize }" >{{ category.name }}</a>
                 </li>
             </ul>
         </nav>
