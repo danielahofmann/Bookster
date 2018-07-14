@@ -2,15 +2,15 @@
     <div class="cart-product grid-x">
         <img :src="this.img" :alt="this.title" class="cell small-4 image">
         <div class="cell small-7 text">
-            <p class="title">{{ this.title }}</p>
-            <p class="author">{{ this.author }}</p>
-            <p class="price">{{ this.price }}</p>
+            <p class="title" :style="{ fontSize: fontSize }">{{ this.title }}</p>
+            <p class="author" :style="{ fontSize: fontSize }">{{ this.author }}</p>
+            <p class="price" :style="{ fontSize: fontSize }">{{ this.price }} €</p>
         </div>
         <div class="cell small-1 quantity-control">
             <div  @click="increaseProduct(bookId)">
                 <feather-up></feather-up>
             </div>
-            <p class="quantity">{{ this.quantity }}</p>
+            <p class="quantity" :style="{ fontSize: fontSize }">{{ this.quantity }}</p>
             <div @click="decreaseProduct(bookId)">
                 <feather-down></feather-down>
             </div>
@@ -23,7 +23,8 @@
     export default {
         data() {
             return {
-                bookId: this.id
+                bookId: this.id,
+                fontSize: this.size + "rem",
             }
         },
         mounted() {
