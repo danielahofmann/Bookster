@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -22,10 +23,20 @@ class LoginController extends Controller
 
     /**
      * Where to redirect users after login.
-     *
-     * @var string
      */
-    protected $redirectTo = '/home';
+
+	protected function redirectTo()
+	{
+		if(Session::has('ageGroup')){
+			if(Session::get('ageGroup') == 'kids' || Session::get('ageGroup') == 'toddlers' ){
+				$path = '/' . Session::get('ageGroup');
+			}else {
+				$path = '/' . Session::get( 'ageGroup' ) . '/dashboard';
+			}
+		}
+
+		return $path;
+	}
 
     /**
      * Create a new controller instance.
