@@ -11,7 +11,6 @@
 |
 */
 
-use App\Genre;
 use Illuminate\Http\Request;
 
 
