@@ -9,6 +9,10 @@ Route::prefix('default')->group(function() {
 		return view('age-layouts.default.login');
 	})->name('default-login');
 
+	Route::get( '/dashboard', function () {
+		return view('age-layouts.default.dashboard');
+	})->name('default-dashboard');
+
 	Route::get( '/category/{category_id}', function ($category_id) {
 		$category = App\Category::find($category_id);
 		$genres = App\Genre::where('category_id', $category_id)->get();
