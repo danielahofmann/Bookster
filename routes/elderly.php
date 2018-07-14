@@ -63,4 +63,17 @@ Route::prefix('elderly')->group(function() {
 
 		return view('age-layouts.elderly.checkout', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
 	})->name('elderly-checkout');
+
+	Route::get( '/login', function () {
+		$guard = null;
+		if ( Auth::guard( $guard )->check() ) {
+			return redirect('/elderly/dashboard');
+		}
+
+		return view( 'age-layouts.elderly.login' );
+	} )->name( 'elderly-login' );
+
+	Route::get( '/dashboard', function () {
+		return view('age-layouts.elderly.dashboard');
+	})->name('elderly-dashboard');
 });
