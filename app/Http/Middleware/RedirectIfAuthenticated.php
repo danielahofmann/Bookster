@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class RedirectIfAuthenticated
 {
@@ -18,7 +19,15 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+	        if ( Session::has( 'ageGroup' ) ) {
+		        if ( Session::get( 'ageGroup' ) == 'kids' || Session::get( 'ageGroup' ) == 'toddlers' ) {
+			        $path = '/' . Session::get( 'ageGroup' );
+		        } else {
+			        $path = '/' . Session::get( 'ageGroup' ) . '/dashboard';
+		        }
+
+		        return redirect($path);
+	        }
         }
 
         return $next($request);
