@@ -6,9 +6,7 @@ Route::prefix('default')->group(function() {
 	})->name('default-home');
 
 	Route::get( '/login', function () {
-
 		$guard = null;
-
 		if ( Auth::guard( $guard )->check() ) {
 			return redirect('/default/dashboard');
 		}
