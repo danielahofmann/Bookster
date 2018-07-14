@@ -85,6 +85,7 @@ Route::get('/api/getCartQuantity', function(Request $request){
 	return $quantity;
 });
 
+Route::post('/logout','UserController@performLogout')->name('logout');
 
 
 
