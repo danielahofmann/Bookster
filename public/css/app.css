@@ -8518,7 +8518,7 @@ h3 {
           justify-content: center;
 }
 
-@media (min-width: 300px) and (max-width: 767px) {
+@media (max-width: 640px) {
   .display-mobile-none {
     display: none;
   }
@@ -8547,12 +8547,12 @@ h3 {
 }
 
 .display-mobile-only {
-  display: none;
+  display: none !important;
 }
 
 @media (min-width: 300px) and (max-width: 767px) {
   .display-mobile-only {
-    display: block;
+    display: block !important;
   }
 }
 
@@ -8816,7 +8816,7 @@ h3 {
 .checkout-button {
   display: inline-block;
   font-family: "Quicksand", Helvetica, sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 1rem;
   color: #5886F4;
   padding: 0.5rem 1rem;
@@ -8842,9 +8842,11 @@ h3 {
   }
 }
 
-.no-margin-mobile {
-  width: 100% !important;
-  margin: 0 !important;
+@media (max-width: px) {
+  .no-margin-mobile {
+    width: 100% !important;
+    margin: 0 !important;
+  }
 }
 
 .no-text-margin-mobile {

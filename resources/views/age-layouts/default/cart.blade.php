@@ -18,7 +18,7 @@
                     </div>
                 </div>
 
-                <div class="cell small-12 medium-6 background-white margin-top-small no-margin-mobile padding-top-mobile">
+                <div class="cell small-12 medium-12 large-6 background-white margin-top-small no-margin-mobile">
                     @foreach($products as $product)
                        <product-cart
                                key="{{$product['item']['id']}}"
@@ -33,7 +33,7 @@
                     @endforeach
                 </div>
 
-                <div class="cell small-12 medium-6 grid-x flex-center background-white padding-section margin-top-small display-mobile-none" style="height: 20vh">
+                <div class="cell small-12 medium-12 large-6 grid-x flex-center background-white padding-section margin-top-small display-mobile-none" style="height: 20vh">
                     <div class="cell small-12 grid-x flex-center border-bottom">
                         <p class="cell small-8 medium-9 large-4 font-primary-bold">Zwischensumme: </p>
                         <p class="cell small-2 medium-3 large-2 font-secondary-bold">{{$totalPrice}} €</p>
@@ -41,7 +41,7 @@
                     <a href="{{ route('default-checkout') }}" class="checkout-button">ZUR KASSE</a>
                 </div>
 
-                    <a href="{{ route('default-checkout') }}" class="cell small-12 no-margin-mobile checkout-button">ZUR KASSE</a>
+                    <a href="{{ route('default-checkout') }}" class="cell small-12 no-margin-mobile checkout-button display-mobile-only">ZUR KASSE</a>
             </section>
     @else
         <section class="grid-y" style="height: 35vh">

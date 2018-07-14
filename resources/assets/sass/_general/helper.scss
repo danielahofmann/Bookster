@@ -23,7 +23,7 @@
 }
 
 .display-mobile-none{
-  @include phone{
+  @include custom-max(640px){
     display: none;
   }
 }
@@ -47,10 +47,10 @@
 }
 
 .display-mobile-only{
-  display: none;
+  display: none !important;
 
   @include phone{
-    display: block;
+    display: block !important;
   }
 }
 
