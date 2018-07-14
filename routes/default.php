@@ -6,8 +6,15 @@ Route::prefix('default')->group(function() {
 	})->name('default-home');
 
 	Route::get( '/login', function () {
-		return view('age-layouts.default.login');
-	})->name('default-login');
+
+		$guard = null;
+
+		if ( Auth::guard( $guard )->check() ) {
+			return redirect('/default/dashboard');
+		}
+
+		return view( 'age-layouts.default.login' );
+	} )->name( 'default-login' );
 
 	Route::get( '/dashboard', function () {
 		return view('age-layouts.default.dashboard');
