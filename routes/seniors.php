@@ -40,4 +40,26 @@ Route::prefix('seniors')->group(function() {
 
 		return view('age-layouts.seniors.wishlist', ['products' => $wishlist->items]);
 	})->name('seniors-wishlist');
+
+	Route::get('/cart', function() {
+		if(!Session::has('cart')){
+			return view('age-layouts.seniors.cart', ['products' => null]);
+		}
+
+		$oldCart = Session::get('cart');
+		$cart = new App\Cart($oldCart);
+
+		return view('age-layouts.seniors.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+	})->name('seniors-cart');
+
+	Route::get('/checkout', function() {
+		if(!Session::has('cart')){
+			return view('age-layouts.seniors.checkout', ['products' => null]);
+		}
+
+		$oldCart = Session::get('cart');
+		$cart = new App\Cart($oldCart);
+
+		return view('age-layouts.seniors.checkout', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+	})->name('seniors-checkout');
 });

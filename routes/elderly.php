@@ -41,4 +41,26 @@ Route::prefix('elderly')->group(function() {
 
 		return view('age-layouts.elderly.wishlist', ['products' => $wishlist->items]);
 	})->name('elderly-wishlist');
+
+	Route::get('/cart', function() {
+		if(!Session::has('cart')){
+			return view('age-layouts.elderly.cart', ['products' => null]);
+		}
+
+		$oldCart = Session::get('cart');
+		$cart = new App\Cart($oldCart);
+
+		return view('age-layouts.elderly.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+	})->name('elderly-cart');
+
+	Route::get('/checkout', function() {
+		if(!Session::has('cart')){
+			return view('age-layouts.elderly.checkout', ['products' => null]);
+		}
+
+		$oldCart = Session::get('cart');
+		$cart = new App\Cart($oldCart);
+
+		return view('age-layouts.elderly.checkout', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+	})->name('elderly-checkout');
 });
