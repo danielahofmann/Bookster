@@ -76,4 +76,10 @@ Route::prefix('default')->group(function() {
 
 		return view('age-layouts.default.checkout', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
 	})->name('default-checkout');
+
+	Route::get( '/register', function () {
+		return view( 'age-layouts.default.register' );
+	} )->name( 'default-register' );
+
+	Route::post('register', 'Auth\RegisterController@register');
 });
