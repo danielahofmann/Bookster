@@ -19,6 +19,15 @@ class Customer extends Authenticatable
 	];
 
 	/**
+	 * The attributes that are mass assignable.
+	 *
+	 * @var array
+	 */
+	protected $fillable = [
+		'firstname', 'lastname', 'email', 'password', 'street', 'housenum', 'postcode', 'city', 'birthday'
+	];
+
+	/**
 	 * Get the order records associated with the customer.
 	 */
 	public function orders()
