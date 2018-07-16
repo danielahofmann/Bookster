@@ -8865,7 +8865,7 @@ h3 {
 }
 
 .fullscreen-beige-background {
-  min-height: 80vh;
+  min-height: 70vh;
   width: 100%;
   background: #F8F6F5;
   padding: 2rem 0;
@@ -8910,6 +8910,10 @@ h3 {
 .submit-button:focus {
   background-color: #5886F4;
   outline: none;
+}
+
+.submit-button:hover {
+  background-color: #BD1E5A;
 }
 
 .login-sublinks {

@@ -290,7 +290,7 @@
 }
 
 .fullscreen-beige-background{
-  min-height: 80vh;
+  min-height: 70vh;
   width: 100%;
   background: $beige;
   padding: 2rem 0;
@@ -326,6 +326,10 @@
   &:focus{
     background-color: $blue;
     outline: none;
+  }
+
+  &:hover{
+    background-color: $magenta;
   }
 }
 
