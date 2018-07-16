@@ -6,10 +6,16 @@
     <section class="fullscreen-beige-background grid-x flex-center">
 
         <h2 class="cell small-12 margin-top-bottom">Registrierung</h2>
+
+        @if ($errors->any())
+            <div class="cell small-12 flex-center alert-danger">
+                <p class="alert-danger-box">Ups, da ist etwas schief gelaufen. Bitte Überprüfen Sie Ihre Angaben.</p>
+            </div>
+        @endif
         <form method="POST" action="{{ route('register') }}" class="login-form cell small-12 medium-6 large-5 grid-x grid-margin-x">
             @csrf
 
-            <div class="cell small-6">
+            <div class="cell small-12 medium-6">
                 <label for="firstname" class="form-label">{{ __('Vorname') }}</label>
 
                 <div>
@@ -24,12 +30,12 @@
                 </div>
             </div>
 
-            <div class="cell small-6">
+            <div class="cell small-12 medium-6">
                 <label for="lastname" class="form-label">{{ __('Nachname') }}</label>
 
                 <div>
                     <input id="lastname" type="text" class="input{{ $errors->has('lastname') ? ' is-invalid' : '' }}"
-                           name="lastname" value="{{ old('lastname') }}" required autofocus>
+                           name="lastname" value="{{ old('lastname') }}" required>
 
                     @if ($errors->has('lastname'))
                         <span class="invalid-feedback">
@@ -39,7 +45,7 @@
                 </div>
             </div>
 
-            <div class="cell small-8">
+            <div class="cell small-12 medium-8">
                 <label for="street" class="form-label">{{ __('Straße') }}</label>
 
                 <div>
@@ -54,7 +60,7 @@
                 </div>
             </div>
 
-            <div class="cell small-4">
+            <div class="cell small-12 medium-4">
                 <label for="housenum" class="form-label">{{ __('Hausnr.') }}</label>
 
                 <div>
@@ -69,7 +75,7 @@
                 </div>
             </div>
 
-            <div class="cell small-4">
+            <div class="cell small-12 medium-4">
                 <label for="postcode" class="form-label">{{ __('PLZ') }}</label>
 
                 <div>
@@ -84,7 +90,7 @@
                 </div>
             </div>
 
-            <div class="cell small-8">
+            <div class="cell small-12 medium-8">
                 <label for="city" class="form-label">{{ __('Stadt') }}</label>
 
                 <div>
@@ -134,8 +140,7 @@
 
                 <div>
                     <input id="password" type="password"
-                           class="input{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
-                           required>
+                           class="input{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                     @if ($errors->has('password'))
                         <span class="invalid-feedback">
