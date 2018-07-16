@@ -79,4 +79,15 @@ Route::prefix('default')->group(function() {
 	} )->name( 'default-register' );
 
 	Route::post('register', 'Auth\RegisterController@register');
+
+
+	Route::get('/order', function() {
+		$oldCart = Session::get('cart');
+		$cart = new App\Cart($oldCart);
+
+		$customer_id = \Illuminate\Support\Facades\Auth::user()->id;
+		$customer = \App\Customer::find($customer_id);
+
+		return view('age-layouts.default.order', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'customer' => $customer]);
+	})->name('default-order');
 });
