@@ -384,3 +384,10 @@
 .label-seniors{
   font-size: 1.25rem;
 }
+
+.text-checkout{
+  @include text-styling($primary-font, $regular, 1rem);
+  color: $dark-grey;
+  text-align: center;
+  padding: 2rem;
+}

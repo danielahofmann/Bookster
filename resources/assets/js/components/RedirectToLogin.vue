@@ -38,6 +38,7 @@
 
         @include custom-max(639px){
             margin: 0;
+            margin-bottom: 1rem;
         }
 
         p{
