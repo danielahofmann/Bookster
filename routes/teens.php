@@ -75,4 +75,10 @@ Route::prefix('teens')->group(function() {
 	Route::get( '/dashboard', function () {
 		return view('age-layouts.teens.dashboard');
 	})->name('teens-dashboard');
+
+	Route::get( '/register', function () {
+		return view( 'age-layouts.teens.register' );
+	} )->name( 'teens-register' );
+
+	Route::post('register', 'Auth\RegisterController@register');
 });
