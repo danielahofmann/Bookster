@@ -81,4 +81,12 @@ Route::prefix('seniors')->group(function() {
 	} )->name( 'seniors-register' );
 
 	Route::post('register', 'Auth\RegisterController@register');
+
+	Route::get('/checkout', function() {
+		if(!empty(\Illuminate\Support\Facades\Auth::user())){
+			return redirect('seniors/order');
+		}
+
+		return view('age-layouts.seniors.checkout');
+	})->name('seniors-checkout');
 });
