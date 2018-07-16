@@ -40,6 +40,8 @@
 
     .category-navigation {
         background: $beige;
+        border-bottom: 2px solid white;
+
         .category-navigation-list {
             margin-bottom: 0;
             .category {
