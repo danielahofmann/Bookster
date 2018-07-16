@@ -82,4 +82,12 @@ Route::prefix('elderly')->group(function() {
 	} )->name( 'elderly-register' );
 
 	Route::post('register', 'Auth\RegisterController@register');
+
+	Route::get('/checkout', function() {
+		if(!empty(\Illuminate\Support\Facades\Auth::user())){
+			return redirect('elderly/order');
+		}
+
+		return view('age-layouts.elderly.checkout');
+	})->name('elderly-checkout');
 });

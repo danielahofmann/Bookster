@@ -38,10 +38,10 @@
                     <p class="cell small-8 medium-9 large-4 font-primary-bold">Zwischensumme: </p>
                     <p class="cell small-2 medium-3 large-2 font-secondary-bold">{{$totalPrice}} €</p>
                 </div>
-                <a href="{{ route('default-checkout') }}" class="checkout-button">ZUR KASSE</a>
+                <a href="{{ route('elderly-checkout') }}" class="checkout-button">ZUR KASSE</a>
             </div>
 
-            <a href="{{ route('default-checkout') }}" class="cell small-12 no-margin-mobile checkout-button display-mobile-only">ZUR KASSE</a>
+            <a href="{{ route('elderly-checkout') }}" class="cell small-12 no-margin-mobile checkout-button display-mobile-only">ZUR KASSE</a>
         </section>
     @else
         <section class="grid-y" style="height: 35vh">
