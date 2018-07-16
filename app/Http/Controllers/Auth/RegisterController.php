@@ -60,12 +60,17 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'firstname' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
+            'street' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'housenum' => 'required|max:10',
+            'postcode' => 'required|string|max:255',
+            'birthday' => 'nullable|date',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
 
-    /**
+	/**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
