@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Support\Facades\Session;
 
 class ForgotPasswordController extends Controller
 {
@@ -29,4 +30,12 @@ class ForgotPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+	public function showLinkRequestForm() {
+		if(Session::has('ageGroup')){
+			$view = 'age-layouts.' . Session::get('ageGroup') . '.email';
+		}
+
+		return view($view);
+	}
 }

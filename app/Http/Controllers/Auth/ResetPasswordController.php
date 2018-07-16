@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ResetPasswordController extends Controller
 {
@@ -23,9 +25,15 @@ class ResetPasswordController extends Controller
     /**
      * Where to redirect users after resetting their password.
      *
-     * @var string
      */
-    protected $redirectTo = '/home';
+	protected function redirectTo()
+	{
+		if(Session::has('ageGroup')){
+			$path = '/' . Session::get( 'ageGroup' ) .'/dashboard';
+		}
+
+		return $path;
+	}
 
     /**
      * Create a new controller instance.
@@ -36,4 +44,14 @@ class ResetPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+	public function showResetForm(Request $request, $token = null) {
+    	if(Session::has('ageGroup')){
+    		$view = 'age-layouts.' . Session::get('ageGroup') . '.reset';
+	    }else{
+		    $view = 'age-layouts.default.reset';
+	    }
+		return view($view)
+			->with(['token' => $token, 'email' => $request->email]);
+	}
 }
