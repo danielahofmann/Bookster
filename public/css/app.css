@@ -8868,6 +8868,7 @@ h3 {
   min-height: 80vh;
   width: 100%;
   background: #F8F6F5;
+  padding: 2rem 0;
 }
 
 .input {
@@ -8935,5 +8936,9 @@ h3 {
   .login-sublinks {
     padding: 0 0.25rem;
   }
+}
+
+.margin-top-bottom {
+  margin: 2rem 0 !important;
 }
 

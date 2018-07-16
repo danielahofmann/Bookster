@@ -293,6 +293,7 @@
   min-height: 80vh;
   width: 100%;
   background: $beige;
+  padding: 2rem 0;
 }
 
 .input{
@@ -348,3 +349,6 @@
   }
 }
 
+.margin-top-bottom{
+  margin: 2rem 0 !important;
+}

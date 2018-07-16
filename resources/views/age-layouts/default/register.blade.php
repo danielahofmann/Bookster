@@ -5,8 +5,8 @@
 @section('main')
     <section class="fullscreen-beige-background grid-x flex-center">
 
-        <h2>Registrierung</h2>
-        <form method="POST" action="{{ route('register') }}" class="login-form cell small-12 medium-6 large-4 grid-x grid-margin-x">
+        <h2 class="cell small-12 margin-top-bottom">Registrierung</h2>
+        <form method="POST" action="{{ route('register') }}" class="login-form cell small-12 medium-6 large-5 grid-x grid-margin-x">
             @csrf
 
             <div class="cell small-6">
