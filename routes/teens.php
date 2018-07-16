@@ -81,4 +81,12 @@ Route::prefix('teens')->group(function() {
 	} )->name( 'teens-register' );
 
 	Route::post('register', 'Auth\RegisterController@register');
+
+	Route::get('/checkout', function() {
+		if(!empty(\Illuminate\Support\Facades\Auth::user())){
+			return redirect('teens/order');
+		}
+
+		return view('age-layouts.teens.checkout');
+	})->name('teens-checkout');
 });
