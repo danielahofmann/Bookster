@@ -28,7 +28,7 @@ class LoginController extends Controller
 	protected function redirectTo()
 	{
 		if(Session::has('checkout') && Session::get('checkout') == 1){
-			$path = '/' . Session::get('ageGroup') . '/cart';
+			$path = '/' . Session::get('ageGroup') . '/order';
 			return $path;
 		}
 
