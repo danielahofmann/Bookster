@@ -11,6 +11,8 @@ export const store = new Vuex.Store({
         ageGroup: '',
         cart: false,
         cartQuantity: 0,
+        totalPrice: 0,
+        deliveryPrice: 0,
     },
 
     mutations: {
@@ -33,6 +35,12 @@ export const store = new Vuex.Store({
         },
         setAgeGroup(state, ageGroup){
             state.ageGroup = ageGroup;
-        }
+        },
+        setTotalPrice(state, totalPrice){
+            state.totalPrice = totalPrice;
+        },
+        setDeliveryPrice(state, deliveryPrice){
+            state.deliveryPrice = deliveryPrice;
+        },
     }
 });
