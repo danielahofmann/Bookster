@@ -54,6 +54,16 @@ Route::get('/results', function () {
 	return view('pages.results');
 });
 
+Route::get('/api/saveCheckoutToSession', function(){
+
+	session(['checkout' => 1]);
+
+	$ageGroup = \Illuminate\Support\Facades\Session::get('ageGroup');
+
+	return $ageGroup;
+});
+
+
 Route::get('/redirect', function(){
 	return back();
 })->name('redirect');
