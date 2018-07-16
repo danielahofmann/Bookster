@@ -20,3 +20,17 @@ h3{
   margin-top: 1rem;
   color: $dark-grey;
 }
+
+h4{
+  @include text-styling($primary-font, $bold, 1rem);
+  color: $dark-grey;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+h5{
+  @include text-styling($secondary-font, $bold, 0.9rem);
+  color: $dark-grey;
+  text-transform: uppercase;
+  margin: 2.5rem 0 1rem 0;
+}

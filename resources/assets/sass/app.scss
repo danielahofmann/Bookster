@@ -391,3 +391,62 @@
   text-align: center;
   padding: 2rem;
 }
+
+.order-box{
+  padding: 2rem 3rem;
+  background-color: $white;
+  margin-bottom: 1rem;
+
+  p{
+    margin: 0;
+    color: $dark-grey;
+    @include text-styling($primary-font, $regular, 1rem);
+  }
+}
+
+.order-button{
+  background-color: $beige;
+  @include text-styling($secondary-font, $bold, 0.75rem);
+  color: $dark-grey;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+}
+
+.delivery-option{
+  margin-bottom: 1rem;
+
+  .delivery-price{
+    @include text-styling($secondary-font, $bold, 1rem);
+    color: $dark-grey;
+  }
+
+  .delivery-information{
+   .title{
+     @include text-styling($secondary-font, $bold, 0.8rem);
+     color: $dark-grey;
+     text-transform: uppercase;
+   }
+  }
+
+  .delivery-radio{
+    color: $dark-grey;
+  }
+}
+
+.payment{
+  margin-bottom: 1rem;
+
+  .payment-information{
+    .title{
+      @include text-styling($secondary-font, $bold, 0.8rem);
+      color: $dark-grey;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.information{
+  @include text-styling($secondary-font, $regular, 0.9rem);
+  color: $light-grey;
+  padding-right: 1rem;
+}

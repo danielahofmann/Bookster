@@ -8488,6 +8488,24 @@ h3 {
   color: #4A4A4A;
 }
 
+h4 {
+  font-family: "Quicksand", Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #4A4A4A;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+h5 {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #4A4A4A;
+  text-transform: uppercase;
+  margin: 2.5rem 0 1rem 0;
+}
+
 .padding-top-small {
   padding-top: 1rem;
 }
@@ -8984,5 +9002,72 @@ h3 {
   color: #4A4A4A;
   text-align: center;
   padding: 2rem;
+}
+
+.order-box {
+  padding: 2rem 3rem;
+  background-color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.order-box p {
+  margin: 0;
+  color: #4A4A4A;
+  font-family: "Quicksand", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.order-button {
+  background-color: #F8F6F5;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: #4A4A4A;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+}
+
+.delivery-option {
+  margin-bottom: 1rem;
+}
+
+.delivery-option .delivery-price {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #4A4A4A;
+}
+
+.delivery-option .delivery-information .title {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #4A4A4A;
+  text-transform: uppercase;
+}
+
+.delivery-option .delivery-radio {
+  color: #4A4A4A;
+}
+
+.payment {
+  margin-bottom: 1rem;
+}
+
+.payment .payment-information .title {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #4A4A4A;
+  text-transform: uppercase;
+}
+
+.information {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #9B9B9B;
+  padding-right: 1rem;
 }
 
