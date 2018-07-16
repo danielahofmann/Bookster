@@ -33,7 +33,7 @@ class RegisterController extends Controller
 	protected function redirectTo()
 	{
 		if(Session::has('ageGroup')){
-			$path = '/' . Session::get( 'ageGroup' );
+			$path = '/' . Session::get( 'ageGroup' ) .'/dashboard';
 		}
 
 		return $path;
