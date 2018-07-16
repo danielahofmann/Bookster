@@ -47,7 +47,7 @@
 
                 <p class="login-sublinks">|</p>
 
-                <a class="login-sublinks" href="{{ route('register') }}">{{ __('Noch kein Mitglied?') }}</a>
+                <a class="login-sublinks" href="{{ route('seniors-register') }}">{{ __('Noch kein Mitglied?') }}</a>
             </div>
         </form>
     </section>

@@ -75,4 +75,10 @@ Route::prefix('seniors')->group(function() {
 	Route::get( '/dashboard', function () {
 		return view('age-layouts.seniors.dashboard');
 	})->name('seniors-dashboard');
+
+	Route::get( '/register', function () {
+		return view( 'age-layouts.seniors.register' );
+	} )->name( 'seniors-register' );
+
+	Route::post('register', 'Auth\RegisterController@register');
 });
