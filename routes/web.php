@@ -96,3 +96,49 @@ Route::get('/api/getCartQuantity', function(Request $request){
 });
 
 Route::post('/logout','UserController@performLogout')->name('logout');
+
+Route::post('/place-order','OrderController@store')->name('place-order');
+
+Route::post('/saveBillAddress',function(Request $request){
+
+	$bill = [
+		'firstname' => $request->input('firstname'),
+		'lastname' => $request->input('lastname'),
+		'street' => $request->input('street'),
+		'housenum' => $request->input('housenum'),
+		'city' => $request->input('city'),
+		'postcode' => $request->input('postcode'),
+		'email' => $request->input('email'),
+	];
+
+	session(['billAddress' => $bill]);
+
+	return redirect()
+		->back()
+		->with('status', 'Rechnungsadresse erfolgreich geändert');
+
+})->name('saveBillAddress');
+
+Route::post('/saveDeliveryAddress',function(Request $request){
+
+	$delivery = [
+		'firstname' => $request->input('firstname'),
+		'lastname' => $request->input('lastname'),
+		'street' => $request->input('street'),
+		'housenum' => $request->input('housenum'),
+		'city' => $request->input('city'),
+		'postcode' => $request->input('postcode'),
+		'email' => $request->input('email'),
+	];
+
+	session(['deliveryAddress' => $delivery]);
+
+	return redirect()
+		->back()
+		->with('status', 'Versandadresse erfolgreich geändert');
+
+})->name('saveDeliveryAddress');
+
+Route::get('/order-success', function (){
+	return view('age-layouts.default.order-success');
+})->name('order-success');
