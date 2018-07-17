@@ -35,8 +35,9 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+    	dd($request->input('payment'), $request->input('delivery'), $request->input('agb'));
+
+	}
 
     /**
      * Display the specified resource.
