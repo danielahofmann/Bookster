@@ -58,7 +58,7 @@
                                 <p class="information">Rechnungsbetrag innerhalb von 2 Wochen überweisen</p>
                             </div>
                             <div class="cell small-2">
-                                <input type="radio" name="payment" id="payment" value="rechnung">
+                                <input type="radio" name="payment" id="payment" value="rechnung" required>
                             </div>
                         </div>
 
@@ -69,7 +69,7 @@
                                     haben</p>
                             </div>
                             <div class="cell small-2">
-                                <input type="radio" name="payment" id="payment" value="vorkasse">
+                                <input type="radio" name="payment" id="payment" value="vorkasse" required>
                             </div>
                         </div>
 
@@ -79,7 +79,7 @@
                                 <p class="information">Rechnung wird bei Lieferung bezahlt</p>
                             </div>
                             <div class="cell small-2">
-                                <input type="radio" name="payment" id="payment" value="nachname">
+                                <input type="radio" name="payment" id="payment" value="nachname" required>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="cell small-2 flex-center">
-                            <input type="checkbox" name="agb" id="agb" value="checked">
+                            <input type="checkbox" name="agb" id="agb" value="checked" required>
                         </div>
                     </div>
 
