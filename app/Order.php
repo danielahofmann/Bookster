@@ -29,4 +29,14 @@ class Order extends Model
 	{
 		return $this->belongsToMany('App\Product');
 	}
+
+	public function billAddress()
+	{
+		return $this->hasOne('App\BillAddress');
+	}
+
+	public function deliveryAddress()
+	{
+		return $this->hasOne('App\DeliveryAddress');
+	}
 }
