@@ -88,6 +88,18 @@ Route::prefix('default')->group(function() {
 		$customer_id = \Illuminate\Support\Facades\Auth::user()->id;
 		$customer = \App\Customer::find($customer_id);
 
-		return view('age-layouts.default.order', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'customer' => $customer]);
+		$billAddress = null;
+		$deliveryAddress = null;
+
+		if(Session::has('billAddress')){
+			$billAddress = Session::get('billAddress');
+		}
+
+		if(Session::has('deliveryAddress')){
+			$deliveryAddress = Session::get('deliveryAddress');
+		}
+
+
+		return view('age-layouts.default.order', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'customer' => $customer, 'bill' => $billAddress, 'delivery' => $deliveryAddress]);
 	})->name('default-order');
 });
