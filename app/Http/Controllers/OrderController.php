@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\BillAddress;
 use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -35,7 +37,33 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-    	dd($request->input('payment'), $request->input('delivery'), $request->input('agb'));
+	    $this->validate($request, [
+		    'delivery' => 'required',
+		    'payment' => 'required',
+		    'agb' => 'required',
+	    ], [
+		    'delivery.required' => 'Bitte wähle eine Versandoption.',
+		    'payment.required' => 'Bitte wähle eine Zahlungsmethode.',
+		    'agb.required' => 'Für den erfolgreichen Abschluss der Bestellung, müssen unsere AGB akzeptiert werden.',
+	    ]);
+
+	    $billAddress = new BillAddress();
+	    $billAddress->save();
+
+	    $order = new Order();
+	    $order->agb = $request->input('agb');
+	    $order->delivery = $request->input('delivery');
+	    $order->payment = $request->input('payment');
+	    $order->state_id = 1;
+	    $order->customer_id = Auth::user()->id;
+
+
+
+	    $product->save();
+
+	    return redirect()
+		    ->route('products')
+		    ->with('status', 'Produkt erfolgreich erstellt');
 
 	}
 
