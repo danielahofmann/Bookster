@@ -4,7 +4,9 @@
 
 @section('main')
     @if(session('status'))
-        <p>{{session('status')}}</p>
+        <alert-success-popup
+            status="{{session('status')}}"
+        ></alert-success-popup>
     @endif
 
     <section class="fullscreen-beige-background">
