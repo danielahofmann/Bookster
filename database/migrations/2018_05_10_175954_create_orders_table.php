@@ -18,6 +18,9 @@ class CreateOrdersTable extends Migration
             $table->integer('customer_id')->length(11);
             $table->integer('state_id')->length(11)->default('0');
             $table->string('price', 28);
+            $table->string('payment_method', 28);
+            $table->string('shipping_method', 28);
+            $table->integer('agb')->default(0);
             $table->integer('shipped')->default('0');
             $table->date('ordered_at');
             $table->date('send_at');
