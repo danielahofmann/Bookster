@@ -1,12 +1,12 @@
 <template>
     <div class="cell small-12 grid-x">
-        <p class="cell small-8">Zwischensumme:</p>
-        <p class="cell small-4 price">{{ this.subTotal }} €</p>
-        <p class="cell small-8">Versand:</p>
-        <p class="cell small-4 price">{{deliveryPrice}} €</p>
+        <p class="cell small-8 interim-result">Zwischensumme:</p>
+        <p class="cell small-4 price interim-result">{{ this.subTotal }} €</p>
+        <p class="cell small-8 interim-result">Versand:</p>
+        <p class="cell small-4 price interim-result">{{deliveryPrice}} €</p>
 
-        <p class="cell small-8">GESAMT:</p>
-        <p class="cell small-4 price">{{ totalPrice }} €</p>
+        <p class="cell small-8 bold">GESAMT:</p>
+        <p class="cell small-4 price bold">{{ totalPrice }} €</p>
 
     </div>
 </template>
@@ -38,5 +38,14 @@
 
     .price{
         text-align: right;
+    }
+
+    .bold{
+        font-weight: $bold !important;
+    }
+
+    .interim-result{
+        font-family: $secondary-font !important;
+        font-size: 0.9rem !important;
     }
 </style>

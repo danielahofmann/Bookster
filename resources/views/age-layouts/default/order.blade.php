@@ -94,8 +94,8 @@
                     <button type="submit" class="submit-button">Jetzt Bestellen</button>
                 </div>
 
-                <div class="cell small-12 medium-4 order-box">
-                    <div class="">
+                <div class="cell small-12 medium-4">
+                    <div class="order-box">
                         <h4>Artikel</h4>
 
                         @foreach($products as $product)

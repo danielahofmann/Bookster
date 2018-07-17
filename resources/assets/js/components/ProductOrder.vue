@@ -32,7 +32,6 @@
     .order-product{
         margin: 1rem;
         padding: 1rem 0;
-        border-bottom: thin solid $beige;
 
         .image{
             height: 125px;
