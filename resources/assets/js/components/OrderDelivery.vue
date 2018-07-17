@@ -9,7 +9,7 @@
                     <p class="information">Lieferung innerhalb von 3-4 Werktagen</p>
                 </div>
                 <div class="cell small-2 delivery-radio">
-                    <input type="radio" name="delivery" id="delivery" value="5" @change="setDelivery(5)" required>
+                    <input type="radio" name="delivery" id="delivery" value="standard" @change="setDelivery(5)" required>
                 </div>
             </div>
 
@@ -20,7 +20,7 @@
                     <p class="information">Lieferung innerhalb von 1-2 Werktagen</p>
                 </div>
                 <div class="cell small-2 delivery-radio">
-                    <input type="radio" name="delivery" id="delivery" value="8" @change="setDelivery(8)" required>
+                    <input type="radio" name="delivery" id="delivery" value="express" @change="setDelivery(8)" required>
                 </div>
             </div>
         </div>
