@@ -96,6 +96,7 @@ Vue.component('redirect-login', require('./components/RedirectToLogin.vue'));
 Vue.component('redirect-registration', require('./components/RedirectToRegistration.vue'));
 
 
+
 Vue.component('mobile-logo', require('./components/age-specific-components/elderly-components/MobileLogo.vue'));
 Vue.component('kids-book-preview', require('./components/age-specific-components/kid-components/KidsBookPreview.vue'));
 Vue.component('kids-preview', require('./components/age-specific-components/kid-components/KidsPreviewSection.vue'));
