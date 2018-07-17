@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="cell small-2 flex-center">
-                            <input type="checkbox" name="agb" id="agb" value="checked" required>
+                            <input type="checkbox" name="agb" id="agb" value="1" required>
                         </div>
                     </div>
 
