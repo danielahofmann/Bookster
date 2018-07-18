@@ -89,4 +89,30 @@ Route::prefix('teens')->group(function() {
 
 		return view('age-layouts.teens.checkout');
 	})->name('teens-checkout');
+
+	Route::get('/order', function() {
+		$oldCart = Session::get('cart');
+		$cart = new App\Cart($oldCart);
+
+		$customer_id = \Illuminate\Support\Facades\Auth::user()->id;
+		$customer = \App\Customer::find($customer_id);
+
+		$billAddress = null;
+		$deliveryAddress = null;
+
+		if(Session::has('billAddress')){
+			$billAddress = Session::get('billAddress');
+		}
+
+		if(Session::has('deliveryAddress')){
+			$deliveryAddress = Session::get('deliveryAddress');
+		}
+
+
+		return view('age-layouts.teens.order', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'customer' => $customer, 'bill' => $billAddress, 'delivery' => $deliveryAddress]);
+	})->name('teens-order');
+
+	Route::get('/order-success', function (){
+		return view('age-layouts.teens.order-success');
+	})->name('teens-order-success');
 });
