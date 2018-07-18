@@ -43,4 +43,44 @@ class EmailController extends Controller
 		});
 
 	}
+
+	public function sendOrderConfirmationMail($approval_mail, $order_id) {
+		$email = $approval_mail;
+
+		Mail::send('mail.mails.order-confirmation', ['email' => $email, 'order_id' => $order_id], function ($message) use ($email)
+		{
+
+			$message->from('info@bookster.service', 'Bookster');
+
+			$message->to($email);
+
+		});
+
+	}
+
+	public function sendOrderSavedMail() {
+		$email = Auth::user()->email;
+
+		Mail::send('mail.mails.order-saved', ['email' => $email], function ($message) use ($email)
+		{
+
+			$message->from('info@bookster.service', 'Bookster');
+
+			$message->to($email);
+
+		});
+
+	}
+
+	public function sendOrderSuccessfullyConfirmedMail($email) {
+		Mail::send('mail.mails.order-successfully-confirmed', ['email' => $email], function ($message) use ($email)
+		{
+
+			$message->from('info@bookster.service', 'Bookster');
+
+			$message->to($email);
+
+		});
+
+	}
 }
