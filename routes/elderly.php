@@ -105,4 +105,24 @@ Route::prefix('elderly')->group(function() {
 	Route::get('/order-success', function (){
 		return view('age-layouts.elderly.order-success');
 	})->name('elderly-order-success');
+
+	Route::get('/help', function (){
+		return view('age-layouts.elderly.help');
+	})->name('elderly-help');
+
+	Route::get('/help/delivery', function (){
+		return view('age-layouts.elderly.help-delivery');
+	})->name('elderly-help-delivery');
+
+	Route::get('/help/payment', function (){
+		return view('age-layouts.elderly.help-payment');
+	})->name('elderly-help-payment');
+
+	Route::get('/help/retoure', function (){
+		return view('age-layouts.elderly.help-retoure');
+	})->name('elderly-help-retoure');
+
+	Route::get('/help/order', function (){
+		return view('age-layouts.elderly.help-order');
+	})->name('elderly-help-order');
 });
