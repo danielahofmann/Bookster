@@ -17,7 +17,7 @@ class CreateBillAddressesTable extends Migration
 	        $table->increments('id');
 	        $table->string('firstname', 50);
 	        $table->string('lastname', 50);
-	        $table->string('email', 128)->unique();
+	        $table->string('email', 128);
 	        $table->string('street', 128);
 	        $table->string('housenum', 5);
 	        $table->string('postcode', 10);
