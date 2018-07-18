@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\BillAddress;
+use App\Cart;
 use App\Order;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
@@ -37,7 +40,10 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-	    $this->validate($request, [
+	    /**
+	     * First of all validating
+	     */
+    	$this->validate($request, [
 		    'delivery' => 'required',
 		    'payment' => 'required',
 		    'agb' => 'required',
@@ -47,23 +53,56 @@ class OrderController extends Controller
 		    'agb.required' => 'Für den erfolgreichen Abschluss der Bestellung, müssen unsere AGB akzeptiert werden.',
 	    ]);
 
-	    $billAddress = new BillAddress();
-	    $billAddress->save();
+    	/**
+    	 * Then saving billAddress and deliveryAddress
+	     * If session::has('deliveryAddress/billAddress') -> save this data, otherwise save data from Auth::user
+    	 */
+	    $billAddress = new BillAddressController();
+	    $billId = $billAddress->store();
 
+	    $deliveryAddress = new BillAddressController();
+	    $deliveryId = $deliveryAddress->store();
+
+	    /**
+	     * Now save all data to order db
+	     */
 	    $order = new Order();
-	    $order->agb = $request->input('agb');
-	    $order->delivery = $request->input('delivery');
-	    $order->payment = $request->input('payment');
-	    $order->state_id = 1;
 	    $order->customer_id = Auth::user()->id;
+	    $order->billAddress_id = $billId;
+	    $order->deliveryAddress_id = $deliveryId;
+	    $order->state_id = 1;
+	    $order->agb = $request->input('agb');
+	    $order->shipping_method = $request->input('delivery');
+	    $order->payment_method = $request->input('payment');
+		$order->ordered_at = Carbon::now();
+		$order->created_at = Carbon::now();
+
+	    $oldCart = Session::get('cart');
+	    $cart = new Cart($oldCart);
+
+	    /**
+	     * Calculating TotalPrice from deliveryPrice and $cart->totalprice
+	     */
+	    if($request->input('delivery') == 'standard'){
+		    $deliveryPrice = 5.00;
+	    }else{
+		    $deliveryPrice = $cart->totalPrice + 8.00;
+	    }
+
+	    $total = $cart->totalPrice + $deliveryPrice;
+	    $order->price = $total;
+
+	    /**
+	     * saving to pivot order_product with product_amount
+	     */
+	    foreach ($cart->items as $product){
+	    	$order->products()->attach($product['item']['id'], ['product_amount' => $product['quantity']]);
+	    }
 
 
-
-	    $product->save();
-
-	    return redirect()
+	    /*return redirect()
 		    ->route('products')
-		    ->with('status', 'Produkt erfolgreich erstellt');
+		    ->with('status', 'Produkt erfolgreich erstellt');*/
 
 	}
 
