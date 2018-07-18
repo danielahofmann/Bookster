@@ -92,6 +92,8 @@ class OrderController extends Controller
 	    $total = $cart->totalPrice + $deliveryPrice;
 	    $order->price = $total;
 
+	    $order->save();
+
 	    /**
 	     * saving to pivot order_product with product_amount
 	     */
@@ -99,11 +101,25 @@ class OrderController extends Controller
 	    	$order->products()->attach($product['item']['id'], ['product_amount' => $product['quantity']]);
 	    }
 
+	    /**
+	     * Send email, that the order was successfully placed
+	     */
+	    $email = new EmailController();
+	    $email->sendOrderSuccessMail($cart->items);
 
-	    /*return redirect()
-		    ->route('products')
-		    ->with('status', 'Produkt erfolgreich erstellt');*/
+	    /**
+	     * delete all data from session, that now isn't needed any longer
+	     */
+	    Session::forget(['billAddress', 'deliveryAddress', 'cart']);
 
+	    /**
+	     * redirect with status
+	     */
+
+	    $ageGroup = Session::get('ageGroup');
+	    return redirect()
+		    ->route($ageGroup . '-order-success')
+		    ->with('status', 'Bestellung erfolgreich erstellt');
 	}
 
     /**
