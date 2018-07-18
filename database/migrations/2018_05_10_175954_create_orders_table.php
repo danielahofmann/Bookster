@@ -25,7 +25,7 @@ class CreateOrdersTable extends Migration
             $table->integer('agb')->default(0);
             $table->integer('shipped')->default('0');
             $table->date('ordered_at');
-            $table->date('send_at');
+            $table->date('send_at')->default(0);
             $table->timestamps();
         });
     }
