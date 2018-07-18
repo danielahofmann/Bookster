@@ -52,17 +52,6 @@ Route::prefix('seniors')->group(function() {
 		return view('age-layouts.seniors.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
 	})->name('seniors-cart');
 
-	Route::get('/checkout', function() {
-		if(!Session::has('cart')){
-			return view('age-layouts.seniors.checkout', ['products' => null]);
-		}
-
-		$oldCart = Session::get('cart');
-		$cart = new App\Cart($oldCart);
-
-		return view('age-layouts.seniors.checkout', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
-	})->name('seniors-checkout');
-
 	Route::get( '/login', function () {
 		$guard = null;
 		if ( Auth::guard( $guard )->check() ) {
@@ -89,4 +78,30 @@ Route::prefix('seniors')->group(function() {
 
 		return view('age-layouts.seniors.checkout');
 	})->name('seniors-checkout');
+
+	Route::get('/order', function() {
+		$oldCart = Session::get('cart');
+		$cart = new App\Cart($oldCart);
+
+		$customer_id = \Illuminate\Support\Facades\Auth::user()->id;
+		$customer = \App\Customer::find($customer_id);
+
+		$billAddress = null;
+		$deliveryAddress = null;
+
+		if(Session::has('billAddress')){
+			$billAddress = Session::get('billAddress');
+		}
+
+		if(Session::has('deliveryAddress')){
+			$deliveryAddress = Session::get('deliveryAddress');
+		}
+
+
+		return view('age-layouts.seniors.order', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'customer' => $customer, 'bill' => $billAddress, 'delivery' => $deliveryAddress]);
+	})->name('seniors-order');
+
+	Route::get('/order-success', function (){
+		return view('age-layouts.seniors.order-success');
+	})->name('seniors-order-success');
 });
