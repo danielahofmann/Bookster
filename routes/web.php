@@ -16,11 +16,9 @@ use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('pages.age');
-});
+})->name('start');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/api/saveAgeToSession', 'AgeController@saveAgeToSession');
 
@@ -139,6 +137,8 @@ Route::post('/saveDeliveryAddress',function(Request $request){
 
 })->name('saveDeliveryAddress');
 
-/*Route::get('/order-success', function (){
-	return view('age-layouts.default.order-success');
-})->name('order-success');*/
+Route::get('/confirmation/{id}', 'ApprovalController@confirm')->name('confirmation');
+
+Route::get('/confirmation-success', function () {
+	return view('age-layouts.default.confirmation');
+})->name('confirmation-success');
