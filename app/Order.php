@@ -39,4 +39,9 @@ class Order extends Model
 	{
 		return $this->hasOne('App\DeliveryAddress');
 	}
+
+	public function approval()
+	{
+		return $this->hasOne('App\Approval');
+	}
 }
