@@ -110,4 +110,20 @@ Route::prefix('default')->group(function() {
 	Route::get('/help', function (){
 		return view('age-layouts.default.help');
 	})->name('default-help');
+
+	Route::get('/help/delivery', function (){
+		return view('age-layouts.default.help-delivery');
+	})->name('default-help-delivery');
+
+	Route::get('/help/payment', function (){
+		return view('age-layouts.default.help-payment');
+	})->name('default-help-payment');
+
+	Route::get('/help/retoure', function (){
+		return view('age-layouts.default.help-retoure');
+	})->name('default-help-retoure');
+
+	Route::get('/help/order', function (){
+		return view('age-layouts.default.help-order');
+	})->name('default-help-order');
 });
