@@ -102,4 +102,8 @@ Route::prefix('default')->group(function() {
 
 		return view('age-layouts.default.order', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'customer' => $customer, 'bill' => $billAddress, 'delivery' => $deliveryAddress]);
 	})->name('default-order');
+
+	Route::get('/order-success', function (){
+		return view('age-layouts.default.order-success');
+	})->name('default-order-success');
 });

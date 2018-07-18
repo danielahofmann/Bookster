@@ -139,6 +139,6 @@ Route::post('/saveDeliveryAddress',function(Request $request){
 
 })->name('saveDeliveryAddress');
 
-Route::get('/order-success', function (){
+/*Route::get('/order-success', function (){
 	return view('age-layouts.default.order-success');
-})->name('order-success');
+})->name('order-success');*/
