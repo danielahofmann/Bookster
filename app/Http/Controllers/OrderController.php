@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Approval;
 use App\BillAddress;
 use App\Cart;
 use App\Order;
@@ -92,7 +93,20 @@ class OrderController extends Controller
 	    $total = $cart->totalPrice + $deliveryPrice;
 	    $order->price = $total;
 
+	    /**
+	     * Saving Order
+	     */
 	    $order->save();
+
+	    /**
+	     * If ageGroup = teens, we need a approval
+	     */
+	    if(Session::get('ageGroup') == 'teens'){
+		    $approval = $order->approval()->create([
+			    'customer_id' => Auth::user()->id,
+			    'email' => $request->input('approval_mail'),
+		    ]);
+	    }
 
 	    /**
 	     * saving to pivot order_product with product_amount
@@ -101,11 +115,26 @@ class OrderController extends Controller
 	    	$order->products()->attach($product['item']['id'], ['product_amount' => $product['quantity']]);
 	    }
 
-	    /**
-	     * Send email, that the order was successfully placed
-	     */
-	    $email = new EmailController();
-	    $email->sendOrderSuccessMail($cart->items);
+	    if(Session::get('ageGroup') == 'teens'){
+		    /**
+		     * Send email to parents, that a order was placed and needs to be confirmed
+		     */
+		    $email = new EmailController();
+		    $email->sendOrderConfirmationMail($request->input('approval_mail'), $order->id);
+
+		    /**
+		     * Send email, that the order is saved and needs confirmation
+		     */
+		    $email = new EmailController();
+		    $email->sendOrderSavedMail();
+	    }else{
+		    /**
+		     * Send email, that the order was successfully placed
+		     */
+		    $email = new EmailController();
+		    $email->sendOrderSuccessMail($cart->items);
+	    }
+
 
 	    /**
 	     * delete all data from session, that now isn't needed any longer
