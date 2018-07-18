@@ -19,7 +19,6 @@ class CreateOrdersTable extends Migration
             $table->integer('deliveryAddress_id')->length(11);
             $table->integer('billAddress_id')->length(11);
             $table->integer('state_id')->length(11)->default('0');
-            $table->integer('approval_id')->length(11)->nullable();
             $table->string('price', 28);
             $table->string('payment_method', 28);
             $table->string('shipping_method', 28);
