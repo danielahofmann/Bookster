@@ -1,7 +1,10 @@
-@if(session('status'))
-    <p>{{session('status')}}</p>
-@endif
+@extends ('age-layouts.default')
 
-@if(session('request'))
-    <p>{{session('request')}}</p>
-@endif
+@section('title', 'Bestellung erfolgreich' )
+
+@section('main')
+    @if(session('status'))
+        <p>{{session('status')}}</p>
+    @endif
+
+@endsection
