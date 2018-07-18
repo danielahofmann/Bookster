@@ -25,6 +25,34 @@ Breadcrumbs::for('seniors-wishlist', function ($trail) {
 	$trail->push('Wunschliste', route('seniors-wishlist'));
 });
 
+// Startseite > Hilfe
+Breadcrumbs::for('seniors-help', function ($trail) {
+	$trail->parent('seniors-home');
+	$trail->push('Hilfe', route('seniors-help'));
+});
+
+// Startseite > Hilfe > Lieferung
+Breadcrumbs::for('seniors-help-delivery', function ($trail) {
+	$trail->parent('seniors-help');
+	$trail->push('Lieferung', route('seniors-help-delivery'));
+});
+
+// Startseite > Hilfe > Zahlung
+Breadcrumbs::for('seniors-help-payment', function ($trail) {
+	$trail->parent('seniors-help');
+	$trail->push('Zahlung', route('seniors-help-payment'));
+});
+
+// Startseite > Hilfe > Retoure
+Breadcrumbs::for('seniors-help-retoure', function ($trail) {
+	$trail->parent('seniors-help');
+	$trail->push('Retoure & Rückerstattung', route('seniors-help-retoure'));
+});
+// Startseite > Hilfe > Retoure
+Breadcrumbs::for('seniors-help-order', function ($trail) {
+	$trail->parent('seniors-help');
+	$trail->push('Probleme mit der Bestellung', route('seniors-help-order'));
+});
 
 /**
  * ELDERLY BREADCRUMBS
