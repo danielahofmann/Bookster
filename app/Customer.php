@@ -42,4 +42,9 @@ class Customer extends Authenticatable
 	{
 		return $this->hasMany('App\Wishlist');
 	}
+
+	public function approval()
+	{
+		return $this->hasMany('App\Approval');
+	}
 }
