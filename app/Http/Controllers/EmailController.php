@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
@@ -26,5 +28,19 @@ class EmailController extends Controller
 
 		$age = Session::get('ageGroup');
 		return redirect($age . '/wishlist');
+	}
+
+	public function sendOrderSuccessMail(Array $products) {
+		$email = Auth::user()->email;
+
+		Mail::send('mail.mails.order-success', ['email' => $email, 'products' => $products], function ($message) use ($email)
+		{
+
+			$message->from('info@bookster.service', 'Bookster');
+
+			$message->to($email);
+
+		});
+
 	}
 }
