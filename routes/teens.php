@@ -115,4 +115,24 @@ Route::prefix('teens')->group(function() {
 	Route::get('/order-success', function (){
 		return view('age-layouts.teens.order-success');
 	})->name('teens-order-success');
+
+	Route::get('/help', function (){
+		return view('age-layouts.teens.help');
+	})->name('teens-help');
+
+	Route::get('/help/delivery', function (){
+		return view('age-layouts.teens.help-delivery');
+	})->name('teens-help-delivery');
+
+	Route::get('/help/payment', function (){
+		return view('age-layouts.teens.help-payment');
+	})->name('teens-help-payment');
+
+	Route::get('/help/retoure', function (){
+		return view('age-layouts.teens.help-retoure');
+	})->name('teens-help-retoure');
+
+	Route::get('/help/order', function (){
+		return view('age-layouts.teens.help-order');
+	})->name('teens-help-order');
 });
