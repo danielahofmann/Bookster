@@ -8766,6 +8766,25 @@ h5 {
   outline: none;
 }
 
+.button-light {
+  background-color: #EAE7E5;
+  font-family: "Quicksand", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #4A4A4A;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+}
+
+.button-light:hover {
+  font-weight: 700;
+  color: #4A4A4A;
+}
+
+.button-light:focus {
+  outline: none;
+}
+
 .input {
   border: none;
   -webkit-box-shadow: none;
@@ -9078,8 +9097,20 @@ h5 {
   margin-bottom: 1rem;
 }
 
+@media (max-width: 639px) {
+  .help-box {
+    height: auto;
+  }
+}
+
 .help-box img {
   display: block;
+}
+
+@media (max-width: 1023px) {
+  .help-box img {
+    width: 25px;
+  }
 }
 
 .help-box a {
@@ -9097,5 +9128,33 @@ h5 {
 
 .no-margin {
   margin: 0;
+}
+
+.margin-bottom-medium {
+  margin-bottom: 4rem !important;
+}
+
+.beige {
+  background-color: #F8F6F5;
+}
+
+.padding-top-seniors {
+  padding-top: 9rem;
+}
+
+.no-margin-breadcrumb .breadcrumbs {
+  margin-top: 0 !important;
+}
+
+@media (min-width: 1025px) {
+  .no-margin-breadcrumb .breadcrumbs {
+    margin-top: 10rem !important;
+  }
+}
+
+@media (min-width: 1045px) {
+  .no-margin-breadcrumb .breadcrumbs {
+    margin-top: 6rem !important;
+  }
 }
 

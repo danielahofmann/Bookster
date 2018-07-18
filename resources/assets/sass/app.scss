@@ -185,6 +185,23 @@
   }
 }
 
+.button-light{
+  background-color: $dark-beige;
+  @include text-styling($primary-font, $regular, 0.9rem);
+  color: $dark-grey;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+
+  &:hover{
+    font-weight: $bold;
+    color: $dark-grey;
+  }
+
+  &:focus{
+    outline: none;
+  }
+}
+
 .input{
   border: none;
   box-shadow: none;
@@ -456,8 +473,16 @@
   background-color: white;
   padding: 3rem;
   margin-bottom: 1rem;
+
+  @include custom-max(639px){
+    height: auto;
+  }
   img{
     display: block;
+
+    @include custom-max(1023px){
+      width: 25px;
+    }
   }
 
   a{
@@ -478,3 +503,28 @@
   margin: 0;
 }
 
+.margin-bottom-medium{
+  margin-bottom: 4rem !important;
+}
+
+.beige{
+  background-color: $beige;
+}
+
+.padding-top-seniors{
+  padding-top: 9rem;
+}
+
+.no-margin-breadcrumb{
+  .breadcrumbs{
+    margin-top: 0 !important;
+
+    @include custom-min(1025px){
+      margin-top: 10rem !important;
+    }
+
+    @include custom-min(1045px){
+      margin-top: 6rem !important;
+    }
+  }
+}
