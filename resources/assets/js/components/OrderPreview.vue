@@ -10,7 +10,7 @@
             <p>{{this.date}}</p>
         </div>
         <div class="cell small-12 flex-center">
-            <a class="button button-outline" href="">Details anzeigen</a>
+            <a class="button button-outline" :href="route(this.path, this.id)">Details anzeigen</a>
         </div>
     </div>
 </template>
@@ -21,7 +21,7 @@
             return {}
         },
         mounted() {},
-        props: ['state', 'date', 'id']
+        props: ['state', 'date', 'id', 'path']
     }
 </script>
 
