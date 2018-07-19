@@ -22,6 +22,9 @@
                         :user-view="true"
                         token="{!! csrf_token() !!}"
                         class="display-mobile-none"
+                        :path-start="'default-dashboard'"
+                        :path-user="'default-dashboard-user'"
+                        :path-order="'default-dashboard-order'"
                 ></dashboard-menu>
 
                 <div class="cell small-12 medium-6 large-8">
@@ -62,7 +65,7 @@
                 <div>
                     <input id="firstname" type="text"
                            class="input{{ $errors->has('firstname') ? ' is-invalid' : '' }}"
-                           name="firstname" value="{{ (!empty($delivery)) ? $delivery['firstname'] : $customer->firstname}}" required autofocus>
+                           name="firstname" value="{{$customer->firstname}}" required autofocus>
 
                     @if ($errors->has('firstname'))
                         <span class="invalid-feedback">
@@ -76,7 +79,7 @@
                 <div>
                     <input id="lastname" type="text"
                            class="input{{ $errors->has('lastname') ? ' is-invalid' : '' }}"
-                           name="lastname" value="{{(!empty($delivery)) ? $delivery['lastname'] : $customer->lastname}}" required>
+                           name="lastname" value="{{$customer->lastname}}" required>
 
                     @if ($errors->has('lastname'))
                         <span class="invalid-feedback">
@@ -91,7 +94,7 @@
                 <div>
                     <input id="street" type="text"
                            class="input{{ $errors->has('street') ? ' is-invalid' : '' }}"
-                           name="street" value="{{(!empty($delivery)) ? $delivery['street'] : $customer->street}}" required>
+                           name="street" value="{{$customer->street}}" required>
 
                     @if ($errors->has('street'))
                         <span class="invalid-feedback">
@@ -106,7 +109,7 @@
                 <div>
                     <input id="housenum" type="text"
                            class="input{{ $errors->has('housenum') ? ' is-invalid' : '' }}"
-                           name="housenum" value="{{(!empty($delivery)) ? $delivery['housenum'] : $customer->housenum}}" required>
+                           name="housenum" value="{{$customer->housenum}}" required>
 
                     @if ($errors->has('housenum'))
                         <span class="invalid-feedback">
@@ -136,7 +139,7 @@
                 <div>
                     <input id="postcode" type="number"
                            class="input{{ $errors->has('postcode') ? ' is-invalid' : '' }}"
-                           name="postcode" value="{{(!empty($delivery)) ? $delivery['postcode'] : $customer->postcode}}" required>
+                           name="postcode" value="{{$customer->postcode}}" required>
 
                     @if ($errors->has('postcode'))
                         <span class="invalid-feedback">
@@ -151,7 +154,7 @@
                 <div>
                     <input id="email" type="email"
                            class="input{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                           name="email" value="{{(!empty($delivery)) ? $delivery['email'] : $customer->email}}" required>
+                           name="email" value="{{$customer->email}}" required>
 
                     @if ($errors->has('email'))
                         <span class="invalid-feedback">
