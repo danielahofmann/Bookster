@@ -34,6 +34,15 @@
                         </div>
                         <h2>Meine Angaben</h2>
                     </div>
+                    <div class="display-mobile-flex dashboard-redirect grid-x">
+                        <div class="cell small-2 flex-center">
+                            <a href="{{route('teens-dashboard')}}">
+                                <img src="/img/redirect-back.svg" alt="Zurück">
+                            </a>
+                        </div>
+
+                        <h2 class="cell small-10 text-left">Meine Angaben</h2>
+                    </div>
 
                     <div class="cell small-12 medium-8 grid-x order-box">
                         <div class="cell small-10">

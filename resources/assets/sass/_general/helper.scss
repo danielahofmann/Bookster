@@ -54,6 +54,14 @@
   }
 }
 
+.display-mobile-flex{
+  display: none !important;
+
+  @include custom-max(639px){
+    display: flex !important;
+  }
+}
+
 .display-mobile{
   display: none;
   @include custom-max(639px){

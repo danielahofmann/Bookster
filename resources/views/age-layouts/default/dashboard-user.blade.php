@@ -10,7 +10,7 @@
     @endif
 
     <div class="beige">
-        <div class="grid-container beige no-padding-mobile">
+        <div class="grid-container beige no-padding-mobile no-margin-mobile">
             <section class="fullscreen-beige-background grid-x grid-margin-x no-margin-mobile no-padding-mobile">
                 @php($firstchar =  substr($customer->firstname, 0, 1))
                 @php($scndchar =  substr($customer->lastname, 0, 1))
@@ -27,12 +27,22 @@
                         :path-order="'default-dashboard-order'"
                 ></dashboard-menu>
 
-                <div class="cell small-12 medium-6 large-8">
-                    <div class="dashboard-headline">
+                <div class="cell small-12 medium-6 large-8 no-margin-mobile">
+                    <div class="dashboard-headline display-mobile-none">
                         <div>
                             <feather-settings></feather-settings>
                         </div>
                         <h2>Meine Angaben</h2>
+                    </div>
+                    
+                    <div class="display-mobile-flex dashboard-redirect grid-x">
+                        <div class="cell small-2 flex-center">
+                            <a href="{{route('default-dashboard')}}">
+                                <img src="/img/redirect-back.svg" alt="Zurück">
+                            </a>
+                        </div>
+
+                        <h2 class="cell small-10 text-left">Meine Angaben</h2>
                     </div>
 
                     <div class="cell small-12 medium-8 grid-x order-box">

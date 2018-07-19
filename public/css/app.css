@@ -8574,6 +8574,18 @@ h5 {
   }
 }
 
+.display-mobile-flex {
+  display: none !important;
+}
+
+@media (max-width: 639px) {
+  .display-mobile-flex {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+}
+
 .display-mobile {
   display: none;
 }
@@ -9179,5 +9191,20 @@ h5 {
 .dashboard-headline h2 {
   text-align: left;
   margin-top: 1rem;
+}
+
+.dashboard-redirect {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-redirect a {
+  margin: 0;
+}
+
+.dashboard-redirect h2 {
+  margin: 0;
+  padding-left: 3rem;
 }
 
