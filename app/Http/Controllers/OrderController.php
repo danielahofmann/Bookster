@@ -61,7 +61,7 @@ class OrderController extends Controller
 	    $billAddress = new BillAddressController();
 	    $billId = $billAddress->store();
 
-	    $deliveryAddress = new BillAddressController();
+	    $deliveryAddress = new DeliveryAddressController();
 	    $deliveryId = $deliveryAddress->store();
 
 	    /**
