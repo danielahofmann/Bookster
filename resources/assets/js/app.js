@@ -100,6 +100,7 @@ Vue.component('redirect-registration', require('./components/RedirectToRegistrat
 Vue.component('alert-success-popup', require('./components/AlertSuccessPopup.vue'));
 Vue.component('accordion', require('./components/Accordion.vue'));
 Vue.component('dashboard-menu', require('./components/DashboardMenu.vue'));
+Vue.component('order-preview', require('./components/OrderPreview.vue'));
 
 
 
