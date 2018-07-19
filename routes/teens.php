@@ -80,6 +80,18 @@ Route::prefix('teens')->group(function() {
 		return view('age-layouts.teens.dashboard', ['customer' => $customer, 'orders' => $orders]);
 	})->name('teens-dashboard');
 
+	Route::get( '/dashboard/user', function () {
+		$customer = Auth::user();
+
+		return view('age-layouts.teens.dashboard-user', ['customer' => $customer]);
+	})->name('teens-dashboard-user');
+
+	Route::get( '/dashboard/orders', function () {
+		$orders = \App\Order::where('customer_id', Auth::user()->id)->get();
+
+		return view('age-layouts.default.dashboard-order', ['orders' => $orders]);
+	})->name('teens-dashboard-order');
+
 	Route::get( '/register', function () {
 		return view( 'age-layouts.teens.register' );
 	} )->name( 'teens-register' );
