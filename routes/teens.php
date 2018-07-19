@@ -89,9 +89,28 @@ Route::prefix('teens')->group(function() {
 	Route::get( '/dashboard/orders', function () {
 		$customer = Auth::user();
 
-		$orders = \App\Order::where('customer_id', $customer->id)->get();
-		return view('age-layouts.default.dashboard-order', ['orders' => $orders, 'customer' => $customer]);
+		$orders = \App\Order::where('customer_id', $customer->id)
+		                    ->with('state')
+		                    ->orderBy('created_at', 'desc')
+		                    ->get();
+
+		return view('age-layouts.teens.dashboard-order', ['orders' => $orders, 'customer' => $customer]);
 	})->name('teens-dashboard-order');
+
+	Route::get( '/dashboard/order-details/{id}', function ($id) {
+		$customer = Auth::user();
+
+		$order = \App\Order::where('id', $id)
+		                   ->with('state')
+		                   ->with('products')
+							->with('approval')
+		                   ->first();
+
+		$billAddress = \App\BillAddress::find($order->billAddress_id);
+		$deliveryAddress = \App\DeliveryAddress::find($order->deliveryAddress_id);
+
+		return view('age-layouts.teens.dashboard-order-details', ['order' => $order, 'customer' => $customer, 'bill' => $billAddress, 'delivery' => $deliveryAddress]);
+	})->name('teens-order-details');
 
 	Route::get( '/register', function () {
 		return view( 'age-layouts.teens.register' );
