@@ -99,6 +99,7 @@ Vue.component('redirect-login', require('./components/RedirectToLogin.vue'));
 Vue.component('redirect-registration', require('./components/RedirectToRegistration.vue'));
 Vue.component('alert-success-popup', require('./components/AlertSuccessPopup.vue'));
 Vue.component('accordion', require('./components/Accordion.vue'));
+Vue.component('dashboard-menu', require('./components/DashboardMenu.vue'));
 
 
 
