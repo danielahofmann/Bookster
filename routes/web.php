@@ -137,6 +137,8 @@ Route::post('/saveDeliveryAddress',function(Request $request){
 
 })->name('saveDeliveryAddress');
 
+Route::post('/saveCustomerData', 'CustomerController@store')->name('saveCustomerData');
+
 Route::get('/confirmation/{id}', 'ApprovalController@confirm')->name('confirmation');
 
 Route::get('/confirmation-success', function () {
