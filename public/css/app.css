@@ -9165,3 +9165,19 @@ h5 {
   }
 }
 
+.dashboard-headline {
+  background: white;
+  padding: 1.5rem 3rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-headline svg {
+  width: 30px;
+  height: 30px;
+}
+
+.dashboard-headline h2 {
+  text-align: left;
+  margin-top: 1rem;
+}
+

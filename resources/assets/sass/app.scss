@@ -536,3 +536,18 @@
   }
 }
 
+.dashboard-headline{
+  background: white;
+  padding: 1.5rem 3rem;
+  margin-bottom: 1rem;
+
+  svg{
+    width: 30px;
+    height: 30px;
+  }
+
+  h2{
+    text-align: left;
+    margin-top: 1rem;
+  }
+}
