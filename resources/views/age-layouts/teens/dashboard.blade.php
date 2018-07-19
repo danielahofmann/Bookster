@@ -3,19 +3,28 @@
 @section('title', 'Dashboard' )
 
 @section('main')
+    <div class="beige">
+        <div class="grid-container beige no-padding-mobile">
+            <section class="fullscreen-beige-background grid-x grid-margin-x no-margin-mobile no-padding-mobile">
+                <div class="cell small-12 medium-6 large-8 display-mobile-only no-margin-mobile">
+                    <img src="/img/dashboard-welcome.png" alt="Willkommen im Dashboard" class="dashboard-image">
+                </div>
 
-    <h2>Dashboard</h2>
+                @php($firstchar =  substr($customer->firstname, 0, 1))
+                @php($scndchar =  substr($customer->lastname, 0, 1))
 
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="{{ route('logout') }}"
-           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
-        </a>
+                <dashboard-menu
+                        :customer-data="{{$customer}}"
+                        firstchar="{{$firstchar}}"
+                        scndchar="{{$scndchar}}"
+                        :overview-template="true"
+                        token="{!! csrf_token() !!}"
+                ></dashboard-menu>
 
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
+                <div class="cell small-12 medium-6 large-8 display-mobile-none">
+                    <img src="/img/dashboard-welcome.png" alt="Willkommen im Dashboard" class="dashboard-image">
+                </div>
+            </section>
+        </div>
     </div>
-
 @stop

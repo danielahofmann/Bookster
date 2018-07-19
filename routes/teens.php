@@ -73,7 +73,11 @@ Route::prefix('teens')->group(function() {
 	} )->name( 'teens-login' );
 
 	Route::get( '/dashboard', function () {
-		return view('age-layouts.teens.dashboard');
+		$customer = Auth::user();
+
+		$orders = \App\Order::where('customer_id', $customer->id)->get();
+
+		return view('age-layouts.teens.dashboard', ['customer' => $customer, 'orders' => $orders]);
 	})->name('teens-dashboard');
 
 	Route::get( '/register', function () {
