@@ -44,7 +44,8 @@
                                 state="{{$order->state->name}}"
                                 date="{{ \Carbon\Carbon::parse($order->created_at)->format('d/m/Y')}}"
                                 id=" {{$order->id}}"
-                        ></order-preview>
+                                path="default-order-details"
+                       ></order-preview>
                     @endforeach
                 </div>
 
