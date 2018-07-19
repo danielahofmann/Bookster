@@ -22,6 +22,12 @@ Route::prefix('default')->group(function() {
 		return view('age-layouts.default.dashboard', ['customer' => $customer, 'orders' => $orders]);
 	})->name('default-dashboard');
 
+	Route::get( '/dashboard/user', function () {
+		$customer = Auth::user();
+
+		return view('age-layouts.default.dashboard-user', ['customer' => $customer]);
+	})->name('default-dashboard-user');
+
 	Route::get( '/category/{category_id}', function ($category_id) {
 		$category = App\Category::find($category_id);
 		$genres = App\Genre::where('category_id', $category_id)->get();
