@@ -19,6 +19,9 @@
                     scndchar="{{$scndchar}}"
                     :overview-template="true"
                     token="{!! csrf_token() !!}"
+                    :path-start="'default-dashboard'"
+                    :path-user="'default-dashboard-user'"
+                    :path-order="'default-dashboard-order'"
                 ></dashboard-menu>
 
                <div class="cell small-12 medium-6 large-8 display-mobile-none">
