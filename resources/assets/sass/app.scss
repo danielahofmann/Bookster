@@ -566,3 +566,50 @@
     padding-left: 3rem;
   }
 }
+
+.order-details{
+  background: white;
+  padding: 1.5rem 3rem;
+  margin-bottom: 1rem;
+
+  p{
+    color: $dark-grey;
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+  .headline{
+    @include text-styling($primary-font, $bold, 1rem);
+    color: $dark-grey;
+    margin-bottom: 0;
+    margin-top: 1rem;
+
+    span{
+      @include text-styling($secondary-font, $regular, 1rem);
+      color: $dark-grey;
+    }
+  }
+
+  img{
+    padding-right: 1rem;
+    padding-top: 1rem;
+  }
+
+  .product-name{
+    margin-top: 1rem;
+    margin-bottom: 0;
+    color: $dark-grey;
+  }
+
+  .border-beige-bottom{
+    padding-bottom: 1rem;
+    border-bottom: thin solid $beige;
+  }
+}
+
+.address {
+  margin: 0 !important;
+  @include text-styling($secondary-font, $regular, 1rem);
+}

@@ -9208,3 +9208,56 @@ h5 {
   padding-left: 3rem;
 }
 
+.order-details {
+  background: white;
+  padding: 1.5rem 3rem;
+  margin-bottom: 1rem;
+}
+
+.order-details p {
+  color: #4A4A4A;
+}
+
+.order-details p:last-child {
+  margin-bottom: 0;
+}
+
+.order-details .headline {
+  font-family: "Quicksand", Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #4A4A4A;
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+
+.order-details .headline span {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #4A4A4A;
+}
+
+.order-details img {
+  padding-right: 1rem;
+  padding-top: 1rem;
+}
+
+.order-details .product-name {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  color: #4A4A4A;
+}
+
+.order-details .border-beige-bottom {
+  padding-bottom: 1rem;
+  border-bottom: thin solid #F8F6F5;
+}
+
+.address {
+  margin: 0 !important;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
