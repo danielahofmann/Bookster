@@ -15,7 +15,11 @@ Route::prefix('default')->group(function() {
 	} )->name( 'default-login' );
 
 	Route::get( '/dashboard', function () {
-		return view('age-layouts.default.dashboard');
+		$customer = Auth::user();
+
+		$orders = \App\Order::where('customer_id', $customer->id)->get();
+
+		return view('age-layouts.default.dashboard', ['customer' => $customer, 'orders' => $orders]);
 	})->name('default-dashboard');
 
 	Route::get( '/category/{category_id}', function ($category_id) {
