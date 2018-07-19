@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="dashboard-menu display-mobile-none" :class="{ 'border-left' : overview }">
-            <a class="dashboard-link grid-x flex-center">
+            <a class="dashboard-link grid-x flex-center" :href="route(this.pathStart)">
                 <div class="cell small-2 flex-center">
                     <feather-user></feather-user>
                 </div>
@@ -18,14 +18,14 @@
             </a>
         </div>
         <div class="dashboard-menu">
-            <a class="dashboard-link grid-x flex-center" :class="{ 'border-left' : order }">
+            <a class="dashboard-link grid-x flex-center" :class="{ 'border-left' : order }" :href="route(this.pathOrder)">
                 <div class="cell small-2 flex-center">
                     <feather-package></feather-package>
                 </div>
                 <p class="dashboard-regular cell small-10">Meine Bestellungen</p>
             </a>
 
-            <a class="dashboard-link grid-x flex-center" :class="{ 'border-left' : user }">
+            <a class="dashboard-link grid-x flex-center" :class="{ 'border-left' : user }" :href="route(this.pathUser)">
                 <div class="cell small-2 flex-center">
                     <feather-settings></feather-settings>
                 </div>
@@ -61,7 +61,7 @@
             }
         },
         mounted() {},
-        props: ['customerData', 'firstchar', 'scndchar', 'overviewTemplate', 'orderView', 'userView', 'token']
+        props: ['customerData', 'firstchar', 'scndchar', 'overviewTemplate', 'orderView', 'userView', 'token', 'pathOrder', 'pathUser', 'pathStart']
     }
 </script>
 
