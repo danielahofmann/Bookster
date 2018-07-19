@@ -38,6 +38,16 @@
 
                         <h2 class="cell small-10 text-left">Meine Bestellungen</h2>
                     </div>
+
+                    @foreach($orders as $order)
+                       <order-preview
+                                state="{{$order->state->name}}"
+                                date="{{ \Carbon\Carbon::parse($order->created_at)->format('d/m/Y')}}"
+                                id=" {{$order->id}}"
+                        ></order-preview>
+                    @endforeach
+                </div>
+
             </section>
         </div>
     </div>

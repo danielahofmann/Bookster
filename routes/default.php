@@ -31,7 +31,9 @@ Route::prefix('default')->group(function() {
 	Route::get( '/dashboard/orders', function () {
 		$customer = Auth::user();
 
-		$orders = \App\Order::where('customer_id', $customer->id)->get();
+		$orders = \App\Order::where('customer_id', $customer->id)
+								->with('state')
+								->get();
 
 		return view('age-layouts.default.dashboard-order', ['orders' => $orders, 'customer' => $customer]);
 	})->name('default-dashboard-order');
