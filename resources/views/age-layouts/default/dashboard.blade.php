@@ -18,9 +18,10 @@
                     firstchar="{{$firstchar}}"
                     scndchar="{{$scndchar}}"
                     :overview-template="true"
+                    token="{!! csrf_token() !!}"
                 ></dashboard-menu>
 
-                <div class="cell small-12 medium-6 large-8 display-mobile-none">
+               <div class="cell small-12 medium-6 large-8 display-mobile-none">
                     <img src="/img/dashboard-welcome.png" alt="Willkommen im Dashboard" class="dashboard-image">
                 </div>
             </section>

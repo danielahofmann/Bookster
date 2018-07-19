@@ -41,7 +41,7 @@
             </a>
 
             <form id="logout-form" :action="route('logout')" method="POST" style="display: none;">
-                @csrf
+                <input type="hidden" name="_token" :value="csrf">
             </form>
         </div>
     </div>
@@ -56,13 +56,12 @@
                 scnd: this.scndchar,
                 overview: this.overviewTemplate,
                 order: this.orderView,
-                user: this.userView
+                user: this.userView,
+                csrf: this.token
             }
         },
-        mounted() {
-            console.log('Component ready');
-        },
-        props: ['customerData', 'firstchar', 'scndchar', 'overviewTemplate', 'orderView', 'userView']
+        mounted() {},
+        props: ['customerData', 'firstchar', 'scndchar', 'overviewTemplate', 'orderView', 'userView', 'token']
     }
 </script>
 
