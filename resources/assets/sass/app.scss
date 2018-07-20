@@ -526,7 +526,7 @@
 }
 
 .padding-top-seniors{
-  padding-top: 9rem;
+  padding-top: 7rem;
 }
 
 .no-margin-breadcrumb{
@@ -626,4 +626,35 @@
   text-align: center;
   margin: 3rem;
   color: $dark-grey;
+}
+
+.contact{
+  img{
+    height: 75vh;
+    object-fit: cover;
+    object-position: 0 75%;
+
+    @include custom-max(639px){
+      height: 50vh;
+    }
+  }
+
+  .contact-text{
+    @include text-styling($secondary-font, $regular, 1rem);
+    color: $dark-grey;
+    padding: 1rem 2rem;
+  }
+}
+
+.button-outline-blue {
+  background-color: $white;
+  border: thin solid $blue;
+  color: $blue;
+  font-weight: $bold;
+  text-transform: none;
+
+  &:hover {
+    color: $white;
+    background-color: $blue;
+  }
 }
