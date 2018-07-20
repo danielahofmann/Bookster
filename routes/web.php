@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::get('/api/saveAgeToSession', 'AgeController@saveAgeToSession');
 
-Route::get('/api/search', 'SearchController@search');
+Route::post('/api/search', 'SearchController@search')->name('search');
 
 Route::get('/api/getCategories', 'CategoryController@index');
 Route::get('/api/getCharacters', 'CharacterController@getCharactersForKids');
@@ -39,18 +39,12 @@ Route::get('/api/filterProducts', 'ProductController@filterProducts');
 Route::get('/api/saveProductToSessionWishlist/{id}', 'WishlistController@saveProductToSessionWishlist');
 Route::get('/api/deleteProductFromSessionWishlist/{id}', 'WishlistController@deleteProductFromSessionWishlist');
 
-
 Route::post('/sendWishlist', 'EmailController@sendWishlist');
-
 
 Route::get('/api/saveProductToCart/{id}', 'CartController@saveProductToCart');
 Route::get('/api/deleteProductFromCart/{id}', 'CartController@deleteProductFromCart');
 Route::get('/api/decreaseProductQuantityInCart/{id}', 'CartController@decreaseProductQuantity');
 
-
-Route::get('/results', function () {
-	return view('pages.results');
-});
 
 Route::get('/api/saveCheckoutToSession', function(){
 
