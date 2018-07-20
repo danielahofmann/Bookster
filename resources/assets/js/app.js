@@ -86,6 +86,8 @@ Vue.component('product-cart', require('./components/ProductCart.vue'));
 Vue.component('feather-up', require('./components/FeatherUp.vue'));
 Vue.component('feather-down', require('./components/FeatherDown.vue'));
 Vue.component('feather-trash', require('./components/FeatherTrash.vue'));
+Vue.component('feather-book', require('./components/FeatherBook.vue'));
+Vue.component('feather-users', require('./components/FeatherUsers.vue'));
 Vue.component('feather-x', require('./components/FeatherX.vue'));
 Vue.component('product-order', require('./components/ProductOrder.vue'));
 Vue.component('order-bill', require('./components/OrderBill.vue'));
@@ -101,6 +103,9 @@ Vue.component('alert-success-popup', require('./components/AlertSuccessPopup.vue
 Vue.component('accordion', require('./components/Accordion.vue'));
 Vue.component('dashboard-menu', require('./components/DashboardMenu.vue'));
 Vue.component('order-preview', require('./components/OrderPreview.vue'));
+
+
+Vue.component('admin-dashboard-menu', require('./components/AdminDashboardMenu.vue'));
 
 
 
