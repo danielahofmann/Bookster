@@ -8804,6 +8804,22 @@ h5 {
   outline: none;
 }
 
+.icon-button {
+  background-color: #5886F4;
+  color: #FFFFFF;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.icon-button:hover {
+  background-color: #5886F4;
+}
+
+.icon-button:focus {
+  background-color: #5886F4;
+  outline: none;
+}
+
 .button-light {
   background-color: #EAE7E5;
   font-family: "Quicksand", Helvetica, sans-serif;
