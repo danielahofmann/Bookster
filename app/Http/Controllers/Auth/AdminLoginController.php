@@ -15,6 +15,8 @@ class AdminLoginController extends Controller
 		$this->middleware('guest:admin', ['except' => ['logout']]);
 	}
 
+	protected $guard = 'admin';
+
 	public function showLoginForm()
 	{
 		return view('admin.pages.login');
@@ -28,9 +30,11 @@ class AdminLoginController extends Controller
 			'password' => 'required|min:6'
 		]);
 
+		$remember = true;
 		// Attempt to log the user in
-		if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
+		if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $remember)) {
 			// if successful, then redirect to their intended location
+
 			return redirect()->intended(route('admin.dashboard'));
 		}
 		// if unsuccessful, then redirect back to the login with the form data
@@ -40,6 +44,6 @@ class AdminLoginController extends Controller
 	public function logout()
 	{
 		Auth::guard('admin')->logout();
-		return redirect('/admin');
+		return redirect()->route('admin.login');
 	}
 }
