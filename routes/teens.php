@@ -175,4 +175,8 @@ Route::prefix('teens')->group(function() {
 	Route::get('/results', function (){
 		return view('age-layouts.teens.results');
 	})->name('teens-results');
+
+	Route::get('/contact', function (){
+		return view('age-layouts.teens.contact');
+	})->name('teens-contact');
 });
