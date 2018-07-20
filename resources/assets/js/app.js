@@ -97,12 +97,14 @@ Vue.component('feather-user-plus', require('./components/FeatherUserPlus.vue'));
 Vue.component('feather-package', require('./components/FeatherPackage.vue'));
 Vue.component('feather-settings', require('./components/FeatherSettings.vue'));
 Vue.component('feather-logout', require('./components/FeatherLogout.vue'));
+Vue.component('feather-edit', require('./components/FeatherEdit.vue'));
 Vue.component('redirect-login', require('./components/RedirectToLogin.vue'));
 Vue.component('redirect-registration', require('./components/RedirectToRegistration.vue'));
 Vue.component('alert-success-popup', require('./components/AlertSuccessPopup.vue'));
 Vue.component('accordion', require('./components/Accordion.vue'));
 Vue.component('dashboard-menu', require('./components/DashboardMenu.vue'));
 Vue.component('order-preview', require('./components/OrderPreview.vue'));
+Vue.component('admin-order-preview', require('./components/AdminOrderPreview.vue'));
 
 
 Vue.component('admin-dashboard-menu', require('./components/AdminDashboardMenu.vue'));
