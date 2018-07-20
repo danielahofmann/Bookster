@@ -63,7 +63,7 @@
     </div>
 
 
-    {{--Edit Delivery Address Form Modal--}}
+    {{--Edit Form Modal--}}
     <div class="reveal" id="editDeliveryModal" data-reveal>
         <h5>Benutzerangaben bearbeiten</h5>
 
