@@ -22,14 +22,18 @@ Route::prefix('admin')->group(function() {
 	Route::get( '/users', function () {
 		$user = Auth::guard('admin')->user();
 
-
 		return view('admin.pages.users', ['user' => $user]);
 	})->name('admin.users');
 
 	Route::get( '/orders', function () {
 		$user = Auth::guard('admin')->user();
 
+		$orders = \App\Order::with('state')
+		                    ->with('approval')
+		                    ->with('customer')
+							->orderBy('created_at', 'desc')
+		                    ->get();
 
-		return view('admin.pages.orders', ['user' => $user]);
+		return view('admin.pages.orders', ['user' => $user, 'orders' => $orders]);
 	})->name('admin.orders');
 });
