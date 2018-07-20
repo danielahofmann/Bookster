@@ -170,5 +170,8 @@ Route::prefix('default')->group(function() {
 		return view('age-layouts.default.contact');
 	})->name('default-contact');
 
+	Route::get('/about', function (){
+		return view('age-layouts.default.about');
+	})->name('default-about');
 
 });

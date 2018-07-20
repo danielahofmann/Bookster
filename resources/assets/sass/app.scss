@@ -658,3 +658,36 @@
     background-color: $blue;
   }
 }
+
+.about{
+  img {
+    height: 75vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: 0 50%;
+
+    @include custom-max(639px) {
+      height: 50vh;
+    }
+  }
+
+  h3{
+    text-align: center;
+    @include custom-min(1024px){
+      text-align: left;
+      padding-left: 2rem;
+    }
+  }
+
+  p{
+    @include text-styling($secondary-font, $regular, 1rem);
+    color: $dark-grey;
+    padding: 1rem 2rem;
+    text-align: center;
+
+    @include custom-min(1024px){
+      text-align: left;
+    }
+  }
+
+}

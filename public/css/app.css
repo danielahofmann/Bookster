@@ -9318,3 +9318,44 @@ h5 {
   background-color: #5886F4;
 }
 
+.about img {
+  height: 75vh;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 0 50%;
+     object-position: 0 50%;
+}
+
+@media (max-width: 639px) {
+  .about img {
+    height: 50vh;
+  }
+}
+
+.about h3 {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .about h3 {
+    text-align: left;
+    padding-left: 2rem;
+  }
+}
+
+.about p {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #4A4A4A;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .about p {
+    text-align: left;
+  }
+}
+
