@@ -21,13 +21,17 @@
             <hamburger-menu
                     :old-template='false'
             ></hamburger-menu>
-            <search @search="search" class="display-none-tablet"></search>
+            <search class="display-none-tablet"
+                    token="{!! csrf_token() !!}"
+            ></search>
             <logo
                     :old-template='false'
             ></logo>
             <div class="cell small-5 large-4">
                 <div class="grid-x align-right">
-                    <mobile-search @search="search"></mobile-search>
+                    <mobile-search
+                            token="{!! csrf_token() !!}"
+                    ></mobile-search>
                     <wishlist
                         :path="'default-wishlist'"
                     ></wishlist>
