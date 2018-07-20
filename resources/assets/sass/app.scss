@@ -320,6 +320,13 @@
   padding: 2rem 0;
 }
 
+.fullscreen-white-background{
+  min-height: 70vh;
+  width: 100%;
+  background: $white;
+  padding: 2rem 0;
+}
+
 .input{
   border: none;
   box-shadow: none;
@@ -612,4 +619,11 @@
 .address {
   margin: 0 !important;
   @include text-styling($secondary-font, $regular, 1rem);
+}
+
+.empty-error{
+  @include text-styling($primary-font, $light, 2rem);
+  text-align: center;
+  margin: 3rem;
+  color: $dark-grey;
 }

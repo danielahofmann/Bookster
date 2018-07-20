@@ -8927,6 +8927,13 @@ h5 {
   padding: 2rem 0;
 }
 
+.fullscreen-white-background {
+  min-height: 70vh;
+  width: 100%;
+  background: #FFFFFF;
+  padding: 2rem 0;
+}
+
 .input {
   border: none;
   -webkit-box-shadow: none;
@@ -9259,5 +9266,14 @@ h5 {
   font-family: "Open Sans", Helvetica, sans-serif;
   font-weight: 400;
   font-size: 1rem;
+}
+
+.empty-error {
+  font-family: "Quicksand", Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+  text-align: center;
+  margin: 3rem;
+  color: #4A4A4A;
 }
 
