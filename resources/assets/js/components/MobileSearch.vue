@@ -1,23 +1,38 @@
 <template>
-    <div class="mobile-search">
-        <img :src="'/img/search.png'" alt="Suche" class="mobile-search-icon">
-        <input type="text" placeholder="Bücher suchen.." v-model="query" @keyup.enter="$emit('search', query)" class="mobile-search-input">
-    </div>
+    <form class="mobile-search" method="POST" :action="route('search')">
+        <input type="hidden" name="_token" :value="csrf">
+
+        <img :src="'/img/search.png'" alt="Suche" class="mobile-search-icon" @click="show = !show">
+        <transition name="slide-fade">
+            <input type="text" placeholder="Bücher suchen.." name="query" class="mobile-search-input display" v-if="show">
+        </transition>
+    </form>
 </template>
 
 <script>
     export default {
         data() {
             return {
-                query: '',
+                csrf: this.token,
+                show: false,
             }
         },
-        mounted() {},
+        props: ['token']
     }
 </script>
 
 <style lang="scss" scoped>
     @import '~@/app.scss';
+    .slide-fade-enter-active {
+        transition: all 0.25s ease;
+    }
+    .slide-fade-leave-active {
+        transition: all 0.25s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+    .slide-fade-enter, .slide-fade-leave-to {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
 
     .mobile-search {
         margin-top: 10px;
@@ -77,6 +92,17 @@
             @include custom-max(1024px){
                 display: none;
             }
+        }
+
+        .display{
+            display: block;
+            position: absolute;
+            width: 100% !important;
+            background-color: $beige;
+            left: 0;
+            top: 65px;
+            padding: 2rem;
+            z-index: 10;
         }
     }
 
