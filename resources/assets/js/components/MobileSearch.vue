@@ -4,7 +4,7 @@
 
         <img :src="'/img/search.png'" alt="Suche" class="mobile-search-icon" @click="show = !show">
         <transition name="slide-fade">
-            <input type="text" placeholder="Bücher suchen.." name="query" class="mobile-search-input display" v-if="show">
+            <input type="text" placeholder="Bücher suchen.." name="query" class="mobile-search-input display" v-if="show" :class="{ kids : kids }">
         </transition>
     </form>
 </template>
@@ -15,9 +15,10 @@
             return {
                 csrf: this.token,
                 show: false,
+                kids: this.kidsView,
             }
         },
-        props: ['token']
+        props: ['token', 'kidsView']
     }
 </script>
 
@@ -103,6 +104,10 @@
             top: 65px;
             padding: 2rem;
             z-index: 10;
+        }
+
+        .kids{
+            top: 105px !important;
         }
     }
 

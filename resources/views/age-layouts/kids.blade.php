@@ -21,7 +21,9 @@
             <hamburger-menu
                     :old-template='true'
             ></hamburger-menu>
-            <search @search="search" class="display-none-tablet"></search>
+            <search class="display-none-tablet"
+                    token="{!! csrf_token() !!}"
+            ></search>
             <logo
                     :old-template='true'
             ></logo>
@@ -30,6 +32,10 @@
                     <wishlist
                             :path="'kids-wishlist'"
                     ></wishlist>
+                    <mobile-search
+                            token="{!! csrf_token() !!}"
+                            :kids-view="true"
+                    ></mobile-search>
                 </div>
             </div>
 

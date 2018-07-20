@@ -42,4 +42,8 @@ Route::prefix('kids')->group(function() {
 	Route::get('/send', function(){
 		return view('age-layouts.kids.send');
 	})->name('kids-send-wishlist');
+
+	Route::get('/results', function (){
+		return view('age-layouts.kids.results');
+	})->name('kids-results');
 });
