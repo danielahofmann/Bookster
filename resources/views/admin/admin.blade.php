@@ -9,7 +9,7 @@
         <logo class="logo-padding"></logo>
     </header>
 
-    <main class="main">
+    <main>
         @yield('main')
     </main>
 
