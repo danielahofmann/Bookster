@@ -15,7 +15,7 @@
         </section>
 
     @else
-        <section class="fullscreen-white-background">
+        <section class="fullscreen-white-background padding-top-seniors">
             <h2 class="margin-top-bottom">Suchergebnisse</h2>
             <div class="grid-x">
                 @foreach (session('results') as $result)
