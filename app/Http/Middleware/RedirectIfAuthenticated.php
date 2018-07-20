@@ -18,18 +18,27 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-	        if ( Session::has( 'ageGroup' ) ) {
-		        if ( Session::get( 'ageGroup' ) == 'kids' || Session::get( 'ageGroup' ) == 'toddlers' ) {
-			        $path = '/' . Session::get( 'ageGroup' );
-		        } else {
-			        $path = '/' . Session::get( 'ageGroup' ) . '/dashboard';
-		        }
+    	switch ($guard) {
+		    case 'admin':
+			    if (Auth::guard($guard)->check()) {
+				    return redirect()->route('admin.dashboard');
+			    }
+			    break;
 
-		        return redirect($path);
-	        }
-        }
+		    default:
+			    if (Auth::guard($guard)->check()) {
+				    if ( Session::has( 'ageGroup' ) ) {
+					    if ( Session::get( 'ageGroup' ) == 'kids' || Session::get( 'ageGroup' ) == 'toddlers' ) {
+						    $path = '/' . Session::get( 'ageGroup' );
+					    } else {
+						    $path = '/' . Session::get( 'ageGroup' ) . '/dashboard';
+					    }
 
-        return $next($request);
+					    return redirect($path);
+				    }
+			    }
+			    break;
+	    }
+	    return $next($request);
     }
 }
