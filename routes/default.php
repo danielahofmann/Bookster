@@ -166,5 +166,9 @@ Route::prefix('default')->group(function() {
 		return view('age-layouts.default.results');
 	})->name('default-results');
 
+	Route::get('/contact', function (){
+		return view('age-layouts.default.contact');
+	})->name('default-contact');
+
 
 });
