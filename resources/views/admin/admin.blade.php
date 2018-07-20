@@ -6,7 +6,7 @@
 
 @section('body')
     <header>
-        
+        <logo class="logo-padding"></logo>
     </header>
 
     <main class="main">

@@ -8604,6 +8604,10 @@ h5 {
           transform: translateX(-50%);
 }
 
+.logo-padding {
+  padding: 2rem;
+}
+
 .header {
   position: fixed;
   top: 0;
