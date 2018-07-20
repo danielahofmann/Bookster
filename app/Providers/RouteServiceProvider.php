@@ -46,6 +46,10 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapElderlyRoutes();
         $this->mapSeniorRoutes();
         $this->mapDefaultRoutes();
+
+        //Map routes for admin
+	    $this->mapAdminRoutes();
+
     }
 
     /**
@@ -147,5 +151,17 @@ class RouteServiceProvider extends ServiceProvider
 		Route::middleware('web')
 		     ->namespace($this->namespace)
 		     ->group(base_path('routes/default.php'));
+	}
+
+	/**
+	 * These routes are for the admins
+	 *
+	 * @return void
+	 */
+	protected function mapAdminRoutes()
+	{
+		Route::middleware('web')
+		     ->namespace($this->namespace)
+		     ->group(base_path('routes/admin.php'));
 	}
 }
