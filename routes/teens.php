@@ -171,4 +171,8 @@ Route::prefix('teens')->group(function() {
 	Route::get('/help/order', function (){
 		return view('age-layouts.teens.help-order');
 	})->name('teens-help-order');
+
+	Route::get('/results', function (){
+		return view('age-layouts.teens.results');
+	})->name('teens-results');
 });
