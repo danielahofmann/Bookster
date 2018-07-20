@@ -8608,6 +8608,22 @@ h5 {
   padding: 2rem;
 }
 
+@media (max-width: 639px) {
+  .logo-padding {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .logo-padding a {
+    margin: 0;
+  }
+}
+
+.admin-fullscreen {
+  min-height: 85vh !important;
+}
+
 .header {
   position: fixed;
   top: 0;

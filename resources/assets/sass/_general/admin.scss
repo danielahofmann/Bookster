@@ -1,3 +1,17 @@
 .logo-padding{
   padding: 2rem;
+
+  @include custom-max(639px){
+    padding: 1rem;
+  }
+
+  a{
+    @include custom-max(639px){
+      margin: 0;
+    }
+  }
+}
+
+.admin-fullscreen{
+  min-height: 85vh !important;
 }
