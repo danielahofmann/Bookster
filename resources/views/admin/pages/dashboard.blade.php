@@ -37,10 +37,10 @@
 
                     <div class="cell small-12 medium-8 grid-x order-box">
                         <div class="cell small-12 grid-x">
-                            <p class="cell small-2">Name:</p>
-                            <p class="cell small-10">{{$user->firstname}} {{$user->lastname}}</p>
-                            <p class="cell small-2">E-Mail:</p>
-                            <p class="cell small-10">{{$user->email}}</p>
+                            <p class="cell small-12 medium-2">Name:</p>
+                            <p class="cell small-12 medium-10">{{$user->firstname}} {{$user->lastname}}</p>
+                            <p class="cell small-12 medium-2">E-Mail:</p>
+                            <p class="cell small-12 medium-10">{{$user->email}}</p>
                         </div>
 
                         <div class="cell small-12 flex-center padding-top-large">
