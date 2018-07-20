@@ -138,3 +138,5 @@ Route::get('/confirmation/{id}', 'ApprovalController@confirm')->name('confirmati
 Route::get('/confirmation-success', function () {
 	return view('age-layouts.default.confirmation');
 })->name('confirmation-success');
+
+Route::post('/updateUserData', 'UserController@update')->name('saveUserData');
