@@ -161,4 +161,10 @@ Route::prefix('default')->group(function() {
 	Route::get('/help/order', function (){
 		return view('age-layouts.default.help-order');
 	})->name('default-help-order');
+
+	Route::get('/results', function (){
+		return view('age-layouts.default.results');
+	})->name('default-results');
+
+
 });
