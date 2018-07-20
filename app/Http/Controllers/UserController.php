@@ -8,14 +8,17 @@
 
 namespace App\Http\Controllers;
 
-use http\Env\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-	public function performLogout(\Illuminate\Http\Request $request)
+	public function __construct()
 	{
-		Auth::logout();
-		return redirect('/');
+		$this->middleware('auth:admin');
+	}
+
+	public function index()
+	{
+		return view('admin.pages.dashboard');
 	}
 }

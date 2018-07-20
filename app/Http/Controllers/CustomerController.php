@@ -96,4 +96,10 @@ class CustomerController extends Controller
     {
         //
     }
+
+	public function performLogout(\Illuminate\Http\Request $request)
+	{
+		Auth::logout();
+		return redirect('/');
+	}
 }
