@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use Illuminate\Support\Facades\Session;
 
 class SearchController extends Controller
 {
@@ -91,27 +92,38 @@ class SearchController extends Controller
 	 */
 	public function search(Request $request)
 	{
-		// First we define the error message we are going to show if no keywords
-		// existed or if no results found.
-		$error = ['error' => 'Nichts gefunden'];
+		$ageGroup = Session::get('ageGroup');
+
+		/**
+		 * If there's any data in session(results), we need to destroy it,
+		 * because in a case where a user would search multiple times,
+		 * he then would still see the old results
+		 */
+		if(Session::has('results')){
+			Session::forget(['results']);
+		}
 
 		// Making sure the user entered a keyword.
-		if($request->has('q')) {
+		if($request->has('query')) {
 
 			// Using the Laravel Scout syntax to search the products table.
-			$posts = Product::search($request->get('q'))->get();
+			$results = Product::search($request->get('query'))->get();
 
-			// If there are results return them, if none, return the error message.
-			if ($posts->count()){
-				session(['results' => $posts]);
-				return $posts;
+			// If there are results return them, if none, return error
+			if ($results->count() > 0){
+				session(['results' => $results]);
+				return redirect()
+					->route($ageGroup . '-results');
 			}
 
-			return $error;
+			return redirect()
+				->back()
+				->with('status', 'Es wurden keine passenden Produkte gefunden');
 
 		}
 
-		// Return the error message if no keywords existed
-		return $error;
+		return redirect()
+			->back()
+			->with('status', 'Es wurden keine passenden Produkte gefunden');
 	}
 }

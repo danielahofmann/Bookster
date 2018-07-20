@@ -1,8 +1,10 @@
 <template>
-    <div class="search cell small-2 large-4">
+    <form class="search cell small-2 large-4" method="POST" :action="route('search')">
+        <input type="hidden" name="_token" :value="csrf">
+
         <img :src="'/img/search.png'" alt="Suche" class="search-icon">
-        <input type="text" placeholder="Bücher suchen.." v-model="query" @keyup.enter="$emit('search', query)" class="search-input">
-    </div>
+        <input type="text" placeholder="Bücher suchen.." name="query" class="search-input">
+    </form>
 </template>
 
 <script>
@@ -10,13 +12,10 @@
         name: "age-circle",
         data(){
             return {
-                query: '',
+                csrf: this.token
             }
         },
-        mounted() {},
-        methods: {
-
-        }
+        props: ['token']
     }
 </script>
 

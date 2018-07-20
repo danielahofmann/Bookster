@@ -158,21 +158,6 @@ const app = new Vue({
                 });
         },
 
-        search: function (query) {
-            axios.get('/api/search?q=' + query, {
-                params: {
-                    query: this.query
-                }
-            })
-                .then(function (response) {
-                    console.log(response.data);
-                    window.location.href = '/results';
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        },
-
         updateProducts: function(products){
             this.products = products;
         },
