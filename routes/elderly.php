@@ -169,4 +169,8 @@ Route::prefix('elderly')->group(function() {
 	Route::get('/contact', function (){
 		return view('age-layouts.elderly.contact');
 	})->name('elderly-contact');
+
+	Route::get('/about', function (){
+		return view('age-layouts.elderly.about');
+	})->name('elderly-about');
 });
