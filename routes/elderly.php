@@ -161,4 +161,8 @@ Route::prefix('elderly')->group(function() {
 	Route::get('/help/order', function (){
 		return view('age-layouts.elderly.help-order');
 	})->name('elderly-help-order');
+
+	Route::get('/results', function (){
+		return view('age-layouts.elderly.results');
+	})->name('elderly-results');
 });
