@@ -105,6 +105,7 @@ Vue.component('accordion', require('./components/Accordion.vue'));
 Vue.component('dashboard-menu', require('./components/DashboardMenu.vue'));
 Vue.component('order-preview', require('./components/OrderPreview.vue'));
 Vue.component('admin-order-preview', require('./components/AdminOrderPreview.vue'));
+Vue.component('admin-mobile-redirect', require('./components/AdminMobileRedirect.vue'));
 
 
 Vue.component('admin-dashboard-menu', require('./components/AdminDashboardMenu.vue'));
