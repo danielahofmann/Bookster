@@ -1,5 +1,6 @@
 .logo-padding{
   padding: 2rem;
+  border-bottom: thin solid $beige;
 
   @include custom-max(639px){
     padding: 1rem;

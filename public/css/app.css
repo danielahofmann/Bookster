@@ -8606,6 +8606,7 @@ h5 {
 
 .logo-padding {
   padding: 2rem;
+  border-bottom: thin solid #F8F6F5;
 }
 
 @media (max-width: 639px) {
