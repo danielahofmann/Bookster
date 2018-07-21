@@ -32,15 +32,9 @@
                         <h2>Bestellungen</h2>
                     </div>
 
-                    <div class="display-mobile-flex dashboard-redirect grid-x">
-                        <div class="cell small-2 flex-center">
-                            <a href="{{route('admin.dashboard')}}">
-                                <img src="/img/redirect-back.svg" alt="Zurück">
-                            </a>
-                        </div>
-
-                        <h2 class="cell small-10 text-left">Bestellungen</h2>
-                    </div>
+                    <admin-mobile-redirect
+                        :headline="'Bestellungen'"
+                    ></admin-mobile-redirect>
 
                     @foreach($orders as $order)
                         <admin-order-preview
