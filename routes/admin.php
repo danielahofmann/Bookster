@@ -36,4 +36,20 @@ Route::prefix('admin')->group(function() {
 
 		return view('admin.pages.orders', ['user' => $user, 'orders' => $orders]);
 	})->name('admin.orders');
+
+	Route::get( '/order/{id}', function ($id) {
+		$user = Auth::guard('admin')->user();
+
+		$order = \App\Order::where('id', $id)
+		                   ->with('state')
+		                   ->with('products')
+		                   ->with('approval')
+							->with('customer')
+		                   ->first();
+
+		$billAddress = \App\BillAddress::find($order->billAddress_id);
+		$deliveryAddress = \App\DeliveryAddress::find($order->deliveryAddress_id);
+
+		return view('admin.pages.order', ['order' => $order, 'user' => $user, 'bill' => $billAddress, 'delivery' => $deliveryAddress]);
+	})->name('admin.order');
 });
