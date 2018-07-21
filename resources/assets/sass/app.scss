@@ -189,18 +189,27 @@
 }
 
 .icon-button{
-  background-color: $blue;
-  color: $white;
-  padding: 1rem;
+  background-color: $white;
+  color: $blue;
+  padding:  0.5rem 0.75rem;
   border-radius: 5px;
+  border: 2px solid $blue;
 
   &:hover{
     background-color: $blue;
+
+    svg{
+      stroke: $white;
+    }
   }
 
   &:focus{
     background-color: $blue;
     outline: none;
+  }
+
+  svg {
+    stroke: $blue;
   }
 }
 

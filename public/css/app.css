@@ -8805,19 +8805,28 @@ h5 {
 }
 
 .icon-button {
-  background-color: #5886F4;
-  color: #FFFFFF;
-  padding: 1rem;
+  background-color: #FFFFFF;
+  color: #5886F4;
+  padding: 0.5rem 0.75rem;
   border-radius: 5px;
+  border: 2px solid #5886F4;
 }
 
 .icon-button:hover {
   background-color: #5886F4;
 }
 
+.icon-button:hover svg {
+  stroke: #FFFFFF;
+}
+
 .icon-button:focus {
   background-color: #5886F4;
   outline: none;
+}
+
+.icon-button svg {
+  stroke: #5886F4;
 }
 
 .button-light {

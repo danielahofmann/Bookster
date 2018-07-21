@@ -9,8 +9,8 @@
             <p>{{this.date}}</p>
         </div>
         <p class="cell small-12 medium-12 large-4 status flex-center">{{this.state}}</p>
-        <div class="cell small-3 flex-center">
-            <a class="icon-button" :href="route(this.path, this.id)">
+        <div class="cell small-12 medium-12 large-3 flex-center">
+            <a class="icon-button" :href="route('admin.order', this.id)">
                 <feather-edit></feather-edit>
             </a>
         </div>
