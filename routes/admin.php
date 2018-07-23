@@ -77,6 +77,10 @@ Route::prefix('admin')->group(function() {
 	Route::delete('/user/delete/{id}', 'UserController@destroy')->name('admin.user.delete');
 	Route::post('/user/store', 'UserController@store')->name('admin.user.store');
 
+	Route::patch('/product/update/{id}', 'ProductController@update')->name('admin.product.update');
+	Route::delete('/product/delete/{id}', 'ProductController@destroy')->name('admin.product.delete');
+	Route::post('/product/store', 'ProductController@store')->name('admin.product.store');
+
 	Route::get( '/user/delete-form/{id}', function ($id) {
 		$user = Auth::guard('admin')->user();
 
@@ -85,10 +89,51 @@ Route::prefix('admin')->group(function() {
 		return view('admin.pages.user-delete', ['user' => $user, 'employee' => $employee]);
 	})->name('admin.user.delete-form');
 
+	Route::get( '/product/delete-form/{id}', function ($id) {
+		$user = Auth::guard('admin')->user();
+
+		$product = \App\Product::find($id);
+
+		return view('admin.pages.product-delete', ['user' => $user, 'product' => $product]);
+	})->name('admin.product.delete-form');
+
 	Route::get( '/user/create', function () {
 		$user = Auth::guard('admin')->user();
 
 		return view('admin.pages.users.create', ['user' => $user]);
 	})->name('admin.user.create');
+
+
+	Route::get( '/product/edit/{id}', function ($id) {
+		$user = Auth::guard('admin')->user();
+
+		$product = \App\Product::where('id', $id)
+								->with('author')
+								->with('image')
+								->with('genre')
+								->with('category')
+								->with('character')
+								->first();
+
+		$categories = \App\Category::all();
+		$genres = \App\Genre::all();
+		$authors = \App\Author::all();
+		$characters = \App\Character::all();
+
+		return view('admin.pages.products.edit', ['user' => $user, 'product' => $product, 'genres' => $genres,
+		                                          'categories' => $categories, 'authors' => $authors, 'characters' => $characters]);
+	})->name('admin.product.edit');
+
+	Route::get( '/product/create', function () {
+		$user = Auth::guard('admin')->user();
+
+		$categories = \App\Category::all();
+		$genres = \App\Genre::all();
+		$authors = \App\Author::all();
+		$characters = \App\Character::all();
+
+		return view('admin.pages.products.create', ['user' => $user, 'genres' => $genres,
+		                                          'categories' => $categories, 'authors' => $authors, 'characters' => $characters]);
+	})->name('admin.product.create');
 
 });
