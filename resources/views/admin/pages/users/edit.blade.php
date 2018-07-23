@@ -10,6 +10,10 @@
 
 @section('action'){{route('admin.user.update', $employee->id)}}@stop
 
+@section('method')
+    {{ method_field('PATCH') }}
+@endsection
+
 @section('firstname', $employee->firstname)
 @section('lastname', $employee->lastname)
 @section('email', $employee->email)
