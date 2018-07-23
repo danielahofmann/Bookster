@@ -26,21 +26,42 @@
 
                 <div class="cell small-12 medium-6 large-8 no-margin-mobile">
 
-                    <div class="dashboard-headline display-mobile-none">
-                        <div>
+                    <div class="dashboard-headline display-mobile-none grid-x">
+                        <div class="cell small-12">
                             <feather-book></feather-book>
                         </div>
-                        <h2>Produkte</h2>
+                        <h2 class="cell medium-8 large-10">Produkte</h2>
+                        <div class="cell medium-4 large-2">
+                            <a href="{{route('admin.product.create')}}">
+                                <button class="order-button margin-top-1 full-width text-center display-none-tablet">hinzufügen</button>
+                            </a>
+                        </div>
                     </div>
 
                     <admin-mobile-redirect
                             headline="Produkte"
                     ></admin-mobile-redirect>
 
-                    <div class="order-details">
-                        @foreach($products as $product)
-                            {{$product}}
-                            <hr>
-                            @endforeach
+                    <div class="grid-x">
+
+
+                    @foreach($products as $product)
+                            <div class="cell small-4">
+                                <div class="order-details margin-right-1">
+                                    <img src="{{$product->image[0]->img}}" alt="{{$product->name}}">
+                                    <p class="headline">Produkt-Nr.: <span>{{$product->id}}</span></p>
+                                    <a href="{{route('admin.product.edit', $product->id)}}">
+                                        <button class="order-button margin-top-1 full-width text-center display-none-tablet">bearbeiten</button>
+                                    </a>
+                                    <a href="{{route('admin.product.delete-form', $product->id)}}">
+                                        <button class="order-button margin-top-1 full-width text-center display-none-tablet">löschen</button>
+                                    </a>
+                                </div>
+                            </div>
+                    @endforeach
                     </div>
+                </div>
+            </section>
+        </div>
+    </section>
 @stop

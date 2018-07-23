@@ -8618,6 +8618,10 @@ h5 {
   }
 }
 
+.margin-right-1 {
+  margin-right: 1rem;
+}
+
 .logo-padding {
   padding: 2rem;
   border-bottom: thin solid #F8F6F5;
@@ -9319,6 +9323,8 @@ h5 {
 .order-details img {
   padding-right: 1rem;
   padding-top: 1rem;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .order-details .product-name {
@@ -9448,5 +9454,13 @@ h5 {
 
 .mobile-button-white:focus {
   background: #F8F6F5;
+}
+
+.textarea {
+  height: 150px;
+}
+
+.checkbox {
+  margin-top: 1.5rem;
 }
 
