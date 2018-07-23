@@ -8608,6 +8608,16 @@ h5 {
   margin-top: 1rem;
 }
 
+.display-tablet {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .display-tablet {
+    display: block;
+  }
+}
+
 .logo-padding {
   padding: 2rem;
   border-bottom: thin solid #F8F6F5;

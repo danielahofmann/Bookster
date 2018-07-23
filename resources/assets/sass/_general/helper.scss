@@ -77,3 +77,10 @@
   margin-top: 1rem;
 }
 
+.display-tablet{
+  display: none;
+
+  @include custom-max(1023px){
+    display: block;
+  }
+}
