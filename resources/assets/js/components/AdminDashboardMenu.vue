@@ -36,7 +36,7 @@
                 <div class="cell small-2 flex-center">
                     <feather-users></feather-users>
                 </div>
-                <p class="dashboard-regular cell small-10">Benutzer</p>
+                <p class="dashboard-regular cell small-10">Mitarbeiter</p>
             </a>
         </div>
         <div class="dashboard-menu logout">
