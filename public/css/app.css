@@ -8604,6 +8604,10 @@ h5 {
           transform: translateX(-50%);
 }
 
+.margin-top-1 {
+  margin-top: 1rem;
+}
+
 .logo-padding {
   padding: 2rem;
   border-bottom: thin solid #F8F6F5;
@@ -9125,6 +9129,11 @@ h5 {
   padding: 0.5rem 1rem;
 }
 
+.order-button:hover {
+  background-color: #EAE7E5;
+  cursor: pointer;
+}
+
 .delivery-option {
   margin-bottom: 1rem;
 }
@@ -9403,5 +9412,31 @@ h5 {
   .about p {
     text-align: left;
   }
+}
+
+.hover-danger:hover {
+  background-color: #BD1E5A;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.text-modal {
+  color: #4A4A4A;
+  padding: 1rem 1rem;
+}
+
+.mobile-button-white {
+  border: thin solid #F8F6F5;
+  background: #FFFFFF;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.mobile-button-white:focus {
+  background: #F8F6F5;
 }
 

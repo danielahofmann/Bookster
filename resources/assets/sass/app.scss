@@ -469,6 +469,11 @@
   color: $dark-grey;
   text-transform: uppercase;
   padding: 0.5rem 1rem;
+
+  &:hover{
+    background-color: $dark-beige;
+    cursor: pointer;
+  }
 }
 
 .delivery-option{
@@ -718,4 +723,32 @@
     }
   }
 
+}
+
+.hover-danger{
+  &:hover{
+    background-color: $magenta;
+    color: $white;
+    font-weight: $bold;
+  }
+}
+
+.full-width{
+  width: 100%;
+}
+
+.text-modal{
+  color: $dark-grey;
+  padding: 1rem 1rem;
+}
+
+.mobile-button-white{
+  border: thin solid $beige;
+  background: $white;
+  margin-bottom: 1rem;
+  padding:1rem;
+
+  &:focus{
+    background: $beige;
+  }
 }
