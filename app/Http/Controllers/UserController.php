@@ -44,4 +44,27 @@ class UserController extends Controller
 			->back()
 			->with('status', 'Benutzerdaten erfolgreich geändert');
 	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function updateEmployee(Request $request, $id)
+	{
+		$user = User::find($id);
+		$user->firstname = $request->input('firstname');
+		$user->lastname = $request->input('lastname');
+		$user->email = $request->input('email');
+		$user->role = $request->input('role');
+		$user->save();
+
+		return redirect()
+			->route( 'admin.users')
+			->with('status', 'Mitarbeiterdaten erfolgreich geändert');
+	}
+
+
 }
