@@ -26,33 +26,43 @@
 
                 <div class="cell small-12 medium-6 large-8 no-margin-mobile">
 
-                    <div class="dashboard-headline display-mobile-none">
-                        <div>
+                    <div class="dashboard-headline display-mobile-none grid-x">
+                        <div class="cell small-12">
                             <feather-users></feather-users>
                         </div>
-                        <h2>Mitarbeiter</h2>
+                        <h2 class="cell medium-8 large-10">Mitarbeiter</h2>
+                        <div class="cell medium-4 large-2">
+                            <a href="{{route('admin.user.create')}}">
+                                <button class="order-button margin-top-1 full-width text-center display-none-tablet">hinzufügen</button>
+                            </a>
+                        </div>
                     </div>
 
                     <admin-mobile-redirect
                             headline="Mitarbeiter"
                     ></admin-mobile-redirect>
 
-                    @foreach($employees as $employee)
+                    <a href="{{route('admin.user.create')}}">
+                        <button class="cell small-6 display-tablet order-button mobile-button-white full-width text-center">hinzufügen</button>
+                    </a>
+
+                @foreach($employees as $employee)
                         <div class="order-details grid-x">
-                            <div class="cell small-10">
+                            <div class="cell small-12 medium-12 large-10">
                                 <p>{{$employee->firstname}} {{$employee->lastname}}</p>
                                 <p>{{$employee->email}}</p>
                                 <p>Rolle: {{$employee->role == 1 ? 'Administrator' : 'Mitarbeiter'}}</p>
                             </div>
-                            <div class="cell small-2">
-                                <a href="{{route('admin.user', $employee->id)}}">
-                                    <button class="order-button margin-top-1 full-width text-center" type="button" data-open="editEmployeeModal">bearbeiten</button>
+                            <div class="cell small-12 medium-12 large-2">
+                                <a href="{{route('admin.user.edit', $employee->id)}}">
+                                    <button class="order-button margin-top-1 full-width text-center">bearbeiten</button>
                                 </a>
-                                <button class="order-button margin-top-1 full-width text-center" type="button" data-open="deleteEmployeeModal">löschen</button>
+                                <a href="{{route('admin.user.delete-form', $employee->id)}}">
+                                    <button class="order-button margin-top-1 full-width text-center">löschen</button>
+                                </a>
                             </div>
                         </div>
                     @endforeach
-
                 </div>
             </section>
         </div>
