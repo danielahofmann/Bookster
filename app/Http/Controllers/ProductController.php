@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -78,9 +79,22 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Product $product, $id)
     {
-        //
+	    $product = Product::find($id);
+
+	    /**
+	     * First of all detaching order from products, then also deleting image
+	     */
+	    DB::delete('delete from order_product where product_id = ?', array($product->id));
+
+	    $product->image()->delete();
+
+	    $product->delete();
+
+	    return redirect()
+		    ->route('admin.products')
+		    ->with('status', 'Produkt erfolgreich gelöscht!');
     }
 
 	/**
