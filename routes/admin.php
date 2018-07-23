@@ -15,14 +15,21 @@ Route::prefix('admin')->group(function() {
 	Route::get( '/products', function () {
 		$user = Auth::guard('admin')->user();
 
-
-		return view('admin.pages.products', ['user' => $user]);
+		$products = \App\Product::with( 'author' )
+		                        ->with( 'category' )
+		                        ->with( 'genre' )
+		                        ->with( 'image' )
+		                        ->orderBy( 'created_at', 'DESC' )
+		                        ->get();
+		return view('admin.pages.products', ['user' => $user, 'products' => $products]);
 	})->name('admin.products');
 
 	Route::get( '/users', function () {
 		$user = Auth::guard('admin')->user();
 
-		return view('admin.pages.users', ['user' => $user]);
+		$employees = \App\User::all();
+
+		return view('admin.pages.users', ['user' => $user, 'employees' => $employees]);
 	})->name('admin.users');
 
 	Route::get( '/orders', function () {
@@ -55,6 +62,17 @@ Route::prefix('admin')->group(function() {
 		return view('admin.pages.order', ['order' => $order, 'user' => $user, 'bill' => $billAddress, 'delivery' => $deliveryAddress, 'states' => $states]);
 	})->name('admin.order');
 
+	Route::get( '/user/{id}', function ($id) {
+		$user = Auth::guard('admin')->user();
+
+		$employee = \App\User::find($id);
+
+		return view('admin.pages.users.edit', ['user' => $user, 'employee' => $employee]);
+	})->name('admin.user');
+
 	Route::patch('/order/update/{id}', 'OrderController@update')->name('admin.order.update');
 	Route::delete('/order/delete/{id}', 'OrderController@destroy')->name('admin.order.delete');
+
+	Route::patch('/user/update/{id}', 'UserController@updateEmployee')->name('admin.user.update');
+	Route::delete('/user/delete/{id}', 'UserController@destroy')->name('admin.user.delete');
 });
