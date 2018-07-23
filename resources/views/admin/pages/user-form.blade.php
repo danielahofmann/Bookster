@@ -39,7 +39,7 @@
 
                     <div class="order-details">
                         <form action="@yield('action')" method="POST">
-                            {{ method_field('PATCH') }}
+                            @yield('method')
                             @csrf
 
                             <div class="cell small-12 medium-12">
@@ -58,11 +58,11 @@
                             </div>
 
                             <div class="cell small-12 medium-12">
-                                <label for="lastname" class="form-label">Vorname</label>
+                                <label for="lastname" class="form-label">Nachname</label>
                                 <div>
                                     <input id="lastname" type="text"
                                            class="input{{ $errors->has('lastname') ? ' is-invalid' : '' }}"
-                                           name="lastname" value="@yield('lastname')" autofocus>
+                                           name="lastname" value="@yield('lastname')" required>
 
                                     @if ($errors->has('lastname'))
                                         <span class="invalid-feedback">
@@ -73,11 +73,11 @@
                             </div>
 
                             <div class="cell small-12 medium-12">
-                                <label for="email" class="form-label">Vorname</label>
+                                <label for="email" class="form-label">E-Mail</label>
                                 <div>
                                     <input id="email" type="email"
                                            class="input{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                           name="email" value="@yield('email')" autofocus>
+                                           name="email" value="@yield('email')" required>
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback">
@@ -103,6 +103,8 @@
                                     @endif
                                 </div>
                             </div>
+
+                            @yield('pass')
 
                             <button type="submit" class="submit-button">Speichern</button>
                         </form>
