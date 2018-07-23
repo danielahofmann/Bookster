@@ -62,17 +62,33 @@ Route::prefix('admin')->group(function() {
 		return view('admin.pages.order', ['order' => $order, 'user' => $user, 'bill' => $billAddress, 'delivery' => $deliveryAddress, 'states' => $states]);
 	})->name('admin.order');
 
-	Route::get( '/user/{id}', function ($id) {
+	Route::get( '/user/edit/{id}', function ($id) {
 		$user = Auth::guard('admin')->user();
 
 		$employee = \App\User::find($id);
 
 		return view('admin.pages.users.edit', ['user' => $user, 'employee' => $employee]);
-	})->name('admin.user');
+	})->name('admin.user.edit');
 
 	Route::patch('/order/update/{id}', 'OrderController@update')->name('admin.order.update');
 	Route::delete('/order/delete/{id}', 'OrderController@destroy')->name('admin.order.delete');
 
 	Route::patch('/user/update/{id}', 'UserController@updateEmployee')->name('admin.user.update');
 	Route::delete('/user/delete/{id}', 'UserController@destroy')->name('admin.user.delete');
+	Route::post('/user/store', 'UserController@store')->name('admin.user.store');
+
+	Route::get( '/user/delete-form/{id}', function ($id) {
+		$user = Auth::guard('admin')->user();
+
+		$employee = \App\User::find($id);
+
+		return view('admin.pages.user-delete', ['user' => $user, 'employee' => $employee]);
+	})->name('admin.user.delete-form');
+
+	Route::get( '/user/create', function () {
+		$user = Auth::guard('admin')->user();
+
+		return view('admin.pages.users.create', ['user' => $user]);
+	})->name('admin.user.create');
+
 });
