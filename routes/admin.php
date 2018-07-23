@@ -31,7 +31,7 @@ Route::prefix('admin')->group(function() {
 		$orders = \App\Order::with('state')
 		                    ->with('approval')
 		                    ->with('customer')
-							->orderBy('created_at', 'desc')
+							->orderBy('created_at', 'DESC')
 		                    ->get();
 
 		return view('admin.pages.orders', ['user' => $user, 'orders' => $orders]);
@@ -47,9 +47,14 @@ Route::prefix('admin')->group(function() {
 							->with('customer')
 		                   ->first();
 
+		$states = \App\State::all();
+
 		$billAddress = \App\BillAddress::find($order->billAddress_id);
 		$deliveryAddress = \App\DeliveryAddress::find($order->deliveryAddress_id);
 
-		return view('admin.pages.order', ['order' => $order, 'user' => $user, 'bill' => $billAddress, 'delivery' => $deliveryAddress]);
+		return view('admin.pages.order', ['order' => $order, 'user' => $user, 'bill' => $billAddress, 'delivery' => $deliveryAddress, 'states' => $states]);
 	})->name('admin.order');
+
+	Route::patch('/order/update/{id}', 'OrderController@update')->name('admin.order.update');
+	Route::delete('/order/delete/{id}', 'OrderController@destroy')->name('admin.order.delete');
 });

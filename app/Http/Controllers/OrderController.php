@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Approval;
 use App\BillAddress;
 use App\Cart;
+use App\DeliveryAddress;
 use App\Order;
+use App\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
@@ -87,7 +90,7 @@ class OrderController extends Controller
 	    if($request->input('delivery') == 'standard'){
 		    $deliveryPrice = 5.00;
 	    }else{
-		    $deliveryPrice = $cart->totalPrice + 8.00;
+		    $deliveryPrice = 8.00;
 	    }
 
 	    $total = $cart->totalPrice + $deliveryPrice;
@@ -180,9 +183,23 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, $id)
     {
-        //
+    	$order = Order::find($id);
+
+        if ($request->has('state')){
+			$order->state_id = $request->get('state');
+        }
+
+        if($request->has('send_at')){
+        	$order->send_at = $request->get('send_at');
+        }
+
+        $order->save();
+
+	    return redirect()
+		    ->back()
+		    ->with('status', 'Bestellung erfolgreich bearbeitet');
     }
 
     /**
@@ -191,8 +208,30 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(Order $order, $id)
     {
-        //
+	    $order = Order::find($id);
+
+	    /**
+	     * First of all detaching products from order, then also deleting approval
+	     */
+	    DB::delete('delete from order_product where order_id = ?', array($order->id));
+
+	    $order->approval()->delete();
+
+	    /**
+	     * Deleting Delivery/BillAddress of Order, where order_id is id
+	     */
+	    $delivery = DeliveryAddress::find($order->deliveryAddress_id);
+	    $delivery->delete();
+
+	    $bill = BillAddress::find($order->billAddress_id);
+	    $bill->delete();
+
+	    $order->delete();
+
+	    return redirect()
+	    ->route('admin.orders')
+	    ->with('status', 'Bestellung erfolgreich gelöscht!');
     }
 }
