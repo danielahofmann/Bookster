@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Character;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -68,9 +70,25 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Product $product, $id)
     {
-        //
+        $product = Product::find($id);
+
+        $product->name = $request->input('name');
+        $product->price = $request->input('price');
+        $product->description = $request->input('description');
+        $product->amount = $request->input('amount');
+        $product->bestseller = $request->input('bestseller');
+	    $product->category_id = $request->input('category');
+	    $product->genre_id = $request->input('genre');
+	    $product->author_id = $request->input('author');
+	    $product->character_id = $request->input('character');
+		$product->user_id = Auth::guard('admin')->user()->id;
+	    $product->save();
+
+	    return redirect()
+		    ->route('admin.products')
+		    ->with('status', 'Produkt erfolgreich bearbeitet!');
     }
 
     /**
