@@ -12,14 +12,7 @@ Route::prefix('seniors')->group(function() {
 	Route::wishlist('seniors');
 	Route::cart('seniors');
 	Route::checkout('seniors');
-
-	Route::get( '/register', function () {
-		return view( 'age-layouts.seniors.register' );
-	} )->name( 'seniors-register' );
-
-	Route::post('register', 'Auth\RegisterController@register');
-
-
+	Route::register('seniors');
 
 	Route::get('/order', function() {
 		$oldCart = Session::get('cart');

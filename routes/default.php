@@ -12,13 +12,7 @@ Route::prefix('default')->group(function() {
 	Route::wishlist('default');
 	Route::cart('default');
 	Route::checkout('default');
-
-	Route::get( '/register', function () {
-		return view( 'age-layouts.default.register' );
-	} )->name( 'default-register' );
-
-	Route::post('register', 'Auth\RegisterController@register');
-
+	Route::register('default');
 
 	Route::get('/order', function() {
 		$oldCart = Session::get('cart');

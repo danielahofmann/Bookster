@@ -12,12 +12,8 @@ Route::prefix('teens')->group(function() {
 	Route::wishlist('teens');
 	Route::cart('teens');
 	Route::checkout('teens');
+	Route::register('teens');
 
-	Route::get( '/register', function () {
-		return view( 'age-layouts.teens.register' );
-	} )->name( 'teens-register' );
-
-	Route::post('register', 'Auth\RegisterController@register');
 
 	Route::get('/checkout', function() {
 		if(!empty(\Illuminate\Support\Facades\Auth::user())){

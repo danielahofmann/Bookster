@@ -94,4 +94,11 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    /**
+     * show form for registration
+     */
+	public function showRegistrationForm() {
+		return view( 'age-layouts.' . Session::get('ageGroup') . '.register' );
+    }
 }

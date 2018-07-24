@@ -63,7 +63,7 @@ class RouteServiceProvider extends ServiceProvider
 	    });
 
 	    Route::macro( 'product', function ($age) {
-		    Route::get( '/product/{id}', 'ProductController@show' )->name( $age . '-product' );
+		    Route::get('/product/{id}', 'ProductController@show')->name($age . '-product');
 	    });
 
 	    Route::macro( 'wishlist', function ($age) {
@@ -76,6 +76,11 @@ class RouteServiceProvider extends ServiceProvider
 
 	    Route::macro( 'checkout', function ($age) {
 		    Route::get( '/checkout', 'HomeController@checkout' )->name( $age . '-checkout' );
+	    });
+
+	    Route::macro( 'register', function ($age) {
+		    Route::get( '/register', 'Auth\RegisterController@showRegistrationForm' )->name( $age . '-register' );
+		    Route::post('register', 'Auth\RegisterController@register');
 	    });
 
 	    parent::boot();
