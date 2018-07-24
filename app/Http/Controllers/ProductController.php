@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Character;
+use App\Image;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -74,6 +75,22 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
+	    $this->validate( $request, [
+		    'name' => 'required',
+		    'price'  => 'required',
+		    'description'      => 'required',
+		    'amount'      => 'required|integer',
+		    'bestseller'      => 'required|integer',
+		    'category'      => 'required|integer',
+		    'genre'      => 'required|integer',
+		    'author'      => 'required|integer',
+		    'character'      => 'integer',
+		    'image' => 'required|image|file',
+
+	    ], [
+		    'image.file'      => 'Etwas ist schiefgelaufen, bitte beachten Sie das es sich um eine Datei in folgenden Format handelt: jpeg, png, svg.',
+	    ] );
+
         $product->name = $request->input('name');
         $product->price = $request->input('price');
         $product->description = $request->input('description');
@@ -85,6 +102,12 @@ class ProductController extends Controller
 	    $product->character_id = $request->input('character');
 		$product->user_id = Auth::guard('admin')->user()->id;
 	    $product->save();
+
+		$image = Image::where('product_id', $id)->first();
+	    $image->img = $request->image->getClientOriginalName();
+	    $image->save();
+
+	    $request->image->storeAs('product-image', $request->image->getClientOriginalName());
 
 	    return redirect()
 		    ->route('admin.products')
