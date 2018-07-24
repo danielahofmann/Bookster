@@ -116,7 +116,7 @@ class UserController extends Controller
 		$user->lastname = $request->input('lastname');
 		$user->email = $request->input('email');
 		$user->role = $request->input('role');
-		$user->password = Hash::make($request->input('password'));
+		$user->password = bcrypt($request->input('password'));
 		$user->save();
 
 		return redirect()
