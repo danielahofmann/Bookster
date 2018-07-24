@@ -44,6 +44,26 @@ Route::prefix('admin')->group(function() {
 		return view('admin.pages.orders', ['user' => $user, 'orders' => $orders]);
 	})->name('admin.orders');
 
+	Route::get( '/authors', function () {
+		$user = Auth::guard('admin')->user();
+
+		$authors = \App\Author::with( 'author_image' )
+		                        ->orderBy( 'created_at', 'DESC' )
+		                        ->get();
+		return view('admin.pages.authors', ['user' => $user, 'authors' => $authors]);
+	})->name('admin.authors');
+
+	Route::get( '/characters', function () {
+		$user = Auth::guard('admin')->user();
+
+		$characters = \App\Character::with( 'character_image' )
+		                        ->orderBy( 'created_at', 'DESC' )
+		                        ->get();
+
+		return view('admin.pages.characters', ['user' => $user, 'products' => $characters]);
+	})->name('admin.characters');
+
+
 	Route::get( '/order/{id}', function ($id) {
 		$user = Auth::guard('admin')->user();
 
@@ -81,6 +101,15 @@ Route::prefix('admin')->group(function() {
 	Route::delete('/product/delete/{id}', 'ProductController@destroy')->name('admin.product.delete');
 	Route::post('/product/store', 'ProductController@store')->name('admin.product.store');
 
+	Route::post('/character/update/{id}', 'CharacterController@update')->name('admin.character.update');
+	Route::delete('/character/delete/{id}', 'CharacterController@destroy')->name('admin.character.delete');
+	Route::post('/character/store', 'CharacterController@store')->name('admin.character.store');
+
+	Route::post('/author/update/{id}', 'AuthorController@update')->name('admin.author.update');
+	Route::delete('/author/delete/{id}', 'AuthorController@destroy')->name('admin.author.delete');
+	Route::post('/author/store', 'AuthorController@store')->name('admin.author.store');
+
+
 	Route::get( '/user/delete-form/{id}', function ($id) {
 		$user = Auth::guard('admin')->user();
 
@@ -96,6 +125,22 @@ Route::prefix('admin')->group(function() {
 
 		return view('admin.pages.product-delete', ['user' => $user, 'product' => $product]);
 	})->name('admin.product.delete-form');
+
+	Route::get( '/character/delete-form/{id}', function ($id) {
+		$user = Auth::guard('admin')->user();
+
+		$product = \App\Product::find($id);
+
+		return view('admin.pages.character-delete', ['user' => $user, 'product' => $product]);
+	})->name('admin.character.delete-form');
+
+	Route::get( '/author/delete-form/{id}', function ($id) {
+		$user = Auth::guard('admin')->user();
+
+		$product = \App\Product::find($id);
+
+		return view('admin.pages.author-delete', ['user' => $user, 'product' => $product]);
+	})->name('admin.author.delete-form');
 
 	Route::get( '/user/create', function () {
 		$user = Auth::guard('admin')->user();
@@ -135,5 +180,69 @@ Route::prefix('admin')->group(function() {
 		return view('admin.pages.products.create', ['user' => $user, 'genres' => $genres,
 		                                          'categories' => $categories, 'authors' => $authors, 'characters' => $characters]);
 	})->name('admin.product.create');
+
+	Route::get( '/character/edit/{id}', function ($id) {
+		$user = Auth::guard('admin')->user();
+
+		$product = \App\Product::where('id', $id)
+		                       ->with('author')
+		                       ->with('image')
+		                       ->with('genre')
+		                       ->with('category')
+		                       ->with('character')
+		                       ->first();
+
+		$categories = \App\Category::all();
+		$genres = \App\Genre::all();
+		$authors = \App\Author::all();
+		$characters = \App\Character::all();
+
+		return view('admin.pages.characters.edit', ['user' => $user, 'product' => $product, 'genres' => $genres,
+		                                          'categories' => $categories, 'authors' => $authors, 'characters' => $characters]);
+	})->name('admin.character.edit');
+
+	Route::get( '/character/create', function () {
+		$user = Auth::guard('admin')->user();
+
+		$categories = \App\Category::all();
+		$genres = \App\Genre::all();
+		$authors = \App\Author::all();
+		$characters = \App\Character::all();
+
+		return view('admin.pages.characters.create', ['user' => $user, 'genres' => $genres,
+		                                            'categories' => $categories, 'authors' => $authors, 'characters' => $characters]);
+	})->name('admin.character.create');
+
+	Route::get( '/author/edit/{id}', function ($id) {
+		$user = Auth::guard('admin')->user();
+
+		$product = \App\Product::where('id', $id)
+		                       ->with('author')
+		                       ->with('image')
+		                       ->with('genre')
+		                       ->with('category')
+		                       ->with('character')
+		                       ->first();
+
+		$categories = \App\Category::all();
+		$genres = \App\Genre::all();
+		$authors = \App\Author::all();
+		$characters = \App\Character::all();
+
+		return view('admin.pages.authors.edit', ['user' => $user, 'product' => $product, 'genres' => $genres,
+		                                          'categories' => $categories, 'authors' => $authors, 'characters' => $characters]);
+	})->name('admin.author.edit');
+
+	Route::get( '/author/create', function () {
+		$user = Auth::guard('admin')->user();
+
+		$categories = \App\Category::all();
+		$genres = \App\Genre::all();
+		$authors = \App\Author::all();
+		$characters = \App\Character::all();
+
+		return view('admin.pages.authors.create', ['user' => $user, 'genres' => $genres,
+		                                            'categories' => $categories, 'authors' => $authors, 'characters' => $characters]);
+	})->name('admin.author.create');
 
 });
