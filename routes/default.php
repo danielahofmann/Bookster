@@ -11,14 +11,7 @@ Route::prefix('default')->group(function() {
 	Route::product('default');
 	Route::wishlist('default');
 	Route::cart('default');
-
-	Route::get('/checkout', function() {
-		if(!empty(\Illuminate\Support\Facades\Auth::user())){
-			return redirect('default/order');
-		}
-
-		return view('age-layouts.default.checkout');
-	})->name('default-checkout');
+	Route::checkout('default');
 
 	Route::get( '/register', function () {
 		return view( 'age-layouts.default.register' );

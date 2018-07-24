@@ -11,6 +11,7 @@ Route::prefix('seniors')->group(function() {
 	Route::product('seniors');
 	Route::wishlist('seniors');
 	Route::cart('seniors');
+	Route::checkout('seniors');
 
 	Route::get( '/register', function () {
 		return view( 'age-layouts.seniors.register' );
@@ -18,13 +19,7 @@ Route::prefix('seniors')->group(function() {
 
 	Route::post('register', 'Auth\RegisterController@register');
 
-	Route::get('/checkout', function() {
-		if(!empty(\Illuminate\Support\Facades\Auth::user())){
-			return redirect('seniors/order');
-		}
 
-		return view('age-layouts.seniors.checkout');
-	})->name('seniors-checkout');
 
 	Route::get('/order', function() {
 		$oldCart = Session::get('cart');

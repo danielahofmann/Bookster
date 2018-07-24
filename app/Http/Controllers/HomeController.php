@@ -55,4 +55,17 @@ class HomeController extends Controller
 
 		return view('age-layouts.' . Session::get('ageGroup') . '.dashboard', ['customer' => $customer]);
 	}
+
+	/**
+	 * show checkout
+	 */
+	public function checkout() {
+		$age = Session::get('ageGroup');
+
+		if(!empty(Auth::user())){
+			return redirect($age . '/order');
+		}
+
+		return view('age-layouts.' . $age . '.checkout');
+	}
 }

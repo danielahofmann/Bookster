@@ -74,6 +74,10 @@ class RouteServiceProvider extends ServiceProvider
 		    Route::get( '/cart', 'CartController@index' )->name( $age . '-cart' );
 	    });
 
+	    Route::macro( 'checkout', function ($age) {
+		    Route::get( '/checkout', 'HomeController@checkout' )->name( $age . '-checkout' );
+	    });
+
 	    parent::boot();
 
     }
