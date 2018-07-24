@@ -39,7 +39,50 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+	    $product = new Product();
+
+	    $this->validate( $request, [
+		    'name'        => 'required',
+		    'price'       => 'required',
+		    'description' => 'required',
+		    'amount'      => 'required|integer',
+		    'bestseller'  => 'required|integer',
+		    'category'    => 'required|integer',
+		    'release'    => 'required|date',
+		    'genre'       => 'required|integer',
+		    'author'      => 'required|integer',
+		    'character'   => 'integer',
+		    'image'       => 'required|image|file',
+
+	    ], [
+		    'image.file'       => 'Etwas ist schiefgelaufen, bitte beachten Sie das es sich um eine Datei in folgenden Format handelt: jpeg, png, svg.',
+		    'release.date'     => 'Bitte geben Sie ein korrektes Datum an.',
+		    'release.required' => 'Bitte geben Sie ein korrektes Datum an.',
+	    ] );
+
+	    $product->name = $request->input('name');
+	    $product->price = $request->input('price');
+	    $product->description = $request->input('description');
+	    $product->amount = $request->input('amount');
+	    $product->bestseller = $request->input('bestseller');
+	    $product->release = $request->input('release');
+	    $product->category_id = $request->input('category');
+	    $product->genre_id = $request->input('genre');
+	    $product->author_id = $request->input('author');
+	    $product->character_id = $request->input('character');
+	    $product->user_id = Auth::guard('admin')->user()->id;
+	    $product->save();
+
+	    $image = new Image();
+	    $image->img = $request->image->getClientOriginalName();
+	    $image->product_id = $product->id;
+	    $image->save();
+
+	    $request->image->storeAs('product-image', $request->image->getClientOriginalName());
+
+	    return redirect()
+		    ->route('admin.products')
+		    ->with('status', 'Produkt erfolgreich erstellt!');
     }
 
     /**
@@ -76,19 +119,22 @@ class ProductController extends Controller
         $product = Product::find($id);
 
 	    $this->validate( $request, [
-		    'name' => 'required',
-		    'price'  => 'required',
-		    'description'      => 'required',
+		    'name'        => 'required',
+		    'price'       => 'required',
+		    'description' => 'required',
 		    'amount'      => 'required|integer',
-		    'bestseller'      => 'required|integer',
-		    'category'      => 'required|integer',
-		    'genre'      => 'required|integer',
+		    'bestseller'  => 'required|integer',
+		    'release'     => 'required|date',
+		    'category'    => 'required|integer',
+		    'genre'       => 'required|integer',
 		    'author'      => 'required|integer',
-		    'character'      => 'integer',
-		    'image' => 'required|image|file',
+		    'character'   => 'integer',
+		    'image'       => 'required|image|file',
 
 	    ], [
-		    'image.file'      => 'Etwas ist schiefgelaufen, bitte beachten Sie das es sich um eine Datei in folgenden Format handelt: jpeg, png, svg.',
+		    'image.file'       => 'Etwas ist schiefgelaufen, bitte beachten Sie das es sich um eine Datei in folgenden Format handelt: jpeg, png, svg.',
+		    'release.date'     => 'Bitte geben Sie ein korrektes Datum an.',
+		    'release.required' => 'Bitte geben Sie ein korrektes Datum an.',
 	    ] );
 
         $product->name = $request->input('name');
@@ -96,6 +142,7 @@ class ProductController extends Controller
         $product->description = $request->input('description');
         $product->amount = $request->input('amount');
         $product->bestseller = $request->input('bestseller');
+	    $product->release = $request->input('release');
 	    $product->category_id = $request->input('category');
 	    $product->genre_id = $request->input('genre');
 	    $product->author_id = $request->input('author');

@@ -43,22 +43,25 @@
                     ></admin-mobile-redirect>
 
                     <div class="grid-x">
-
-
-                    @foreach($products as $product)
+                        @foreach($products as $product)
                             <div class="cell small-4">
                                 <div class="order-details margin-right-1">
-                                    <img src="{{ asset('storage/product-image/' . $product->image[0]->img) }}"  alt="{{$product->name}}">
+                                    <img src="{{ asset('storage/product-image/' . $product->image[0]->img) }}"
+                                         alt="{{$product->name}}">
                                     <p class="headline">Produkt-Nr.: <span>{{$product->id}}</span></p>
                                     <a href="{{route('admin.product.edit', $product->id)}}">
-                                        <button class="order-button margin-top-1 full-width text-center display-none-tablet">bearbeiten</button>
+                                        <button class="order-button margin-top-1 full-width text-center display-none-tablet">
+                                            bearbeiten
+                                        </button>
                                     </a>
                                     <a href="{{route('admin.product.delete-form', $product->id)}}">
-                                        <button class="order-button margin-top-1 full-width text-center display-none-tablet">löschen</button>
+                                        <button class="order-button margin-top-1 full-width text-center display-none-tablet">
+                                            löschen
+                                        </button>
                                     </a>
                                 </div>
                             </div>
-                    @endforeach
+                        @endforeach
                     </div>
                 </div>
             </section>
