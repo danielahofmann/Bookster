@@ -15,6 +15,7 @@ Route::prefix('elderly')->group(function() {
 	Route::register('elderly');
 	Route::order('elderly');
 	Route::help('elderly');
+	Route::results('elderly');
 
 
 	Route::get('/results', function (){

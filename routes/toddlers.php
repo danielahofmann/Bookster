@@ -4,8 +4,7 @@ Route::prefix('toddlers')->group(function() {
 	Route::home('toddlers');
 	Route::product('toddlers');
 	Route::wishlist('toddlers');
-
-
+	
 	Route::get('/character/{character_id}', function ($character_id) {
 		$character = App\Character::where('id', $character_id)->with('character_image')->get();
 		$products = App\Product::where('character_id', $character_id)->with('image')->get();

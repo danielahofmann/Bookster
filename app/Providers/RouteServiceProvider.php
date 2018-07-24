@@ -110,6 +110,12 @@ class RouteServiceProvider extends ServiceProvider
 		    })->name($age . '-help-order');
 	    });
 
+	    Route::macro( 'results', function ($age) {
+		    Route::get( '/results', function (){
+			    return view('age-layouts.' . Session::get('ageGroup') . '.results');
+		    })->name( $age . '-results' );
+	    });
+
 	    parent::boot();
 
     }

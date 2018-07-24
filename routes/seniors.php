@@ -15,10 +15,7 @@ Route::prefix('seniors')->group(function() {
 	Route::register('seniors');
 	Route::order('seniors');
 	Route::help('seniors');
-
-	Route::get('/results', function (){
-		return view('age-layouts.seniors.results');
-	})->name('seniors-results');
+	Route::results('seniors');
 
 	Route::get('/contact', function (){
 		return view('age-layouts.seniors.contact');

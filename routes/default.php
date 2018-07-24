@@ -15,10 +15,7 @@ Route::prefix('default')->group(function() {
 	Route::register('default');
 	Route::order('default');
 	Route::help('default');
-
-	Route::get('/results', function (){
-		return view('age-layouts.default.results');
-	})->name('default-results');
+	Route::results('default');
 
 	Route::get('/contact', function (){
 		return view('age-layouts.default.contact');
