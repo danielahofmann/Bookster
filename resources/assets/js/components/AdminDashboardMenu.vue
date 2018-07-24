@@ -41,7 +41,7 @@
 
             <a class="dashboard-link grid-x flex-center" :class="{ 'border-left' : characters }" :href="route('admin.characters')">
                 <div class="cell small-2 flex-center">
-                    <feather-user></feather-user>
+                    <feather-github></feather-github>
                 </div>
                 <p class="dashboard-regular cell small-10">Charaktere</p>
             </a>

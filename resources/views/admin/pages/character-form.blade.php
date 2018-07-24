@@ -28,7 +28,7 @@
 
                     <div class="dashboard-headline display-mobile-none">
                         <div>
-                            <feather-user></feather-user>
+                            <feather-github></feather-github>
                         </div>
                         <h2>Charakter @yield('desktop-headline')</h2>
                     </div>
