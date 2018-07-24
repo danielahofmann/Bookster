@@ -28,7 +28,7 @@
 
                     <div class="dashboard-headline display-mobile-none grid-x">
                         <div class="cell small-12">
-                            <feather-user></feather-user>
+                            <feather-edit2></feather-edit2>
                         </div>
                         <h2 class="cell medium-7 large-10">Autoren</h2>
                         <div class="cell medium-5 large-2">

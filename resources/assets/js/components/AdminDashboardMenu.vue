@@ -34,7 +34,7 @@
 
             <a class="dashboard-link grid-x flex-center" :class="{ 'border-left' : authors }" :href="route('admin.authors')">
                 <div class="cell small-2 flex-center">
-                    <feather-user></feather-user>
+                    <feather-edit2></feather-edit2>
                 </div>
                 <p class="dashboard-regular cell small-10">Autoren</p>
             </a>

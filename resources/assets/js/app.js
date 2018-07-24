@@ -85,6 +85,7 @@ Vue.component('feather-minus', require('./components/FeatherMinus.vue'));
 Vue.component('product-cart', require('./components/ProductCart.vue'));
 Vue.component('feather-up', require('./components/FeatherUp.vue'));
 Vue.component('feather-down', require('./components/FeatherDown.vue'));
+Vue.component('feather-edit2', require('./components/FeatherEdit2.vue'));
 Vue.component('feather-trash', require('./components/FeatherTrash.vue'));
 Vue.component('feather-book', require('./components/FeatherBook.vue'));
 Vue.component('feather-users', require('./components/FeatherUsers.vue'));

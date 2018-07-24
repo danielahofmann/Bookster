@@ -28,7 +28,7 @@
 
                     <div class="dashboard-headline display-mobile-none">
                         <div>
-                            <feather-user></feather-user>
+                            <feather-edit2></feather-edit2>
                         </div>
                         <h2>Autor @yield('desktop-headline')</h2>
                     </div>
