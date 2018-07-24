@@ -10,19 +10,7 @@ Route::prefix('seniors')->group(function() {
 	Route::category('seniors');
 	Route::product('seniors');
 	Route::wishlist('seniors');
-
-
-	Route::get('/cart', function() {
-		if(!Session::has('cart')){
-			return view('age-layouts.seniors.cart', ['products' => null]);
-		}
-
-		$oldCart = Session::get('cart');
-		$cart = new App\Cart($oldCart);
-
-		return view('age-layouts.seniors.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
-	})->name('seniors-cart');
-
+	Route::cart('seniors');
 
 	Route::get( '/register', function () {
 		return view( 'age-layouts.seniors.register' );

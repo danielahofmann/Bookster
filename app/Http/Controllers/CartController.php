@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cart;
 use App\Product;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
@@ -16,7 +16,16 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+    	$age = Session::get('ageGroup');
+
+	    if(!Session::has('cart')){
+		    return view('age-layouts.' . $age . '.cart', ['products' => null]);
+	    }
+
+	    $oldCart = Session::get('cart');
+	    $cart = new Cart($oldCart);
+
+	    return view('age-layouts.' . $age . '.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
 
     /**

@@ -10,17 +10,7 @@ Route::prefix('teens')->group(function() {
 	Route::category('teens');
 	Route::product('teens');
 	Route::wishlist('teens');
-
-	Route::get('/cart', function() {
-		if(!Session::has('cart')){
-			return view('age-layouts.teens.cart', ['products' => null]);
-		}
-
-		$oldCart = Session::get('cart');
-		$cart = new App\Cart($oldCart);
-
-		return view('age-layouts.teens.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
-	})->name('teens-cart');
+	Route::cart('teens');
 
 	Route::get('/checkout', function() {
 		if(!Session::has('cart')){

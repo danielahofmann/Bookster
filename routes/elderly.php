@@ -10,18 +10,7 @@ Route::prefix('elderly')->group(function() {
 	Route::category('elderly');
 	Route::product('elderly');
 	Route::wishlist('elderly');
-
-	Route::get('/cart', function() {
-		if(!Session::has('cart')){
-			return view('age-layouts.elderly.cart', ['products' => null]);
-		}
-
-		$oldCart = Session::get('cart');
-		$cart = new App\Cart($oldCart);
-
-		return view('age-layouts.elderly.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
-	})->name('elderly-cart');
-
+	Route::cart('elderly');
 
 	Route::get( '/register', function () {
 		return view( 'age-layouts.elderly.register' );

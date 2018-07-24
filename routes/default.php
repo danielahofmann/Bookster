@@ -10,18 +10,7 @@ Route::prefix('default')->group(function() {
 	Route::category('default');
 	Route::product('default');
 	Route::wishlist('default');
-
-
-	Route::get('/cart', function() {
-		if(!Session::has('cart')){
-			return view('age-layouts.default.cart', ['products' => null]);
-		}
-
-		$oldCart = Session::get('cart');
-		$cart = new App\Cart($oldCart);
-
-		return view('age-layouts.default.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
-	})->name('default-cart');
+	Route::cart('default');
 
 	Route::get('/checkout', function() {
 		if(!empty(\Illuminate\Support\Facades\Auth::user())){
