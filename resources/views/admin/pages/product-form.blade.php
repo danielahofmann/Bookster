@@ -38,8 +38,7 @@
                     ></admin-mobile-redirect>
 
                     <div class="order-details">
-                        <form action="@yield('action')" method="POST">
-                            @yield('method')
+                        <form action="@yield('action')" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="cell small-12 medium-12">

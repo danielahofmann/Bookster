@@ -77,7 +77,7 @@ Route::prefix('admin')->group(function() {
 	Route::delete('/user/delete/{id}', 'UserController@destroy')->name('admin.user.delete');
 	Route::post('/user/store', 'UserController@store')->name('admin.user.store');
 
-	Route::patch('/product/update/{id}', 'ProductController@update')->name('admin.product.update');
+	Route::post('/product/update/{id}', 'ProductController@update')->name('admin.product.update');
 	Route::delete('/product/delete/{id}', 'ProductController@destroy')->name('admin.product.delete');
 	Route::post('/product/store', 'ProductController@store')->name('admin.product.store');
 

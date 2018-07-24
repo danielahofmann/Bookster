@@ -10,10 +10,6 @@
 
 @section('action'){{route('admin.product.update', $product->id)}}@stop
 
-@section('method')
-    {{ method_field('PATCH') }}
-@endsection
-
 @section('name', $product->name)
 @section('price', $product->price)
 @section('description', $product->description)
