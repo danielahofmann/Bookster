@@ -50,6 +50,10 @@ class RouteServiceProvider extends ServiceProvider
 		    Route::get( '/dashboard/user', 'CustomerController@show')->name($age . '-dashboard-user');
 	    });
 
+	    Route::macro('dashboardOrders', function ($age) {
+		    Route::get( '/dashboard/orders', 'OrderController@showCustomerOrders')->name($age . '-dashboard-order');
+	    });
+
 	    parent::boot();
 
     }

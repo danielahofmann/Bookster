@@ -268,4 +268,19 @@ class OrderController extends Controller
 	    ->route('admin.orders')
 	    ->with('status', 'Bestellung erfolgreich gelöscht!');
     }
+
+    /**
+     * Show the Orders of specific customer
+     */
+
+	public function showCustomerOrders(  ) {
+		$customer = Auth::user();
+
+		$orders = Order::where( 'customer_id', $customer->id )
+		               ->with( 'state' )
+		               ->orderBy( 'created_at', 'desc' )
+		               ->get();
+
+		return view('age-layouts.' . Session::get('ageGroup') . '.dashboard-order', ['orders' => $orders, 'customer' => $customer]);
+    }
 }

@@ -5,6 +5,7 @@ Route::prefix('teens')->group(function() {
 	Route::login('teens');
 	Route::dashboard('teens');
 	Route::dashboardUser('teens');
+	Route::dashboardOrders('teens');
 
 
 
@@ -65,18 +66,7 @@ Route::prefix('teens')->group(function() {
 
 		return view('age-layouts.teens.checkout', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
 	})->name('teens-checkout');
-	
 
-	Route::get( '/dashboard/orders', function () {
-		$customer = Auth::user();
-
-		$orders = \App\Order::where('customer_id', $customer->id)
-		                    ->with('state')
-		                    ->orderBy('created_at', 'desc')
-		                    ->get();
-
-		return view('age-layouts.teens.dashboard-order', ['orders' => $orders, 'customer' => $customer]);
-	})->name('teens-dashboard-order');
 
 	Route::get( '/dashboard/order-details/{id}', function ($id) {
 		$customer = Auth::user();
