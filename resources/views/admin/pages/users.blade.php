@@ -31,20 +31,25 @@
                             <feather-users></feather-users>
                         </div>
                         <h2 class="cell medium-8 large-10">Mitarbeiter</h2>
+
+                        @if($user->role == 1)
                         <div class="cell medium-4 large-2">
                             <a href="{{route('admin.user.create')}}">
                                 <button class="order-button margin-top-1 full-width text-center display-none-tablet">hinzufügen</button>
                             </a>
                         </div>
+                        @endif
                     </div>
 
                     <admin-mobile-redirect
                             headline="Mitarbeiter"
                     ></admin-mobile-redirect>
 
+                    @if($user->role == 1)
                     <a href="{{route('admin.user.create')}}">
                         <button class="cell small-6 display-tablet order-button mobile-button-white full-width text-center">hinzufügen</button>
                     </a>
+                    @endif
 
                 @foreach($employees as $employee)
                         <div class="order-details grid-x">
@@ -53,6 +58,9 @@
                                 <p>{{$employee->email}}</p>
                                 <p>Rolle: {{$employee->role == 1 ? 'Administrator' : 'Mitarbeiter'}}</p>
                             </div>
+
+                            {{--only users with role 1 should be able to see those buttons--}}
+                            @if($user->role == 1)
                             <div class="cell small-12 medium-12 large-2">
                                 <a href="{{route('admin.user.edit', $employee->id)}}">
                                     <button class="order-button margin-top-1 full-width text-center">bearbeiten</button>
@@ -61,6 +69,7 @@
                                     <button class="order-button margin-top-1 full-width text-center">löschen</button>
                                 </a>
                             </div>
+                            @endif
                         </div>
                     @endforeach
                 </div>
