@@ -177,10 +177,11 @@ class ProductController extends Controller
 		    'genre'       => 'required|integer',
 		    'author'      => 'required|integer',
 		    'character'   => 'integer',
-		    'image'       => 'required|image|file',
+		    'image'       => 'image|file',
 
 	    ], [
 		    'image.file'       => 'Etwas ist schiefgelaufen, bitte beachten Sie das es sich um eine Datei in folgenden Format handelt: jpeg, png, svg.',
+		    'image.image'       => 'Etwas ist schiefgelaufen, bitte beachten Sie das es sich um eine Datei in folgenden Format handelt: jpeg, png, svg.',
 		    'release.date'     => 'Bitte geben Sie ein korrektes Datum an.',
 		    'release.required' => 'Bitte geben Sie ein korrektes Datum an.',
 	    ] );
@@ -198,12 +199,14 @@ class ProductController extends Controller
 		$product->user_id = Auth::guard('admin')->user()->id;
 	    $product->save();
 
-		$image = Image::where('product_id', $id)->first();
-	    $image->img = $request->image->getClientOriginalName();
-	    $image->save();
+	    if($request->has('image')) {
+		    $image      = Image::where( 'product_id', $id )->first();
+		    $image->img = $request->image->getClientOriginalName();
+		    $image->save();
 
-	    $request->image->storeAs('product-image', $request->image->getClientOriginalName());
-
+		    $request->image->storeAs( 'product-image', $request->image->getClientOriginalName() );
+	    }
+	    
 	    return redirect()
 		    ->route('admin.products')
 		    ->with('status', 'Produkt erfolgreich bearbeitet!');
