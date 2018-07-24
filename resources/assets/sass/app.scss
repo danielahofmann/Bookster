@@ -368,7 +368,7 @@
 }
 
 .form-label{
-  @include text-styling($primary-font, $regular, 1rem);
+  @include text-styling($primary-font, $bold, 1rem);
   color: $dark-grey;
   margin-top: 1rem;
 }
