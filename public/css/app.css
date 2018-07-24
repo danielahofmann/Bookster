@@ -9496,3 +9496,8 @@ h5 {
   }
 }
 
+.beige-border-top-bottom {
+  border-top: thin solid #F8F6F5;
+  border-bottom: thin solid #F8F6F5;
+}
+
