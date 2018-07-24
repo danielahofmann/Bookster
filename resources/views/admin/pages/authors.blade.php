@@ -50,8 +50,10 @@
                         @foreach($authors as $author)
                             <div class="cell small-12 medium-12 large-4">
                                 <div class="order-details margin-right-1">
+{{--
                                     <img src="{{ $author->author_image->img }}"
-                                    {{--<img src="{{ asset('storage/author-image/' . $author->author_image->img) }}"--}}
+--}}
+                                    <img src="{{ asset('storage/author-image/' . $author->author_image->img) }}"
                                          alt="{{$author->name}}">
                                     <p class="headline text-center">{{$author->firstname}} {{$author->lastname}}</p>
                                     <a href="{{route('admin.author.edit', $author->id)}}">

@@ -216,21 +216,9 @@ Route::prefix('admin')->group(function() {
 	Route::get( '/author/edit/{id}', function ($id) {
 		$user = Auth::guard('admin')->user();
 
-		$product = \App\Product::where('id', $id)
-		                       ->with('author')
-		                       ->with('image')
-		                       ->with('genre')
-		                       ->with('category')
-		                       ->with('character')
-		                       ->first();
+		$author = \App\Author::find($id);
 
-		$categories = \App\Category::all();
-		$genres = \App\Genre::all();
-		$authors = \App\Author::all();
-		$characters = \App\Character::all();
-
-		return view('admin.pages.authors.edit', ['user' => $user, 'product' => $product, 'genres' => $genres,
-		                                          'categories' => $categories, 'authors' => $authors, 'characters' => $characters]);
+		return view('admin.pages.authors.edit', ['user' => $user, 'author' => $author]);
 	})->name('admin.author.edit');
 
 	Route::get( '/author/create', function () {

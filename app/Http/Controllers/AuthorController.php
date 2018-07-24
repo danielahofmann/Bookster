@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Author;
+use App\AuthorImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -36,7 +37,31 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+	    $author = new Author();
+
+	    $this->validate( $request, [
+		    'firstname' => 'required',
+		    'lastname'  => 'required',
+		    'image'     => 'required|image|file',
+	    ], [
+		    'image.file'     => 'Etwas ist schiefgelaufen, bitte beachten Sie das es sich um eine Datei in folgenden Format handelt: jpeg, png, svg.',
+		    'image.required' => 'Bitte wählen Sie ein Bild des Autors aus.',
+	    ] );
+
+	    $author->firstname = $request->input( 'firstname' );
+	    $author->lastname  = $request->input( 'lastname' );
+	    $author->save();
+
+	    $author_image      = new AuthorImage();
+	    $author_image->img = $request->image->getClientOriginalName();
+	    $author_image->author_id = $author->id;
+	    $author_image->save();
+
+	    $request->image->storeAs( 'author-image', $request->image->getClientOriginalName() );
+
+	    return redirect()
+		    ->route( 'admin.authors' )
+		    ->with( 'status', 'Autor wurde erfolgreich erstellt!' );
     }
 
     /**
@@ -68,9 +93,33 @@ class AuthorController extends Controller
      * @param  \App\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Author $author)
+    public function update(Request $request, Author $author, $id)
     {
-        //
+	    $author = Author::find($id);
+
+	    $this->validate( $request, [
+		    'firstname' => 'required',
+		    'lastname'  => 'required',
+		    'image'     => 'image|file',
+	    ], [
+		    'image.file' => 'Etwas ist schiefgelaufen, bitte beachten Sie das es sich um eine Datei in folgenden Format handelt: jpeg, png, svg.',
+	    ] );
+
+	    $author->firstname = $request->input('firstname');
+	    $author->lastname = $request->input('lastname');
+	    $author->save();
+
+	    if($request->has('image')){
+		    $author_image = AuthorImage::where('author_id', $id)->first();
+		    $author_image->img = $request->image->getClientOriginalName();
+		    $author_image->save();
+
+		    $request->image->storeAs('author-image', $request->image->getClientOriginalName());
+	    }
+
+	    return redirect()
+		    ->route('admin.authors')
+		    ->with('status', 'Autor wurde erfolgreich bearbeitet!');
     }
 
     /**
