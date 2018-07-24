@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
@@ -41,6 +42,21 @@ class LoginController extends Controller
 		}
 
 		return $path;
+	}
+
+	/**
+	 * If user is already logged in, show dashboard,
+	 * if user isn't logged in, show the login-form
+	 */
+	public function showLoginForm() {
+		$guard = null;
+		$age = Session::get('ageGroup');
+
+		if ( Auth::guard( $guard )->check() ) {
+			return redirect('/' . $age . '/dashboard');
+		}
+
+		return view( 'age-layouts.' . $age . '.login' );
 	}
 
     /**

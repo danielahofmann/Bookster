@@ -2,6 +2,8 @@
 
 Route::prefix('teens')->group(function() {
 	Route::home('teens');
+	Route::login('teens');
+
 
 
 	Route::get( '/category/{category_id}', function ($category_id) {
@@ -61,15 +63,6 @@ Route::prefix('teens')->group(function() {
 
 		return view('age-layouts.teens.checkout', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
 	})->name('teens-checkout');
-
-	Route::get( '/login', function () {
-		$guard = null;
-		if ( Auth::guard( $guard )->check() ) {
-			return redirect('/teens/dashboard');
-		}
-
-		return view( 'age-layouts.teens.login' );
-	} )->name( 'teens-login' );
 
 	Route::get( '/dashboard', function () {
 		$customer = Auth::user();

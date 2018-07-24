@@ -2,15 +2,7 @@
 
 Route::prefix('default')->group(function() {
 	Route::home('default');
-
-	Route::get( '/login', function () {
-		$guard = null;
-		if ( Auth::guard( $guard )->check() ) {
-			return redirect('/default/dashboard');
-		}
-
-		return view( 'age-layouts.default.login' );
-	} )->name( 'default-login' );
+	Route::login('default');
 
 	Route::get( '/dashboard', function () {
 		$customer = Auth::user();

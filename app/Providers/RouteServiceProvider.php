@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Session;
@@ -36,6 +37,10 @@ class RouteServiceProvider extends ServiceProvider
 	    Route::macro('home', function ($age) {
 		    Route::get( '/', 'HomeController@index')->name($age.'-home');
 	    });
+
+		Route::macro('login', function ($age) {
+			Route::get( '/login', 'Auth\LoginController@showLoginForm')->name( $age . '-login' );
+		});
 
 	    parent::boot();
 
