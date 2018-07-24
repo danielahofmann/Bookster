@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Author;
 use App\Category;
+use App\Genre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
 {
@@ -46,9 +49,18 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Category $category, $category_id)
     {
-        //
+	    $category = Category::find($category_id);
+	    $genres = Genre::where('category_id', $category_id)->get();
+
+	    $filterCategory = function($query) use ($category_id) {
+		    $query->where('category_id', $category_id);
+	    };
+
+	    $authors = Author::whereHas('categories', $filterCategory)->with(['categories' => $filterCategory])->get();
+
+	    return view('age-layouts.' . Session::get('ageGroup') . '.category', ['category' => $category, 'genres' => $genres, 'authors' => $authors]);
     }
 
     /**

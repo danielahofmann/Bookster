@@ -7,6 +7,7 @@ Route::prefix('seniors')->group(function() {
 	Route::dashboardUser('seniors');
 	Route::dashboardOrders('seniors');
 	Route::dashboardOrderDetails('seniors');
+	Route::category('seniors');
 
 
 
