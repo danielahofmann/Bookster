@@ -1,9 +1,7 @@
 <?php
 
 Route::prefix('default')->group(function() {
-	Route::get( '/', function () {
-		return view('age-layouts.default.home');
-	})->name('default-home');
+	Route::home('default');
 
 	Route::get( '/login', function () {
 		$guard = null;

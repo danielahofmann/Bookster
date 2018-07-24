@@ -1,9 +1,8 @@
 <?php
 
 Route::prefix('seniors')->group(function() {
-	Route::get( '/', function () {
-		return view('age-layouts.seniors.home');
-	})->name('seniors-home');
+	Route::home('seniors');
+
 
 	Route::get( '/category/{category_id}', function ($category_id) {
 		$category = App\Category::find($category_id);

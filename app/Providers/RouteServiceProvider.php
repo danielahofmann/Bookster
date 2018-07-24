@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Session;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -23,9 +24,21 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+	    /**
+	     * Definition of macros
+	     *
+	     * For the Routing, it's necessary to define macros, which then can be used in the age-specific routing files.
+	     * They are used like functions, which you can call from routing files and so reduce code massively.
+	     * They need to be defined, so the routes for each age-group are defined and can be used in templates.
+	     * Please always make sure, that the call for parent to boot happens lastly.
+	     */
 
-        parent::boot();
+	    Route::macro('home', function ($age) {
+		    Route::get( '/', 'HomeController@index')->name($age.'-home');
+	    });
+
+	    parent::boot();
+
     }
 
     /**
