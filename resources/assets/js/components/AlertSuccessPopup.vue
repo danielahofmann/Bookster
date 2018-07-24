@@ -45,7 +45,7 @@
         right: 15px;
         position: fixed;
         padding: 1rem;
-        background-color: rgba(129, 189, 74, 0.35);
+        background-color: rgba(129, 189, 74, 0.5);
         border-radius: 5px;
         border: thin solid $green;
     }
