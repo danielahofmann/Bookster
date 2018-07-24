@@ -100,20 +100,20 @@
 
     .under-ten{
         p{
-            margin-left: 61% !important;
+            margin-left: 45% !important;
             @include custom-max(400px){
                 padding-top: 0.16rem;
-                margin-left: 40% !important;
+                margin-left: 35% !important;
             }
         }
     }
 
     .under-twenty{
         p{
-            margin-left: 55% !important;
+            margin-left: 40% !important;
             @include custom-max(400px){
                 padding-top: 0.16rem;
-                margin-left: 40% !important;
+                margin-left: 25% !important;
             }
         }
     }

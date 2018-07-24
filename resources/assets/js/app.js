@@ -41,6 +41,7 @@ Vue.mixin({
     }
 });
 
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -108,11 +109,7 @@ Vue.component('dashboard-menu', require('./components/DashboardMenu.vue'));
 Vue.component('order-preview', require('./components/OrderPreview.vue'));
 Vue.component('admin-order-preview', require('./components/AdminOrderPreview.vue'));
 Vue.component('admin-mobile-redirect', require('./components/AdminMobileRedirect.vue'));
-
-
 Vue.component('admin-dashboard-menu', require('./components/AdminDashboardMenu.vue'));
-
-
 
 Vue.component('mobile-logo', require('./components/age-specific-components/elderly-components/MobileLogo.vue'));
 Vue.component('kids-book-preview', require('./components/age-specific-components/kid-components/KidsBookPreview.vue'));
