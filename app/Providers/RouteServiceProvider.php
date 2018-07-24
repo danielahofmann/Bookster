@@ -128,6 +128,12 @@ class RouteServiceProvider extends ServiceProvider
 		    })->name( $age . '-about' );
 	    });
 
+	    Route::macro( 'sendWishlist', function ($age) {
+		    Route::get( '/send', function (){
+			    return view('age-layouts.' . Session::get('ageGroup') . '.send');
+		    })->name( $age . '-send-wishlist' );
+	    });
+
 	    parent::boot();
 
     }
