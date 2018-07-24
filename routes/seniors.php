@@ -1,6 +1,6 @@
 <?php
 
-Route::prefix('seniors')->group(function() {
+Route::group(['middleware' => 'App\Http\Middleware\SeniorsMiddleware', 'prefix' => 'seniors'], function() {
 	Route::home('seniors');
 	Route::login('seniors');
 	Route::dashboard('seniors');

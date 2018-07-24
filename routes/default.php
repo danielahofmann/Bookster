@@ -1,6 +1,6 @@
 <?php
 
-Route::prefix('default')->group(function() {
+Route::group(['middleware' => 'App\Http\Middleware\DefaultMiddleware', 'prefix' => 'default'], function() {
 	Route::home('default');
 	Route::login('default');
 	Route::dashboard('default');

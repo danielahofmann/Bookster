@@ -1,6 +1,6 @@
 <?php
 
-Route::prefix('toddlers')->group(function() {
+Route::group(['middleware' => 'App\Http\Middleware\ToddlersMiddleware', 'prefix' => 'toddlers'], function() {
 	Route::home('toddlers');
 	Route::product('toddlers');
 	Route::wishlist('toddlers');
