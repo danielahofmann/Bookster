@@ -137,9 +137,9 @@ Route::prefix('admin')->group(function() {
 	Route::get( '/author/delete-form/{id}', function ($id) {
 		$user = Auth::guard('admin')->user();
 
-		$product = \App\Product::find($id);
+		$author = \App\Author::find($id);
 
-		return view('admin.pages.author-delete', ['user' => $user, 'product' => $product]);
+		return view('admin.pages.author-delete', ['user' => $user, 'author' => $author]);
 	})->name('admin.author.delete-form');
 
 	Route::get( '/user/create', function () {

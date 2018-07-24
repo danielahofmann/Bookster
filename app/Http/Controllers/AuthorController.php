@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Author;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AuthorController extends Controller
 {
@@ -78,9 +79,23 @@ class AuthorController extends Controller
      * @param  \App\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Author $author)
+    public function destroy(Author $author, $id)
     {
-        //
+	    $author = Author::find($id);
+
+	    $author->author_image()->delete();
+		$author->products()->delete();
+
+	    /**
+	     * Delete from authors_categories pivot
+	     */
+	    DB::delete('delete from authors_categories where author_id = ?', array($author->id));
+
+	    $author->delete();
+
+	    return redirect()
+		    ->route('admin.authors')
+		    ->with('status', 'Autor wurde erfolgreich gelöscht!');
     }
 
     /**
