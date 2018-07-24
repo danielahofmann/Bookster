@@ -3,7 +3,7 @@
         <nav class="category-navigation grid-x align-center">
             <ul class="category-navigation-list">
                 <li v-for="category in categories" class="category">
-                    <a :href="path + 'category/' + category.id" :style="{ fontSize: fontSize }" >{{ category.name }}</a>
+                    <a :href="route(path, category.id)" :style="{ fontSize: fontSize }" >{{ category.name }}</a>
                 </li>
             </ul>
         </nav>
@@ -17,7 +17,7 @@
                 active: this.isActive,
                 categories: null,
                 fontSize: this.size + "rem",
-                path: window.location.pathname,
+                path: this.href,
             }
         },
         created(){
@@ -30,7 +30,7 @@
                 });
         },
         mounted() {},
-        props: ['size', 'isActive'],
+        props: ['size', 'isActive', 'href'],
 
     }
 </script>

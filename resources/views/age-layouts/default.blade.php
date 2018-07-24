@@ -47,6 +47,7 @@
             <navigation
                     :is-active='false'
                     size="1"
+                    path="default-category"
                     class="display-none-tablet"
             ></navigation>
         </header>

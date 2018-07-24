@@ -15,6 +15,7 @@
         <category-nav
             :size="categoryFontSize"
             :is-active="categoryActive"
+            :href="href"
             class="display-none-tablet"
         ></category-nav>
 
@@ -39,10 +40,11 @@
                 fontSize: this.size + "rem",
                 categoryFontSize: this.size,
                 tabId: null,
+                href: this.path,
             }
         },
         mounted() {},
-        props: ['isActive', 'size'],
+        props: ['isActive', 'size', 'path'],
         methods: {
             toggleActive: function(id){
                 if(this.isActive == true || this.tabId != id){

@@ -47,6 +47,7 @@
             <navigation
                     :is-active='false'
                     size="1"
+                    path="teens-category"
                     class="display-none-tablet"
             ></navigation>
         </header>

@@ -42,6 +42,7 @@
             <navigation
                     :is-active='true'
                     size="1.25"
+                    path="kids-category"
                     class="display-none-tablet"
             ></navigation>
         </header>
