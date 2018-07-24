@@ -8,6 +8,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -108,9 +109,17 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Product $product, $id)
     {
-        //
+	    $product = Product::where('id', $id)
+	                      ->with('image')
+	                      ->with('author')
+	                      ->with('category')
+	                      ->with('genre')
+	                      ->where('ebook', 0)
+	                      ->get();
+
+	    return view('age-layouts.' . Session::get('ageGroup') . '.product', ['product' => $product]);
     }
 
     /**

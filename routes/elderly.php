@@ -8,18 +8,9 @@ Route::prefix('elderly')->group(function() {
 	Route::dashboardOrders('elderly');
 	Route::dashboardOrderDetails('elderly');
 	Route::category('elderly');
+	Route::product('elderly');
 
-	Route::get('/product/{id}', function ($id) {
-		$product = App\Product::where('id', $id)
-		                      ->with('image')
-		                      ->with('author')
-		                      ->with('category')
-		                      ->with('genre')
-		                      ->where('ebook', 0)
-		                      ->get();
 
-		return view('age-layouts.elderly.product', ['product' => $product]);
-	})->name('elderly-product');
 
 	Route::get('/wishlist', function() {
 		if(!Session::has('wishlist')){

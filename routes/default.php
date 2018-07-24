@@ -8,19 +8,10 @@ Route::prefix('default')->group(function() {
 	Route::dashboardOrders('default');
 	Route::dashboardOrderDetails('default');
 	Route::category('default');
+	Route::product('default');
 
 
-	Route::get('/product/{id}', function ($id) {
-		$product = App\Product::where('id', $id)
-		                      ->with('image')
-		                      ->with('author')
-		                      ->with('category')
-		                      ->with('genre')
-		                      ->where('ebook', 0)
-		                      ->get();
 
-		return view('age-layouts.default.product', ['product' => $product]);
-	})->name('default-product');
 
 	Route::get('/wishlist', function() {
 		if(!Session::has('wishlist')){

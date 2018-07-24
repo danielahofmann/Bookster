@@ -3,16 +3,7 @@
 Route::prefix('kids')->group(function() {
 	Route::home('kids');
 	Route::category('kids');
-
-	Route::get('/product/{id}', function ($id) {
-		$product = App\Product::where('id', $id)
-		                      ->with('image')
-		                      ->with('author')
-		                      ->where('ebook', 0)
-		                      ->get();
-
-		return view('age-layouts.kids.product', ['product' => $product]);
-	})->name('kids-product');
+	Route::product('kids');
 
 	Route::get('/wishlist', function() {
 		if(!Session::has('wishlist')){
