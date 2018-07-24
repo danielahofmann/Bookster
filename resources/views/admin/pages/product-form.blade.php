@@ -1,6 +1,6 @@
 @extends ('admin.admin')
 
-@section('title', 'Bestellungen' )
+@section('title', 'Produkt bearbeiten' )
 
 @section('main')
     @if(session('status'))
@@ -195,12 +195,11 @@
                                 </div>
                             </div>
 
-                            <div class="cell small-12">
-                                <label for="image" class="form-label">Buchcover</label>
+                            <div class="cell small-12 flex-center margin-top-bottom">
+                                <label for="image" class="order-button file-label">Buchcover hochladen</label>
                                 <div>
-                                    <input id="image" type="file"
-                                           class="input {{ $errors->has('image') ? ' is-invalid' : '' }}"
-                                           name="image">
+                                    <input id="image" type="file" class="inputfile
+                                           {{ $errors->has('image') ? ' is-invalid' : '' }}" name="image">
 
                                     @if ($errors->has('image'))
                                         <span class="invalid-feedback">

@@ -206,7 +206,7 @@ class ProductController extends Controller
 
 		    $request->image->storeAs( 'product-image', $request->image->getClientOriginalName() );
 	    }
-	    
+
 	    return redirect()
 		    ->route('admin.products')
 		    ->with('status', 'Produkt erfolgreich bearbeitet!');
