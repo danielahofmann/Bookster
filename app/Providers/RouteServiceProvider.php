@@ -42,6 +42,12 @@ class RouteServiceProvider extends ServiceProvider
 			Route::get( '/login', 'Auth\LoginController@showLoginForm')->name( $age . '-login' );
 		});
 
+	    Route::macro('dashboard', function ($age) {
+		    Route::get( '/dashboard', 'Auth\LoginController@showLoginForm')->name( $age . '-dashboard' );
+
+		    Route::get( '/dashboard', 'HomeController@customerDashboard')->name($age . '-dashboard');
+	    });
+
 	    parent::boot();
 
     }

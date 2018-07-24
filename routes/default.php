@@ -3,14 +3,9 @@
 Route::prefix('default')->group(function() {
 	Route::home('default');
 	Route::login('default');
+	Route::dashboard('default');
 
-	Route::get( '/dashboard', function () {
-		$customer = Auth::user();
 
-		$orders = \App\Order::where('customer_id', $customer->id)->get();
-
-		return view('age-layouts.default.dashboard', ['customer' => $customer, 'orders' => $orders]);
-	})->name('default-dashboard');
 
 	Route::get( '/dashboard/user', function () {
 		$customer = Auth::user();

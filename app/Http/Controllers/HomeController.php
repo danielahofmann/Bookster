@@ -45,4 +45,14 @@ class HomeController extends Controller
 
 		return view('admin.pages.dashboard', ['user' => $user]);
 	}
+
+	/**
+	 * Show the dashboard for customers
+	 */
+
+	public function customerDashboard() {
+		$customer = Auth::user();
+
+		return view('age-layouts.' . Session::get('ageGroup') . '.dashboard', ['customer' => $customer]);
+	}
 }
