@@ -4,6 +4,7 @@ Route::prefix('teens')->group(function() {
 	Route::home('teens');
 	Route::login('teens');
 	Route::dashboard('teens');
+	Route::dashboardUser('teens');
 
 
 
@@ -64,12 +65,7 @@ Route::prefix('teens')->group(function() {
 
 		return view('age-layouts.teens.checkout', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
 	})->name('teens-checkout');
-
-	Route::get( '/dashboard/user', function () {
-		$customer = Auth::user();
-
-		return view('age-layouts.teens.dashboard-user', ['customer' => $customer]);
-	})->name('teens-dashboard-user');
+	
 
 	Route::get( '/dashboard/orders', function () {
 		$customer = Auth::user();

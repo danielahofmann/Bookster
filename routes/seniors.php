@@ -4,6 +4,7 @@ Route::prefix('seniors')->group(function() {
 	Route::home('seniors');
 	Route::login('seniors');
 	Route::dashboard('seniors');
+	Route::dashboardUser('seniors');
 
 
 
@@ -54,11 +55,6 @@ Route::prefix('seniors')->group(function() {
 		return view('age-layouts.seniors.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
 	})->name('seniors-cart');
 
-	Route::get( '/dashboard/user', function () {
-		$customer = Auth::user();
-
-		return view('age-layouts.seniors.dashboard-user', ['customer' => $customer]);
-	})->name('seniors-dashboard-user');
 
 	Route::get( '/dashboard/orders', function () {
 		$customer = Auth::user();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CustomerController extends Controller
 {
@@ -58,9 +59,11 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+	    $customer = Customer::find(Auth::user()->id);
+
+	    return view('age-layouts.' . Session::get('ageGroup') . '.dashboard-user', ['customer' => $customer]);
     }
 
     /**
