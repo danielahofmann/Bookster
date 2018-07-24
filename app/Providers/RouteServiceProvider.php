@@ -116,6 +116,18 @@ class RouteServiceProvider extends ServiceProvider
 		    })->name( $age . '-results' );
 	    });
 
+	    Route::macro( 'contact', function ($age) {
+		    Route::get( '/contact', function (){
+			    return view('age-layouts.' . Session::get('ageGroup') . '.contact');
+		    })->name( $age . '-contact' );
+	    });
+
+	    Route::macro( 'about', function ($age) {
+		    Route::get( '/about', function (){
+			    return view('age-layouts.' . Session::get('ageGroup') . '.about');
+		    })->name( $age . '-about' );
+	    });
+
 	    parent::boot();
 
     }

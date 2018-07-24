@@ -16,17 +16,6 @@ Route::prefix('elderly')->group(function() {
 	Route::order('elderly');
 	Route::help('elderly');
 	Route::results('elderly');
-
-
-	Route::get('/results', function (){
-		return view('age-layouts.elderly.results');
-	})->name('elderly-results');
-
-	Route::get('/contact', function (){
-		return view('age-layouts.elderly.contact');
-	})->name('elderly-contact');
-
-	Route::get('/about', function (){
-		return view('age-layouts.elderly.about');
-	})->name('elderly-about');
+	Route::contact('elderly');
+	Route::about('elderly');
 });

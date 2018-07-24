@@ -16,12 +16,6 @@ Route::prefix('teens')->group(function() {
 	Route::order('teens');
 	Route::help('teens');
 	Route::results('teens');
-
-	Route::get('/contact', function (){
-		return view('age-layouts.teens.contact');
-	})->name('teens-contact');
-
-	Route::get('/about', function (){
-		return view('age-layouts.teens.about');
-	})->name('teens-about');
+	Route::contact('teens');
+	Route::about('teens');
 });

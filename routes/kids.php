@@ -10,6 +10,4 @@ Route::prefix('kids')->group(function() {
 	Route::get('/send', function(){
 		return view('age-layouts.kids.send');
 	})->name('kids-send-wishlist');
-
-
 });

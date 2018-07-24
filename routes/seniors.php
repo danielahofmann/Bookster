@@ -16,12 +16,6 @@ Route::prefix('seniors')->group(function() {
 	Route::order('seniors');
 	Route::help('seniors');
 	Route::results('seniors');
-
-	Route::get('/contact', function (){
-		return view('age-layouts.seniors.contact');
-	})->name('seniors-contact');
-
-	Route::get('/about', function (){
-		return view('age-layouts.seniors.about');
-	})->name('seniors-about');
+	Route::contact('seniors');
+	Route::about('seniors');
 });
