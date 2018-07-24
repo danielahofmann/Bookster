@@ -23,12 +23,18 @@ Route::prefix( 'admin' )->group( function () {
 		 * Users/Employees Routes
 		 */
 		Route::get( '/users', 'UserController@indexUsers' )->name( 'admin.users' );
-		Route::get( '/user/create', 'UserController@create' )->name( 'admin.user.create' );
-		Route::post( '/user/store', 'UserController@store' )->name( 'admin.user.store' );
-		Route::get( '/user/edit/{id}', 'UserController@edit' )->name( 'admin.user.edit' );
-		Route::patch( '/user/update/{id}', 'UserController@updateEmployee' )->name( 'admin.user.update' );
-		Route::get( '/user/delete-form/{id}', 'UserController@delete' )->name( 'admin.user.delete-form' );
-		Route::delete( '/user/delete/{id}', 'UserController@destroy' )->name( 'admin.user.delete' );
+
+		/**
+		 * Protecting Routes for Employees, because only Admins with Role 1 should be able to edit/create/delete users
+		 */
+		Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function() {
+			Route::get( '/user/create', 'UserController@create' )->name( 'admin.user.create' );
+			Route::post( '/user/store', 'UserController@store' )->name( 'admin.user.store' );
+			Route::get( '/user/edit/{id}', 'UserController@edit' )->name( 'admin.user.edit' );
+			Route::patch( '/user/update/{id}', 'UserController@updateEmployee' )->name( 'admin.user.update' );
+			Route::get( '/user/delete-form/{id}', 'UserController@delete' )->name( 'admin.user.delete-form' );
+			Route::delete( '/user/delete/{id}', 'UserController@destroy' )->name( 'admin.user.delete' );
+		});
 
 		/**
 		 * Orders Routes
