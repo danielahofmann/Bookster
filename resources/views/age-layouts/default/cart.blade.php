@@ -5,7 +5,7 @@
 @section('main')
 
     @if(!empty($products))
-            <section class="grid-x grid-margin-x background-beige padding-bottom-large">
+            <section class="grid-x grid-margin-x background-beige padding-bottom-large cart-section flex-center-mobile">
                 <h2 class="cell small-12 display-mobile-none">Meine Tasche</h2>
 
                 <div class="cell small-12 medium-6 grid-x flex-center background-white padding-section margin-top-small no-margin-mobile display-mobile">

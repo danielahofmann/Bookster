@@ -22,6 +22,16 @@
   justify-content: center;
 }
 
+
+.flex-center-mobile {
+  @include custom-max(639px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
 .display-mobile-none{
   @include custom-max(640px){
     display: none;

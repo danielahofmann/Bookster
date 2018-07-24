@@ -773,3 +773,9 @@
   position: absolute;
   z-index: -1;
 }
+
+.cart-section{
+  @include custom-max(639px) {
+    min-height: 75vh;
+  }
+}

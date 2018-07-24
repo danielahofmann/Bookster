@@ -8536,6 +8536,20 @@ h5 {
           justify-content: center;
 }
 
+@media (max-width: 639px) {
+  .flex-center-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
 @media (max-width: 640px) {
   .display-mobile-none {
     display: none;
@@ -9474,5 +9488,11 @@ h5 {
   overflow: hidden;
   position: absolute;
   z-index: -1;
+}
+
+@media (max-width: 639px) {
+  .cart-section {
+    min-height: 75vh;
+  }
 }
 
