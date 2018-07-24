@@ -9325,6 +9325,9 @@ h5 {
   padding-top: 1rem;
   -o-object-fit: contain;
      object-fit: contain;
+  height: 200px;
+  overflow: hidden;
+  width: 100%;
 }
 
 .order-details .product-name {
