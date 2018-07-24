@@ -6,7 +6,7 @@ use App\Wishlist;
 use App\WishlistSession;
 use App\Product;
 use Illuminate\Http\Request;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class WishlistController extends Controller
 {
@@ -17,7 +17,16 @@ class WishlistController extends Controller
      */
     public function index()
     {
-        //
+	    $age = Session::get('ageGroup');
+
+    	if(!Session::has('wishlist')){
+		    return view('age-layouts.'. $age . '.wishlist', ['products' => null]);
+	    }
+
+	    $oldWishlist = Session::get('wishlist');
+	    $wishlist = new WishlistSession($oldWishlist);
+
+	    return view('age-layouts.' . $age . '.wishlist', ['products' => $wishlist->items]);
     }
 
     /**

@@ -66,6 +66,10 @@ class RouteServiceProvider extends ServiceProvider
 		    Route::get( '/product/{id}', 'ProductController@show' )->name( $age . '-product' );
 	    });
 
+	    Route::macro( 'wishlist', function ($age) {
+		    Route::get( '/wishlist', 'WishlistController@index' )->name( $age . '-wishlist' );
+	    });
+
 	    parent::boot();
 
     }

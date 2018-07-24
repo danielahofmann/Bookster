@@ -9,18 +9,7 @@ Route::prefix('teens')->group(function() {
 	Route::dashboardOrderDetails('teens');
 	Route::category('teens');
 	Route::product('teens');
-
-
-	Route::get('/wishlist', function() {
-		if(!Session::has('wishlist')){
-			return view('age-layouts.teens.wishlist', ['products' => null]);
-		}
-
-		$oldWishlist = Session::get('wishlist');
-		$wishlist = new App\WishlistSession($oldWishlist);
-
-		return view('age-layouts.teens.wishlist', ['products' => $wishlist->items]);
-	})->name('teens-wishlist');
+	Route::wishlist('teens');
 
 	Route::get('/cart', function() {
 		if(!Session::has('cart')){

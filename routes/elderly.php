@@ -9,19 +9,7 @@ Route::prefix('elderly')->group(function() {
 	Route::dashboardOrderDetails('elderly');
 	Route::category('elderly');
 	Route::product('elderly');
-
-
-
-	Route::get('/wishlist', function() {
-		if(!Session::has('wishlist')){
-			return view('age-layouts.elderly.wishlist', ['products' => null]);
-		}
-
-		$oldWishlist = Session::get('wishlist');
-		$wishlist = new App\WishlistSession($oldWishlist);
-
-		return view('age-layouts.elderly.wishlist', ['products' => $wishlist->items]);
-	})->name('elderly-wishlist');
+	Route::wishlist('elderly');
 
 	Route::get('/cart', function() {
 		if(!Session::has('cart')){
