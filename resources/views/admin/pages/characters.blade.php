@@ -32,7 +32,7 @@
                         </div>
                         <h2 class="cell medium-7 large-10">Charaktere</h2>
                         <div class="cell medium-5 large-2">
-                            <a href="{{route('admin.product.create')}}">
+                            <a href="{{route('admin.character.create')}}">
                                 <button class="order-button margin-top-1 full-width text-center display-none-tablet">hinzufügen</button>
                             </a>
                         </div>
@@ -42,7 +42,7 @@
                             headline="Charaktere"
                     ></admin-mobile-redirect>
 
-                    <a href="{{route('admin.product.create')}}">
+                    <a href="{{route('admin.character.create')}}">
                         <button class="cell small-6 display-tablet order-button mobile-button-white full-width text-center">hinzufügen</button>
                     </a>
 

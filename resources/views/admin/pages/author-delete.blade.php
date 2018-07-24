@@ -19,7 +19,7 @@
                         :user-data="{{$user}}"
                         firstchar="{{$firstchar}}"
                         scndchar="{{$scndchar}}"
-                        :product-view="true"
+                        :author-view="true"
                         token="{!! csrf_token() !!}"
                         class="display-mobile-none"
                 ></admin-dashboard-menu>

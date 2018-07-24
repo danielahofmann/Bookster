@@ -129,9 +129,9 @@ Route::prefix('admin')->group(function() {
 	Route::get( '/character/delete-form/{id}', function ($id) {
 		$user = Auth::guard('admin')->user();
 
-		$product = \App\Product::find($id);
+		$character = \App\Character::find($id);
 
-		return view('admin.pages.character-delete', ['user' => $user, 'product' => $product]);
+		return view('admin.pages.character-delete', ['user' => $user, 'character' => $character]);
 	})->name('admin.character.delete-form');
 
 	Route::get( '/author/delete-form/{id}', function ($id) {
@@ -184,33 +184,15 @@ Route::prefix('admin')->group(function() {
 	Route::get( '/character/edit/{id}', function ($id) {
 		$user = Auth::guard('admin')->user();
 
-		$product = \App\Product::where('id', $id)
-		                       ->with('author')
-		                       ->with('image')
-		                       ->with('genre')
-		                       ->with('category')
-		                       ->with('character')
-		                       ->first();
+		$character = \App\Character::find($id);
 
-		$categories = \App\Category::all();
-		$genres = \App\Genre::all();
-		$authors = \App\Author::all();
-		$characters = \App\Character::all();
-
-		return view('admin.pages.characters.edit', ['user' => $user, 'product' => $product, 'genres' => $genres,
-		                                          'categories' => $categories, 'authors' => $authors, 'characters' => $characters]);
+		return view('admin.pages.characters.edit', ['user' => $user, 'character' => $character]);
 	})->name('admin.character.edit');
 
 	Route::get( '/character/create', function () {
 		$user = Auth::guard('admin')->user();
 
-		$categories = \App\Category::all();
-		$genres = \App\Genre::all();
-		$authors = \App\Author::all();
-		$characters = \App\Character::all();
-
-		return view('admin.pages.characters.create', ['user' => $user, 'genres' => $genres,
-		                                            'categories' => $categories, 'authors' => $authors, 'characters' => $characters]);
+		return view('admin.pages.characters.create', ['user' => $user]);
 	})->name('admin.character.create');
 
 	Route::get( '/author/edit/{id}', function ($id) {
@@ -224,13 +206,7 @@ Route::prefix('admin')->group(function() {
 	Route::get( '/author/create', function () {
 		$user = Auth::guard('admin')->user();
 
-		$categories = \App\Category::all();
-		$genres = \App\Genre::all();
-		$authors = \App\Author::all();
-		$characters = \App\Character::all();
-
-		return view('admin.pages.authors.create', ['user' => $user, 'genres' => $genres,
-		                                            'categories' => $categories, 'authors' => $authors, 'characters' => $characters]);
+		return view('admin.pages.authors.create', ['user' => $user]);
 	})->name('admin.author.create');
 
 });
