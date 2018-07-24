@@ -126,6 +126,18 @@ class OrderController extends Controller
 	    	$order->products()->attach($product['item']['id'], ['product_amount' => $product['quantity']]);
 	    }
 
+	    /**
+	     * saving new amount of product to products db
+	     */
+	    foreach ($cart->items as $item){
+	    	$product = Product::find($item['item']['id']);
+
+	    	$amount = $product->amount - $item['quantity'];
+	    	$product->amount = $amount;
+
+	    	$product->save();
+	    }
+
 	    if(Session::get('ageGroup') == 'teens'){
 		    /**
 		     * Send email to parents, that a order was placed and needs to be confirmed
