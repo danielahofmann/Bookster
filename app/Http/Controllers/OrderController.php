@@ -164,7 +164,7 @@ class OrderController extends Controller
 	    /**
 	     * delete all data from session, that now isn't needed any longer
 	     */
-	    Session::forget(['billAddress', 'deliveryAddress', 'cart']);
+	    Session::forget(['billAddress', 'deliveryAddress', 'cart', 'checkout']);
 
 	    /**
 	     * redirect with status
