@@ -1,6 +1,6 @@
 @extends ('admin.admin')
 
-@section('title', 'Bestellungen' )
+@section('title', 'Autoren' )
 
 @section('main')
     @if(session('status'))
@@ -28,44 +28,45 @@
 
                     <div class="dashboard-headline display-mobile-none grid-x">
                         <div class="cell small-12">
-                            <feather-book></feather-book>
+                            <feather-user></feather-user>
                         </div>
-                        <h2 class="cell medium-7 large-10">Produkte</h2>
+                        <h2 class="cell medium-7 large-10">Autoren</h2>
                         <div class="cell medium-5 large-2">
-                            <a href="{{route('admin.product.create')}}">
+                            <a href="{{route('admin.author.create')}}">
                                 <button class="order-button margin-top-1 full-width text-center display-none-tablet">hinzufügen</button>
                             </a>
                         </div>
                     </div>
 
                     <admin-mobile-redirect
-                            headline="Produkte"
+                            headline="Autoren"
                     ></admin-mobile-redirect>
 
-                    <a href="{{route('admin.product.create')}}">
+                    <a href="{{route('admin.author.create')}}">
                         <button class="cell small-6 display-tablet order-button mobile-button-white full-width text-center">hinzufügen</button>
                     </a>
 
                     <div class="grid-x">
-                        {{--@foreach($products as $product)
+                        @foreach($authors as $author)
                             <div class="cell small-12 medium-12 large-4">
                                 <div class="order-details margin-right-1">
-                                    <img src="{{ asset('storage/product-image/' . $product->image[0]->img) }}"
-                                         alt="{{$product->name}}">
-                                    <p class="headline">Produkt-Nr.: <span>{{$product->id}}</span></p>
-                                    <a href="{{route('admin.product.edit', $product->id)}}">
+                                    <img src="{{ $author->author_image->img }}"
+                                    {{--<img src="{{ asset('storage/author-image/' . $author->author_image->img) }}"--}}
+                                         alt="{{$author->name}}">
+                                    <p class="headline text-center">{{$author->firstname}} {{$author->lastname}}</p>
+                                    <a href="{{route('admin.author.edit', $author->id)}}">
                                         <button class="order-button margin-top-1 full-width text-center">
                                             bearbeiten
                                         </button>
                                     </a>
-                                    <a href="{{route('admin.product.delete-form', $product->id)}}">
+                                    <a href="{{route('admin.author.delete-form', $author->id)}}">
                                         <button class="order-button margin-top-1 full-width text-center">
                                             löschen
                                         </button>
                                     </a>
                                 </div>
                             </div>
-                        @endforeach--}}
+                        @endforeach
                     </div>
                 </div>
             </section>
