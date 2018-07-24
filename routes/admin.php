@@ -60,7 +60,7 @@ Route::prefix('admin')->group(function() {
 		                        ->orderBy( 'created_at', 'DESC' )
 		                        ->get();
 
-		return view('admin.pages.characters', ['user' => $user, 'products' => $characters]);
+		return view('admin.pages.characters', ['user' => $user, 'characters' => $characters]);
 	})->name('admin.characters');
 
 

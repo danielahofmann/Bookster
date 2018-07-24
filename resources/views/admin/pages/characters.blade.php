@@ -1,6 +1,6 @@
 @extends ('admin.admin')
 
-@section('title', 'Bestellungen' )
+@section('title', 'Charaktere' )
 
 @section('main')
     @if(session('status'))
@@ -28,9 +28,9 @@
 
                     <div class="dashboard-headline display-mobile-none grid-x">
                         <div class="cell small-12">
-                            <feather-book></feather-book>
+                            <feather-user></feather-user>
                         </div>
-                        <h2 class="cell medium-7 large-10">Produkte</h2>
+                        <h2 class="cell medium-7 large-10">Charaktere</h2>
                         <div class="cell medium-5 large-2">
                             <a href="{{route('admin.product.create')}}">
                                 <button class="order-button margin-top-1 full-width text-center display-none-tablet">hinzufügen</button>
@@ -39,7 +39,7 @@
                     </div>
 
                     <admin-mobile-redirect
-                            headline="Produkte"
+                            headline="Charaktere"
                     ></admin-mobile-redirect>
 
                     <a href="{{route('admin.product.create')}}">
@@ -47,25 +47,28 @@
                     </a>
 
                     <div class="grid-x">
-                        {{--@foreach($products as $product)
+                        @foreach($characters as $character)
                             <div class="cell small-12 medium-12 large-4">
                                 <div class="order-details margin-right-1">
-                                    <img src="{{ asset('storage/product-image/' . $product->image[0]->img) }}"
-                                         alt="{{$product->name}}">
-                                    <p class="headline">Produkt-Nr.: <span>{{$product->id}}</span></p>
-                                    <a href="{{route('admin.product.edit', $product->id)}}">
+{{--
+                                    <img src="{{ asset('storage/product-image/' . $character->image[0]->img) }}"
+--}}
+                                    <img src="{{ $character->character_image->img }}"
+                                         alt="{{$character->name}}">
+                                    <p class="headline">{{$character->name}}</p>
+                                    <a href="{{route('admin.character.edit', $character->id)}}">
                                         <button class="order-button margin-top-1 full-width text-center">
                                             bearbeiten
                                         </button>
                                     </a>
-                                    <a href="{{route('admin.product.delete-form', $product->id)}}">
+                                    <a href="{{route('admin.character.delete-form', $character->id)}}">
                                         <button class="order-button margin-top-1 full-width text-center">
                                             löschen
                                         </button>
                                     </a>
                                 </div>
                             </div>
-                        @endforeach--}}
+                        @endforeach
                     </div>
                 </div>
             </section>
