@@ -32,14 +32,14 @@
                 <p class="dashboard-regular cell small-10">Produkte</p>
             </a>
 
-            <a class="dashboard-link grid-x flex-center" :class="{ 'border-left' : users }" :href="route('admin.authors')">
+            <a class="dashboard-link grid-x flex-center" :class="{ 'border-left' : authors }" :href="route('admin.authors')">
                 <div class="cell small-2 flex-center">
                     <feather-user></feather-user>
                 </div>
                 <p class="dashboard-regular cell small-10">Autoren</p>
             </a>
 
-            <a class="dashboard-link grid-x flex-center" :class="{ 'border-left' : users }" :href="route('admin.characters')">
+            <a class="dashboard-link grid-x flex-center" :class="{ 'border-left' : characters }" :href="route('admin.characters')">
                 <div class="cell small-2 flex-center">
                     <feather-user></feather-user>
                 </div>
@@ -79,11 +79,13 @@
                 orders: this.orderView,
                 users: this.userView,
                 products: this.productView,
+                authors: this.authorView,
+                characters: this.characterView,
                 csrf: this.token
             }
         },
         mounted() {},
-        props: ['userData', 'firstchar', 'scndchar', 'overviewTemplate', 'orderView', 'userView', 'token', 'productView']
+        props: ['userData', 'firstchar', 'scndchar', 'overviewTemplate', 'orderView', 'userView', 'token', 'productView', 'authorView', 'characterView']
     }
 </script>
 
