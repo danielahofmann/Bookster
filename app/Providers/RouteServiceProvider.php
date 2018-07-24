@@ -88,6 +88,28 @@ class RouteServiceProvider extends ServiceProvider
 		    Route::get( '/order-success', 'OrderController@showSuccess' )->name( $age . '-order-success' );
 	    });
 
+	    Route::macro( 'help', function ($age) {
+		    Route::get('/help', function (){
+			    return view('age-layouts.' . Session::get('ageGroup') . '.help');
+		    })->name($age . '-help');
+
+		    Route::get('/help/delivery', function (){
+			    return view('age-layouts.' . Session::get('ageGroup') . '.help-delivery');
+		    })->name($age . '-help-delivery');
+
+		    Route::get('/help/payment', function (){
+			    return view('age-layouts.' . Session::get('ageGroup') . '.help-payment');
+		    })->name($age . '-help-payment');
+
+		    Route::get('/help/retoure', function (){
+			    return view('age-layouts.' . Session::get('ageGroup') . '.help-retoure');
+		    })->name($age . '-help-retoure');
+
+		    Route::get('/help/order', function (){
+			    return view('age-layouts.' . Session::get('ageGroup') . '.help-order');
+		    })->name($age . '-help-order');
+	    });
+
 	    parent::boot();
 
     }
