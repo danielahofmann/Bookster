@@ -6,6 +6,7 @@ Route::prefix('elderly')->group(function() {
 	Route::dashboard('elderly');
 	Route::dashboardUser('elderly');
 	Route::dashboardOrders('elderly');
+	Route::dashboardOrderDetails('elderly');
 
 
 	Route::get( '/category/{category_id}', function ($category_id) {
@@ -55,21 +56,6 @@ Route::prefix('elderly')->group(function() {
 
 		return view('age-layouts.elderly.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
 	})->name('elderly-cart');
-
-
-	Route::get( '/dashboard/order-details/{id}', function ($id) {
-		$customer = Auth::user();
-
-		$order = \App\Order::where('id', $id)
-		                   ->with('state')
-		                   ->with('products')
-		                   ->first();
-
-		$billAddress = \App\BillAddress::find($order->billAddress_id);
-		$deliveryAddress = \App\DeliveryAddress::find($order->deliveryAddress_id);
-
-		return view('age-layouts.elderly.dashboard-order-details', ['order' => $order, 'customer' => $customer, 'bill' => $billAddress, 'delivery' => $deliveryAddress]);
-	})->name('elderly-order-details');
 
 
 	Route::get( '/register', function () {

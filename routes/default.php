@@ -6,21 +6,8 @@ Route::prefix('default')->group(function() {
 	Route::dashboard('default');
 	Route::dashboardUser('default');
 	Route::dashboardOrders('default');
+	Route::dashboardOrderDetails('default');
 
-
-	Route::get( '/dashboard/order-details/{id}', function ($id) {
-		$customer = Auth::user();
-
-		$order = \App\Order::where('id', $id)
-		                    ->with('state')
-							->with('products')
-		                    ->first();
-
-		$billAddress = \App\BillAddress::find($order->billAddress_id);
-		$deliveryAddress = \App\DeliveryAddress::find($order->deliveryAddress_id);
-
-		return view('age-layouts.default.dashboard-order-details', ['order' => $order, 'customer' => $customer, 'bill' => $billAddress, 'delivery' => $deliveryAddress]);
-	})->name('default-order-details');
 
 	Route::get( '/category/{category_id}', function ($category_id) {
 		$category = App\Category::find($category_id);

@@ -41,10 +41,12 @@
                         <p class="headline">Best.-Nr.: <span>{{$order->id}}</span></p>
                         <p class="headline">Bestelldatum: <span>{{ \Carbon\Carbon::parse($order->created_at)->format('d/m/Y')}}</span></p>
                         <p class="headline">Versanddatum: <span>{{  !empty($order->send_at) ? \Carbon\Carbon::parse($order->send_at)->format('d/m/Y') : 'Noch nicht versendet'}}</span></p>
+                        @if(!empty($order->approval))
                         <p class="headline">Bestätigung durch Erziehungsberechtigten: <span>{{$order->approval->confirmed ? 'Erfolgt' : 'Noch nicht bestätigt'}}</span></p>
                         <p class="headline">E-Mail-Adresse für Bestätigung: <span>{{$order->approval->email}}</span></p>
+                        @endif
                         
-                        @if($order->approval->confirmed)
+                        @if($order->approval && $order->approval->confirmed)
                         <p class="headline">Bestätigt am: <span>{{\Carbon\Carbon::parse($order->approval->updated_at)->format('d/m/Y')}}</span></p>
                         @endif
                     </div>

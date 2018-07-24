@@ -9,6 +9,7 @@ use App\DeliveryAddress;
 use App\Order;
 use App\Product;
 use Carbon\Carbon;
+use ClassesWithParents\D;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -283,4 +284,23 @@ class OrderController extends Controller
 
 		return view('age-layouts.' . Session::get('ageGroup') . '.dashboard-order', ['orders' => $orders, 'customer' => $customer]);
     }
+
+    /**
+     * Show the specific Order
+     */
+
+	public function showOrder($id) {
+		$customer = Auth::user();
+
+		$order = Order::where('id', $id)
+		              ->with('state')
+		              ->with('products')
+		              ->with('approval')
+		              ->first();
+
+		$billAddress = BillAddress::find($order->billAddress_id);
+		$deliveryAddress = DeliveryAddress::find($order->deliveryAddress_id);
+
+		return view('age-layouts.' . Session::get('ageGroup') . '.dashboard-order-details', ['order' => $order, 'customer' => $customer, 'bill' => $billAddress, 'delivery' => $deliveryAddress]);
+	}
 }
