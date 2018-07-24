@@ -83,6 +83,10 @@ class RouteServiceProvider extends ServiceProvider
 		    Route::post('register', 'Auth\RegisterController@register');
 	    });
 
+	    Route::macro( 'order', function ($age) {
+		    Route::get( '/order', 'OrderController@showOrderForm' )->name( $age . '-order' );
+	    });
+
 	    parent::boot();
 
     }

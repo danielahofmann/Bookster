@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Approval;
 use App\BillAddress;
 use App\Cart;
+use App\Customer;
 use App\DeliveryAddress;
 use App\Order;
 use App\Product;
@@ -302,5 +303,32 @@ class OrderController extends Controller
 		$deliveryAddress = DeliveryAddress::find($order->deliveryAddress_id);
 
 		return view('age-layouts.' . Session::get('ageGroup') . '.dashboard-order-details', ['order' => $order, 'customer' => $customer, 'bill' => $billAddress, 'delivery' => $deliveryAddress]);
+	}
+
+	/**
+	 * Show the form for ordering
+	 */
+	public function showOrderForm(  ) {
+		$oldCart = Session::get('cart');
+		$cart = new Cart($oldCart);
+
+		$customer_id = Auth::user()->id;
+		$customer = Customer::find($customer_id);
+
+		$billAddress = null;
+		$deliveryAddress = null;
+
+		if(Session::has('billAddress')){
+			$billAddress = Session::get('billAddress');
+		}
+
+		if(Session::has('deliveryAddress')){
+			$deliveryAddress = Session::get('deliveryAddress');
+		}
+
+
+		return view('age-layouts.' . Session::get('ageGroup') . '.order',
+			['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'customer' => $customer, 'bill' => $billAddress, 'delivery' => $deliveryAddress]);
+
 	}
 }
