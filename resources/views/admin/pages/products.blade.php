@@ -48,7 +48,7 @@
                     @foreach($products as $product)
                             <div class="cell small-4">
                                 <div class="order-details margin-right-1">
-                                    <img src="{{$product->image[0]->img}}" alt="{{$product->name}}">
+                                    <img src="{{ asset('storage/product-image/' . $product->image[0]->img) }}"  alt="{{$product->name}}">
                                     <p class="headline">Produkt-Nr.: <span>{{$product->id}}</span></p>
                                     <a href="{{route('admin.product.edit', $product->id)}}">
                                         <button class="order-button margin-top-1 full-width text-center display-none-tablet">bearbeiten</button>
