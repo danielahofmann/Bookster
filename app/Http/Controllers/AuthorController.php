@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Author;
 use App\AuthorImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AuthorController extends Controller
@@ -16,7 +17,12 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        //
+	    $user = Auth::guard('admin')->user();
+
+	    $authors = \App\Author::with( 'author_image' )
+	                          ->orderBy( 'created_at', 'DESC' )
+	                          ->get();
+	    return view('admin.pages.authors', ['user' => $user, 'authors' => $authors]);
     }
 
     /**
@@ -26,7 +32,9 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+	    $user = Auth::guard('admin')->user();
+
+	    return view('admin.pages.authors.create', ['user' => $user]);
     }
 
     /**
@@ -81,12 +89,32 @@ class AuthorController extends Controller
      * @param  \App\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function edit(Author $author)
+    public function edit(Author $author, $id)
     {
-        //
+	    $user = Auth::guard('admin')->user();
+
+	    $author = \App\Author::find($id);
+
+	    return view('admin.pages.authors.edit', ['user' => $user, 'author' => $author]);
     }
 
-    /**
+
+	/**
+	 * Show the form for deleting the specified resource.
+	 *
+	 * @param  \App\Author  $author
+	 * @return \Illuminate\Http\Response
+	 */
+	public function delete(Author $author, $id)
+	{
+		$user = Auth::guard('admin')->user();
+
+		$author = \App\Author::find($id);
+
+		return view('admin.pages.author-delete', ['user' => $user, 'author' => $author]);
+	}
+
+	/**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

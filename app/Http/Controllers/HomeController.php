@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -29,5 +30,17 @@ class HomeController extends Controller
 	public function saveAge()
 	{
 		return view('test');
+	}
+
+	/**
+	 * Show the application admin-dashboard.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function indexAdmin()
+	{
+		$user = Auth::guard('admin')->user();
+
+		return view('admin.pages.dashboard', ['user' => $user]);
 	}
 }

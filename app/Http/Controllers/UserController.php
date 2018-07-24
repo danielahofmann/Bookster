@@ -23,9 +23,16 @@ class UserController extends Controller
 
 	public function index()
 	{
-		return view('admin.pages.dashboard');
+		//
 	}
 
+	public function indexUsers() {
+		$user = Auth::guard('admin')->user();
+
+		$employees = \App\User::all();
+
+		return view('admin.pages.users', ['user' => $user, 'employees' => $employees]);
+	}
 	/**
 	 * Update the specified resource in storage.
 	 *
@@ -117,4 +124,45 @@ class UserController extends Controller
 			->with('status', 'Mitarbeiter erfolgreich angelegt!');
 	}
 
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  \App\User  $user
+	 * @return \Illuminate\Http\Response
+	 */
+	public function edit(User $user, $id)
+	{
+		$user = Auth::guard('admin')->user();
+
+		$employee = \App\User::find($id);
+
+		return view('admin.pages.users.edit', ['user' => $user, 'employee' => $employee]);
+	}
+
+	/**
+	 * Show the form for deleting the specified resource.
+	 *
+	 * @param  \App\User  $user
+	 * @return \Illuminate\Http\Response
+	 */
+	public function delete(User $user, $id)
+	{
+		$user = Auth::guard('admin')->user();
+
+		$employee = \App\User::find($id);
+
+		return view('admin.pages.user-delete', ['user' => $user, 'employee' => $employee]);
+	}
+
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function create()
+	{
+		$user = Auth::guard('admin')->user();
+
+		return view('admin.pages.users.create', ['user' => $user]);
+	}
 }

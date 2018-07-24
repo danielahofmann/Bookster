@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Character;
 use App\CharacterImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CharacterController extends Controller
 {
@@ -15,7 +16,13 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        //
+	    $user = Auth::guard('admin')->user();
+
+	    $characters = \App\Character::with( 'character_image' )
+	                                ->orderBy( 'created_at', 'DESC' )
+	                                ->get();
+
+	    return view('admin.pages.characters', ['user' => $user, 'characters' => $characters]);
     }
 
     /**
@@ -25,7 +32,9 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        //
+	    $user = Auth::guard('admin')->user();
+
+	    return view('admin.pages.characters.create', ['user' => $user]);
     }
 
     /**
@@ -84,8 +93,27 @@ class CharacterController extends Controller
      */
     public function edit($id)
     {
-        //
+	    $user = Auth::guard('admin')->user();
+
+	    $character = \App\Character::find($id);
+
+	    return view('admin.pages.characters.edit', ['user' => $user, 'character' => $character]);
     }
+
+	/**
+	 * Show the form for deleting the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function delete($id)
+	{
+		$user = Auth::guard('admin')->user();
+
+		$character = \App\Character::find($id);
+
+		return view('admin.pages.character-delete', ['user' => $user, 'character' => $character]);
+	}
 
     /**
      * Update the specified resource in storage.

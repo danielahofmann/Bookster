@@ -23,7 +23,15 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+	    $user = Auth::guard('admin')->user();
+
+	    $orders = \App\Order::with('state')
+	                        ->with('approval')
+	                        ->with('customer')
+	                        ->orderBy('created_at', 'DESC')
+	                        ->get();
+
+	    return view('admin.pages.orders', ['user' => $user, 'orders' => $orders]);
     }
 
     /**
@@ -160,9 +168,23 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(Order $order, $id)
     {
-        //
+	    $user = Auth::guard('admin')->user();
+
+	    $order = \App\Order::where('id', $id)
+	                       ->with('state')
+	                       ->with('products')
+	                       ->with('approval')
+	                       ->with('customer')
+	                       ->first();
+
+	    $states = \App\State::all();
+
+	    $billAddress = \App\BillAddress::find($order->billAddress_id);
+	    $deliveryAddress = \App\DeliveryAddress::find($order->deliveryAddress_id);
+
+	    return view('admin.pages.order', ['order' => $order, 'user' => $user, 'bill' => $billAddress, 'delivery' => $deliveryAddress, 'states' => $states]);
     }
 
     /**

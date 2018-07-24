@@ -18,7 +18,16 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+	    $user = Auth::guard('admin')->user();
+
+	    $products = \App\Product::with( 'author' )
+	                            ->with( 'category' )
+	                            ->with( 'genre' )
+	                            ->with( 'image' )
+	                            ->orderBy( 'created_at', 'DESC' )
+	                            ->get();
+
+	    return view('admin.pages.products', ['user' => $user, 'products' => $products]);
     }
 
     /**
@@ -28,7 +37,15 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+	    $user = Auth::guard('admin')->user();
+
+	    $categories = \App\Category::all();
+	    $genres = \App\Genre::all();
+	    $authors = \App\Author::all();
+	    $characters = \App\Character::all();
+
+	    return view('admin.pages.products.create', ['user' => $user, 'genres' => $genres,
+	                                                'categories' => $categories, 'authors' => $authors, 'characters' => $characters]);
     }
 
     /**
@@ -102,10 +119,41 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Product $product, $id)
     {
-        //
+	    $user = Auth::guard('admin')->user();
+
+	    $product = \App\Product::where('id', $id)
+	                           ->with('author')
+	                           ->with('image')
+	                           ->with('genre')
+	                           ->with('category')
+	                           ->with('character')
+	                           ->first();
+
+	    $categories = \App\Category::all();
+	    $genres = \App\Genre::all();
+	    $authors = \App\Author::all();
+	    $characters = \App\Character::all();
+
+	    return view('admin.pages.products.edit', ['user' => $user, 'product' => $product, 'genres' => $genres,
+	                                              'categories' => $categories, 'authors' => $authors, 'characters' => $characters]);
     }
+
+	/**
+	 * Show the form for deleting the specified resource.
+	 *
+	 * @param  \App\Product  $product
+	 * @return \Illuminate\Http\Response
+	 */
+	public function delete(Product $product, $id)
+	{
+		$user = Auth::guard('admin')->user();
+
+		$product = \App\Product::find($id);
+
+		return view('admin.pages.product-delete', ['user' => $user, 'product' => $product]);
+	}
 
     /**
      * Update the specified resource in storage.
