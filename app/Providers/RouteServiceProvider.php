@@ -85,6 +85,7 @@ class RouteServiceProvider extends ServiceProvider
 
 	    Route::macro( 'order', function ($age) {
 		    Route::get( '/order', 'OrderController@showOrderForm' )->name( $age . '-order' );
+		    Route::get( '/order-success', 'OrderController@showSuccess' )->name( $age . '-order-success' );
 	    });
 
 	    parent::boot();

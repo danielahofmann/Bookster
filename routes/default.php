@@ -14,10 +14,7 @@ Route::prefix('default')->group(function() {
 	Route::checkout('default');
 	Route::register('default');
 	Route::order('default');
-
-	Route::get('/order-success', function (){
-		return view('age-layouts.default.order-success');
-	})->name('default-order-success');
+	
 
 	Route::get('/help', function (){
 		return view('age-layouts.default.help');

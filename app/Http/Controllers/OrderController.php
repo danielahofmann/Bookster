@@ -322,13 +322,23 @@ class OrderController extends Controller
 			$billAddress = Session::get('billAddress');
 		}
 
-		if(Session::has('deliveryAddress')){
-			$deliveryAddress = Session::get('deliveryAddress');
+		if ( Session::has( 'deliveryAddress' ) ) {
+			$deliveryAddress = Session::get( 'deliveryAddress' );
 		}
 
+		return view( 'age-layouts.' . Session::get( 'ageGroup' ) . '.order',
+			[ 'products'   => $cart->items,
+			  'totalPrice' => $cart->totalPrice,
+			  'customer'   => $customer,
+			  'bill'       => $billAddress,
+			  'delivery'   => $deliveryAddress
+			] );
+	}
 
-		return view('age-layouts.' . Session::get('ageGroup') . '.order',
-			['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'customer' => $customer, 'bill' => $billAddress, 'delivery' => $deliveryAddress]);
-
+	/**
+	 * show success page, when order was successfully placed
+	 */
+	public function showSuccess() {
+		return view( 'age-layouts.' . Session::get( 'ageGroup' ) . '.order-success' );
 	}
 }

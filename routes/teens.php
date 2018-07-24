@@ -15,11 +15,6 @@ Route::prefix('teens')->group(function() {
 	Route::register('teens');
 	Route::order('teens');
 
-
-	Route::get('/order-success', function (){
-		return view('age-layouts.teens.order-success');
-	})->name('teens-order-success');
-
 	Route::get('/help', function (){
 		return view('age-layouts.teens.help');
 	})->name('teens-help');
