@@ -5,15 +5,6 @@
                           :title="product.name"
                           :price="product.price"
                           :img="product.image[0].img"
-                          :size="fontSize"
-            ></book-preview>
-        </div>
-
-        <div class="grid-x" v-else>
-            <book-preview v-for="product in allProductsOfCategory" :key="product.id"
-                          :title="product.name"
-                          :price="product.price"
-                          :img="product.image[0].img"
                           :id="product.id"
                           :size="fontSize"
             ></book-preview>
@@ -26,17 +17,15 @@
         data() {
             return {
                 category: this.categoryId,
-                allProductsOfCategory: null,
                 fontSize: this.fontsize,
             }
         },
         created(){
             var self = this;
 
-            axios
-                .get('/api/getProductsOfCategory/' + this.category)
+            axios.get('/api/getProductsOfCategory/' + this.category)
                 .then(function (response) {
-                    self.allProductsOfCategory = response.data;
+                    self.$store.commit('updateProducts', response.data);
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -46,18 +35,10 @@
         },
         computed: {
             products: function() {
-                return this.parentProducts;
+                return this.$store.state.products;
             },
         },
-        watch: {
-            products: function (id) {
-                this.$emit('update', this.products);
-            },
-            parentProducts: function(){
-
-            }
-        },
-        props: ['category-id', 'fontsize', 'parentProducts']
+        props: ['category-id', 'fontsize']
     }
 </script>
 

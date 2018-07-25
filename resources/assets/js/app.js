@@ -53,18 +53,7 @@ const app = new Vue({
 
     data: {
         age: null,
-        products: null,
-        productsAvailable: false,
         ageGroup: null,
-    },
-    watch: {
-        products: function (id) {
-            if (this.products === null || this.products.length == 0) {
-                this.productsAvailable = false;
-            } else {
-                this.productsAvailable = true;
-            }
-        },
     },
     methods: {
         saveAgeToSession: function (choose) {
@@ -84,61 +73,5 @@ const app = new Vue({
                     console.log(error);
                 });
         },
-
-        updateProducts: function(products){
-            this.products = products;
-        },
-
-        noFilter: function(id){
-            var self = this;
-            axios.get('/api/getProductsOfCategory/' + id)
-                .then(function (response) {
-                    console.log(response.data);
-                    self.products = response.data;
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        },
-
-        filterGenre: function (id) {
-            var genreId = id[0];
-            var authorId = id[1];
-            var self = this;
-
-            //when both aren't null, filter for both
-            if(genreId != 0 && authorId != 0){
-                axios.get('/api/filterProducts?genreId=' + genreId + '&authorId=' + authorId)
-                    .then(function (response) {
-                        self.products = response.data;
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-
-            } else {
-                //filter for genre only
-                if (genreId != 0) {
-                    axios.get('/api/getProductsOfGenre/' + genreId)
-                        .then(function (response) {
-                            self.products = response.data;
-                        })
-                        .catch(function (error) {
-                            console.log(error);
-                        });
-                }
-
-                //filter for author only
-                if (authorId != 0) {
-                    axios.get('/api/getProductsOfAuthor/' + authorId)
-                        .then(function (response) {
-                            self.products = response.data;
-                        })
-                        .catch(function (error) {
-                            console.log(error);
-                        });
-                }
-            }
-        }
     }
 });

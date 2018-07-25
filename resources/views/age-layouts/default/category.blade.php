@@ -11,15 +11,11 @@
             :category-authors="{{$authors}}"
             :category-id="{{$category->id}}"
             :size="1"
-            @filter="filterGenre"
-            @nofilter="noFilter"
         ></filter-category>
 
         <book-preview-section
             :category-id="{{$category->id}}"
             :fontsize="1"
-            :parent-products="products"
-            @update="updateProducts"
         ></book-preview-section>
     </div>
 @stop

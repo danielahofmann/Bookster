@@ -19,7 +19,7 @@
         </div>
 
         <div class="grid-x flex-center">
-            <div v-if="selectedGenre || selectedAuthor" class="close-div" @click="noFilter(id)">
+            <div v-if="selectedGenre || selectedAuthor" class="close-div" @click="nofilter(id)">
                 <p class="close text-right" :style="{ fontSize: fontSize }">X</p>
                 <p class="close-text text-center" :style="{ fontSize: fontSize }">Filter entfernen</p>
             </div>
@@ -42,19 +42,19 @@
         mounted() {},
         watch: {
             selectedGenre: function () {
-                this.$emit('filter', [this.selectedGenre, this.selectedAuthor]);
+                this.$store.dispatch('filter', [this.selectedGenre, this.selectedAuthor]);
             },
 
             selectedAuthor: function () {
-                this.$emit('filter', [this.selectedGenre, this.selectedAuthor]);
+                this.$store.dispatch('filter', [this.selectedGenre, this.selectedAuthor]);
             },
         },
         methods: {
-            noFilter: function(id){
+            nofilter: function(id){
                 this.selectedGenre = 0;
                 this.selectedAuthor = 0;
-                this.$emit('nofilter', id);
-            }
+                this.$store.dispatch('nofilter', id);
+            },
         },
         props: ['categoryGenres', 'categoryAuthors', 'categoryId', 'size']
     }

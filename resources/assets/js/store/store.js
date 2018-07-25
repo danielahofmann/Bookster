@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
+
 export const store = new Vuex.Store({
     state: {
         wishlist: false,
@@ -14,6 +15,7 @@ export const store = new Vuex.Store({
         subTotal: 0,
         deliveryPrice: 0,
         totalPrice: 0,
+        products: null,
     },
 
     mutations: {
@@ -49,5 +51,60 @@ export const store = new Vuex.Store({
         addDeliveryPriceToTotalPrice(state, deliveryPrice){
             state.totalPrice = state.subTotal + deliveryPrice;
         },
+        updateProducts(state, products){
+            state.products = products;
+        },
+
+    },
+
+    actions: {
+        nofilter (context, id) {
+            axios.get('/api/getProductsOfCategory/' + id)
+               .then(function (response) {
+                   context.commit('updateProducts', response.data);
+                })
+                .catch(function (error) {
+                  console.log(error);
+            });
+        },
+
+        filter (context, id) {
+            let genreId = id[0];
+            let authorId = id[1];
+
+            //when both aren't null, filter for both
+            if(genreId != 0 && authorId != 0){
+                axios.get('/api/filterProducts?genreId=' + genreId + '&authorId=' + authorId)
+                    .then(function (response) {
+                        context.commit('updateProducts', response.data);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+
+            } else {
+                //filter for genre only
+                if (genreId != 0) {
+                    axios.get('/api/getProductsOfGenre/' + genreId)
+                        .then(function (response) {
+                            context.commit('updateProducts', response.data);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+
+                //filter for author only
+                if (authorId != 0) {
+                    axios.get('/api/getProductsOfAuthor/' + authorId)
+                        .then(function (response) {
+                            context.commit('updateProducts', response.data);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+            }
+        }
     }
 });
