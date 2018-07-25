@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Author;
 use App\Character;
 use App\Image;
 use App\Product;
@@ -357,5 +358,16 @@ class ProductController extends Controller
 		                            ->with('image')
 		                            ->get();
 		return $products_of_category;
+	}
+
+	public function getBooksOfAuthor($author_id) {
+		$author = Author::find($author_id);
+
+		$products = Product::where('author_id', $author_id)
+		                            ->orderBy('created_at', 'desc')
+		                            ->with('image')
+		                            ->get();
+
+		return view('age-layouts.' . Session::get('ageGroup') . '.author', ['author' => $author, 'products' => $products]);
 	}
 }

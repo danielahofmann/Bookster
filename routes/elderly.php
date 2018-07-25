@@ -4,6 +4,7 @@ Route::group(['middleware' => 'App\Http\Middleware\ElderlyMiddleware', 'prefix' 
 	Route::home('elderly');
 	Route::login('elderly');
 	Route::category('elderly');
+	Route::author('elderly');
 	Route::product('elderly');
 	Route::wishlist('elderly');
 	Route::cart('elderly');

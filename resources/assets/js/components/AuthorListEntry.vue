@@ -1,19 +1,28 @@
 <template>
-    <div class="author-list-entry">
+    <a :href="route(path, this.id)" class="author-list-entry">
         <img :src="img" alt="Bild des Autoren" class="author-image">
         <p v-bind:style="{ fontSize: fontSize }" class="author-name">{{firstname}} {{lastname}}</p>
-    </div>
+    </a>
 </template>
 
 <script>
     export default {
         data() {
             return {
-                fontSize: this.size + "rem"
+                fontSize: this.size + "rem",
             }
         },
+        computed: {
+            ageGroup() {
+                return this.$store.state.ageGroup;
+            },
+
+            path() {
+                return this.$store.state.ageGroup + '-author';
+            },
+        },
         mounted() {},
-        props: ['firstname', 'lastname', 'size', 'img'],
+        props: ['firstname', 'lastname', 'size', 'img', 'id'],
 
     }
 </script>

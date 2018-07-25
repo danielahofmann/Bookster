@@ -4,6 +4,7 @@
         <author-list-entry v-for="author in authors" :key="author.id"
                            :firstname="author.firstname"
                            :lastname="author.lastname"
+                           :id="author.id"
                            :img="author.author_image.img"
                            :size="1"
                            class="cell medium-5 large-12"

@@ -4,6 +4,7 @@ Route::group(['middleware' => 'App\Http\Middleware\DefaultMiddleware', 'prefix' 
 	Route::home('default');
 	Route::login('default');
 	Route::category('default');
+	Route::author('default');
 	Route::product('default');
 	Route::wishlist('default');
 	Route::cart('default');
