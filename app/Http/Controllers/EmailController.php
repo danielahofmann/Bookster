@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\OrderSuccess;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Messages\MailMessage;
+use Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
@@ -26,21 +28,19 @@ class EmailController extends Controller
 			});
 		}
 
+		/*if(!empty($wishlist)){
+			Notification::route('mail', $email)->notify(new Wishlist($wishlist));
+		}*/
+
 		$age = Session::get('ageGroup');
 		return redirect($age . '/wishlist');
 	}
 
-	public function sendOrderSuccessMail(Array $products) {
+	public function sendOrderSuccessMail() {
 		$email = Auth::user()->email;
+		$user = Auth::user();
 
-		Mail::send('mail.mails.order-success', ['email' => $email, 'products' => $products], function ($message) use ($email)
-		{
-
-			$message->from('info@bookster.service', 'Bookster');
-
-			$message->to($email);
-
-		});
+		Notification::route('mail', $email)->notify(new OrderSuccess());
 
 	}
 
