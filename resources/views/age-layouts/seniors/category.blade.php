@@ -6,7 +6,11 @@
     <div>
         {{ Breadcrumbs::render('seniors-category', $category->name, $category->id) }}
 
-        <h2>{{$category->name}}</h2>
+        @if (Session::has('genreId'))
+            <h2>{{$genre->genre}}</h2>
+        @else
+            <h2>{{$category->name}}</h2>
+        @endif
 
         <filter-category
                 :category-genres="{{$genres}}"

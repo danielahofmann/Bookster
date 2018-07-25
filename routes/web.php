@@ -87,6 +87,14 @@ Route::get('/api/getCartQuantity', function(Request $request){
 	return $quantity;
 });
 
+Route::get('/api/setGenreIdSession/{id}', function($id){
+	session(['genreId' => $id]);
+
+	$genre = \App\Genre::find($id);
+
+	return route(Session::get('ageGroup') .'-category', $genre->category->id);
+});
+
 Route::post('/logout','CustomerController@performLogout')->name('logout');
 
 Route::post('/place-order','OrderController@store')->name('place-order');

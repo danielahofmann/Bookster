@@ -4,7 +4,11 @@
 
 @section('main')
     <div>
+        @if (Session::has('genreId'))
+            <h2>{{$genre->genre}}</h2>
+        @else
         <h2>{{$category->name}}</h2>
+        @endif
 
         <filter-category
             :category-genres="{{$genres}}"

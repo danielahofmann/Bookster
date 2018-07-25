@@ -353,11 +353,23 @@ class ProductController extends Controller
 	}
 
 	public function getProductsOfCategory($id) {
-		$products_of_category = Product::where('category_id', $id)
-		                            ->orderBy('created_at', 'desc')
-		                            ->with('image')
-		                            ->get();
-		return $products_of_category;
+
+		if (Session::has('genreId')){
+			$products = Product::where( 'genre_id', Session::get( 'genreId' ) )
+			                   ->orderBy( 'created_at', 'desc' )
+			                   ->with( 'image' )
+			                   ->get();
+
+			Session::forget(['genreId']);
+
+		}else{
+			$products = Product::where( 'category_id', $id )
+			                   ->orderBy( 'created_at', 'desc' )
+			                   ->with( 'image' )
+			                   ->get();
+		}
+
+		return $products;
 	}
 
 	public function getBooksOfAuthor($author_id) {

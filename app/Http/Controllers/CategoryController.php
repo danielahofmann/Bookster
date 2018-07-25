@@ -54,13 +54,20 @@ class CategoryController extends Controller
 	    $category = Category::find($category_id);
 	    $genres = Genre::where('category_id', $category_id)->get();
 
+	    $genre = null;
+
+	    if(Session::has('genreId')){
+	        $genre = Genre::find(Session::get('genreId'));
+	    }
+
 	    $filterCategory = function($query) use ($category_id) {
 		    $query->where('category_id', $category_id);
 	    };
 
 	    $authors = Author::whereHas('categories', $filterCategory)->with(['categories' => $filterCategory])->get();
 
-	    return view('age-layouts.' . Session::get('ageGroup') . '.category', ['category' => $category, 'genres' => $genres, 'authors' => $authors]);
+	    return view('age-layouts.' . Session::get('ageGroup') . '.category',
+		    ['category' => $category, 'genres' => $genres, 'authors' => $authors, 'genre' => $genre]);
     }
 
     /**

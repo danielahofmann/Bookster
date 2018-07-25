@@ -10,6 +10,7 @@
     ></save-age-group>
     <offcanvas
             size="1"
+            :age="'elderly'"
     ></offcanvas>
 
     <div id="offcanvas-background" class="offcanvas-background closed"></div>

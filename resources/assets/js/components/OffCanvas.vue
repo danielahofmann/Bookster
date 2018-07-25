@@ -16,21 +16,21 @@
             <nav class="category-navigation grid-x">
                 <ul class="category-navigation-list small-12">
                     <li v-for="category in categories" class="category">
-                        <a :href="path + category.url" :style="{ fontSize: fontSize }" @click="clickCategory(category)">{{ category.name }}</a>
+                        <a href="#" :style="{ fontSize: fontSize }" @click="clickCategory(category)">{{ category.name }}</a>
                     </li>
                 </ul>
             </nav>
-
-            <nav>
+            <div v-if="this.kids"></div>
+            <nav v-else>
                 <ul>
                     <li class="sub-nav-tab">
-                        <a :href="path + '#'" :style="{ fontSize: fontSize }">Mein Konto</a>
+                        <a :href="route(login)" :style="{ fontSize: fontSize }">Mein Konto</a>
                     </li>
                     <li class="sub-nav-tab">
-                        <a :href="path + '#'" :style="{ fontSize: fontSize }">Hilfe & Informationen</a>
+                        <a :href="route(help)" :style="{ fontSize: fontSize }">Hilfe & Informationen</a>
                     </li>
                     <li class="sub-nav-tab">
-                        <a :href="path + '#'" :style="{ fontSize: fontSize }">Mehr über bookster</a>
+                        <a :href="route(about)" :style="{ fontSize: fontSize }">Mehr über bookster</a>
                     </li>
                 </ul>
             </nav>
@@ -49,7 +49,7 @@
             <nav class="category-navigation grid-x">
                 <ul class="category-navigation-list small-12">
                     <li v-for="genre in genres" class="category">
-                        <a :href="path + genre.url" :style="{ fontSize: fontSize }" @click="">{{genre.genre}}</a>
+                        <a href="#" :style="{ fontSize: fontSize }" @click="setGenreIdSession(genre.id)">{{genre.genre}}</a>
                     </li>
                 </ul>
             </nav>
@@ -101,7 +101,21 @@
                 clickedCategory: null,
                 genres: null,
                 fontSize: this.size + "rem",
+                ageGroup: this.age,
             }
+        },
+        computed: {
+            login(){
+                return this.ageGroup + '-login';
+            },
+
+            help(){
+                return this.ageGroup + '-help';
+            },
+
+            about(){
+                return this.ageGroup + '-about';
+            },
         },
         mounted() {
             axios
@@ -135,9 +149,20 @@
                 this.showCategories = true;
                 this.showGenre = false;
                 this.clickedCategory = null;
+            },
+            setGenreIdSession: function(id){
+                event.preventDefault();
+
+                axios
+                    .get('/api/setGenreIdSession/' + id)
+                    .then(response => (
+                        window.location = response.data))
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             }
         },
-        props: ['size'],
+        props: ['size', 'age', 'kids'],
     }
 </script>
 
