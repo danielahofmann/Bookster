@@ -50,7 +50,13 @@ class LoginController extends Controller
 	 */
 	public function showLoginForm() {
 		$guard = null;
-		$age = Session::get('ageGroup');
+
+		if (Session::has('ageGroup')){
+			$age = Session::get('ageGroup');
+		}else{
+			session(['ageGroup' => 'default']);
+			$age = Session::get('ageGroup');
+		}
 
 		if ( Auth::guard( $guard )->check() ) {
 			return redirect('/' . $age . '/dashboard');

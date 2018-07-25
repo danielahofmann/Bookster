@@ -16,7 +16,7 @@ class DefaultMiddleware
      */
     public function handle($request, Closure $next)
     {
-	    if (Session::get('ageGroup') != 'default') {
+    	if (Session::get('ageGroup') != 'default') {
 		    return redirect()->back();
 	    }
 	    return $next($request);
