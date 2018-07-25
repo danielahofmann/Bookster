@@ -128,6 +128,16 @@
 
         &:hover{
             background: $beige;
+
+            .book-text{
+                &:first-child {
+                    font-weight: $bold;
+                }
+            }
+
+            .book-image{
+                border: thin solid $beige;
+            }
         }
     }
 
@@ -135,18 +145,10 @@
         @include text-styling($secondary-font, $regular, 1rem);
         margin: 0;
         color: $dark-grey;
-
-        &:hover{
-            font-weight: $bold;
-        }
     }
 
     .book-image{
         padding-top: 10px;
-
-        &:hover{
-            border: thin solid $beige;
-        }
     }
 
     .book-info{
