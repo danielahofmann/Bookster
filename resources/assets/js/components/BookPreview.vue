@@ -24,11 +24,13 @@
                 show: this.showButton || false,
             }
         },
-        mounted() {
-        },
+
         computed: {
             product() {
                 return this.$store.state.product;
+            },
+            wishlist(){
+                return this.$store.state.wishlist;
             },
         },
         methods: {
@@ -50,7 +52,9 @@
 
                     axios.get('/api/deleteProductFromSessionWishlist/' + bookId)
                         .then(function (response) {
-                            console.log(response.data);
+                            let quantity = response.data.wishlist.totalQuantity;
+                            self.$store.commit('deleteWishlistItem', quantity);
+
                             if(self.show) {
                                 location.reload();
                             }
@@ -66,7 +70,8 @@
 
                 axios.get('/api/deleteProductFromSessionWishlist/' + bookId)
                     .then(function (response) {
-                        console.log(response.data);
+                        let quantity = response.data.wishlist.totalQuantity;
+                        self.$store.commit('deleteWishlistItem', quantity);
                         location.reload();
                     })
                     .catch(function (error) {
@@ -74,7 +79,7 @@
                     });
             }
         },
-        props: ['title', 'price', 'id', 'img', 'size', 'wishlistSaved', 'showButton']
+        props: ['title', 'price', 'id', 'img', 'size', 'showButton', 'wishlistSaved']
     }
 </script>
 

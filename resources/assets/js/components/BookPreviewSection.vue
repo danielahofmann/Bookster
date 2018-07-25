@@ -31,11 +31,12 @@
                     console.log(error);
                 });
         },
-        mounted() {
-        },
         computed: {
             products: function() {
                 return this.$store.state.products;
+            },
+            wishlist(){
+                return this.$store.state.wishlist;
             },
         },
         props: ['category-id', 'fontsize']

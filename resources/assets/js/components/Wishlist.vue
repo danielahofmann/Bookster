@@ -20,7 +20,6 @@
                     if(quantity > 0){
                         self.$store.commit('newWishlistItem', quantity);
                     }
-
                     self.$store.commit('setQuantityWishlist', quantity);
                 })
                 .catch(function (error) {

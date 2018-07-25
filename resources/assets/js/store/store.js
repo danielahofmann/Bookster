@@ -22,6 +22,15 @@ export const store = new Vuex.Store({
         newWishlistItem(state, quantity) {
             state.wishlist = true;
             state.wishlistQuantity = quantity;
+            },
+        deleteWishlistItem(state, quantity) {
+            state.wishlistQuantity = quantity;
+
+            if(state.wishlistQuantity > 0){
+                state.wishlist = true;
+            }else{
+                state.wishlist = false;
+            }
         },
         newCartItem(state, quantity) {
             state.cart = true;
