@@ -6,16 +6,19 @@
                     Informationen
                 </li>
                 <li>
-                    <a href="#">Hilfe</a>
+                    <a :href="route(help)">Hilfe</a>
                 </li>
                 <li>
-                    <a href="#">Lieferung</a>
+                    <a :href="route(delivery)">Lieferung</a>
                 </li>
                 <li>
-                    <a href="#">Rücksendung</a>
+                    <a :href="route(retoure)">Rücksendung</a>
                 </li>
                 <li>
-                    <a href="#">Bestellung</a>
+                    <a :href="route(order)">Bestellung</a>
+                </li>
+                <li>
+                    <a :href="route(payment)">Zahlung</a>
                 </li>
             </ul>
 
@@ -24,13 +27,10 @@
                     Mehr über bookster
                 </li>
                 <li>
-                    <a href="#">Über uns</a>
+                    <a :href="route(about)">Über uns</a>
                 </li>
                 <li>
-                    <a href="#">Karriere bei bookster</a>
-                </li>
-                <li>
-                    <a href="#">Kontakt</a>
+                    <a :href="route(contact)">Kontakt</a>
                 </li>
             </ul>
 
@@ -39,7 +39,7 @@
                     Kategorien
                 </li>
                 <li v-for="category in categories">
-                    <a :href="category.url">{{category.name}}</a>
+                    <a :href="route(categoryRoute, category.id)">{{category.name}}</a>
                 </li>
             </ul>
         </div>
@@ -51,6 +51,14 @@
         data() {
             return {
                 categories: null,
+                help: this.age + '-help',
+                order: this.age + '-help-order',
+                delivery: this.age + '-help-delivery',
+                payment: this.age + '-help-payment',
+                retoure: this.age + '-help-retoure',
+                about: this.age + '-about',
+                contact: this.age + '-contact',
+                categoryRoute: this.age + '-category',
             }
         },
         mounted() {},
@@ -62,7 +70,9 @@
                 .catch(function (error) {
                     console.log(error);
                 });
-        }
+        },
+
+        props: ['age']
     }
 </script>
 

@@ -1,7 +1,9 @@
 <template>
     <div class="footer">
         <footer-icons v-if="show"></footer-icons>
-        <footer-navigation v-if="show"></footer-navigation>
+        <footer-navigation v-if="show"
+            :age="this.ageGroup"
+        ></footer-navigation>
         <toddler-opt-out v-if="toddler"></toddler-opt-out>
         <footer-bottom></footer-bottom>
     </div>
@@ -15,16 +17,8 @@
                 show: !this.isToddler,
             }
         },
-        mounted() {},
-        props: ['isToddler']
+        props: ['isToddler', 'ageGroup']
     }
 </script>
 
-<style lang="scss" scoped>
-    @import '~@/app.scss';
-
-    .footer{
-       // margin-top: 60px;
-    }
-
-</style>
+<style lang="scss" scoped></style>
