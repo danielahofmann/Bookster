@@ -152,4 +152,15 @@ class CartController extends Controller
 
 		return $session_data;
 	}
+
+	public function getCartQuantity(Request $request) {
+		$data = $request->session()->get('cart');
+
+		if(!empty($data)){
+			$quantity = $data->totalQuantity;
+		}else{
+			$quantity = 0;
+		}
+		return $quantity;
+	}
 }

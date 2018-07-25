@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Genre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class GenreController extends Controller
 {
@@ -92,5 +93,13 @@ class GenreController extends Controller
 	public function getGenreOfCategory($category_id) {
 		$genres = Genre::where('category_id', $category_id)->get();
 		return $genres;
+    }
+
+	public function setGenreId($id) {
+		session(['genreId' => $id]);
+
+		$genre = Genre::find($id);
+
+		return route(Session::get('ageGroup') .'-category', $genre->category->id);
     }
 }

@@ -103,4 +103,9 @@ class CategoryController extends Controller
     {
         //
     }
+
+	public function getGenresAndRedirect($id) {
+		$category = Category::find($id);
+		return redirect('/', 301);
+	}
 }

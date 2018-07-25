@@ -20,131 +20,100 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/api/saveAgeToSession', 'AgeController@saveAgeToSession');
-
-Route::post('/api/search', 'SearchController@search')->name('search');
-
-Route::get('/api/getCategories', 'CategoryController@index');
-Route::get('/api/getCharacters', 'CharacterController@getCharactersForKids');
-Route::get('/api/getNewBestsellers', 'ProductController@getNewBestsellers');
-Route::get('/api/getNewBestsellersForKids', 'ProductController@getNewBestsellersForKids');
-Route::get('/api/getNovelties', 'ProductController@getNovelties');
-Route::get('/api/getKidsNovelties', 'ProductController@getKidsNovelties');
-Route::get('/api/getAuthors', 'AuthorController@getAuthors');
-Route::get('/api/getGenres/{id}', 'GenreController@getGenreOfCategory');
-Route::get('/api/getProductsOfGenre/{id}', 'ProductController@getProductsOfGenre');
-Route::get('/api/getProductsOfCategory/{id}', 'ProductController@getProductsOfCategory');
-Route::get('/api/getProductsOfAuthor/{id}', 'ProductController@getProductsOfAuthor');
-Route::get('/api/filterProducts', 'ProductController@filterProducts');
-Route::get('/api/saveProductToSessionWishlist/{id}', 'WishlistController@saveProductToSessionWishlist');
-Route::get('/api/deleteProductFromSessionWishlist/{id}', 'WishlistController@deleteProductFromSessionWishlist');
-
-Route::post('/sendWishlist', 'EmailController@sendWishlist');
-
-Route::get('/api/saveProductToCart/{id}', 'CartController@saveProductToCart');
-Route::get('/api/deleteProductFromCart/{id}', 'CartController@deleteProductFromCart');
-Route::get('/api/decreaseProductQuantityInCart/{id}', 'CartController@decreaseProductQuantity');
-
-
-Route::get('/api/saveCheckoutToSession', function(){
-
-	session(['checkout' => 1]);
-
-	$ageGroup = \Illuminate\Support\Facades\Session::get('ageGroup');
-
-	return $ageGroup;
-});
-
-
-Route::get('/redirect', function(){
-	return back();
-})->name('redirect');
-
-Route::get('/api/getGenresAndRedirect/{id}', function($id){
-	$category = App\Category::find($id);
-	return redirect('/', 301);
-});
-
-Route::get('/api/getWishlistQuantity', function(Request $request){
-	$data = $request->session()->get('wishlist');
-
-	if(!empty($data)){
-		$quantity = $data->totalQuantity;
-	}else{
-		$quantity = 0;
-	}
-	return $quantity;
-});
-
-Route::get('/api/getCartQuantity', function(Request $request){
-	$data = $request->session()->get('cart');
-
-	if(!empty($data)){
-		$quantity = $data->totalQuantity;
-	}else{
-		$quantity = 0;
-	}
-	return $quantity;
-});
-
-Route::get('/api/setGenreIdSession/{id}', function($id){
-	session(['genreId' => $id]);
-
-	$genre = \App\Genre::find($id);
-
-	return route(Session::get('ageGroup') .'-category', $genre->category->id);
-});
-
 Route::post('/logout','CustomerController@performLogout')->name('logout');
-
-Route::post('/place-order','OrderController@store')->name('place-order');
-
-Route::post('/saveBillAddress',function(Request $request){
-
-	$bill = [
-		'firstname' => $request->input('firstname'),
-		'lastname' => $request->input('lastname'),
-		'street' => $request->input('street'),
-		'housenum' => $request->input('housenum'),
-		'city' => $request->input('city'),
-		'postcode' => $request->input('postcode'),
-		'email' => $request->input('email'),
-	];
-
-	session(['billAddress' => $bill]);
-
-	return redirect()
-		->back()
-		->with('status', 'Rechnungsadresse erfolgreich geändert');
-
-})->name('saveBillAddress');
-
-Route::post('/saveDeliveryAddress',function(Request $request){
-
-	$delivery = [
-		'firstname' => $request->input('firstname'),
-		'lastname' => $request->input('lastname'),
-		'street' => $request->input('street'),
-		'housenum' => $request->input('housenum'),
-		'city' => $request->input('city'),
-		'postcode' => $request->input('postcode'),
-		'email' => $request->input('email'),
-	];
-
-	session(['deliveryAddress' => $delivery]);
-
-	return redirect()
-		->back()
-		->with('status', 'Versandadresse erfolgreich geändert');
-
-})->name('saveDeliveryAddress');
-
 Route::post('/saveCustomerData', 'CustomerController@store')->name('saveCustomerData');
-
+Route::post('/place-order','OrderController@store')->name('place-order');
+Route::post('/saveBillAddress', 'BillAddressController@saveBillAddressToSession')->name('saveBillAddress');
+Route::post('/saveDeliveryAddress', 'DeliveryAddressController@saveDeliveryAddressToSession')->name('saveDeliveryAddress');
 Route::get('/confirmation/{id}', 'ApprovalController@confirm')->name('confirmation');
+Route::post('/sendWishlist', 'EmailController@sendWishlist');
+Route::post('/updateUserData', 'UserController@update')->name('saveUserData');
+
 
 Route::get('/confirmation-success', function () {
 	return view('age-layouts.default.confirmation');
 })->name('confirmation-success');
 
-Route::post('/updateUserData', 'UserController@update')->name('saveUserData');
+Route::get('/redirect', function(){
+	return back();
+})->name('redirect');
+
+
+/**
+ * API Routes
+ */
+Route::prefix('api')->group(function() {
+
+	/**
+	 * AgeController
+	 */
+	Route::get( '/saveAgeToSession', 'AgeController@saveAgeToSession' );
+
+	/**
+	 * SearchController
+	 */
+	Route::post( '/search', 'SearchController@search' )->name( 'search' );
+
+	/**
+	 * ProductController
+	 */
+	Route::get( '/getNewBestsellers', 'ProductController@getNewBestsellers' );
+	Route::get( '/getNewBestsellersForKids', 'ProductController@getNewBestsellersForKids' );
+	Route::get( '/getNovelties', 'ProductController@getNovelties' );
+	Route::get( '/getKidsNovelties', 'ProductController@getKidsNovelties' );
+	Route::get( '/getProductsOfGenre/{id}', 'ProductController@getProductsOfGenre' );
+	Route::get( '/getProductsOfCategory/{id}', 'ProductController@getProductsOfCategory' );
+	Route::get( '/getProductsOfAuthor/{id}', 'ProductController@getProductsOfAuthor' );
+	Route::get( '/filterProducts', 'ProductController@filterProducts' );
+
+	/**
+	 * CategoryController
+	 */
+	Route::get( '/getCategories', 'CategoryController@index' );
+	Route::get( '/getGenresAndRedirect/{id}', 'CategoryController@getGenresAndRedirect' );
+
+	/**
+	 * CharacterController
+	 */
+	Route::get( '/getCharacters', 'CharacterController@getCharactersForKids' );
+
+	/**
+	 * AuthorController
+	 */
+	Route::get( '/getAuthors', 'AuthorController@getAuthors' );
+
+	/**
+	 * GenreController
+	 */
+	Route::get( '/getGenres/{id}', 'GenreController@getGenreOfCategory' );
+	Route::get( '/setGenreIdSession/{id}', 'GenreController@setGenreId' );
+
+	/**
+	 * WishlistController
+	 */
+	Route::get( '/saveProductToSessionWishlist/{id}', 'WishlistController@saveProductToSessionWishlist' );
+	Route::get( '/deleteProductFromSessionWishlist/{id}', 'WishlistController@deleteProductFromSessionWishlist' );
+	Route::get( '/getWishlistQuantity', 'WishlistController@getWishlistQuantity' );
+
+	/**
+	 * CartController
+	 */
+	Route::get( '/saveProductToCart/{id}', 'CartController@saveProductToCart' );
+	Route::get( '/deleteProductFromCart/{id}', 'CartController@deleteProductFromCart' );
+	Route::get( '/decreaseProductQuantityInCart/{id}', 'CartController@decreaseProductQuantity' );
+	Route::get( '/getCartQuantity', 'CartController@getCartQuantity' );
+
+	/**
+	 * set checkout to 1/true, so after the user logged in successfully,
+	 * redirectTo will check, if checkout is true and if so, it will redirect to order view.
+	 * If this check would fail, the user would be redirected to dashboard, which we don't want
+	 * in this case.
+	 */
+	Route::get( '/saveCheckoutToSession', function () {
+		session( [ 'checkout' => 1 ] );
+
+		$ageGroup = \Illuminate\Support\Facades\Session::get( 'ageGroup' );
+
+		return $ageGroup;
+	} );
+});

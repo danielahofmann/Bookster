@@ -108,4 +108,22 @@ class DeliveryAddressController extends Controller
     {
         //
     }
+
+	public function saveDeliveryAddressToSession(Request $request) {
+		$delivery = [
+			'firstname' => $request->input('firstname'),
+			'lastname' => $request->input('lastname'),
+			'street' => $request->input('street'),
+			'housenum' => $request->input('housenum'),
+			'city' => $request->input('city'),
+			'postcode' => $request->input('postcode'),
+			'email' => $request->input('email'),
+		];
+
+		session(['deliveryAddress' => $delivery]);
+
+		return redirect()
+			->back()
+			->with('status', 'Versandadresse erfolgreich geändert');
+    }
 }

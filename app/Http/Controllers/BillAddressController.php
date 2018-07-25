@@ -108,4 +108,29 @@ class BillAddressController extends Controller
     {
         //
     }
+
+	/**
+	 * @param Request $request
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 *
+	 * Changing BillAddress when ordering, saving it to session
+	 */
+	public function saveBillAddressToSession(Request $request) {
+		$bill = [
+			'firstname' => $request->input('firstname'),
+			'lastname' => $request->input('lastname'),
+			'street' => $request->input('street'),
+			'housenum' => $request->input('housenum'),
+			'city' => $request->input('city'),
+			'postcode' => $request->input('postcode'),
+			'email' => $request->input('email'),
+		];
+
+		session(['billAddress' => $bill]);
+
+		return redirect()
+			->back()
+			->with('status', 'Rechnungsadresse erfolgreich geändert');
+    }
 }

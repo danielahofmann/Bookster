@@ -137,4 +137,15 @@ class WishlistController extends Controller
 
 		return $session_data;
     }
+
+	public function getWishlistQuantity (Request $request) {
+		$data = $request->session()->get('wishlist');
+
+		if(!empty($data)){
+			$quantity = $data->totalQuantity;
+		}else{
+			$quantity = 0;
+		}
+		return $quantity;
+    }
 }
