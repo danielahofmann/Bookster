@@ -2,15 +2,16 @@
     <div class="grid-x">
         <h2 class="display-desktop-none cell small-12 text-center">Neuheiten</h2>
         <novelty-preview v-for="novelty in novelties" :key="novelty.id"
-                class="cell small-12 medium-6 large-4 novelties"
-                :bookTitle="novelty.name"
-                :authorFirstname="novelty.author.firstname"
-                :authorLastname="novelty.author.lastname"
-                :price="novelty.price"
-                :img="novelty.image[0].img"
-                :sizeTitle="1"
-                :sizeAuthor="1"
-                :sizePrice="1"
+                         class="cell small-12 medium-6 large-4 novelties"
+                         :bookTitle="novelty.name"
+                         :authorFirstname="novelty.author.firstname"
+                         :authorLastname="novelty.author.lastname"
+                         :price="novelty.price"
+                         :img="novelty.image[0].img"
+                         :sizeTitle="1"
+                         :sizeAuthor="1"
+                         :sizePrice="1"
+                         :id="novelty.id"
         ></novelty-preview>
     </div>
 </template>

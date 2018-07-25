@@ -1,6 +1,6 @@
 <template>
     <div class="grid-x flex-center">
-        <div class="cell small-11 product-container grid-x">
+        <a :href="route(product, this.id)" class="cell small-11 product-container grid-x">
             <div class="product-image cell small-4 medium-4 large-5">
                 <img :src="img" alt="Produktbild">
             </div>
@@ -9,7 +9,7 @@
                 <p class="author" v-bind:style="{ fontSize: fontSizeAuthor }">{{ authorFirstname }} {{ authorLastname }}</p>
                 <p class="price" v-bind:style="{ fontSize: fontSizePrice }">{{ price }} €</p>
             </div>
-        </div>
+        </a>
     </div>
 </template>
 
@@ -22,8 +22,12 @@
                 fontSizePrice: this.sizePrice + "rem",
             }
         },
-        mounted() {},
-        props: ['bookTitle', 'price', 'authorFirstname', 'authorLastname', 'sizeTitle', 'sizeAuthor', 'sizePrice', 'img'],
+        computed: {
+            product() {
+                return this.$store.state.product;
+            },
+        },
+        props: ['bookTitle', 'price', 'authorFirstname', 'authorLastname', 'sizeTitle', 'sizeAuthor', 'sizePrice', 'img', 'id'],
 
     }
 </script>
