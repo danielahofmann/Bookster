@@ -6,7 +6,7 @@
                     <li v-for="tab in tabs"
                         class="tab small-6"
                         :class="{ active : tab.id == tabId }"
-                        v-bind:style="{ fontSize: fontSize }"
+                        :style="{ fontSize: fontSize }"
                         @click="toggleActive(tab.id)">
                         {{ tab.tab }}
                     </li>
@@ -16,7 +16,7 @@
             <nav class="category-navigation grid-x">
                 <ul class="category-navigation-list small-12">
                     <li v-for="category in categories" class="category">
-                        <a :href="path + category.url" v-bind:style="{ fontSize: fontSize }" @click="clickCategory(category)">{{ category.name }}</a>
+                        <a :href="path + category.url" :style="{ fontSize: fontSize }" @click="clickCategory(category)">{{ category.name }}</a>
                     </li>
                 </ul>
             </nav>
@@ -24,13 +24,13 @@
             <nav>
                 <ul>
                     <li class="sub-nav-tab">
-                        <a :href="path + '#'" v-bind:style="{ fontSize: fontSize }">Mein Konto</a>
+                        <a :href="path + '#'" :style="{ fontSize: fontSize }">Mein Konto</a>
                     </li>
                     <li class="sub-nav-tab">
-                        <a :href="path + '#'" v-bind:style="{ fontSize: fontSize }">Hilfe & Informationen</a>
+                        <a :href="path + '#'" :style="{ fontSize: fontSize }">Hilfe & Informationen</a>
                     </li>
                     <li class="sub-nav-tab">
-                        <a :href="path + '#'" v-bind:style="{ fontSize: fontSize }">Mehr über bookster</a>
+                        <a :href="path + '#'" :style="{ fontSize: fontSize }">Mehr über bookster</a>
                     </li>
                 </ul>
             </nav>
@@ -42,14 +42,14 @@
                     <li class="small-2 genre-tab">
                         <button class="back-arrow" @click="switchBackCategory"></button>
                     </li>
-                    <li class="genre-tab small-10" v-bind:style="{ fontSize: fontSize }">{{clickedCategory}}</li>
+                    <li class="genre-tab small-10" :style="{ fontSize: fontSize }">{{clickedCategory}}</li>
                 </ul>
             </nav>
 
             <nav class="category-navigation grid-x">
                 <ul class="category-navigation-list small-12">
                     <li v-for="genre in genres" class="category">
-                        <a :href="path + genre.url" v-bind:style="{ fontSize: fontSize }" @click="">{{genre.genre}}</a>
+                        <a :href="path + genre.url" :style="{ fontSize: fontSize }" @click="">{{genre.genre}}</a>
                     </li>
                 </ul>
             </nav>

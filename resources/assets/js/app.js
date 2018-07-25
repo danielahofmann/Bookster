@@ -41,90 +41,10 @@ Vue.mixin({
     }
 });
 
-
 /**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
+ * require import file for all components
  */
-
-// TODO organize this massive chunk!
-Vue.component('age-circle', require('./components/AgeCircle.vue'));
-Vue.component('search', require('./components/Search.vue'));
-Vue.component('mobile-search', require('./components/MobileSearch.vue'));
-Vue.component('logo', require('./components/Logo.vue'));
-Vue.component('login', require('./components/Login.vue'));
-Vue.component('wishlist', require('./components/Wishlist.vue'));
-Vue.component('cart', require('./components/Cart.vue'));
-Vue.component('navigation', require('./components/Navigation.vue'));
-Vue.component('category-nav', require('./components/CategoryNav.vue'));
-Vue.component('slider', require('./components/Slider.vue'));
-Vue.component('opening', require('./components/Opening.vue'));
-Vue.component('manual', require('./components/Manual.vue'));
-Vue.component('book-carousel', require('./components/BookCarousel.vue'));
-Vue.component('book-carousel-product', require('./components/BookCarouselProduct.vue'));
-Vue.component('novelties', require('./components/Novelties.vue'));
-Vue.component('novelty-preview', require('./components/NoveltyPreview.vue'));
-Vue.component('authors-list', require('./components/AuthorsList.vue'));
-Vue.component('author-list-entry', require('./components/AuthorListEntry.vue'));
-Vue.component('footer-section', require('./components/FooterSection.vue'));
-Vue.component('footer-icons', require('./components/FooterIcons.vue'));
-Vue.component('footer-navigation', require('./components/FooterNavigation.vue'));
-Vue.component('footer-bottom', require('./components/FooterBottom.vue'));
-Vue.component('hamburger-menu', require('./components/HamburgerMenu.vue'));
-Vue.component('offcanvas', require('./components/OffCanvas.vue'));
-Vue.component('offcanvas-close', require('./components/OffCanvasClose.vue'));
-Vue.component('filter-category', require('./components/FilterCategory.vue'));
-Vue.component('book-preview', require('./components/BookPreview.vue'));
-Vue.component('book-preview-section', require('./components/BookPreviewSection.vue'));
-Vue.component('save-age-group', require('./components/SaveAgeGroup.vue'));
-Vue.component('book', require('./components/Book.vue'));
-Vue.component('feather-send', require('./components/FeatherSend.vue'));
-Vue.component('feather-plus', require('./components/FeatherPlus.vue'));
-Vue.component('feather-add', require('./components/FeatherAdd.vue'));
-Vue.component('feather-minus', require('./components/FeatherMinus.vue'));
-Vue.component('product-cart', require('./components/ProductCart.vue'));
-Vue.component('feather-up', require('./components/FeatherUp.vue'));
-Vue.component('feather-down', require('./components/FeatherDown.vue'));
-Vue.component('feather-edit2', require('./components/FeatherEdit2.vue'));
-Vue.component('feather-trash', require('./components/FeatherTrash.vue'));
-Vue.component('feather-book', require('./components/FeatherBook.vue'));
-Vue.component('feather-users', require('./components/FeatherUsers.vue'));
-Vue.component('feather-github', require('./components/FeatherGithub.vue'));
-Vue.component('feather-x', require('./components/FeatherX.vue'));
-Vue.component('product-order', require('./components/ProductOrder.vue'));
-Vue.component('order-bill', require('./components/OrderBill.vue'));
-Vue.component('order-delivery', require('./components/OrderDelivery.vue'));
-Vue.component('feather-user', require('./components/FeatherUser.vue'));
-Vue.component('feather-user-plus', require('./components/FeatherUserPlus.vue'));
-Vue.component('feather-package', require('./components/FeatherPackage.vue'));
-Vue.component('feather-settings', require('./components/FeatherSettings.vue'));
-Vue.component('feather-logout', require('./components/FeatherLogout.vue'));
-Vue.component('feather-edit', require('./components/FeatherEdit.vue'));
-Vue.component('redirect-login', require('./components/RedirectToLogin.vue'));
-Vue.component('redirect-registration', require('./components/RedirectToRegistration.vue'));
-Vue.component('alert-success-popup', require('./components/AlertSuccessPopup.vue'));
-Vue.component('accordion', require('./components/Accordion.vue'));
-Vue.component('dashboard-menu', require('./components/DashboardMenu.vue'));
-Vue.component('order-preview', require('./components/OrderPreview.vue'));
-Vue.component('admin-order-preview', require('./components/AdminOrderPreview.vue'));
-Vue.component('admin-mobile-redirect', require('./components/AdminMobileRedirect.vue'));
-Vue.component('admin-dashboard-menu', require('./components/AdminDashboardMenu.vue'));
-
-Vue.component('mobile-logo', require('./components/age-specific-components/elderly-components/MobileLogo.vue'));
-Vue.component('kids-book-preview', require('./components/age-specific-components/kid-components/KidsBookPreview.vue'));
-Vue.component('kids-preview', require('./components/age-specific-components/kid-components/KidsPreviewSection.vue'));
-Vue.component('kids-novelties', require('./components/age-specific-components/kid-components/KidsNovelties.vue'));
-Vue.component('kids-send-wishlist', require('./components/age-specific-components/kid-components/KidsSendWishlistButton.vue'));
-
-Vue.component('toddler-carousel', require('./components/age-specific-components/toddler-components/ToddlerCarousel.vue'));
-Vue.component('toddler-character', require('./components/age-specific-components/toddler-components/ToddlerCharacter.vue'));
-Vue.component('toddler-character-books', require('./components/age-specific-components/toddler-components/ToddlerCharacterBooks.vue'));
-Vue.component('toddler-opt-out', require('./components/age-specific-components/toddler-components/ToddlerFooterOptOut.vue'));
-Vue.component('toddler-wishlist', require('./components/age-specific-components/toddler-components/ToddlerWishlist.vue'));
-Vue.component('toddler-redirect', require('./components/age-specific-components/toddler-components/ToddlerRedirectBack.vue'));
-Vue.component('toddler-carousel-element', require('./components/age-specific-components/toddler-components/ToddlerCarouselElement.vue'));
-Vue.component('toddler-book', require('./components/age-specific-components/toddler-components/ToddlerBook.vue'));
+require('./components');
 
 const app = new Vue({
     el: '#app',

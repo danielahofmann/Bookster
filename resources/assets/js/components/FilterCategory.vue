@@ -11,8 +11,8 @@
             <div class="small-5 medium-4 large-2 select-div">
                 <select v-model="selectedAuthor" class="select" :style="{ fontSize: fontSize }">
                     <option disabled selected value="0">Autor</option>
-                    <option v-for="author in authors" :value="author.id">{{author.firstname}}
-                        {{author.lastname}}
+                    <option v-for="author in authors" :value="author.id">
+                        {{author.firstname}} {{author.lastname}}
                     </option>
                 </select>
             </div>
@@ -41,11 +41,11 @@
         },
         mounted() {},
         watch: {
-            selectedGenre: function (id) {
+            selectedGenre: function () {
                 this.$emit('filter', [this.selectedGenre, this.selectedAuthor]);
             },
 
-            selectedAuthor: function (id) {
+            selectedAuthor: function () {
                 this.$emit('filter', [this.selectedGenre, this.selectedAuthor]);
             },
         },
