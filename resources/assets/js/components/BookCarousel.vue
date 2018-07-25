@@ -8,7 +8,7 @@
                         :authorLastname="bestseller.author.lastname"
                         :price="bestseller.price"
                         :img="bestseller.image[0].img"
-                        :desktopTitle="1.5"
+                        :desktopTitle="1.2"
                         :tabletTitle="1.25"
                         :mobileTitle="1.25"
                         :desktopAuthor="1"
@@ -17,6 +17,7 @@
                         :desktopPrice="1"
                         :tabletPrice="1"
                         :mobilePrice="1"
+                        :id="bestseller.id"
                 ></book-carousel-product>
             </slide>
         </carousel>

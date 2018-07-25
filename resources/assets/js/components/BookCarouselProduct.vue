@@ -1,21 +1,19 @@
 <template>
     <div class="grid-x flex-center">
-            <div class="cell small-11 product-container grid-x">
+            <a :href="route(product, this.id)" class="cell small-11 product-container grid-x">
                 <div class="product-image cell small-5">
                     <img :src="img" alt="Produktbild">
                 </div>
                 <div class="product-details cell small-7">
                     <p class="title" :style="{ fontSize: fontSizeTitle }">{{ bookTitle }}</p>
-                    <p class="author" :style="{ fontSize: fontSizeAuthor }">{{ authorFirstname }} {{ authorLastname
-                        }}</p>
+                    <p class="author" :style="{ fontSize: fontSizeAuthor }">{{ authorFirstname }} {{ authorLastname }}</p>
                     <p class="price" :style="{ fontSize: fontSizePrice }">{{ price }} €</p>
                 </div>
-            </div>
+            </a>
         </div>
 </template>
 
 <script>
-    // [TODO] implement click logic for opening product site
     export default {
         data() {
             return {
@@ -64,7 +62,7 @@
             window.removeEventListener('resize', this.getWindowWidth);
         },
         props: ['bookTitle', 'price', 'authorFirstname', 'authorLastname', 'desktopTitle', 'desktopAuthor', 'desktopPrice',
-            'mobileTitle', 'tabletTitle', 'mobileAuthor', 'tabletAuthor', 'mobilePrice', 'tabletPrice', 'img'],
+            'mobileTitle', 'tabletTitle', 'mobileAuthor', 'tabletAuthor', 'mobilePrice', 'tabletPrice', 'img', 'id'],
     }
 </script>
 
@@ -102,7 +100,7 @@
             padding-left: 20px;
 
             .title{
-                @include text-styling($primary-font, $bold, 1.5rem);
+                @include text-styling($primary-font, $bold, 1.2rem);
                 @include custom-min(1300px){
                     margin-top: 1rem;
                     margin-bottom: 0;
