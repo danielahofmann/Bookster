@@ -33,7 +33,7 @@
         },
         methods: {
             startRotation: function() {
-                this.timer = setInterval(this.next, 5000);
+                this.timer = setInterval(this.next, 10000);
             },
 
             stopRotation: function() {
@@ -89,7 +89,7 @@
         position: relative;
         img{
             position: absolute;
-            min-height: 100%;
+            min-height: 70vh;
             width: 100%;
             object-fit: cover;
             object-position: 50% 50%;
@@ -127,7 +127,7 @@
         .slider-text {
             position: absolute;
             z-index: 1;
-            top: 80%;
+            bottom: 6%;
             left: 50px;
             .headline {
                 @include text-styling($primary-font, $bold, 2rem);
@@ -157,6 +157,10 @@
                 }
             }
         }
+    }
+
+    .image-container{
+        height: 100%;
     }
 
 </style>
