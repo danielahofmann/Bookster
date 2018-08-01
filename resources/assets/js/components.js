@@ -50,7 +50,6 @@ Vue.component('kids-send-wishlist', require('./components/age-specific-component
 Vue.component('age-circle', require('./components/AgeCircle.vue'));
 Vue.component('save-age-group', require('./components/SaveAgeGroup.vue'));
 
-
 /**
  * Components, which the navigation consists of
  */
@@ -158,3 +157,4 @@ Vue.component('admin-order-preview', require('./components/AdminOrderPreview.vue
 Vue.component('admin-mobile-redirect', require('./components/AdminMobileRedirect.vue'));
 Vue.component('admin-dashboard-menu', require('./components/AdminDashboardMenu.vue'));
 
+Vue.component('age-slider', require('./components/AgeSlider.vue'));

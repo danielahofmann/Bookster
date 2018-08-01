@@ -30,4 +30,5 @@
                     age="über 65"
         ></age-circle>
 
+        <age-slider></age-slider>
     @stop
