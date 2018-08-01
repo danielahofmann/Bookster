@@ -15,17 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        $this->call(UsersTableSeeder::class);
-//        $this->call(AuthorTableSeeder::class);
 		$this->call(CategoryTableSeeder::class);
-//        $this->call(CustomerTableSeeder::class);
-//        $this->call(GenreTableSeeder::class);
-//        $this->call(ProductTableSeeder::class);
-
-	    DB::table('users')->truncate();
-	    DB::table('customers')->truncate();
-	    DB::table('products')->truncate();
-	    DB::table('authors')->truncate();
+		$this->call(GenreTableSeeder::class);
 
 	    factory(User::class, 10)->create();
 	    factory(Customer::class, 10)->create();
