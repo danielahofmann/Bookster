@@ -19,13 +19,13 @@ class CreateProductsTable extends Migration
 	        $table->integer('genre_id')->length(11);
 	        $table->integer('category_id')->length(11);
 	        $table->integer('author_id')->length(11);
-	        $table->integer('character_id')->length(11)->default('0');
+	        $table->integer('character_id')->length(11)->default('0')->nullable();
 	        $table->string('name', 128);
 	        $table->string('price', 11);
 	        $table->text('description');
 	        $table->string('amount', 50);
-	        $table->integer('bestseller')->length(1)->default('0');
-	        $table->integer('ebook')->length(1)->default('0');
+	        $table->integer('bestseller')->length(1)->default('0')->nullable();
+	        $table->integer('ebook')->length(1)->default('0')->nullable();
 			$table->string('release', '28');
 	        $table->timestamps();
         });
