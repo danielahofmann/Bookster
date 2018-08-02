@@ -14,6 +14,7 @@ Route::group(['middleware' => 'App\Http\Middleware\TeensMiddleware', 'prefix' =>
 	Route::results('teens');
 	Route::contact('teens');
 	Route::about('teens');
+	Route::imprint('teens');
 
 	Route::group(['middleware' => 'auth'], function() {
 		Route::dashboard( 'teens' );

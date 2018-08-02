@@ -5,6 +5,7 @@ Route::group(['middleware' => 'App\Http\Middleware\ToddlersMiddleware', 'prefix'
 	Route::product('toddlers');
 	Route::wishlist('toddlers');
 	Route::sendWishlist('toddlers');
+	Route::imprint('toddlers');
 
 	Route::get('/character/{character_id}', function ($character_id) {
 		$character = App\Character::where('id', $character_id)->with('character_image')->get();

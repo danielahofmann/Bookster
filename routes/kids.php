@@ -7,4 +7,5 @@ Route::group(['middleware' => 'App\Http\Middleware\KidsMiddleware', 'prefix' => 
 	Route::wishlist('kids');
 	Route::results('kids');
 	Route::sendWishlist('kids');
+	Route::imprint('kids');
 });

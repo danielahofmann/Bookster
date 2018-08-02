@@ -58,19 +58,19 @@
         <div class="footer">
             <ul class="offcanvas-footer">
                 <li>
-                    <a :href="path + '#'">Datenschutz</a>
+                    <a :href="route(privacy)">Datenschutz</a>
                 </li>
                 <li>
                     |
                 </li>
                 <li>
-                    <a :href="path + '#'">AGB</a>
+                    <a :href="route(agb)">AGB</a>
                 </li>
                 <li>
                     |
                 </li>
                 <li>
-                    <a :href="path + '#'">Impressum</a>
+                    <a :href="route(imprint)">Impressum</a>
                 </li>
             </ul>
 
@@ -115,6 +115,15 @@
 
             about(){
                 return this.ageGroup + '-about';
+            },
+            agb(){
+                return this.ageGroup + '-agb';
+            },
+            privacy(){
+                return this.ageGroup + '-privacy';
+            },
+            imprint(){
+                return this.ageGroup + '-imprint';
             },
         },
         mounted() {

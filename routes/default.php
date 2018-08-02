@@ -14,6 +14,7 @@ Route::group(['middleware' => 'App\Http\Middleware\DefaultMiddleware', 'prefix' 
 	Route::results('default');
 	Route::contact('default');
 	Route::about('default');
+	Route::imprint('default');
 
 	Route::group(['middleware' => 'auth'], function() {
 		Route::dashboard( 'default' );

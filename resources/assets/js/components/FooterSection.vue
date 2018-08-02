@@ -6,7 +6,9 @@
                            :show="kidsShow"
         ></footer-navigation>
         <toddler-opt-out v-if="toddler"></toddler-opt-out>
-        <footer-bottom></footer-bottom>
+        <footer-bottom
+            :age="this.ageGroup"
+        ></footer-bottom>
     </div>
 </template>
 

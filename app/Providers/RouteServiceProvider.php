@@ -138,6 +138,20 @@ class RouteServiceProvider extends ServiceProvider
 		    })->name( $age . '-send-wishlist' );
 	    });
 
+	    Route::macro( 'imprint', function ($age) {
+		    Route::get('/imprint', function (){
+			    return view('age-layouts.' . Session::get('ageGroup') . '.imprint');
+		    })->name($age . '-imprint');
+
+		    Route::get('/privacy', function (){
+			    return view('age-layouts.' . Session::get('ageGroup') . '.privacy');
+		    })->name($age . '-privacy');
+
+		    Route::get('/agb', function (){
+			    return view('age-layouts.' . Session::get('ageGroup') . '.agb');
+		    })->name($age . '-agb');
+	    });
+
 	    parent::boot();
 
     }

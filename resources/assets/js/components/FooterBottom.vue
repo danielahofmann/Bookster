@@ -3,15 +3,15 @@
         <p class="copyright cell small-4 medium-6 large-8">© 2018 bookster</p>
         <ul>
             <li>
-                <a href="#">Datenschutz</a>
+                <a :href="route(age + '-privacy')">Datenschutz</a>
             </li>
             <li>|</li>
             <li>
-                <a href="#">Impressum</a>
+                <a :href="route(age + '-imprint')">Impressum</a>
             </li>
             <li>|</li>
             <li>
-                <a href="#">AGB</a>
+                <a :href="route(age + '-agb')">AGB</a>
             </li>
         </ul>
     </div>
@@ -22,7 +22,7 @@
         data() {
             return {}
         },
-        mounted() {},
+        props: ['age']
     }
 
     // [TODO] HREFS
