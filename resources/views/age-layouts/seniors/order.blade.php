@@ -3,12 +3,6 @@
 @section('title', 'Bestellung abschließen' )
 
 @section('main')
-    @if(session('status'))
-        <alert-success-popup
-            status="{{session('status')}}"
-        ></alert-success-popup>
-    @endif
-
     <section class="fullscreen-beige-background">
         <form method="POST" action="{{ route('place-order') }}" class="grid-container">
             @csrf

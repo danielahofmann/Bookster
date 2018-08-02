@@ -134,7 +134,7 @@ Vue.component('redirect-registration', require('./components/RedirectToRegistrat
  * Alert Success Components (can be found in admin backend, but also when customers change deliveryAddress
  * in order just as an example)
  */
-Vue.component('alert-success-popup', require('./components/AlertSuccessPopup.vue'));
+Vue.component('alert-popup', require('./components/AlertPopup.vue'));
 
 /**
  * Accordion

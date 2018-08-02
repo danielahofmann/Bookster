@@ -58,6 +58,12 @@
         </header>
 
         <main class="main">
+            @if(session('status'))
+                <alert-popup
+                        status="{{session('status')}}"
+                ></alert-popup>
+            @endif
+
             @yield('main')
         </main>
 
