@@ -16,7 +16,7 @@ class AuthorImageTableSeeder extends Seeder
 	    for($var = 0; $var <= 11; $var ++) {
 		    \Illuminate\Support\Facades\DB::table( 'author_images' )->insert( [
 			    'author_id' => $id,
-			    'img' => 'author.png'
+			    'img' => 'author.jpg'
 		    ]);
 
 		    $id++;

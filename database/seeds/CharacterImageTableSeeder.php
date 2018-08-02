@@ -16,7 +16,7 @@ class CharacterImageTableSeeder extends Seeder
 	    for($var = 0; $var <= 11; $var ++) {
 		    \Illuminate\Support\Facades\DB::table( 'character_images' )->insert( [
 			    'character_id' => $id,
-			    'img' => 'character.png'
+			    'img' => 'character.jpg'
 		    ]);
 
 		    $id++;

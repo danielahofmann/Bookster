@@ -16,7 +16,7 @@ class ImageTableSeeder extends Seeder
 	    for($var = 0; $var <= 11; $var ++) {
 		    \Illuminate\Support\Facades\DB::table( 'images' )->insert( [
 		    	'product_id' => $id,
-			    'img' => 'cover.png'
+			    'img' => 'cover.jpeg'
 	        ]);
 
 		    $id++;
