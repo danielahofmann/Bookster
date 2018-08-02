@@ -96,6 +96,7 @@
 
             img{
                 object-fit: contain;
+                height: 100%;
             }
         }
 
