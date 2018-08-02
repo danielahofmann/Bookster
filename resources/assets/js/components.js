@@ -47,7 +47,7 @@ Vue.component('kids-send-wishlist', require('./components/age-specific-component
 /**
  * Age Circle
  */
-Vue.component('save-age-group', require('./components/SaveAgeGroup.vue'));
+Vue.component('save-age-group', require('./components/SaveToStore.vue'));
 Vue.component('opt-out', require('./components/OptOut.vue'));
 Vue.component('age-slider', require('./components/AgeSlider.vue'));
 
