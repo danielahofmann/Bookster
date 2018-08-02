@@ -9501,3 +9501,47 @@ h5 {
   border-bottom: thin solid #F8F6F5;
 }
 
+.choose-background {
+  height: 100vh;
+  width: 100%;
+  background-color: #F8F6F5;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 300px) and (max-width: 767px) {
+  .choose-background {
+    height: auto;
+    overflow: auto;
+  }
+
+  .choose-background .question-mark {
+    margin-bottom: 150px;
+  }
+}
+
+.question-mark {
+  font-size: 500px;
+  line-height: 400px;
+  font-weight: bold;
+  color: #EAE7E5;
+  position: absolute;
+  bottom: -1%;
+  right: -1%;
+  opacity: 0.5;
+}
+
+@media (max-width: 975px) {
+  .question-mark {
+    font-size: 350px;
+    line-height: 250px;
+  }
+}
+
+@media (max-width: 500px) {
+  .question-mark {
+    font-size: 250px;
+    line-height: 150px;
+  }
+}
+

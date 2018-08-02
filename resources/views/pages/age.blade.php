@@ -1,34 +1,18 @@
     @extends ('layouts.master')
 
     @section('pageTitle')
-        <title>{{ config('app.name', 'Bookster') }} - Bitte Alter wählen</title>
+        <title>{{ config('app.name', 'Bookster') }} - Bitte Alter angeben</title>
     @stop
 
     @section('body')
-        <h1>Bitte wählen Sie ihr Alter aus.</h1>
-        <age-circle @choose="saveAgeToSession"
-                age="0 bis 7"
-        ></age-circle>
+        <section class="choose-background grid-x flex-center">
 
-        <age-circle @choose="saveAgeToSession"
-                    age="8 bis 12"
-        ></age-circle>
-
-        <age-circle @choose="saveAgeToSession"
-                    age="13 bis 18"
-        ></age-circle>
-
-        <age-circle @choose="saveAgeToSession"
-                    age="19 bis 50"
-        ></age-circle>
-
-        <age-circle @choose="saveAgeToSession"
-                    age="51 bis 65"
-        ></age-circle>
-
-        <age-circle @choose="saveAgeToSession"
-                    age="über 65"
-        ></age-circle>
-
-        <age-slider></age-slider>
+            <div class="cell small-11 medium-8 container">
+                <h2 class="cell small-12 text-center">Bitte Alter angeben</h2>
+                <p class="cell small-12 text-center no-margin-mobile no-padding-mobile text-checkout">Für eine optimale Funktionsweise des Shops benötigen wir Ihr Alter. Halten Sie dafür den Schieberegler gedrückt und schieben diesen nach oben, bis die Ihrem Alter entsprechende Altersklasse angezeigt wird.</p>
+                <age-slider class="flex-center"></age-slider>
+            </div>
+            <p class="question-mark">?</p>
+            <opt-out></opt-out>
+        </section>
     @stop

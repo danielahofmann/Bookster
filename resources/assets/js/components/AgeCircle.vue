@@ -1,5 +1,5 @@
 <template>
-    <div class="dot" @click="$emit('choose', chosenAge)" >
+    <div class="dot" @click="$emit('choose', chosenAge)">
         <p>
             {{age}} Jahre
         </p>
