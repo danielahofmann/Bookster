@@ -32,6 +32,9 @@
                 <li>
                     <a :href="route(contact)">Kontakt</a>
                 </li>
+                <li>
+                    <a href="https://danielahofmann.github.io/bookster-docs/">Dokumentation</a>
+                </li>
             </ul>
 
             <ul class="cell small-4 footer-list">
