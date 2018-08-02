@@ -9,7 +9,6 @@
 
 <script>
     export default {
-        name: "age-circle",
         data(){
             return {
                 csrf: this.token

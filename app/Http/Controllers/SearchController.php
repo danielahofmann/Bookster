@@ -105,7 +105,6 @@ class SearchController extends Controller
 
 		// Making sure the user entered a keyword.
 		if($request->has('query')) {
-
 			// Using the Laravel Scout syntax to search the products table.
 			$results = Product::search($request->get('query'))->get();
 
@@ -117,13 +116,13 @@ class SearchController extends Controller
 			}
 
 			return redirect()
-				->back()
+				->route($ageGroup . '-results')
 				->with('status', 'Es wurden keine passenden Produkte gefunden');
 
 		}
 
 		return redirect()
-			->back()
+			->route($ageGroup . '-results')
 			->with('status', 'Es wurden keine passenden Produkte gefunden');
 	}
 }
