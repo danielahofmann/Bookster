@@ -1,7 +1,7 @@
 <template>
     <div class="footer-nav grid-x flex-center">
         <div class="cell small-8 grid-x">
-            <ul class="cell small-4 footer-list">
+            <ul class="cell small-4 footer-list" v-if="notKids">
                 <li class="footer-headline">
                     Informationen
                 </li>
@@ -22,7 +22,7 @@
                 </li>
             </ul>
 
-            <ul class="cell small-4 footer-list">
+            <ul class="cell small-4 footer-list" v-if="notKids">
                 <li class="footer-headline">
                     Mehr über bookster
                 </li>
@@ -59,6 +59,7 @@
                 about: this.age + '-about',
                 contact: this.age + '-contact',
                 categoryRoute: this.age + '-category',
+                notKids: this.show,
             }
         },
         mounted() {},
@@ -72,7 +73,7 @@
                 });
         },
 
-        props: ['age']
+        props: ['age', 'show']
     }
 </script>
 

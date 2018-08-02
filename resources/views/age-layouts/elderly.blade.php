@@ -59,6 +59,7 @@
 
         <footer-section
                 :is-toddler="false"
+                :age-group="'elderly'"
         ></footer-section>
     </div>
 @stop

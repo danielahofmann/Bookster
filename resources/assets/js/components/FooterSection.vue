@@ -2,7 +2,8 @@
     <div class="footer">
         <footer-icons v-if="show"></footer-icons>
         <footer-navigation v-if="show"
-            :age="this.ageGroup"
+                           :age="this.ageGroup"
+                           :show="kidsShow"
         ></footer-navigation>
         <toddler-opt-out v-if="toddler"></toddler-opt-out>
         <footer-bottom></footer-bottom>
@@ -14,10 +15,12 @@
         data() {
             return {
                 toddler: this.isToddler,
+                kids: this.isKids,
                 show: !this.isToddler,
+                kidsShow: !this.isKids,
             }
         },
-        props: ['isToddler', 'ageGroup']
+        props: ['isToddler', 'isKids', 'ageGroup']
     }
 </script>
 
