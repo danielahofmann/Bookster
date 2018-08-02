@@ -6,14 +6,10 @@ use App\Notifications\Confirmation;
 use App\Notifications\ConfirmationSuccess;
 use App\Notifications\Order;
 use App\Notifications\OrderSaved;
-use App\Notifications\OrderSuccess;
 use App\Notifications\Wishlist;
-use App\WishlistSession;
 use Illuminate\Http\Request;
-use Illuminate\Notifications\Messages\MailMessage;
-use Notification;
+use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class EmailController extends Controller

@@ -19,6 +19,9 @@
 //Helpers
 @import "_general/helper";
 
+//Buttons
+@import "_general/buttons";
+
 //Age Specific Styles for each group
 @import "_age-styles/default";
 @import "_age-styles/elderly";
@@ -50,6 +53,10 @@
   }
 }
 
+/**
+ OFFCANVAS STYLES
+ */
+
 .offcanvas-background{
   width: 100%;
   height: 100vh;
@@ -75,32 +82,9 @@
   overflow: hidden;
 }
 
-.margin-top{
-  margin-top: 275px;
-
-  @include custom-max(1220px){
-    margin-top: 300px;
-  }
-
-  @include custom-max(1023px){
-    margin-top: 150px;
-  }
-
-}
-
-.margin-top-desktop{
-  margin-top: 275px;
-
-  @include custom-max(1220px){
-    margin-top: 300px;
-  }
-
-  @include custom-max(1023px){
-    margin-top: 0;
-  }
-
-}
-
+/**
+  BREADCRUMB STYLES
+ */
 .breadcrumbs{
   margin-top: 150px;
   margin-left: 3rem;
@@ -140,94 +124,23 @@
   }
 }
 
-.breadcrumb-margin-top-seniors{
-  margin-top: 11rem !important;
+.no-margin-breadcrumb{
+  .breadcrumbs{
+    margin-top: 0 !important;
 
-  @include custom-max(1023px){
-    margin-top: 7rem !important;
-  }
-}
+    @include custom-min(1025px){
+      margin-top: 0 !important;
+    }
 
-.placeholder{
-  @include text-styling($primary-font, $light, 2rem);
-  text-align: center;
-  color: $dark-grey;
-  margin-top: 6rem;
-}
-
-.margin-top-kids{
-  @include custom-min(1024px) {
-    margin-top: 19rem;
-  }
-
-  @include custom-max(1023px) {
-    padding-top: 2.5rem;
-  }
-}
-
-.margin-bottom-small{
-  margin-bottom: 3rem;
-}
-
-.button{
-  background-color: $magenta;
-  @include text-styling($primary-font, $regular, 1rem);
-  color: $white;
-  text-transform: uppercase;
-  padding: 0.75rem 1.5rem;
-
-  &:hover{
-    background-color: $blue;
-  }
-
-  &:focus{
-    background-color: $blue;
-    outline: none;
-  }
-}
-
-.icon-button{
-  background-color: $white;
-  color: $blue;
-  padding:  0.5rem 0.75rem;
-  border-radius: 5px;
-  border: 2px solid $blue;
-
-  &:hover{
-    background-color: $blue;
-
-    svg{
-      stroke: $white;
+    @include custom-min(1045px){
+      margin-top: 0!important;
     }
   }
-
-  &:focus{
-    background-color: $blue;
-    outline: none;
-  }
-
-  svg {
-    stroke: $blue;
-  }
 }
 
-.button-light{
-  background-color: $dark-beige;
-  @include text-styling($primary-font, $regular, 0.9rem);
-  color: $dark-grey;
-  text-transform: uppercase;
-  padding: 0.75rem 1.5rem;
-
-  &:hover{
-    font-weight: $bold;
-    color: $dark-grey;
-  }
-
-  &:focus{
-    outline: none;
-  }
-}
-
+/**
+  FORM STYLES
+ */
 .input{
   border: none;
   box-shadow: none;
@@ -243,114 +156,9 @@
   }
 }
 
-.border-radius{
-  border-radius: 15px;
-}
-
-.background-white{
-  background-color: $white;
-}
-
-.background-beige{
-  background-color: $beige;
-}
-
-.padding-medium-top-bottom{
-  padding: 2rem 0;
-}
-
-.font-primary-bold{
-  @include text-styling($primary-font, $bold, 1rem);
-  color: $dark-grey;
-}
-
-.font-secondary-bold{
-  @include text-styling($secondary-font, $bold, 1rem);
-  color: $dark-grey;
-}
-
-.padding-section{
-  padding: 1rem 2rem;
-}
-
-.padding-bottom-large{
-  padding-bottom: 3rem;
-}
-
-.margin-top-small{
-  margin-top: 1rem;
-}
-
-.border-bottom{
-  border-bottom: thin solid $beige;
-}
-
-.checkout-button{
-  display: inline-block;
-  @include text-styling($primary-font, $bold, 1rem);
-  color: $blue;
-  padding: 0.5rem 1rem;
-  border: thin solid $blue;
-  text-align: center;
-
-  &:hover{
-    background: $blue;
-    color: $white;
-  }
-
-  &:focus{
-    outline: none;
-  }
-
-  @include custom-max(639px){
-    display: inline;
-    background: $blue;
-    color: $white;
-    font-weight: $bold;
-  }
-}
-
-.no-margin-mobile{
- @include custom-max(639px) {
-   width: 100% !important;
-   margin: 0 !important;
- }
-}
-
-.no-padding-mobile{
-  @include custom-max(639px) {
-    width: 100% !important;
-    padding: 0 !important;
-  }
-}
-
-.no-text-margin-mobile{
-  margin: 0;
-}
-
-.padding-top-mobile{
-  @include custom-max(639px){
-    margin: 2rem 0 0 0 !important;
-  }
-}
-
 .login-form{
   background: $white;
   padding: 1rem 2rem;
-}
-
-.fullscreen-beige-background{
-  min-height: 70vh;
-  width: 100%;
-  background: $beige;
-  padding: 2rem 0;
-}
-
-.fullscreen-white-background{
-  min-height: 70vh;
-  width: 100%;
-  background: $white;
-  padding: 2rem 0;
 }
 
 .input{
@@ -369,25 +177,6 @@
   @include text-styling($primary-font, $bold, 1rem);
   color: $dark-grey;
   margin-top: 1rem;
-}
-
-.submit-button{
-  background-color: $blue;
-  @include text-styling($primary-font, $bold, 1rem);
-  @include margin-left;
-  color: $white;
-  text-transform: uppercase;
-  padding: 0.75rem 1.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  &:focus{
-    background-color: $blue;
-    outline: none;
-  }
-
-  &:hover{
-    background-color: $magenta;
-  }
 }
 
 .login-sublinks{
@@ -410,10 +199,26 @@
   }
 }
 
-.margin-top-bottom{
-  margin: 2rem 0 !important;
+.textarea{
+  height: 150px;
 }
 
+.checkbox{
+  margin-top: 1.5rem;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+/**
+ FEEDBACK / ERROR STYLES
+ */
 .is-invalid{
   border-bottom: thin solid $magenta;
 }
@@ -431,24 +236,19 @@
   display: inline-block;
   border-radius: 5px;
   background-color: $dark-beige;
-
 }
 
-.padding-top-eight{
-  padding-top: 8rem;
+.hover-danger{
+  &:hover{
+    background-color: $magenta;
+    color: $white;
+    font-weight: $bold;
+  }
 }
 
-.label-seniors{
-  font-size: 1.25rem;
-}
-
-.text-checkout{
-  @include text-styling($primary-font, $regular, 1rem);
-  color: $dark-grey;
-  text-align: center;
-  padding: 2rem;
-}
-
+/**
+  ORDER STYLES
+ */
 .order-box{
   padding: 2rem 3rem;
   background-color: $white;
@@ -513,6 +313,9 @@
   padding-right: 1rem;
 }
 
+/**
+  HELP STYLES
+ */
 .help-box{
   height: 200px;
   background-color: white;
@@ -544,36 +347,9 @@
   }
 }
 
-.no-margin{
-  margin: 0;
-}
-
-.margin-bottom-medium{
-  margin-bottom: 4rem !important;
-}
-
-.beige{
-  background-color: $beige;
-}
-
-.padding-top-seniors{
-  padding-top: 4rem;
-}
-
-.no-margin-breadcrumb{
-  .breadcrumbs{
-    margin-top: 0 !important;
-
-    @include custom-min(1025px){
-      margin-top: 0 !important;
-    }
-
-    @include custom-min(1045px){
-      margin-top: 0!important;
-    }
-  }
-}
-
+/**
+  DASHBOARD STYLES
+ */
 .dashboard-headline{
   background: white;
   padding: 1.5rem 3rem;
@@ -605,6 +381,9 @@
   }
 }
 
+/**
+  ORDER DETAILS
+ */
 .order-details{
   background: white;
   padding: 1.5rem 3rem;
@@ -663,6 +442,20 @@
   color: $dark-grey;
 }
 
+.text-modal{
+  color: $dark-grey;
+  padding: 1rem 1rem;
+}
+
+.cart-section{
+  @include custom-max(639px) {
+    min-height: 75vh;
+  }
+}
+
+/**
+  CONTACT STYLES
+ */
 .contact{
   img{
     height: 75vh;
@@ -681,19 +474,9 @@
   }
 }
 
-.button-outline-blue {
-  background-color: $white;
-  border: thin solid $blue;
-  color: $blue;
-  font-weight: $bold;
-  text-transform: none;
-
-  &:hover {
-    color: $white;
-    background-color: $blue;
-  }
-}
-
+/**
+  ABOUT STYLES
+ */
 .about{
   img {
     height: 75vh;
@@ -724,60 +507,11 @@
       text-align: left;
     }
   }
-
 }
 
-.hover-danger{
-  &:hover{
-    background-color: $magenta;
-    color: $white;
-    font-weight: $bold;
-  }
-}
-
-.full-width{
-  width: 100%;
-}
-
-.text-modal{
-  color: $dark-grey;
-  padding: 1rem 1rem;
-}
-
-.mobile-button-white{
-  border: thin solid $beige;
-  background: $white;
-  margin-bottom: 1rem;
-  padding:1rem;
-
-  &:focus{
-    background: $beige;
-  }
-}
-
-.textarea{
-  height: 150px;
-}
-
-.checkbox{
-  margin-top: 1.5rem;
-}
-
-.inputfile {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-
-.cart-section{
-  @include custom-max(639px) {
-    min-height: 75vh;
-  }
-}
-
+/**
+  START SCREEN STYLES
+ */
 .beige-border-top-bottom{
   border-top: thin solid $beige;
   border-bottom: thin solid $beige;
@@ -819,8 +553,4 @@
     font-size: 250px;
     line-height: 150px;
   }
-}
-
-.seniors-text{
-  font-size: 1.25rem;
 }

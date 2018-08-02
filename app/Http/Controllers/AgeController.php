@@ -22,35 +22,31 @@ class AgeController extends Controller
     }
 
 	public function defineAgeGroup() {
+		//switches age to save the right ageGroup to the session, which will be used mainly in the following code
+
 		switch ($_GET['age']) {
 			case '0-7':
 				session( [ 'ageGroup' => 'toddlers' ] );
-
 				break;
 
 			case '8-12':
 				session( [ 'ageGroup' => 'kids' ] );
-
 				break;
 
 			case '13-18':
 				session( [ 'ageGroup' => 'teens' ] );
-
 				break;
 
 			case '19-50':
 				session( [ 'ageGroup' => 'default' ] );
-
 				break;
 
 			case '51-65':
 				session( [ 'ageGroup' => 'elderly' ] );
-
 				break;
 
 			case '66-99':
 				session( [ 'ageGroup' => 'seniors' ] );
-
 				break;
 		}
     }

@@ -1,0 +1,9 @@
+.margin-top-kids{
+  @include custom-min(1024px) {
+    margin-top: 19rem;
+  }
+
+  @include custom-max(1023px) {
+    padding-top: 2.5rem;
+  }
+}

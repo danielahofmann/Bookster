@@ -34,3 +34,31 @@ h5{
   text-transform: uppercase;
   margin: 2.5rem 0 1rem 0;
 }
+
+
+/**
+  OTHER TYPO
+ */
+.placeholder{
+  @include text-styling($primary-font, $light, 2rem);
+  text-align: center;
+  color: $dark-grey;
+  margin-top: 6rem;
+}
+
+.font-primary-bold{
+  @include text-styling($primary-font, $bold, 1rem);
+  color: $dark-grey;
+}
+
+.font-secondary-bold{
+  @include text-styling($secondary-font, $bold, 1rem);
+  color: $dark-grey;
+}
+
+.text-checkout{
+  @include text-styling($primary-font, $regular, 1rem);
+  color: $dark-grey;
+  text-align: center;
+  padding: 2rem;
+}

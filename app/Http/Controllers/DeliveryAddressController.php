@@ -37,6 +37,8 @@ class DeliveryAddressController extends Controller
      */
 	public function store()
 	{
+		//Session::has(deliveryAddress) when the user edited the deliveryAddress in the order-process
+
 		if(Session::has('billAddress')){
 			$delivery = Session::get('deliveryAddress');
 

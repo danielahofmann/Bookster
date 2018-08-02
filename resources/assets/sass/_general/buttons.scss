@@ -1,0 +1,126 @@
+.button{
+  background-color: $magenta;
+  @include text-styling($primary-font, $regular, 1rem);
+  color: $white;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+
+  &:hover{
+    background-color: $blue;
+  }
+
+  &:focus{
+    background-color: $blue;
+    outline: none;
+  }
+}
+
+.icon-button{
+  background-color: $white;
+  color: $blue;
+  padding:  0.5rem 0.75rem;
+  border-radius: 5px;
+  border: 2px solid $blue;
+
+  &:hover{
+    background-color: $blue;
+
+    svg{
+      stroke: $white;
+    }
+  }
+
+  &:focus{
+    background-color: $blue;
+    outline: none;
+  }
+
+  svg {
+    stroke: $blue;
+  }
+}
+
+.button-light{
+  background-color: $dark-beige;
+  @include text-styling($primary-font, $regular, 0.9rem);
+  color: $dark-grey;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+
+  &:hover{
+    font-weight: $bold;
+    color: $dark-grey;
+  }
+
+  &:focus{
+    outline: none;
+  }
+}
+
+.checkout-button{
+  display: inline-block;
+  @include text-styling($primary-font, $bold, 1rem);
+  color: $blue;
+  padding: 0.5rem 1rem;
+  border: thin solid $blue;
+  text-align: center;
+
+  &:hover{
+    background: $blue;
+    color: $white;
+  }
+
+  &:focus{
+    outline: none;
+  }
+
+  @include custom-max(639px){
+    display: inline;
+    background: $blue;
+    color: $white;
+    font-weight: $bold;
+  }
+}
+
+.submit-button{
+  background-color: $blue;
+  @include text-styling($primary-font, $bold, 1rem);
+  @include margin-left;
+  color: $white;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  &:focus{
+    background-color: $blue;
+    outline: none;
+  }
+
+  &:hover{
+    background-color: $magenta;
+  }
+}
+
+.button-outline-blue {
+  background-color: $white;
+  border: thin solid $blue;
+  color: $blue;
+  font-weight: $bold;
+  text-transform: none;
+
+  &:hover {
+    color: $white;
+    background-color: $blue;
+  }
+}
+
+.mobile-button-white{
+  border: thin solid $beige;
+  background: $white;
+  margin-bottom: 1rem;
+  padding:1rem;
+
+  &:focus{
+    background: $beige;
+  }
+}

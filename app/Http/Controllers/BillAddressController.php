@@ -30,13 +30,13 @@ class BillAddressController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store()
     {
+    	//Session::has(billAddress) when the user edited the billAddress in the order-process
 	    if(Session::has('billAddress')){
 		    $bill = Session::get('billAddress');
 

@@ -1,0 +1,20 @@
+.breadcrumb-margin-top-seniors{
+  margin-top: 11rem !important;
+
+  @include custom-max(1023px){
+    margin-top: 7rem !important;
+  }
+}
+
+.label-seniors{
+  font-size: 1.25rem;
+}
+
+
+.padding-top-seniors{
+  padding-top: 4rem;
+}
+
+.seniors-text{
+  font-size: 1.25rem;
+}
