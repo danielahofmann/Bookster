@@ -1,6 +1,6 @@
 <template>
     <div class="small-12 text-center">
-        <a href="/default/" class="opt-out">Zurück zur Standardansicht</a>
+        <a href="/" class="opt-out">Zurück zur Altersauswahl</a>
     </div>
 </template>
 

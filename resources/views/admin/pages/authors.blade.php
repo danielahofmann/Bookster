@@ -41,21 +41,17 @@
                     <admin-mobile-redirect
                             headline="Autoren"
                     ></admin-mobile-redirect>
-
                     <a href="{{route('admin.author.create')}}">
                         <button class="cell small-6 display-tablet order-button mobile-button-white full-width text-center">hinzufügen</button>
                     </a>
 
+                @if($authors->count() > 0)
                     <div class="grid-x">
                         @foreach($authors as $author)
                             <div class="cell small-12 medium-12 large-4">
                                 <div class="order-details margin-right-1">
-{{--
-                                    <img src="{{ $author->author_image->img }}"
---}}
-                                    <img src="{{ asset('storage/author-image/' . $author->author_image->img) }}"
-                                         alt="{{$author->name}}">
-                                    <p class="headline text-center">{{$author->firstname}} {{$author->lastname}}</p>
+                                    <img src="{{ asset('storage/author-image/' . $author->author_image->img) }}" alt="{{$author->name}}">
+                                    <p class="headline text-center height-50px">{{$author->firstname}} {{$author->lastname}}</p>
                                     <a href="{{route('admin.author.edit', $author->id)}}">
                                         <button class="order-button margin-top-1 full-width text-center">
                                             bearbeiten
@@ -70,6 +66,7 @@
                             </div>
                         @endforeach
                     </div>
+                    @endif
                 </div>
             </section>
         </div>

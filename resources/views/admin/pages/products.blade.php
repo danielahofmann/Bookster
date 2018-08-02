@@ -46,12 +46,12 @@
                         <button class="cell small-6 display-tablet order-button mobile-button-white full-width text-center">hinzufügen</button>
                     </a>
 
+                    @if($products->count() > 0)
                     <div class="grid-x">
                         @foreach($products as $product)
                             <div class="cell small-12 medium-12 large-4">
                                 <div class="order-details margin-right-1">
-                                    <img src="{{ asset('storage/product-image/' . $product->image[0]->img) }}"
-                                         alt="{{$product->name}}">
+                                    <img src="{{ asset('storage/product-image/' . $product->image[0]->img) }}" alt="{{$product->name}}">
                                     <p class="headline">Produkt-Nr.: <span>{{$product->id}}</span></p>
                                     <a href="{{route('admin.product.edit', $product->id)}}">
                                         <button class="order-button margin-top-1 full-width text-center">
@@ -67,6 +67,7 @@
                             </div>
                         @endforeach
                     </div>
+                    @endif
                 </div>
             </section>
         </div>

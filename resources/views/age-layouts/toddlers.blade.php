@@ -32,6 +32,7 @@
 
     <footer-section
             :is-toddler="true"
+            :age-group="'toddlers'"
     ></footer-section>
-    </div>
+
 @stop

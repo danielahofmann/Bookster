@@ -46,12 +46,13 @@
                         <button class="cell small-6 display-tablet order-button mobile-button-white full-width text-center">hinzufügen</button>
                     </a>
 
+                    @if($characters->count() > 0)
                     <div class="grid-x">
                         @foreach($characters as $character)
                             <div class="cell small-12 medium-12 large-4">
                                 <div class="order-details margin-right-1">
                                     <img src="{{ asset('storage/character-image/' . $character->character_image->img) }}" alt="{{$character->name}}">
-                                    <p class="headline">{{$character->name}}</p>
+                                    <p class="headline height-50px">{{$character->name}}</p>
                                     <a href="{{route('admin.character.edit', $character->id)}}">
                                         <button class="order-button margin-top-1 full-width text-center">
                                             bearbeiten
@@ -66,6 +67,7 @@
                             </div>
                         @endforeach
                     </div>
+                    @endif
                 </div>
             </section>
         </div>

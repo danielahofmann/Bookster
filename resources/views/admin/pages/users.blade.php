@@ -51,27 +51,29 @@
                     </a>
                     @endif
 
-                @foreach($employees as $employee)
-                        <div class="order-details grid-x">
-                            <div class="cell small-12 medium-12 large-10">
-                                <p>{{$employee->firstname}} {{$employee->lastname}}</p>
-                                <p>{{$employee->email}}</p>
-                                <p>Rolle: {{$employee->role == 1 ? 'Administrator' : 'Mitarbeiter'}}</p>
-                            </div>
+                    @if($employees->count() > 0)
+                        @foreach($employees as $employee)
+                            <div class="order-details grid-x">
+                                <div class="cell small-12 medium-12 large-10">
+                                    <p>{{$employee->firstname}} {{$employee->lastname}}</p>
+                                    <p>{{$employee->email}}</p>
+                                    <p>Rolle: {{$employee->role == 1 ? 'Administrator' : 'Mitarbeiter'}}</p>
+                                </div>
 
-                            {{--only users with role 1 should be able to see those buttons--}}
-                            @if($user->role == 1)
-                            <div class="cell small-12 medium-12 large-2">
-                                <a href="{{route('admin.user.edit', $employee->id)}}">
-                                    <button class="order-button margin-top-1 full-width text-center">bearbeiten</button>
-                                </a>
-                                <a href="{{route('admin.user.delete-form', $employee->id)}}">
-                                    <button class="order-button margin-top-1 full-width text-center">löschen</button>
-                                </a>
+                                {{--only users with role 1 should be able to see those buttons--}}
+                                @if($user->role == 1)
+                                <div class="cell small-12 medium-12 large-2">
+                                    <a href="{{route('admin.user.edit', $employee->id)}}">
+                                        <button class="order-button margin-top-1 full-width text-center">bearbeiten</button>
+                                    </a>
+                                    <a href="{{route('admin.user.delete-form', $employee->id)}}">
+                                        <button class="order-button margin-top-1 full-width text-center">löschen</button>
+                                    </a>
+                                </div>
+                                @endif
                             </div>
-                            @endif
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @endif
                 </div>
             </section>
         </div>

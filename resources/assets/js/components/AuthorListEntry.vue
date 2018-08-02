@@ -40,6 +40,7 @@
             height: 40px;
             width: 40px;
             border-radius: 100%;
+            object-fit: cover;
         }
 
         .author-name {

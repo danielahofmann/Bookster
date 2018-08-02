@@ -36,14 +36,16 @@
                         :headline="'Bestellungen'"
                     ></admin-mobile-redirect>
 
-                    @foreach($orders as $order)
-                        <admin-order-preview
-                                state="{{$order->state->name}}"
-                                date="{{ \Carbon\Carbon::parse($order->created_at)->format('d/m/Y')}}"
-                                id=" {{$order->id}}"
-                                path="default-order-details"
-                        ></admin-order-preview>
-                    @endforeach
+                    @if($orders->count() > 0)
+                        @foreach($orders as $order)
+                            <admin-order-preview
+                                    state="{{$order->state->name}}"
+                                    date="{{ \Carbon\Carbon::parse($order->created_at)->format('d/m/Y')}}"
+                                    id=" {{$order->id}}"
+                                    path="default-order-details"
+                            ></admin-order-preview>
+                        @endforeach
+                    @endif
                 </div>
             </section>
         </div>

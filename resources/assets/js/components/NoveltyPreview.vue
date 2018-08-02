@@ -87,7 +87,7 @@
 
         &:hover{
             .product-image{
-                border: thin solid $beige;
+                border: thin solid $white;
             }
 
             .title{

@@ -94,6 +94,9 @@ class ProductController extends Controller
 	    $product->user_id = Auth::guard('admin')->user()->id;
 	    $product->save();
 
+	    $author = Author::find($request->input('author'));
+	    $author->categories()->attach($request->input('category'));
+
 	    $image = new Image();
 	    $image->img = $request->image->getClientOriginalName();
 	    $image->product_id = $product->id;
@@ -210,6 +213,9 @@ class ProductController extends Controller
 	    $product->character_id = $request->input('character');
 		$product->user_id = Auth::guard('admin')->user()->id;
 	    $product->save();
+
+	    $author = Author::find($request->input('author'));
+	    $author->categories()->attach($request->input('category'));
 
 	    if($request->has('image')) {
 		    $image      = Image::where( 'product_id', $id )->first();
