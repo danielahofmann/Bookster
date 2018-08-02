@@ -2,7 +2,7 @@
     <div class="grid-x flex-center">
         <a :href="route(product, this.id)" class="cell small-11 product-container grid-x">
             <div class="product-image cell small-4 medium-4 large-5">
-                <img :src="img" alt="Produktbild">
+                <img :src="productImage + img" alt="Produktbild">
             </div>
             <div class="product-details cell small-8 medium-8 large-7">
                 <p class="title" v-bind:style="{ fontSize: fontSizeTitle }">{{ bookTitle }}</p>
@@ -25,6 +25,9 @@
         computed: {
             product() {
                 return this.$store.state.product;
+            },
+            productImage() {
+                return this.$store.state.productImage;
             },
         },
         props: ['bookTitle', 'price', 'authorFirstname', 'authorLastname', 'sizeTitle', 'sizeAuthor', 'sizePrice', 'img', 'id'],

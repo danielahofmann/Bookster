@@ -1,6 +1,6 @@
 <template>
     <div class="grid-x flex-center character-image">
-        <img :src="character.character_image.img" :alt="character.name" class="small-4 medium-3 large-2">
+        <img :src="characterImage + character.character_image.img" :alt="character.name" class="small-4 medium-3 large-2">
     </div>
 </template>
 
@@ -11,7 +11,11 @@
                 character: this.thisCharacter,
             }
         },
-        mounted() {},
+        computed: {
+            characterImage() {
+                return this.$store.state.characterImage;
+            },
+        },
         props:['thisCharacter']
     }
 </script>

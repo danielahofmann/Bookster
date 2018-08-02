@@ -50,12 +50,7 @@
                         @foreach($characters as $character)
                             <div class="cell small-12 medium-12 large-4">
                                 <div class="order-details margin-right-1">
-                                    <img src="{{ asset('storage/character-image/' . $character->character_image->img) }}"
-
-{{--
-                                    <img src="{{ $character->character_image->img }}"
---}}
-                                         alt="{{$character->name}}">
+                                    <img src="{{ asset('storage/character-image/' . $character->character_image->img) }}" alt="{{$character->name}}">
                                     <p class="headline">{{$character->name}}</p>
                                     <a href="{{route('admin.character.edit', $character->id)}}">
                                         <button class="order-button margin-top-1 full-width text-center">

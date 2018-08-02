@@ -2,7 +2,7 @@
     <div class="book grid-container">
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-6 flex-center image-div">
-                <img :src="product.image[0].img" :alt="product.name" class="book-image">
+                <img :src="productImage + product.image[0].img" :alt="product.name" class="book-image">
             </div>
             <div class="cell small-12 medium-6 info">
                 <p class="author">{{ product.author.firstname }} {{product.author.lastname }}</p>
@@ -65,6 +65,11 @@
                         console.log(error);
                     });
             }
+        },
+        computed: {
+            productImage() {
+                return this.$store.state.productImage;
+            },
         },
         props:['data', 'bookId', 'size']
     }

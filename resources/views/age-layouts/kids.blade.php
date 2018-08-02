@@ -7,6 +7,9 @@
 @section('body')
     <save-age-group
             :group="'kids'"
+            asset-character="{{ asset('storage/character-image/') }}"
+            asset-product="{{ asset('storage/product-image/') }}"
+            asset-author="{{ asset('storage/author-image/') }}"
     ></save-age-group>
     <offcanvas
             size="1.25"

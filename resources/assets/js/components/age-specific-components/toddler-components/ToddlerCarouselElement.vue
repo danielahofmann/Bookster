@@ -2,7 +2,7 @@
     <div class="grid-x flex-center">
         <a :href="route('toddlers-character', characterId)">
             <div class="cell small-11 image-container flex-center">
-                <img :src="img" alt="Charakter">
+                <img :src="characterImage + img" alt="Charakter">
             </div>
         </a>
     </div>
@@ -15,7 +15,11 @@
                 characterId: this.character,
             }
         },
-        mounted() {},
+        computed: {
+            characterImage() {
+                return this.$store.state.characterImage;
+            },
+        },
         props:['img', 'character']
     }
 </script>

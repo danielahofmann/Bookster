@@ -2,7 +2,7 @@
     <div class="book grid-container">
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-6 flex-center image-div">
-                <img :src="product.image[0].img" :alt="product.name" class="book-image">
+                <img :src="productImage + product.image[0].img" :alt="product.name" class="book-image">
             </div>
             <div class="cell small-12 wish-button-mobile-div">
                 <img src="/img/wishlist-true-kids.svg" class="wish-button-mobile" @click="saveToWishlist(id)"></img>
@@ -26,7 +26,11 @@
                 id: this.bookId
             }
         },
-        mounted() {},
+        computed: {
+            productImage() {
+                return this.$store.state.productImage;
+            },
+        },
         methods:{
             saveToWishlist: function (id) {
                 var self = this;
@@ -58,6 +62,7 @@
                 max-height: 100%;
                 width: auto;
                 object-fit: contain;
+                margin-bottom: 2rem;
 
                 @include custom-max(639px) {
                     height: auto;

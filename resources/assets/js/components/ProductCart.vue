@@ -1,6 +1,6 @@
 <template>
     <div class="cart-product grid-x">
-        <img :src="this.img" :alt="this.title" class="cell small-4 image">
+        <img :src="productImage + this.img" :alt="this.title" class="cell small-4 image">
         <div class="cell small-7 text">
             <p class="title" :style="{ fontSize: fontSize }">{{ this.title }}</p>
             <p class="author" :style="{ fontSize: fontSize }">{{ this.author }}</p>
@@ -27,7 +27,10 @@
                 fontSize: this.size + "rem",
             }
         },
-        mounted() {
+        computed: {
+            productImage() {
+                return this.$store.state.productImage;
+            },
         },
         methods: {
             deleteProduct: function (id) {

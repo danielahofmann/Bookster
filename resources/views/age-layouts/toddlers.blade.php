@@ -7,6 +7,9 @@
 @section('body')
     <save-age-group
         :group="'toddlers'"
+        asset-character="{{ asset('storage/character-image/') }}"
+        asset-product="{{ asset('storage/product-image/') }}"
+        asset-author="{{ asset('storage/author-image/') }}"
     ></save-age-group>
     <header class="grid-x padding-top-small header clearfix">
         <mobile-logo></mobile-logo>

@@ -2,7 +2,7 @@
     <div class="book-preview grid-x grid-padding-x cell small-6 medium-3 large-2">
         <a class="nav-link cell small-12" :href="route(product, bookId)">
             <div class="">
-                <img :src="img" alt="Produktbild" class="book-image">
+                <img :src="productImage + img" alt="Produktbild" class="book-image">
             </div>
             <div class="cell small-12 book-info">
                 <p class="text-center book-text" :style="{ fontSize: fontSize }">{{title}}</p>
@@ -31,6 +31,9 @@
             },
             wishlist(){
                 return this.$store.state.wishlist;
+            },
+            productImage() {
+                return this.$store.state.productImage;
             },
         },
         methods: {

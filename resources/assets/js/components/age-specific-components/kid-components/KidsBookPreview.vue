@@ -2,7 +2,7 @@
     <div class="grid-x flex-center kid-preview">
         <div class="cell small-11">
             <a class="nav-link" :href="route(product, id)">
-                <img :src="img" alt="Produktbild" class="kid-image">
+                <img :src="productImage + img" alt="Produktbild" class="kid-image">
             </a>
             <button class="wish-button" @click="saveToWishlist(id)"></button>
             <button class="delete-button" v-if="this.show" @click="deleteFromWishlist(bookId)">x entfernen</button>
@@ -23,6 +23,9 @@
         computed: {
             product() {
                 return this.$store.state.product;
+            },
+            productImage() {
+                return this.$store.state.productImage;
             },
         },
         methods: {

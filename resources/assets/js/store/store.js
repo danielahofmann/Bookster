@@ -16,6 +16,9 @@ export const store = new Vuex.Store({
         deliveryPrice: 0,
         totalPrice: 0,
         products: null,
+        characterImage: null,
+        authorImage: null,
+        productImage: null,
     },
 
     mutations: {
@@ -62,6 +65,15 @@ export const store = new Vuex.Store({
         },
         updateProducts(state, products){
             state.products = products;
+        },
+        setCharacterImageAsset(state, asset){
+            state.characterImage = asset + '/';
+        },
+        setAuthorImageAsset(state, asset){
+            state.authorImage = asset + '/';
+        },
+        setProductImageAsset(state, asset){
+            state.productImage = asset + '/';
         },
 
     },

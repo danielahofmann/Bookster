@@ -1,6 +1,6 @@
 <template>
     <div class="order-product grid-x">
-        <img :src="this.img" :alt="this.title" class="cell small-4 image">
+        <img :src="productImage + this.img" :alt="this.title" class="cell small-4 image">
         <div class="cell small-8 text">
             <p class="title" :style="{ fontSize: fontSize }">{{ this.title }}</p>
             <p class="author" :style="{ fontSize: fontSizeSmall }">{{ this.author }}</p>
@@ -19,9 +19,11 @@
                 fontSizeSmall: this.size - 0.2 + "rem",
             }
         },
-        mounted() {
+        computed: {
+            productImage() {
+                return this.$store.state.productImage;
+            },
         },
-        methods: {},
         props: ['title', 'author', 'price', 'quantity', 'img', 'id', 'size']
     }
 </script>

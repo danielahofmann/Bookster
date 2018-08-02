@@ -1,6 +1,6 @@
 <template>
     <a :href="route(path, this.id)" class="author-list-entry">
-        <img :src="img" alt="Bild des Autoren" class="author-image">
+        <img :src="authorImage + img" alt="Bild des Autoren" class="author-image">
         <p v-bind:style="{ fontSize: fontSize }" class="author-name">{{firstname}} {{lastname}}</p>
     </a>
 </template>
@@ -19,6 +19,9 @@
 
             path() {
                 return this.$store.state.ageGroup + '-author';
+            },
+            authorImage() {
+                return this.$store.state.authorImage;
             },
         },
         mounted() {},

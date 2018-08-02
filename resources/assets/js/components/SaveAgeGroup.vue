@@ -16,9 +16,12 @@
             if(search === 1){
                 this.$store.commit('setProductRoute', this.ageGroup);
                 this.$store.commit('setAgeGroup', this.ageGroup);
+                this.$store.commit('setCharacterImageAsset', this.assetCharacter);
+                this.$store.commit('setAuthorImageAsset', this.assetAuthor);
+                this.$store.commit('setProductImageAsset', this.assetProduct);
             }
         },
-        props:['group']
+        props:['group', 'assetCharacter', 'assetAuthor', 'assetProduct']
     }
 </script>
 
