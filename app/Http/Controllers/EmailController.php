@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\Confirmation;
+use App\Notifications\ConfirmationSuccess;
+use App\Notifications\Order;
+use App\Notifications\OrderSaved;
 use App\Notifications\OrderSuccess;
+use App\Notifications\Wishlist;
+use App\WishlistSession;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Messages\MailMessage;
 use Notification;
@@ -18,69 +24,36 @@ class EmailController extends Controller
 		$wishlist = Session::get('wishlist');
 
 		if(!empty($wishlist)){
-			Mail::send('mail.sendWishlist', ['email' => $email, 'wishlist' => $wishlist], function ($message) use ($email)
-			{
 
-				$message->from('me@gmail.com', 'Bookster');
-
-				$message->to($email);
-
-			});
+			Notification::route('mail', $email)->notify(new Wishlist($wishlist,  route('start')));
 		}
-
-		/*if(!empty($wishlist)){
-			Notification::route('mail', $email)->notify(new Wishlist($wishlist));
-		}*/
 
 		$age = Session::get('ageGroup');
 		return redirect($age . '/wishlist');
 	}
 
-	public function sendOrderSuccessMail() {
+	public function sendOrderSuccessMail($order) {
 		$email = Auth::user()->email;
-		$user = Auth::user();
 
-		Notification::route('mail', $email)->notify(new OrderSuccess());
+		Notification::route('mail', $email)->notify(new Order($order));
 
 	}
 
 	public function sendOrderConfirmationMail($approval_mail, $order_id) {
 		$email = $approval_mail;
 
-		Mail::send('mail.mails.order-confirmation', ['email' => $email, 'order_id' => $order_id], function ($message) use ($email)
-		{
-
-			$message->from('info@bookster.service', 'Bookster');
-
-			$message->to($email);
-
-		});
+		Notification::route('mail', $email)->notify(new Confirmation($order_id));
 
 	}
 
 	public function sendOrderSavedMail() {
 		$email = Auth::user()->email;
 
-		Mail::send('mail.mails.order-saved', ['email' => $email], function ($message) use ($email)
-		{
-
-			$message->from('info@bookster.service', 'Bookster');
-
-			$message->to($email);
-
-		});
+		Notification::route('mail', $email)->notify(new OrderSaved());
 
 	}
 
 	public function sendOrderSuccessfullyConfirmedMail($email) {
-		Mail::send('mail.mails.order-successfully-confirmed', ['email' => $email], function ($message) use ($email)
-		{
-
-			$message->from('info@bookster.service', 'Bookster');
-
-			$message->to($email);
-
-		});
-
+		Notification::route('mail', $email)->notify(new ConfirmationSuccess());
 	}
 }

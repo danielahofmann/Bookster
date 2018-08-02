@@ -2,27 +2,22 @@
 
 namespace App\Notifications;
 
-use App\WishlistSession;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class Wishlist extends Notification
+class ConfirmationSuccess extends Notification
 {
     use Queueable;
-	protected $wishlist;
-	protected $url;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(WishlistSession $wishlist, $url)
+    public function __construct()
     {
-        $this->wishlist = $wishlist;
-        $this->url = $url;
     }
 
     /**
@@ -44,11 +39,11 @@ class Wishlist extends Notification
      */
     public function toMail($notifiable)
     {
-    	$wishlist = $this->wishlist;
-    	$url = $this->url;
-        return (new MailMessage)
-	        ->subject('Neue Wunschliste')
-	        ->markdown('mail.wishlist', ['wishlist' => $wishlist, 'url' => $url]);
+	    return (new MailMessage)
+		    ->subject('Bestätigung der Einverständniserklärung')
+		    ->greeting('Einverständniserklärung wurde bestätigt!')
+		    ->line('Hallo,')
+		    ->line('Die Einverständniserklärung wurde nun bestätigt und wir werden deine Bestellung bearbeiten. Wir werden dir eine E-Mail senden, sobald deine Bestellung versandt wurde.');
     }
 
     /**

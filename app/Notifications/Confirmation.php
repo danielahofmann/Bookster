@@ -2,28 +2,26 @@
 
 namespace App\Notifications;
 
-use App\WishlistSession;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class Wishlist extends Notification
+class Confirmation extends Notification
 {
     use Queueable;
-	protected $wishlist;
-	protected $url;
 
-    /**
+	protected $order_id;
+
+	/**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(WishlistSession $wishlist, $url)
-    {
-        $this->wishlist = $wishlist;
-        $this->url = $url;
-    }
+	public function __construct($order_id)
+	{
+		$this->order_id = $order_id;
+	}
 
     /**
      * Get the notification's delivery channels.
@@ -44,11 +42,15 @@ class Wishlist extends Notification
      */
     public function toMail($notifiable)
     {
-    	$wishlist = $this->wishlist;
-    	$url = $this->url;
-        return (new MailMessage)
-	        ->subject('Neue Wunschliste')
-	        ->markdown('mail.wishlist', ['wishlist' => $wishlist, 'url' => $url]);
+	    $order_id = $this->order_id;
+
+	    return (new MailMessage)
+		    ->subject('Einverständniserklärung')
+		    ->greeting('Bitte um Einverständniserklärung')
+		    ->line('Sehr geehrte Damen und Herren,')
+		    ->line('Ihr Kind hat in unserem Onlineshop eine Bestellung getätigt. Diese muss nun innerhalb der nächsten zwei Wochen von Ihnen bestätigt werden, um somit wirksam zu werden. Bis dahin werden wir die Bestellung nicht bearbeiten')
+		    ->action('Bestellung bestätigen', route('confirmation', $order_id))
+		    ->line('Falls es sich hierbei um einen Fehler handelt, bitten wir Sie diese E-Mail zu ignorieren.');
     }
 
     /**

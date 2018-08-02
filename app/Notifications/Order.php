@@ -7,18 +7,18 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class OrderSuccess extends Notification
+class Order extends Notification
 {
     use Queueable;
-
+	protected $order;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($order)
     {
-
+        $this->order = $order;
     }
 
     /**
@@ -40,12 +40,11 @@ class OrderSuccess extends Notification
      */
     public function toMail($notifiable)
     {
+    	$order = $this->order;
+
         return (new MailMessage)
-	                ->subject('Bestellbestätigung')
-	                ->greeting('Bestätigung Ihrer Bestellung')
-                    ->line('Hiermit möchten wir Ihnen den Eingang Ihrer Bestellung bestätigen.')
-                    ->action('Weiter stöbern', url('/'))
-                    ->line('Vielen Dank für Ihre Bestellung bei bookster!');
+	        ->subject('Bestellungsbestätigung')
+	        ->markdown('mail.order', ['order' => $order]);
     }
 
     /**
