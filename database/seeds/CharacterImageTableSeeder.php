@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ImageTableSeeder extends Seeder
+class CharacterImageTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,10 +14,10 @@ class ImageTableSeeder extends Seeder
 	    $id = 1;
 
 	    for($var = 0; $var <= 11; $var ++) {
-		    \Illuminate\Support\Facades\DB::table( 'images' )->insert( [
-		    	'product_id' => $id,
-			    'img' => 'cover.png'
-	        ]);
+		    \Illuminate\Support\Facades\DB::table( 'character_images' )->insert( [
+			    'character_id' => $id,
+			    'img' => 'character.png'
+		    ]);
 
 		    $id++;
 	    }

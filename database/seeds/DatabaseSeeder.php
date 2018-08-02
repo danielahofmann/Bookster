@@ -17,10 +17,13 @@ class DatabaseSeeder extends Seeder
     {
 		$this->call(CategoryTableSeeder::class);
 		$this->call(GenreTableSeeder::class);
+		$this->call(StateTableSeeder::class);
+		$this->call(ImageTableSeeder::class);
+		$this->call(AuthorImageTableSeeder::class);
+		$this->call(CharacterImageTableSeeder::class);
 
 	    factory(User::class, 10)->create();
 	    factory(Customer::class, 10)->create();
-	    factory(Author::class, 10)->create();
 	    factory(Product::class, 20)->create();
     }
 }
