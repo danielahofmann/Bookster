@@ -46,12 +46,9 @@
 
         &:hover{
             border: thin solid $dark-beige;
-            background-color: $beige;
-
-            @include custom-max(639px){
-                background-color: $white;
-
-            }
+            -webkit-box-shadow: 0px 0px 20px -2px rgba(150,150,150,0.15);
+            -moz-box-shadow: 0px 0px 20px -2px rgba(150,150,150,0.15);
+            box-shadow: 0px 0px 20px -2px rgba(150,150,150,0.15);
         }
 
         &:focus{
@@ -91,5 +88,6 @@
         @include text-styling($secondary-font, $regular, 1rem);
         color: $dark-grey;
         padding: 1rem 2rem;
+        border: thin solid $dark-beige;
     }
 </style>

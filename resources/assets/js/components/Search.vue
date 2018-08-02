@@ -64,7 +64,7 @@
                 border-bottom: 1px solid $light-grey;
             }
 
-            @include custom-max(1024px){
+            @include custom-max(1023px){
                 display: none;
             }
         }

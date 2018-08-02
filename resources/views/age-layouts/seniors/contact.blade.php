@@ -3,7 +3,7 @@
 @section('title', 'Kontakt' )
 
 @section('main')
-    <section class="grid-x contact padding-top-seniors">
+    <section class="grid-x contact">
         <img src="/img/contact.png" alt="Kontakt" class="cell small-12 medium-6">
 
         <div class="cell small-12 medium-6 flex-center">

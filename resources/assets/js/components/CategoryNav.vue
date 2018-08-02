@@ -48,7 +48,7 @@
                 list-style-type: none;
                 display: inline-block;
                 padding: 1rem;
-                @include text-styling($primary-font, $regular, 1rem)
+                @include text-styling($primary-font, $regular, 1rem);
                 color: $dark-grey;
 
                 &:hover {
@@ -59,6 +59,17 @@
                 a {
                     color: $dark-grey;
                 }
+
+                @include custom(1020px, 1235px){
+                    padding: 1rem 0.75rem;
+                    a {
+                        font-size: 1rem !important;
+                    }
+                }
+            }
+
+            @include custom(1120px, 1170px){
+                margin: 0 !important;
             }
         }
     }

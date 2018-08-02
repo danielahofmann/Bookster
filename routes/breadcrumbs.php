@@ -25,6 +25,12 @@ Breadcrumbs::for('seniors-wishlist', function ($trail) {
 	$trail->push('Wunschliste', route('seniors-wishlist'));
 });
 
+// Home > Dashboard
+Breadcrumbs::for('seniors-dashboard', function ($trail) {
+	$trail->parent('seniors-home');
+	$trail->push('Kundenbereich', route('seniors-dashboard'));
+});
+
 // Startseite > Hilfe
 Breadcrumbs::for('seniors-help', function ($trail) {
 	$trail->parent('seniors-home');

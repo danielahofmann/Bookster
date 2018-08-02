@@ -114,7 +114,7 @@
                                     author="{{$product['item']['author']['firstname'] . ' ' . $product['item']['author']['lastname']}}"
                                     quantity="{{$product['quantity']}}"
                                     id="{{$product['item']['id']}}"
-                                    size="1"
+                                    size="1.25"
                             ></product-order>
                         @endforeach
 

@@ -28,7 +28,7 @@
                             author="{{$product['item']['author']['firstname'] . ' ' . $product['item']['author']['lastname']}}"
                             quantity="{{$product['quantity']}}"
                             id="{{$product['item']['id']}}"
-                            size="1.75"
+                            size="1.3"
                     ></product-cart>
                 @endforeach
             </div>
@@ -36,7 +36,7 @@
             <div class="cell small-12 medium-12 large-6 grid-x flex-center background-white padding-section margin-top-small display-mobile-none" style="height: 20vh">
                 <div class="cell small-12 grid-x flex-center border-bottom">
                     <p class="cell small-8 medium-9 large-4 font-primary-bold">Zwischensumme: </p>
-                    <p class="cell small-2 medium-3 large-2 font-secondary-bold">{{$totalPrice}} €</p>
+                    <p class="cell small-2 medium-3 large-2 font-secondary-bold senior-text">{{$totalPrice}} €</p>
                 </div>
                 <a href="{{ route('seniors-checkout') }}" class="checkout-button">ZUR KASSE</a>
             </div>

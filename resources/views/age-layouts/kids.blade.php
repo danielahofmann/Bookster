@@ -49,6 +49,7 @@
                     size="1.25"
                     path="kids-category"
                     class="display-none-tablet"
+                    :hide="true"
             ></navigation>
         </header>
 

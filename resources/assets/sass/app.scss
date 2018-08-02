@@ -37,13 +37,13 @@
   background: white;
   z-index:100;
 
-  @include custom-max(1024px){
+  @include custom-max(1023px){
     padding-bottom: 1rem;
   }
 }
 
 .main{
-  margin-top: 125px;
+  margin-top: 110px;
 
   @include custom-max(1024px) {
     margin-top: 65px;
@@ -102,12 +102,8 @@
 }
 
 .breadcrumbs{
-  margin-top: 200px;
+  margin-top: 150px;
   margin-left: 3rem;
-
-  @include custom-max(1220px){
-    margin-top: 260px;
-  }
 
   @include custom-max(1023px){
     display: none;
@@ -145,8 +141,10 @@
 }
 
 .breadcrumb-margin-top-seniors{
-  @include custom-min(640px){
-    margin-top: 14rem !important;
+  margin-top: 11rem !important;
+
+  @include custom-max(1023px){
+    margin-top: 7rem !important;
   }
 }
 
@@ -559,7 +557,7 @@
 }
 
 .padding-top-seniors{
-  padding-top: 7rem;
+  padding-top: 4rem;
 }
 
 .no-margin-breadcrumb{
@@ -567,11 +565,11 @@
     margin-top: 0 !important;
 
     @include custom-min(1025px){
-      margin-top: 10rem !important;
+      margin-top: 0 !important;
     }
 
     @include custom-min(1045px){
-      margin-top: 6rem !important;
+      margin-top: 0!important;
     }
   }
 }
@@ -821,4 +819,8 @@
     font-size: 250px;
     line-height: 150px;
   }
+}
+
+.seniors-text{
+  font-size: 1.25rem;
 }

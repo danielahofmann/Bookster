@@ -3,7 +3,9 @@
 @section('title', 'Dashboard' )
 
 @section('main')
-    <div class="beige padding-top-seniors">
+    <div class="beige padding-top-seniors no-margin-breadcrumb">
+        {{ Breadcrumbs::render('seniors-dashboard') }}
+
         <div class="grid-container beige no-padding-mobile">
             <section class="fullscreen-beige-background grid-x grid-margin-x no-margin-mobile no-padding-mobile">
                 <div class="cell small-12 medium-6 large-8 display-mobile-only no-margin-mobile">

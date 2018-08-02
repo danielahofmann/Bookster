@@ -9,7 +9,9 @@
         ></alert-success-popup>
     @endif
 
-    <div class="beige">
+    <div class="beige padding-top-seniors no-margin-breadcrumb">
+        {{ Breadcrumbs::render('seniors-dashboard') }}
+
         <div class="grid-container beige no-padding-mobile">
             <section class="fullscreen-beige-background grid-x grid-margin-x no-margin-mobile no-padding-mobile">
                 @php($firstchar =  substr($customer->firstname, 0, 1))

@@ -1,7 +1,7 @@
 <template>
     <div class="cell">
         <nav class="navigation">
-            <ul class="navigation-list">
+            <ul class="navigation-list" v-if="!this.hide">
                 <li v-for="tab in tabs"
                     class="tab"
                     :class="{ active : tab.id == tabId }"
@@ -28,13 +28,13 @@
             return {
                 tabs: [
                     {
-                        tab: 'Bücher',
+                        tab: 'Kategorien',
                         id: 1
                     },
-                    {
+                    /*{
                         tab: 'ebooks',
                         id: 2
-                    }
+                    }*/
                 ],
                 categoryActive: this.isActive,
                 fontSize: this.size + "rem",
@@ -44,7 +44,7 @@
             }
         },
         mounted() {},
-        props: ['isActive', 'size', 'path'],
+        props: ['isActive', 'size', 'path', 'hide'],
         methods: {
             toggleActive: function(id){
                 if(this.isActive == true || this.tabId != id){
