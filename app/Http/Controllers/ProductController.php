@@ -6,10 +6,12 @@ use App\Author;
 use App\Character;
 use App\Image;
 use App\Product;
+use Faker\Provider\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -211,6 +213,10 @@ class ProductController extends Controller
 
 	    if($request->has('image')) {
 		    $image      = Image::where( 'product_id', $id )->first();
+
+		    //First delete old image from storage
+		    Storage::delete('product-image/' . $product->image[0]->img);
+
 		    $image->img = $request->image->getClientOriginalName();
 		    $image->save();
 
@@ -236,6 +242,8 @@ class ProductController extends Controller
 	     * First of all detaching order from products, then also deleting image
 	     */
 	    DB::delete('delete from order_product where product_id = ?', array($product->id));
+
+	    Storage::delete('product-image/' . $product->image[0]->img);
 
 	    $product->image()->delete();
 

@@ -6,6 +6,7 @@ use App\Character;
 use App\CharacterImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CharacterController extends Controller
 {
@@ -142,6 +143,10 @@ class CharacterController extends Controller
 
 	    if($request->has('image')){
 		    $character_image = CharacterImage::where('character_id', $id)->first();
+
+		    //Delete the image which is used now, so the directory stays clean and we can prevent garbage
+		    Storage::delete('character-image/' . $character->character_image->img);
+
 		    $character_image->img = $request->image->getClientOriginalName();
 		    $character_image->save();
 
@@ -162,6 +167,10 @@ class CharacterController extends Controller
     public function destroy($id)
     {
 	    $character = Character::find($id);
+
+
+
+	    Storage::delete('character-image/' . $character->character_image->img);
 
 	    $character->character_image()->delete();
 

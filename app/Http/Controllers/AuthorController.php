@@ -7,6 +7,7 @@ use App\AuthorImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class AuthorController extends Controller
 {
@@ -139,6 +140,10 @@ class AuthorController extends Controller
 
 	    if($request->has('image')){
 		    $author_image = AuthorImage::where('author_id', $id)->first();
+
+		    //First delete the old image in storage so we can prevent garbage
+		    Storage::delete('author-image/' . $author->author_image->img);
+
 		    $author_image->img = $request->image->getClientOriginalName();
 		    $author_image->save();
 
@@ -159,6 +164,8 @@ class AuthorController extends Controller
     public function destroy(Author $author, $id)
     {
 	    $author = Author::find($id);
+
+	    Storage::delete('author-image/' . $author->author_image->img);
 
 	    $author->author_image()->delete();
 		$author->products()->delete();
