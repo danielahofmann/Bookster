@@ -8,7 +8,7 @@ use App\Notifications\Order;
 use App\Notifications\OrderSaved;
 use App\Notifications\Wishlist;
 use Illuminate\Http\Request;
-use Illuminate\Notifications\Notification;
+use Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
