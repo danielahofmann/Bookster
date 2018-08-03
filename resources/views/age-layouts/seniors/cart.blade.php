@@ -44,7 +44,7 @@
             <a href="{{ route('seniors-checkout') }}" class="cell small-12 no-margin-mobile checkout-button display-mobile-only">ZUR KASSE</a>
         </section>
     @else
-        <section class="grid-y" style="height: 35vh">
+        <section class="fullscreen-white-background flex-center">
             <div class="grid-x flex-center">
                 <p class="cell small-6 medium-cell-block placeholder">Sie haben noch keine Produkte in Ihrem Warenkorb.</p>
             </div>
