@@ -272,6 +272,7 @@ class ProductController extends Controller
 			                  ->with('image')
 			                  ->with('author')
 			                  ->where('ebook', 0)
+			                  ->where('amount', '>', 0)
 		                      ->get();
 		return $bestsellers;
     }
@@ -289,7 +290,8 @@ class ProductController extends Controller
 			                  ->with('image')
 			                  ->with('author')
 			                  ->where('ebook', 0)
-		                      ->get();
+			                  ->where( 'amount', '>', 0 )
+			                  ->get();
 		return $bestsellers;
     }
 
@@ -304,6 +306,7 @@ class ProductController extends Controller
 	                          ->take(6)
 	                          ->with('image')
 	                          ->with('author')
+	                          ->where( 'amount', '>', 0 )
 	                          ->get();
 	    return $novelties;
     }
@@ -318,7 +321,8 @@ class ProductController extends Controller
 		                    ->orderBy('created_at', 'desc')
 							->where('category_id', 3)
 		                    ->with('image')
-		                    ->get();
+							->where( 'amount', '>', 0 )
+							->get();
 		return $novelties;
 	}
 
@@ -331,6 +335,7 @@ class ProductController extends Controller
 		$products_of_genre = Product::where('genre_id', $id)
 		                    ->orderBy('created_at', 'desc')
 		                    ->with('image')
+		                    ->where( 'amount', '>', 0 )
 		                    ->get();
 		return $products_of_genre;
 	}
@@ -344,6 +349,7 @@ class ProductController extends Controller
 		$products_of_author = Product::where('author_id', $id)
 		                            ->orderBy('created_at', 'desc')
 		                            ->with('image')
+		                            ->where( 'amount', '>', 0 )
 		                            ->get();
 		return $products_of_author;
 	}
@@ -362,7 +368,8 @@ class ProductController extends Controller
 		                             ->where('genre_id', $genre_id)
 		                             ->orderBy('created_at', 'desc')
 		                             ->with('image')
-		                             ->get();
+									 ->where( 'amount', '>', 0 )
+									 ->get();
 		return $filtered_products;
 	}
 
@@ -372,6 +379,7 @@ class ProductController extends Controller
 			$products = Product::where( 'genre_id', Session::get( 'genreId' ) )
 			                   ->orderBy( 'created_at', 'desc' )
 			                   ->with( 'image' )
+			                   ->where( 'amount', '>', 0 )
 			                   ->get();
 
 			Session::forget(['genreId']);
@@ -392,6 +400,7 @@ class ProductController extends Controller
 		$products = Product::where('author_id', $author_id)
 		                            ->orderBy('created_at', 'desc')
 		                            ->with('image')
+		                            ->where( 'amount', '>', 0 )
 		                            ->get();
 
 		return view('age-layouts.' . Session::get('ageGroup') . '.author', ['author' => $author, 'products' => $products]);

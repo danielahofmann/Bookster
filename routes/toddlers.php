@@ -9,7 +9,9 @@ Route::group(['middleware' => 'App\Http\Middleware\ToddlersMiddleware', 'prefix'
 
 	Route::get('/character/{character_id}', function ($character_id) {
 		$character = App\Character::where('id', $character_id)->with('character_image')->get();
-		$products = App\Product::where('character_id', $character_id)->with('image')->get();
+		$products = App\Product::where('character_id', $character_id)->with('image')
+		                                                             ->where( 'amount', '>', 0 )
+		                                                             ->get();
 
 		return view('age-layouts.toddlers.category', ['character' => $character[0], 'products' => $products]);
 	})->name('toddlers-character');
