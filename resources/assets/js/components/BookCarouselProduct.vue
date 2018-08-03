@@ -97,6 +97,10 @@
             img{
                 object-fit: contain;
                 height: 100%;
+
+                @include custom-max(699px){
+                    height: auto;
+                }
             }
         }
 
