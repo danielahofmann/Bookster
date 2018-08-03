@@ -66,4 +66,16 @@ Route::prefix( 'admin' )->group( function () {
 		Route::get( '/character/delete-form/{id}', 'CharacterController@delete' )->name( 'admin.character.delete-form' );
 		Route::delete( '/character/delete/{id}', 'CharacterController@destroy' )->name( 'admin.character.delete' );
 	});
+
+	Route::get('/imprint', function (){
+		return view('admin.pages.imprint');
+	})->name('admin-imprint');
+
+	Route::get('/privacy', function (){
+		return view('admin.pages.privacy');
+	})->name('admin-privacy');
+
+	Route::get('/agb', function (){
+		return view('admin.pages.agb');
+	})->name('admin-agb');
 });

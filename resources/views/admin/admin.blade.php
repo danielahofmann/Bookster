@@ -14,6 +14,8 @@
     </main>
 
     <footer>
-        <footer-bottom></footer-bottom>
+        <footer-bottom
+            :age="'admin'"
+        ></footer-bottom>
     </footer>
 @stop
