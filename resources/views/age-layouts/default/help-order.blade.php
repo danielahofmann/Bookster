@@ -24,6 +24,6 @@
                 :text="'Leider ist es nicht möglich, bereits aufgegebene Bestellungen zu ändern. Wir können weder die Größe oder Farbe eines Artikels, noch die Lieferadresse oder Zahlungsart ändern, noch Artikel hinzufügen oder entfernen.'"
         ></accordion>
 
-        <a href="" class="cell small-11 medium-8 large-6 text-center button-light margin-top-bottom margin-bottom-medium">Nicht das dabei, was du suchst? Kontaktiere unseren Kundenservice!</a>
+        <a href="{{route('default-contact')}}" class="cell small-11 medium-8 large-6 text-center button-light margin-top-bottom margin-bottom-medium">Nicht das dabei, was du suchst? Kontaktiere unseren Kundenservice!</a>
     </section>
 @stop

@@ -20,6 +20,6 @@
                 :text="'Deine ursprünglichen Liefergebühren werden dir in manchen Fällen zurückerstattet, zum Beispiel wenn deine gesamte Bestellung fehlerhaft oder inkorrekt war, oder wenn du deine Bestellung unter den Verbrauchervertragsverordnungen 2013 storniert hast.'"
         ></accordion>
 
-        <a href="" class="cell small-11 medium-8 large-6 text-center button-light margin-top-bottom margin-bottom-medium">Nicht das dabei, was du suchst? Kontaktiere unseren Kundenservice!</a>
+        <a href="{{route('default-contact')}}" class="cell small-11 medium-8 large-6 text-center button-light margin-top-bottom margin-bottom-medium">Nicht das dabei, was du suchst? Kontaktiere unseren Kundenservice!</a>
     </section>
 @stop
