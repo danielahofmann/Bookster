@@ -3,12 +3,6 @@
 @section('title', 'Dashboard' )
 
 @section('main')
-    @if(session('status'))
-        <alert-success-popup
-                status="{{session('status')}}"
-        ></alert-success-popup>
-    @endif
-
     <div class="beige padding-top-seniors no-margin-breadcrumb">
         {{ Breadcrumbs::render('seniors-dashboard') }}
 
@@ -30,13 +24,13 @@
                 ></dashboard-menu>
 
                 <div class="cell small-12 medium-6 large-8">
-                    <div class="dashboard-headline">
+                    <div class="dashboard-headline display-mobile-none">
                         <div>
                             <feather-settings></feather-settings>
                         </div>
                         <h2>Meine Angaben</h2>
                     </div>
-                    <div class="display-mobile-flex dashboard-redirect grid-x">
+                    <div class="display-mobile-flex dashboard-redirect grid-x padding-top-seniors">
                         <div class="cell small-2 flex-center">
                             <a href="{{route('seniors-dashboard')}}">
                                 <img src="/img/redirect-back.svg" alt="Zurück">

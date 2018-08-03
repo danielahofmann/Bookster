@@ -33,7 +33,7 @@
 
                     <div class="display-mobile-flex dashboard-redirect grid-x">
                         <div class="cell small-2 flex-center">
-                            <a href="{{route('default-dashboard')}}">
+                            <a href="{{route('seniors-dashboard')}}">
                                 <img src="/img/redirect-back.svg" alt="Zurück">
                             </a>
                         </div>

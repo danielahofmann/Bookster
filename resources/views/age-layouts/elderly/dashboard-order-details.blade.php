@@ -3,7 +3,7 @@
 @section('title', 'Dashboard' )
 
 @section('main')
-    <div class="beige">
+    <div class="beige padding-top-seniors">
         <div class="grid-container beige no-padding-mobile">
             <section class="fullscreen-beige-background grid-x grid-margin-x no-margin-mobile no-padding-mobile">
                 @php($firstchar =  substr($customer->firstname, 0, 1))
@@ -28,7 +28,7 @@
 
                     <div class="display-mobile-flex dashboard-redirect grid-x">
                         <div class="cell small-2 flex-center">
-                            <a href="{{route('default-dashboard')}}">
+                            <a href="{{route('elderly-dashboard')}}">
                                 <img src="/img/redirect-back.svg" alt="Zurück">
                             </a>
                         </div>
@@ -47,7 +47,7 @@
                         <p class="headline cell small-12 border-beige-bottom">Artikel</p>
                         @foreach ($order->products as $product)
                             <div class="cell small-4 medium-3">
-                                <img src="{{$product->image[0]['img']}}" alt="{{$product->name}}">
+                                <img src="{{asset('storage/product-image/') . '/' . $product->image[0]['img']}}" alt="{{$product->name}}">
                                 <p class="product-name">{{$product->name}}</p>
                                 <p>{{$product->price}} €</p>
                             </div>

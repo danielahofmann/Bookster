@@ -47,7 +47,7 @@
                         <p class="headline cell small-12 border-beige-bottom">Artikel</p>
                         @foreach ($order->products as $product)
                             <div class="cell small-4 medium-3">
-                                <img src="{{$product->image[0]['img']}}" alt="{{$product->name}}">
+                                <img src="{{asset('storage/product-image/') . '/' . $product->image[0]['img']}}" alt="{{$product->name}}">
                                 <p class="product-name">{{$product->name}}</p>
                                 <p>{{$product->price}} €</p>
                             </div>

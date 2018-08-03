@@ -3,12 +3,6 @@
 @section('title', 'Dashboard' )
 
 @section('main')
-    @if(session('status'))
-        <alert-success-popup
-                status="{{session('status')}}"
-        ></alert-success-popup>
-    @endif
-
     <div class="beige">
         <div class="grid-container beige no-padding-mobile no-margin-mobile">
             <section class="fullscreen-beige-background grid-x grid-margin-x no-margin-mobile no-padding-mobile">
