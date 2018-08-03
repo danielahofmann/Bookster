@@ -4,7 +4,7 @@
             <nav class="navigation">
                 <ul class="navigation-list grid-x">
                     <li v-for="tab in tabs"
-                        class="tab small-6"
+                        class="tab small-12"
                         :class="{ active : tab.id == tabId }"
                         :style="{ fontSize: fontSize }"
                         @click="toggleActive(tab.id)">
@@ -85,13 +85,9 @@
             return {
                 tabs: [
                     {
-                        tab: 'Bücher',
+                        tab: 'Kategorien',
                         id: 1
                     },
-                    {
-                        tab: 'ebooks',
-                        id: 2
-                    }
                 ],
                 tabId: 1,
                 categories: null,
@@ -208,6 +204,7 @@
     .tab {
         text-align: center;
         padding-left: 0;
+        font-weight: $bold;
     }
 
     ul {
